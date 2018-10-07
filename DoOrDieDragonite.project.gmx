@@ -6,8 +6,25 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\b_tex_temp</background>
+  </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\Camera</object>
+    <object>objects\World</object>
+    <object>objects\Battle</object>
+    <objects name="Debug">
+      <object>objects\DebugSpawner</object>
+    </objects>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\init</room>
+    <room>rooms\main</room>
+  </rooms>
+  <constants number="1">
+    <constant name="BATTLEFIELD_SIZE">256</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
