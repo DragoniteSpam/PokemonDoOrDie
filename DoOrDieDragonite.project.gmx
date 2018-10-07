@@ -7,6 +7,9 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_window9s_hgss</sprite>
+    <sprite>sprites\spr_back_lucario</sprite>
+    <sprite>sprites\spr_front_lucario</sprite>
+    <sprite>sprites\spr_select</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
@@ -14,6 +17,58 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_rectangle_9s.gml</script>
+    <script>scripts\clear.gml</script>
+    <scripts name="battle">
+      <script>scripts\battle_add_team.gml</script>
+      <scripts name="advancement">
+        <script>scripts\battle_advance.gml</script>
+        <script>scripts\battle_begin_loop.gml</script>
+        <script>scripts\battle_begin_end.gml</script>
+        <script>scripts\battle_begin.gml</script>
+      </scripts>
+      <scripts name="processing">
+        <script>scripts\battle_process.gml</script>
+        <script>scripts\battle_process_begin.gml</script>
+        <script>scripts\battle_process_loop.gml</script>
+        <script>scripts\battle_process_end.gml</script>
+      </scripts>
+      <scripts name="actions">
+        <script>scripts\battle_action_check_contestants.gml</script>
+        <script>scripts\battle_action_input.gml</script>
+        <script>scripts\battle_action_execute.gml</script>
+        <scripts name="round actions">
+          <script>scripts\battle_round_action_check_contestant.gml</script>
+          <script>scripts\battle_round_action_input.gml</script>
+          <script>scripts\battle_round_action_execute.gml</script>
+        </scripts>
+      </scripts>
+      <script>scripts\add_battle_round_action.gml</script>
+      <script>scripts\battle_begin_action.gml</script>
+      <script>scripts\battle_begin_round_action.gml</script>
+      <scripts name="input">
+        <script>scripts\battle_input_ai.gml</script>
+        <script>scripts\battle_input_player.gml</script>
+      </scripts>
+      <scripts name="input processing">
+        <script>scripts\battle_input_processing.gml</script>
+        <script>scripts\battle_input_processing_grand.gml</script>
+        <script>scripts\battle_input_processing_move.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="pawn stuff">
+      <script>scripts\pawn_add_pokemon.gml</script>
+    </scripts>
+    <scripts name="math-ish">
+      <script>scripts\alive.gml</script>
+      <script>scripts\team_alive.gml</script>
+    </scripts>
+    <script>scripts\null.gml</script>
+    <script>scripts\message.gml</script>
+    <script>scripts\add_battle_executable_action.gml</script>
+    <script>scripts\battle_debug.gml</script>
+    <script>scripts\debug.gml</script>
+    <script>scripts\ds_list_max_width.gml</script>
+    <script>scripts\draw_selection_arrow.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -22,19 +77,38 @@
     <font>fonts\FPokemonHuge</font>
   </fonts>
   <objects name="objects">
+    <objects name="Data">
+      <object>objects\Struct</object>
+      <object>objects\DataPokemon</object>
+      <object>objects\DataMove</object>
+    </objects>
     <object>objects\Camera</object>
     <object>objects\World</object>
-    <object>objects\Battle</object>
     <objects name="Debug">
       <object>objects\DebugSpawner</object>
+    </objects>
+    <objects name="Battle Objects">
+      <object>objects\BattleTeam</object>
+      <object>objects\BattlePokemon</object>
+      <object>objects\Battle</object>
+      <object>objects\BattleRoundAction</object>
+      <object>objects\BattleExecutableAction</object>
+    </objects>
+    <objects name="Core">
+      <object>objects\PawnPlayer</object>
+      <object>objects\PawnWild</object>
+      <object>objects\Pawn</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="6">
-    <constant name="UI_TEXT_WIDTH">room_height-64</constant>
+  <constants number="9">
+    <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
+    <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
+    <constant name="UI_TEXT_BOX_BUFFER">32</constant>
+    <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
     <constant name="UI_TEXT_BOX_OFFSET_W">32</constant>
     <constant name="UI_TEXT_BOX_WIDTH">room_width</constant>
     <constant name="UI_TEXT_BOX_HEIGHT">160</constant>

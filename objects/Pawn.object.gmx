@@ -25,68 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// setup
+            <string>name="AI Pawn";
 
-if (instance_number(Battle)&gt;1){
-    show_error("you broke the battle singleton", true);
-}
+party=ds_list_create();
 
-stage=BattleStages.BEGIN;
-stage_loop=BattleLoopStages.CHOOSE_MOVE;
-
-input_ready=true;
-input_processing=noone;
-
-input_stage=BattleInputStages.GRAND;
-input_index=0;
-
-teams=ds_list_create();
-contestants=ds_list_create();
-
-actions=ds_queue_create();
-round_actions=ds_queue_create();
-priority=ds_priority_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// battle constants
-
-enum BattleStages {
-    BEGIN,
-    LOOP,
-    END
-}
-
-enum BattleLoopStages {
-    CHOOSE_MOVE,
-}
-
-enum BattleInputStages {
-    GRAND,
-    MOVE,
-    ITEM,
-    SWITCH,
-    SWITCH_SUMMARY,
-    SWITCH_MOVES,
-    FLEE,
-}
+battle_input_script=battle_input_ai;
 </string>
           </argument>
         </arguments>
@@ -109,12 +52,10 @@ enum BattleInputStages {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy(teams);
-ds_list_destroy(contestants);
+            <string>// it's probably a good idea to iterate over the party and
+// destroy its contents also
 
-ds_queue_destroy(actions);
-ds_queue_destroy(round_actions);
-ds_priority_destroy(priority);
+ds_list_destroy(party);
 </string>
           </argument>
         </arguments>

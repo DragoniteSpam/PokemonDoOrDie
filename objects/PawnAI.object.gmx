@@ -2,13 +2,13 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Pawn</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,21 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// 3D stuff
+            <string>event_inherited();
 
-d3d_start();
-d3d_set_culling(true);
-d3d_set_shading(true);
-d3d_set_hidden(true);
-
-draw_set_color(c_white);
-
-d3d_set_projection_ext(BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE, BATTLEFIELD_SIZE/4,
-    BATTLEFIELD_SIZE/2, 0, 0,
-    0, 0, 1,
-    45, room_width/room_height, 1, 1000);
-
-d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
+name="AI Pawn";
 </string>
           </argument>
         </arguments>

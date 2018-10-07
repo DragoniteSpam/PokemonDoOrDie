@@ -25,9 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0, 0, World);
-instance_create(0, 0, Camera);
+            <string>instance_create(0, 0, Camera);
+instance_create(0, 0, World);
+
 instance_create(0, 0, Battle);
+
+var pawn_player=instance_create(0, 0, PawnPlayer);
+var pawn_ai=instance_create(0, 0, Pawn);
+
+pawn_add_pokemon(pawn_player, 0);
+pawn_add_pokemon(pawn_ai, 0);
+
+battle_add_team(pawn_player);
+battle_add_team(pawn_ai);
+
+battle_begin();
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
