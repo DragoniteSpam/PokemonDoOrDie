@@ -1,3 +1,5 @@
 /// void debug(string);
 
-show_debug_message(argument0);
+if (string_length(argument0)>0){
+    show_debug_message(argument0);
+}

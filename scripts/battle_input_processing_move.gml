@@ -51,13 +51,14 @@ if (false){
         Battle.input_index=max_n-1;
     }
     if (keyboard_check_released(vk_enter)){
-        if (text_list[| Battle.input_index]==noone){
+        if (move_list[| Battle.input_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {
-            ds_queue_enqueue(Battle.round_actions, add_battle_round_action(battle_round_action_execute,
-                add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, move_list[| Battle.input_index])));
+            battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, move_list[| Battle.input_index]));
             
-            battle_debug("player has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn);
+            battle_input_processing_reset();
+            
+            battle_debug("player has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn.name);
         }
     }
 }

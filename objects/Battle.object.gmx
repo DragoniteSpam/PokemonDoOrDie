@@ -32,13 +32,14 @@ if (instance_number(Battle)&gt;1){
 }
 
 stage=BattleStages.BEGIN;
-stage_loop=BattleLoopStages.CHOOSE_MOVE;
 
 input_ready=true;
 input_processing=noone;
 
 input_stage=BattleInputStages.GRAND;
 input_index=0;
+
+result=BattleStatus.CONTINUE;
 
 teams=ds_list_create();
 contestants=ds_list_create();
@@ -72,10 +73,6 @@ enum BattleStages {
     BEGIN,
     LOOP,
     END
-}
-
-enum BattleLoopStages {
-    CHOOSE_MOVE,
 }
 
 enum BattleInputStages {

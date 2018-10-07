@@ -34,12 +34,21 @@
       </scripts>
       <scripts name="actions">
         <script>scripts\battle_action_check_contestants.gml</script>
+        <script>scripts\battle_action_evaluate.gml</script>
         <script>scripts\battle_action_input.gml</script>
         <script>scripts\battle_action_execute.gml</script>
         <scripts name="round actions">
           <script>scripts\battle_round_action_check_contestant.gml</script>
           <script>scripts\battle_round_action_input.gml</script>
+          <script>scripts\battle_round_action_text.gml</script>
           <script>scripts\battle_round_action_execute.gml</script>
+          <scripts name="setup">
+            <script>scripts\battle_round_action_send_in_leads.gml</script>
+          </scripts>
+        </scripts>
+        <script>scripts\battle_action_conclude.gml</script>
+        <scripts name="setup">
+          <script>scripts\battle_action_send_in_leads.gml</script>
         </scripts>
       </scripts>
       <script>scripts\add_battle_round_action.gml</script>
@@ -53,7 +62,13 @@
         <script>scripts\battle_input_processing.gml</script>
         <script>scripts\battle_input_processing_grand.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
+        <script>scripts\battle_input_processing_reset.gml</script>
       </scripts>
+      <script>scripts\battle_debug.gml</script>
+      <script>scripts\add_battle_executable_action.gml</script>
+      <script>scripts\battle_status.gml</script>
+      <script>scripts\battle_continue.gml</script>
+      <script>scripts\battle_prioritize.gml</script>
     </scripts>
     <scripts name="pawn stuff">
       <script>scripts\pawn_add_pokemon.gml</script>
@@ -61,11 +76,13 @@
     <scripts name="math-ish">
       <script>scripts\alive.gml</script>
       <script>scripts\team_alive.gml</script>
+      <script>scripts\action_priority.gml</script>
+      <scripts name="stats">
+        <script>scripts\math_speed.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
-    <script>scripts\add_battle_executable_action.gml</script>
-    <script>scripts\battle_debug.gml</script>
     <script>scripts\debug.gml</script>
     <script>scripts\ds_list_max_width.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>

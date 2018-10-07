@@ -32,6 +32,7 @@ summary="very basic";
 
 value=50;
 accuracy=100;
+priority=0;
 </string>
           </argument>
         </arguments>

@@ -11,6 +11,8 @@ for (var i=0; i<ds_list_size(team.owner.party); i++){
     }
 }
 
+// continue: in the message()
+
 if (found==noone){
     message(team.name+" has no more healthy Pokémon!");
 } else {

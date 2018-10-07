@@ -1,8 +1,3 @@
-if (!ds_priority_empty(priority)){
-    var executable=ds_priority_delete_max(priority);
-    message(executable.user.name+" used action "+string(executable.action)+"["+string(executable.value)+"] on target type "+string(executable.target)+".");
+while (!ds_priority_empty(priority)){
+    ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_execute, ds_priority_delete_max(priority)));
 }
-
-// we don't continue automatically here; we wait for the animation to play, etc.
-// and the player to press the action button
-//battle_begin_round_action();
