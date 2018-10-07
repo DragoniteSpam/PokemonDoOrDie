@@ -8,6 +8,42 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_surface(application_surface, 0, 0);
+
+var text_box_start_x=0;
+var text_box_start_y=room_height-UI_TEXT_BOX_HEIGHT
+
+draw_rectangle_9s(spr_window9s_hgss, text_box_start_x, text_box_start_y, UI_TEXT_BOX_WIDTH, UI_TEXT_BOX_HEIGHT);
+
+draw_set_font(FPokemonMedium);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+
+draw_text_ext(text_box_start_x+UI_TEXT_BOX_OFFSET_W, text_box_start_y+UI_TEXT_BOX_OFFSET_H, "Oh there once was a hero named Ragnar the Red,", -1, UI_TEXT_WIDTH);
+draw_text_ext(text_box_start_x+UI_TEXT_BOX_OFFSET_W, text_box_start_y+UI_TEXT_BOX_OFFSET_H+32, "Who came riding from Whiterun from old Rorikstead!", -1, UI_TEXT_WIDTH);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,7 +61,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>d3d_set_projection_ext(BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE, BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE/2, 0, 0, 0, 0, 1, 45, room_width/room_height, 1, 1000);
+            <string>d3d_start();
+d3d_set_culling(true);
+d3d_set_shading(true);
+d3d_set_hidden(true);
+
+draw_set_color(c_white);
+
+d3d_set_projection_ext(BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE, BATTLEFIELD_SIZE/4,
+    BATTLEFIELD_SIZE/2, 0, 0,
+    0, 0, 1,
+    45, room_width/room_height, 1, 1000);
 
 d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
 </string>

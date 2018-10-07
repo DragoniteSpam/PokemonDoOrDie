@@ -5,11 +5,22 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_window9s_hgss</sprite>
+  </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_rectangle_9s.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\FPokemonSmall</font>
+    <font>fonts\FPokemonMedium</font>
+    <font>fonts\FPokemonLarge</font>
+    <font>fonts\FPokemonHuge</font>
+  </fonts>
   <objects name="objects">
     <object>objects\Camera</object>
     <object>objects\World</object>
@@ -22,8 +33,13 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="1">
+  <constants number="6">
+    <constant name="UI_TEXT_WIDTH">room_height-64</constant>
+    <constant name="UI_TEXT_BOX_OFFSET_W">32</constant>
+    <constant name="UI_TEXT_BOX_WIDTH">room_width</constant>
+    <constant name="UI_TEXT_BOX_HEIGHT">160</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
+    <constant name="UI_TEXT_BOX_OFFSET_H">32</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
