@@ -29,6 +29,7 @@
 owner=noone;
 
 drawable=noone;
+hud=noone;
 sprite_side=SpriteSides.FRONT;
 </string>
           </argument>
@@ -55,6 +56,10 @@ sprite_side=SpriteSides.FRONT;
             <string>ds_list_destroy(party);
 
 with (drawable){
+    instance_destroy();
+}
+
+with (hud){
     instance_destroy();
 }
 </string>

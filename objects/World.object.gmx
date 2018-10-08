@@ -99,6 +99,12 @@ var message_length=string_length(message_text);
 
 draw_text_ext(text_box_start_x+UI_TEXT_BOX_OFFSET_W, text_box_start_y+UI_TEXT_BOX_OFFSET_H, string_copy(message_text, 1, message_text_t), -1, UI_TEXT_WIDTH);
 
+for (var i=0; i&lt;ds_list_size(Battle.teams); i++){
+    with (Battle.teams[| i].hud){
+        bg_draw_hud();
+    }
+}
+
 message_text_t=min(message_length, ++message_text_t);
 
 if (message_text_t==message_length){

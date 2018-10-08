@@ -32,6 +32,8 @@ party=ds_list_create();
 battle_input_script=battle_input_ai;
 
 battle_sprite=spr_silver_front;
+
+battle_show_details=false;
 </string>
           </argument>
         </arguments>

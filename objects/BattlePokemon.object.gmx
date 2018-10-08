@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>species=0;
-nick="";
+name="";
+owner=noone;
 
 act_hp_max=50;
 act_hp_current=50;
@@ -46,6 +47,14 @@ moves=array_create(4);
 for (var i=0; i&lt;4; i++){
     moves[i]=noone;
 }
+
+enum Genders {
+    MALE,
+    FEMALE,
+    GENDERLESS,
+}
+
+gender=Genders.MALE;
 </string>
           </argument>
         </arguments>

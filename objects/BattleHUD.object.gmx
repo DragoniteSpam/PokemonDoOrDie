@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Pawn</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,15 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>user=noone;
 
-name="Player Pawn";
-
-battle_input_script=battle_input_player;
-
-battle_sprite=spr_ethan_back;
-
-battle_show_details=true;
+offscreen_x=x;
+offscreen_y=y;
+battle_x=x;
+battle_y=y;
+distance=0;
 </string>
           </argument>
         </arguments>

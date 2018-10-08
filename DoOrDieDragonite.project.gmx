@@ -12,6 +12,7 @@
     <sprite>sprites\spr_select</sprite>
     <sprite>sprites\spr_silver_front</sprite>
     <sprite>sprites\spr_ethan_back</sprite>
+    <sprite>sprites\spr_gender</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
@@ -50,6 +51,7 @@
           <scripts name="animation">
             <script>scripts\battle_round_action_anim_retract_trainer.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_walking.gml</script>
+            <script>scripts\battle_round_action_anim_send_in_pokemon_hud.gml</script>
             <script>scripts\battle_round_action_anim_trainer_intro.gml</script>
           </scripts>
         </scripts>
@@ -82,7 +84,9 @@
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
+          <script>scripts\ba_send_in_pokemon_hud.gml</script>
         </scripts>
+        <script>scripts\bg_draw_hud.gml</script>
       </scripts>
     </scripts>
     <scripts name="pawn stuff">
@@ -103,6 +107,7 @@
     <script>scripts\draw_selection_arrow.gml</script>
     <scripts name="graphics">
       <script>scripts\get_pokemon_battle_sprite.gml</script>
+      <script>scripts\draw_health.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -130,6 +135,7 @@
       <object>objects\BattleExecutableAction</object>
       <objects name="Graphics">
         <object>objects\BattleDrawable</object>
+        <object>objects\BattleHUD</object>
         <object>objects\BattleAnimator</object>
       </objects>
     </objects>
@@ -143,16 +149,23 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="9">
-    <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
-    <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
+  <constants number="16">
+    <constant name="c_health_low">c_red</constant>
+    <constant name="c_health_mid">c_yellow</constant>
+    <constant name="c_health_high">c_green</constant>
+    <constant name="BATTLEFIELD_SIZE">256</constant>
+    <constant name="UI_BATTLE_HUD_BUFFER_X">32</constant>
+    <constant name="UI_BATTLE_HUD_BUFFER_Y">64</constant>
+    <constant name="UI_BATTLE_HUD_HEIGHT">128</constant>
+    <constant name="UI_BATTLE_HUD_WIDTH">400</constant>
     <constant name="UI_TEXT_BOX_BUFFER">32</constant>
-    <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
+    <constant name="UI_TEXT_BOX_HEIGHT">160</constant>
+    <constant name="UI_TEXT_BOX_OFFSET_H">32</constant>
     <constant name="UI_TEXT_BOX_OFFSET_W">32</constant>
     <constant name="UI_TEXT_BOX_WIDTH">room_width</constant>
-    <constant name="UI_TEXT_BOX_HEIGHT">160</constant>
-    <constant name="BATTLEFIELD_SIZE">256</constant>
-    <constant name="UI_TEXT_BOX_OFFSET_H">32</constant>
+    <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
+    <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
+    <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
