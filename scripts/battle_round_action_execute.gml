@@ -20,3 +20,7 @@ switch (exe.action){
         message(pokemon.name+" fled!");
         break;
 }
+
+with (exe){
+    instance_destroy();
+}

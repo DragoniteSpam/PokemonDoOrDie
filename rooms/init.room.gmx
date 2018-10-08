@@ -6,7 +6,7 @@
   <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
-  <speed>30</speed>
+  <speed>60</speed>
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>0</showcolour>
@@ -24,11 +24,11 @@ d3d_model_primitive_begin(global.model_floor, pr_trianglelist);
 for (var i=0; i&lt;=BATTLEFIELD_SIZE; i=i+s){
     for (var j=0; j&lt;=BATTLEFIELD_SIZE; j=j+s){
         d3d_model_vertex_normal_texture(global.model_floor, i, j, 0, 0, 0, 1, 0, 0);
-        d3d_model_vertex_normal_texture(global.model_floor, i+32, j, 0, 0, 0, 1, 1, 0);
-        d3d_model_vertex_normal_texture(global.model_floor, i+32, j+32, 0, 0, 0, 1, 1, 1);
+        d3d_model_vertex_normal_texture(global.model_floor, i+s, j, 0, 0, 0, 1, 1, 0);
+        d3d_model_vertex_normal_texture(global.model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1);
         
-        d3d_model_vertex_normal_texture(global.model_floor, i+32, j+32, 0, 0, 0, 1, 1, 1);
-        d3d_model_vertex_normal_texture(global.model_floor, i, j+32, 0, 0, 0, 1, 0, 1);
+        d3d_model_vertex_normal_texture(global.model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1);
+        d3d_model_vertex_normal_texture(global.model_floor, i, j+s, 0, 0, 0, 1, 0, 1);
         d3d_model_vertex_normal_texture(global.model_floor, i, j, 0, 0, 0, 1, 0, 0);
     }
 }

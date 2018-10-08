@@ -10,6 +10,8 @@
     <sprite>sprites\spr_back_lucario</sprite>
     <sprite>sprites\spr_front_lucario</sprite>
     <sprite>sprites\spr_select</sprite>
+    <sprite>sprites\spr_silver_front</sprite>
+    <sprite>sprites\spr_ethan_back</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
@@ -45,6 +47,11 @@
           <scripts name="setup">
             <script>scripts\battle_round_action_send_in_leads.gml</script>
           </scripts>
+          <scripts name="animation">
+            <script>scripts\battle_round_action_anim_retract_trainer.gml</script>
+            <script>scripts\battle_round_action_anim_send_in_pokemon_walking.gml</script>
+            <script>scripts\battle_round_action_anim_trainer_intro.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\battle_action_conclude.gml</script>
         <scripts name="setup">
@@ -69,6 +76,14 @@
       <script>scripts\battle_status.gml</script>
       <script>scripts\battle_continue.gml</script>
       <script>scripts\battle_prioritize.gml</script>
+      <scripts name="graphics">
+        <script>scripts\bg_draw_drawable.gml</script>
+        <scripts name="animation">
+          <script>scripts\ba_retract_trainer.gml</script>
+          <script>scripts\ba_trainer_intro.gml</script>
+          <script>scripts\ba_send_in_pokemon_walking.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
     <scripts name="pawn stuff">
       <script>scripts\pawn_add_pokemon.gml</script>
@@ -86,6 +101,9 @@
     <script>scripts\debug.gml</script>
     <script>scripts\ds_list_max_width.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>
+    <scripts name="graphics">
+      <script>scripts\get_pokemon_battle_sprite.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -102,7 +120,7 @@
     <object>objects\Camera</object>
     <object>objects\World</object>
     <objects name="Debug">
-      <object>objects\DebugSpawner</object>
+      <object>objects\DebugBattleSpawner</object>
     </objects>
     <objects name="Battle Objects">
       <object>objects\BattleTeam</object>
@@ -110,6 +128,10 @@
       <object>objects\Battle</object>
       <object>objects\BattleRoundAction</object>
       <object>objects\BattleExecutableAction</object>
+      <objects name="Graphics">
+        <object>objects\BattleDrawable</object>
+        <object>objects\BattleAnimator</object>
+      </objects>
     </objects>
     <objects name="Core">
       <object>objects\PawnPlayer</object>

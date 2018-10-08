@@ -34,12 +34,22 @@ d3d_set_hidden(true);
 
 draw_set_color(c_white);
 
-d3d_set_projection_ext(BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE, BATTLEFIELD_SIZE/4,
+d3d_set_projection_ext(BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE, BATTLEFIELD_SIZE/8,
     BATTLEFIELD_SIZE/2, 0, 0,
     0, 0, 1,
     45, room_width/room_height, 1, 1000);
 
 d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
+
+for (var i=0; i&lt;ds_list_size(Battle.teams); i++){
+    with (Battle.teams[| i].drawable){
+        bg_draw_drawable();
+    }
+}
+
+with (BattleAnimator){
+    script_execute(script);
+}
 </string>
           </argument>
         </arguments>

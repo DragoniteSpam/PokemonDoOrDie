@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,25 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0, 0, Camera);
-instance_create(0, 0, World);
+            <string>user=noone;
+target=noone;
 
-instance_create(0, 0, Battle);
+t=0;
 
-var pawn_player=instance_create(0, 0, PawnPlayer);
-var pawn_ai=instance_create(0, 0, Pawn);
+// If you hand control to this as it is, the game will
+// most likely enter a state where it accepts no input
+// and you have to restart it
+script=null;
 
-pawn_add_pokemon(pawn_player, 0, "Ted");
-pawn_add_pokemon(pawn_ai, 0, "Lucario");
-
-battle_add_team(pawn_player);
-battle_add_team(pawn_ai);
-
-with (Battle){
-    battle_begin();
-}
-
-instance_destroy();
+/*
+ * misc data for misc things?
+ */
 </string>
           </argument>
         </arguments>

@@ -25,47 +25,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// THIS NEEDS TO BE DELETED WHEN YOU'RE DONE WITH IT.
-// OTHERWISE, MEMORY LEAK.
+            <string>instance_create(0, 0, Camera);
+instance_create(0, 0, World);
 
-action=BattleActions.MOVE;
-user=noone;
-target=BattleTargets.OPPONENT;
+instance_create(0, 0, Battle);
 
-value=0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// constants
+var pawn_player=instance_create(0, 0, PawnPlayer);
+var pawn_ai=instance_create(0, 0, Pawn);
 
-enum BattleActions {
-    MOVE,
-    ITEM,
-    SWITCH,
-    FLEE
+pawn_add_pokemon(pawn_player, 0, "Ted");
+pawn_add_pokemon(pawn_ai, 0, "Lucario");
+
+var MIDPOINT=BATTLEFIELD_SIZE/2;
+var dist=BATTLEFIELD_SIZE/4;
+var dir=240;
+var trans_distance=60;
+var fade_time=0.05;
+
+battle_add_team(pawn_player, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 90, SpriteSides.BACK, trans_distance, fade_time);
+
+dir=60;
+trans_distance=60;
+fade_time=1;
+
+battle_add_team(pawn_ai, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 270, SpriteSides.FRONT, trans_distance, fade_time);
+
+with (Battle){
+    battle_begin();
 }
 
-enum BattleTargets {
-    OPPONENT,
-    SELF,
-}
+instance_destroy();
 </string>
           </argument>
         </arguments>
