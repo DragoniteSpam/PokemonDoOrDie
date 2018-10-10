@@ -8,6 +8,4 @@ pkmn.species=argument1;
 pkmn.name=argument2;
 pkmn.owner=argument0;
 
-pkmn.moves[0]=0;
-
 ds_list_add(argument0.party, pkmn);

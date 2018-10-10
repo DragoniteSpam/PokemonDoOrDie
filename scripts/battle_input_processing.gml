@@ -13,4 +13,10 @@ switch (Battle.input_stage){
         break;
     case BattleInputStages.FLEE:
         break;
+    case BattleInputStages.LEVEL_STAT_DELTA:
+        battle_input_processing_level_stat_delta();
+        break;
+    case BattleInputStages.LEVEL_STAT_TOTAL:
+        battle_input_processing_level_stat_total();
+        break;
 }

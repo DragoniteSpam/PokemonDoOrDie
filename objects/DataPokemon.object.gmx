@@ -30,17 +30,19 @@
 name="Base Pokemon";
 summary="very basic";
 
-st_hp=60;
-st_attack=60;
-st_defense=60;
-st_sp_attack=60;
-st_sp_defense=60;
-st_speed=60;
+base_stat=array_create(6);
+base_stat[Stats.HP]=60;
+base_stat[Stats.ATTACK]=60;
+base_stat[Stats.DEFENSE]=60;
+base_stat[Stats.SPATTACK]=60;
+base_stat[Stats.SPDEFENSE]=60;
+base_stat[Stats.SPEED]=60;
 
 spr_front=spr_front_lucario;
 spr_back=spr_back_lucario;
 
 growth_rate=GrowthRates.MEDIUM_SLOW;
+reward_exp=50;
 </string>
           </argument>
         </arguments>

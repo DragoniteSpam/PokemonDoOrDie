@@ -12,7 +12,6 @@ with (instance_create(argument1, argument2, BattleDrawable)){
     distance=argument4;
     offscreen_x=argument1+distance*dcos(argument3+90);
     offscreen_y=argument2-distance*dsin(argument3+90);
-    show_message(owner.name+": "+string(offscreen_x)+", "+string(offscreen_x));
     // it's more important for opponents to fade in and out than the player
     fade_time=argument5;
     center_direction=point_direction(argument1, argument2, BATTLEFIELD_SIZE/2, BATTLEFIELD_SIZE/2);

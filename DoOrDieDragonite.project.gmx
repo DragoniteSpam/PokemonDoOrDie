@@ -70,6 +70,10 @@
         <scripts name="individual actions">
           <script>scripts\battle_individual_action_text.gml</script>
           <script>scripts\battle_individual_action_animation_move.gml</script>
+          <script>scripts\battle_individual_action_death.gml</script>
+          <script>scripts\battle_individual_action_scroll_health.gml</script>
+          <script>scripts\battle_individual_action_exp_gain.gml</script>
+          <script>scripts\battle_individual_action_level_gain.gml</script>
         </scripts>
       </scripts>
       <script>scripts\add_battle_round_action.gml</script>
@@ -88,25 +92,34 @@
         <script>scripts\battle_input_processing.gml</script>
         <script>scripts\battle_input_processing_grand.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
+        <script>scripts\battle_input_processing_level_stat_delta.gml</script>
         <script>scripts\battle_input_processing_reset.gml</script>
       </scripts>
       <script>scripts\battle_debug.gml</script>
       <script>scripts\add_battle_executable_action.gml</script>
       <script>scripts\battle_status.gml</script>
+      <script>scripts\battle_get_hit.gml</script>
       <script>scripts\battle_continue.gml</script>
+      <script>scripts\battle_reset_stat_mods.gml</script>
       <script>scripts\battle_prioritize.gml</script>
       <scripts name="graphics">
         <scripts name="animation">
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
+          <script>scripts\ba_death.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <scripts name="moves">
             <script>scripts\ba_move_uni_basic.gml</script>
           </scripts>
+          <script>scripts\ba_scroll_health.gml</script>
+          <script>scripts\ba_exp_gain.gml</script>
         </scripts>
         <script>scripts\bg_draw_drawable.gml</script>
         <script>scripts\bg_draw_hud.gml</script>
+      </scripts>
+      <scripts name="effects">
+        <script>scripts\be_attack_raise_1.gml</script>
       </scripts>
     </scripts>
     <scripts name="pawn stuff">
@@ -118,12 +131,23 @@
       <script>scripts\action_priority.gml</script>
       <scripts name="stats">
         <script>scripts\math_speed.gml</script>
+        <script>scripts\math_attack.gml</script>
+        <script>scripts\math_sp_attack.gml</script>
+        <script>scripts\math_sp_defense.gml</script>
+        <script>scripts\math_defense.gml</script>
+        <script>scripts\math_accuracy.gml</script>
+        <script>scripts\math_evade.gml</script>
         <script>scripts\get_level.gml</script>
         <script>scripts\get_experience.gml</script>
+        <script>scripts\exp_reward.gml</script>
+        <script>scripts\recalculate_all_stats.gml</script>
+        <script>scripts\recalculate_stat.gml</script>
+        <script>scripts\get_nature_modifier.gml</script>
       </scripts>
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\vector2.gml</script>
       <script>scripts\ds_list_clone.gml</script>
+      <script>scripts\battle_damage.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
@@ -145,6 +169,9 @@
     <scripts name="data">
       <script>scripts\get_pokemon.gml</script>
       <script>scripts\get_move.gml</script>
+      <scripts name="creation">
+        <script>scripts\add_move.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -175,8 +202,8 @@
     </objects>
     <objects name="Data">
       <object>objects\Struct</object>
-      <object>objects\DataPokemon</object>
       <object>objects\DataMove</object>
+      <object>objects\DataPokemon</object>
     </objects>
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>
@@ -191,7 +218,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="20">
+  <constants number="21">
+    <constant name="MAX_LEVEL">100</constant>
     <constant name="c_exp">c_blue</constant>
     <constant name="W">room_width</constant>
     <constant name="DEBUG">true</constant>

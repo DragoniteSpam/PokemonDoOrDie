@@ -48,6 +48,8 @@ actions=ds_queue_create();
 round_actions=ds_queue_create();
 individual_actions=ds_queue_create();
 priority=ds_priority_create();
+
+misc_data=ds_map_create();
 </string>
           </argument>
         </arguments>
@@ -84,6 +86,9 @@ enum BattleInputStages {
     SWITCH_SUMMARY,
     SWITCH_MOVES,
     FLEE,
+    LEVEL_STAT_DELTA,
+    LEVEL_STAT_TOTAL,
+    // todo other screens such as the "learn a new move" screen
 }
 </string>
           </argument>
@@ -121,6 +126,8 @@ ds_queue_destroy(actions);
 ds_queue_destroy(round_actions);
 ds_queue_destroy(individual_actions);
 ds_priority_destroy(priority);
+
+ds_map_destroy(misc_data);
 </string>
           </argument>
         </arguments>

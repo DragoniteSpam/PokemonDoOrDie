@@ -9,13 +9,13 @@ for (var i=0; i<array_length_1d(pkmn.moves); i++){
         ds_list_add(text_list, "---");
         ds_list_add(move_list, noone);
     } else {
-        ds_list_add(text_list, get_move(text_list[| i]).name);
+        ds_list_add(text_list, get_move(pkmn.moves[i]).name);
         ds_list_add(move_list, pkmn.moves[i]);
     }
 }
 
 if (false){
-    // to do: move pp
+    // todo: move pp
     battle_debug(pkmn.name+" has no valid moves, struggling");
 } else {
     var max_n=ds_list_size(text_list);

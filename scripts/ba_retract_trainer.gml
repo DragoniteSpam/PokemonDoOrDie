@@ -20,7 +20,6 @@ if (t<transition_time){
     user.alpha=user.alpha-1/fade_rate*World.dt;
 } else {
     user.alpha=0;
-    show_message(user.owner.name+": "+string(user.x)+", "+string(user.y));
     instance_destroy();
     with (Battle){
         input_ready=true;

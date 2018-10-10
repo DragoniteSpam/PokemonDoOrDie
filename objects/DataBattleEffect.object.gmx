@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,94 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>species=0;
-name="";
-owner=noone;
+            <string>event_inherited();
 
-act_hp_max=50;
-act_hp_current=50;
-act_attack=20;
-act_defense=20;
-act_sp_attack=20;
-act_sp_defense=20;
-act_speed=20;
+name="Default Move Effect";
+summary="it doesnt do anything";
 
-mod_attack=0;
-mod_defense=0;
-mod_sp_attack=0;
-mod_sp_defense=0;
-mod_speed=0;
-
-mod_accuracy=0;
-mod_evade=0;
-
-moves=array_create(4);
-for (var i=0; i&lt;4; i++){
-    moves[i]=noone;
-}
-moves[0]=0;
-moves[1]=1;
-moves[2]=2;
-moves[3]=3;
-
-gender=Genders.MALE;
-status=MajorStatus.NONE;
-
-experience=get_experience(20, get_pokemon(species).growth_rate);
-
-evs=array_create(6);
-ivs=array_create(6);
-
-for (var i=0; i&lt;6; i++){
-    evs[i]=0;
-    ivs[i]=irandom(31);
-}
-
-// todo this
-nature=0;
-
-// battle stuff
-
-position=-1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// constants and stuff
-
-enum MajorStatus {
-    NONE,
-    POISON,
-    BURN,
-    PARALYZE,
-    SLEEP,
-    FREEZE
-}
-
-enum Stats {
-    HP,
-    ATTACK,
-    DEFENSE,
-    SPATTACK,
-    SPDEFENSE,
-    SPEED
-}
+script=null;
+odds=0;
 </string>
           </argument>
         </arguments>

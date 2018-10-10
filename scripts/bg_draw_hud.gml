@@ -43,7 +43,8 @@ if (user!=noone){
         draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(user.act_hp_current)+"/"+string(user.act_hp_max));
         
         // exp bar row
-        var f=(get_experience(level+1, base.growth_rate)-user.experience)/get_experience(level, base.growth_rate);
+        var exp_next=get_experience(level+1, base.growth_rate);
+        var f=(exp_next-user.experience)/(exp_next-get_experience(level, base.growth_rate));
         draw_exp_bar(x+64, exp_bar_y-exp_bar_height/2, x+UI_BATTLE_HUD_WIDTH-32, exp_bar_y+exp_bar_height/2, f);
     }
     
