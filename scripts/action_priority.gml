@@ -9,7 +9,7 @@ var f=0;
 
 switch (argument0.action){
     case BattleActions.MOVE:
-        n=World.all_moves[argument0.value];
+        n=get_move(argument0.value);
         break;
     case BattleActions.SWITCH:
         n=20;

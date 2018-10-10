@@ -46,6 +46,7 @@ fade_time=1;
 
 center_direction=0;
 
+owner=noone;
 hud=noone;
 </string>
           </argument>

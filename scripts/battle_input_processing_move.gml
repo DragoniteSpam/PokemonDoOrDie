@@ -9,7 +9,7 @@ for (var i=0; i<array_length_1d(pkmn.moves); i++){
         ds_list_add(text_list, "---");
         ds_list_add(move_list, noone);
     } else {
-        ds_list_add(text_list, World.all_moves[text_list[| i]].name);
+        ds_list_add(text_list, get_move(text_list[| i]).name);
         ds_list_add(move_list, pkmn.moves[i]);
     }
 }

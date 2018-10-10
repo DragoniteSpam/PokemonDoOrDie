@@ -1,6 +1,6 @@
 // pixels to move
-var slide_rate_x=user.battle_x-user.offscreen_x;
-var slide_rate_y=user.battle_y-user.offscreen_y;
+var slide_dist_x=user.battle_x-user.offscreen_x;
+var slide_dist_y=user.battle_y-user.offscreen_y;
 // how long the fade transition takes
 var fade_time=user.fade_time;
 var still_time=fade_time+0.25;
@@ -14,8 +14,8 @@ if (t<fade_time){
 } else if (t<still_time){
     // do nothing
 } else if (t<transition_time){
-    user.x=user.x+slide_rate_x*World.dt;
-    user.y=user.y-slide_rate_y*World.dt;
+    user.x=user.x+slide_dist_x*World.dt/(transition_time-still_time);
+    user.y=user.y+slide_dist_y*World.dt/(transition_time-still_time);
 } else {
     instance_destroy();
     with (Battle){

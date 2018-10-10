@@ -96,17 +96,16 @@
       <script>scripts\battle_continue.gml</script>
       <script>scripts\battle_prioritize.gml</script>
       <scripts name="graphics">
-        <script>scripts\bg_draw_drawable.gml</script>
         <scripts name="animation">
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <scripts name="moves">
-            <script>scripts\ba_move_you_basic.gml</script>
-            <script>scripts\ba_move_opp_basic.gml</script>
+            <script>scripts\ba_move_uni_basic.gml</script>
           </scripts>
         </scripts>
+        <script>scripts\bg_draw_drawable.gml</script>
         <script>scripts\bg_draw_hud.gml</script>
       </scripts>
     </scripts>
@@ -119,6 +118,8 @@
       <script>scripts\action_priority.gml</script>
       <scripts name="stats">
         <script>scripts\math_speed.gml</script>
+        <script>scripts\get_level.gml</script>
+        <script>scripts\get_experience.gml</script>
       </scripts>
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\vector2.gml</script>
@@ -131,7 +132,8 @@
     <script>scripts\draw_selection_arrow.gml</script>
     <scripts name="graphics">
       <script>scripts\get_pokemon_battle_sprite.gml</script>
-      <script>scripts\draw_health.gml</script>
+      <script>scripts\draw_health_bar.gml</script>
+      <script>scripts\draw_exp_bar.gml</script>
       <scripts name="effects">
         <script>scripts\new_effect_2d.gml</script>
       </scripts>
@@ -140,6 +142,10 @@
       </scripts>
     </scripts>
     <script>scripts\singleton.gml</script>
+    <scripts name="data">
+      <script>scripts\get_pokemon.gml</script>
+      <script>scripts\get_move.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -185,7 +191,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="19">
+  <constants number="20">
+    <constant name="c_exp">c_blue</constant>
     <constant name="W">room_width</constant>
     <constant name="DEBUG">true</constant>
     <constant name="c_health_low">c_red</constant>

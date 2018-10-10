@@ -57,7 +57,7 @@ dir=60;
 trans_distance=36;
 fade_time=0.5;
 offx=-UI_BATTLE_HUD_WIDTH;
-offy=UI_BATTLE_HUD_HEIGHT/2;  // you can fit half of one between the actual top of the box and the top of the screen
+offy=UI_BATTLE_HUD_HEIGHT/2+64;  // you can fit half of one between the actual top of the box and the top of the screen
 team=battle_add_team(pawn_ai, SpriteSides.FRONT);
 
 ds_list_add(Battle.teams, team);

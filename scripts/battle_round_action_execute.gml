@@ -7,7 +7,7 @@ var pokemon=exe.user;
 
 switch (exe.action){
     case BattleActions.MOVE:
-        var move=World.all_moves[exe.value];
+        var move=get_move(exe.value);
         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used "+move.name+"!"));
         // todo: accuracy checks/other conditions under which a move may fail
         

@@ -34,8 +34,8 @@ value=50;
 accuracy=100;
 priority=0;
 
-animation_you=ba_move_you_basic;
-animation_opponent=ba_move_opp_basic;
+animation_you=ba_move_uni_basic;
+animation_opponent=ba_move_uni_basic;
 </string>
           </argument>
         </arguments>

@@ -2,7 +2,7 @@
 
 // not all moves have the same targeting abilities but for now we assume
 // that they do
-var move=World.all_moves[argument1];
+var move=get_move(argument1);
 
 var valid_targets=ds_list_create();
 for (var i=0; i<ds_list_size(Battle.contestants); i++){

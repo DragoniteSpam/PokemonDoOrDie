@@ -39,6 +39,44 @@ st_speed=60;
 
 spr_front=spr_front_lucario;
 spr_back=spr_back_lucario;
+
+growth_rate=GrowthRates.MEDIUM_SLOW;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// constants and stuff
+
+enum Genders {
+    MALE,
+    FEMALE,
+    GENDERLESS,
+}
+
+enum GrowthRates {
+    ERRATIC,
+    FAST,
+    MEDIUM_FAST,
+    MEDIUM_SLOW,
+    SLOW,
+    FLUCTUATING,
+}
 </string>
           </argument>
         </arguments>
