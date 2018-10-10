@@ -33,6 +33,9 @@ summary="very basic";
 value=50;
 accuracy=100;
 priority=0;
+
+animation_you=ba_move_you_basic;
+animation_opponent=ba_move_opp_basic;
 </string>
           </argument>
         </arguments>

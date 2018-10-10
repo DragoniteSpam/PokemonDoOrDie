@@ -27,9 +27,7 @@
             <kind>1</kind>
             <string>/// setup
 
-if (instance_number(Battle)&gt;1){
-    show_error("you broke the battle singleton", true);
-}
+singleton();
 
 stage=BattleStages.BEGIN;
 animator=noone;
@@ -44,9 +42,11 @@ result=BattleStatus.CONTINUE;
 
 teams=ds_list_create();
 contestants=ds_list_create();
+drawables=ds_list_create();
 
 actions=ds_queue_create();
 round_actions=ds_queue_create();
+individual_actions=ds_queue_create();
 priority=ds_priority_create();
 </string>
           </argument>
@@ -107,11 +107,19 @@ enum BattleInputStages {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy(teams);
+            <string>for (var i=0; i&lt;ds_list_size(drawables); i++){
+    with (drawables[| i]){
+        instance_destroy();
+    }
+}
+
+ds_list_destroy(teams);
 ds_list_destroy(contestants);
+ds_list_destroy(drawables);
 
 ds_queue_destroy(actions);
 ds_queue_destroy(round_actions);
+ds_queue_destroy(individual_actions);
 ds_priority_destroy(priority);
 </string>
           </argument>

@@ -5,22 +5,28 @@ var exe=argument0[| 0];
 
 var pokemon=exe.user;
 
-// continue: inside each of the message()s
 switch (exe.action){
     case BattleActions.MOVE:
-        message(pokemon.name+" used "+World.all_moves[exe.value].name+"!");
+        var move=World.all_moves[exe.value];
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used "+move.name+"!"));
+        // todo: accuracy checks/other conditions under which a move may fail
+        
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_animation_move, pokemon, ds_list_clone(exe.targets), move/*there may be other data that needs to go here at some point but i'm pretty sure it can all be derived from this*/));
         break;
     case BattleActions.ITEM:
-        message(pokemon.name+" used a(n) "+World.all_items[exe.value].name+"!");
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used a(n) "+World.all_items[exe.value].name+"!"));
         break;
     case BattleActions.SWITCH:
-        message(pokemon.name+" switched to "+exe.value.name+"!");
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" switched to "+exe.value.name+"!"));
         break;
     case BattleActions.FLEE:
-        message(pokemon.name+" fled!");
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled!"));
         break;
 }
 
 with (exe){
     instance_destroy();
 }
+
+// continue:
+battle_debug("");

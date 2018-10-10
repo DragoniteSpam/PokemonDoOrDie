@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\se_hit</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_window9s_hgss</sprite>
     <sprite>sprites\spr_back_lucario</sprite>
@@ -13,6 +15,11 @@
     <sprite>sprites\spr_silver_front</sprite>
     <sprite>sprites\spr_ethan_back</sprite>
     <sprite>sprites\spr_gender</sprite>
+    <sprites name="animations">
+      <sprites name="moves">
+        <sprite>sprites\spr_anim_move_tackle</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
@@ -23,6 +30,7 @@
     <script>scripts\clear.gml</script>
     <scripts name="battle">
       <script>scripts\battle_add_team.gml</script>
+      <script>scripts\battle_add_position.gml</script>
       <scripts name="advancement">
         <script>scripts\battle_advance.gml</script>
         <script>scripts\battle_begin_loop.gml</script>
@@ -59,13 +67,22 @@
         <scripts name="setup">
           <script>scripts\battle_action_send_in_leads.gml</script>
         </scripts>
+        <scripts name="individual actions">
+          <script>scripts\battle_individual_action_text.gml</script>
+          <script>scripts\battle_individual_action_animation_move.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\add_battle_round_action.gml</script>
+      <script>scripts\add_battle_individual_action.gml</script>
       <script>scripts\battle_begin_action.gml</script>
       <script>scripts\battle_begin_round_action.gml</script>
+      <script>scripts\battle_begin_individual_action.gml</script>
       <scripts name="input">
         <script>scripts\battle_input_ai.gml</script>
         <script>scripts\battle_input_player.gml</script>
+        <scripts name="help">
+          <script>scripts\battle_get_valid_targets.gml</script>
+        </scripts>
       </scripts>
       <scripts name="input processing">
         <script>scripts\battle_input_processing.gml</script>
@@ -85,6 +102,10 @@
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
+          <scripts name="moves">
+            <script>scripts\ba_move_you_basic.gml</script>
+            <script>scripts\ba_move_opp_basic.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\bg_draw_hud.gml</script>
       </scripts>
@@ -99,6 +120,9 @@
       <scripts name="stats">
         <script>scripts\math_speed.gml</script>
       </scripts>
+      <script>scripts\world_to_2d.gml</script>
+      <script>scripts\vector2.gml</script>
+      <script>scripts\ds_list_clone.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
@@ -108,7 +132,14 @@
     <scripts name="graphics">
       <script>scripts\get_pokemon_battle_sprite.gml</script>
       <script>scripts\draw_health.gml</script>
+      <scripts name="effects">
+        <script>scripts\new_effect_2d.gml</script>
+      </scripts>
+      <scripts name="move animation">
+        <script>scripts\e2d_hit.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\singleton.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -117,39 +148,46 @@
     <font>fonts\FPokemonHuge</font>
   </fonts>
   <objects name="objects">
-    <objects name="Data">
-      <object>objects\Struct</object>
-      <object>objects\DataPokemon</object>
-      <object>objects\DataMove</object>
-    </objects>
-    <object>objects\Camera</object>
-    <object>objects\World</object>
-    <objects name="Debug">
-      <object>objects\DebugBattleSpawner</object>
-    </objects>
     <objects name="Battle Objects">
-      <object>objects\BattleTeam</object>
-      <object>objects\BattlePokemon</object>
       <object>objects\Battle</object>
-      <object>objects\BattleRoundAction</object>
       <object>objects\BattleExecutableAction</object>
+      <object>objects\BattlePokemon</object>
+      <object>objects\BattleRoundAction</object>
+      <object>objects\BattleIndividualAction</object>
+      <object>objects\BattleTeam</object>
       <objects name="Graphics">
         <object>objects\BattleDrawable</object>
         <object>objects\BattleHUD</object>
         <object>objects\BattleAnimator</object>
       </objects>
     </objects>
+    <object>objects\Camera</object>
     <objects name="Core">
       <object>objects\PawnPlayer</object>
       <object>objects\PawnWild</object>
       <object>objects\Pawn</object>
+    </objects>
+    <objects name="Data">
+      <object>objects\Struct</object>
+      <object>objects\DataPokemon</object>
+      <object>objects\DataMove</object>
+    </objects>
+    <objects name="Debug">
+      <object>objects\DebugBattleSpawner</object>
+    </objects>
+    <object>objects\World</object>
+    <objects name="Graphics">
+      <object>objects\Effect2D</object>
+      <object>objects\Effect</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="16">
+  <constants number="19">
+    <constant name="W">room_width</constant>
+    <constant name="DEBUG">true</constant>
     <constant name="c_health_low">c_red</constant>
     <constant name="c_health_mid">c_yellow</constant>
     <constant name="c_health_high">c_green</constant>
@@ -166,6 +204,7 @@
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
     <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
+    <constant name="H">room_height</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -36,6 +36,8 @@ var pawn_ai=instance_create(0, 0, Pawn);
 pawn_add_pokemon(pawn_player, 0, "Ted");
 pawn_add_pokemon(pawn_ai, 0, "Lucario");
 
+Camera.battle_pawn=pawn_player;
+
 var MIDPOINT=BATTLEFIELD_SIZE/2;
 var dist=BATTLEFIELD_SIZE/4;
 var dir=240;
@@ -43,16 +45,24 @@ var trans_distance=60;
 var fade_time=0.05;
 var offx=room_width;
 var offy=room_height-UI_TEXT_BOX_HEIGHT-UI_BATTLE_HUD_HEIGHT-UI_BATTLE_HUD_BUFFER_Y;
+var team=battle_add_team(pawn_player, SpriteSides.BACK);
 
-battle_add_team(pawn_player, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 90, SpriteSides.BACK, trans_distance, fade_time, offx, offy);
+// you could add a team multiple times if you want to set up a double battle or something, but only create
+// it once or youre going to have problems
+ds_list_add(Battle.teams, team);
+ds_list_add(Battle.contestants, noone);
+ds_list_add(Battle.drawables, battle_add_position(pawn_player, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 90, trans_distance, fade_time, offx, offy));
 
 dir=60;
 trans_distance=36;
 fade_time=0.5;
 offx=-UI_BATTLE_HUD_WIDTH;
 offy=UI_BATTLE_HUD_HEIGHT/2;  // you can fit half of one between the actual top of the box and the top of the screen
+team=battle_add_team(pawn_ai, SpriteSides.FRONT);
 
-battle_add_team(pawn_ai, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 270, SpriteSides.FRONT, trans_distance, fade_time, offx, offy);
+ds_list_add(Battle.teams, team);
+ds_list_add(Battle.contestants, noone);
+ds_list_add(Battle.drawables, battle_add_position(pawn_ai, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 270, trans_distance, fade_time, offx, offy));
 
 with (Battle){
     battle_begin();

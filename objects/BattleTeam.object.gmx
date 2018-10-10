@@ -28,8 +28,6 @@
             <string>name="Team"+string(instance_number(BattleTeam));
 owner=noone;
 
-drawable=noone;
-hud=noone;
 sprite_side=SpriteSides.FRONT;
 </string>
           </argument>
@@ -54,14 +52,6 @@ sprite_side=SpriteSides.FRONT;
           <argument>
             <kind>1</kind>
             <string>ds_list_destroy(party);
-
-with (drawable){
-    instance_destroy();
-}
-
-with (hud){
-    instance_destroy();
-}
 </string>
           </argument>
         </arguments>

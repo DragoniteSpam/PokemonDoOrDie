@@ -54,7 +54,15 @@ if (false){
         if (move_list[| Battle.input_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {
-            battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, move_list[| Battle.input_index]));
+            var value=move_list[| Battle.input_index];
+            // at some point in the future this needs to be moved to a different script that can
+            // account for selecting multiple valid targets
+            var valid_targets=battle_get_valid_targets(pkmn, value);
+            var targets=ds_list_create();
+            ds_list_add(targets, valid_targets[| irandom(ds_list_size(valid_targets)-1)]);
+            ds_list_destroy(valid_targets);
+            
+            battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
             
             battle_input_processing_reset();
             

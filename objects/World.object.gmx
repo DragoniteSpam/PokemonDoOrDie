@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>message_text="";
+            <string>singleton();
+
+message_text="";
 message_text_t=0;
 
 all_pokemon=array_create(1);
@@ -36,6 +38,39 @@ all_pokemon[0]=instance_create(0, 0, DataPokemon);
 all_moves[0]=instance_create(0, 0, DataMove);
 
 dt=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// more misc constants and enums
+
+enum vec2 {
+    xx, yy
+}
+
+enum vec3 {
+    xx, yy, zz
+}
+
+enum vec4 {
+    r, g, b, a
+}
 </string>
           </argument>
         </arguments>
@@ -85,6 +120,10 @@ dt=0;
 
 draw_surface(application_surface, 0, 0);
 
+with (Effect){
+    script_execute(render);
+}
+
 var text_box_start_x=0;
 var text_box_start_y=room_height-UI_TEXT_BOX_HEIGHT;
 
@@ -99,8 +138,8 @@ var message_length=string_length(message_text);
 
 draw_text_ext(text_box_start_x+UI_TEXT_BOX_OFFSET_W, text_box_start_y+UI_TEXT_BOX_OFFSET_H, string_copy(message_text, 1, message_text_t), -1, UI_TEXT_WIDTH);
 
-for (var i=0; i&lt;ds_list_size(Battle.teams); i++){
-    with (Battle.teams[| i].hud){
+for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
+    with (Battle.drawables[| i].hud){
         bg_draw_hud();
     }
 }

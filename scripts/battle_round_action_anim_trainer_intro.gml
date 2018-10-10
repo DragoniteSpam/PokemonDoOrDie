@@ -3,7 +3,7 @@
 
 Battle.input_ready=false;
 with (instance_create(0, 0, BattleAnimator)){
-    user=Battle.teams[| argument0[| 0]].drawable;
+    user=Battle.drawables[| argument0[| 0]];
     user.alpha=1;
     user.x=user.battle_x;
     user.y=user.battle_y;

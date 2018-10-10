@@ -55,6 +55,10 @@ enum Genders {
 }
 
 gender=Genders.MALE;
+
+// battle stuff
+
+position=-1;
 </string>
           </argument>
         </arguments>

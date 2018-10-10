@@ -5,7 +5,7 @@ Battle.input_ready=false;
 with (instance_create(0, 0, BattleAnimator)){
     var team=Battle.teams[| argument0[| 0]];
     
-    user=team.drawable;
+    user=Battle.drawables[| argument0[| 0]];
     user.alpha=0;
     user.sprite_index=get_pokemon_battle_sprite(Battle.contestants[| argument0[| 0]].species, team.sprite_side);
     user.image_index=0;
