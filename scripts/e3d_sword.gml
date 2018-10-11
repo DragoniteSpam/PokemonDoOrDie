@@ -1,3 +1,7 @@
+var t_fadein=0.25;
+var t_still=t_fadein+0.05;
+var t_fadeout=t_still+0.25;
+
 if (t<t_fadein){
     alpha=alpha+World.dt/t_fadein;
 } else if (t<t_still){

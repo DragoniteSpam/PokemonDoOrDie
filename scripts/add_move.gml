@@ -1,4 +1,4 @@
-/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, effect0, effect0odds .. effectn, effectnodds);
+/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effect0, effect0odds .. effectn, effectnodds);
 // there may be some move flags and stuff added later
 
 with (instance_create(0, 0, DataMove)){
@@ -12,7 +12,9 @@ with (instance_create(0, 0, DataMove)){
     target=argument[7];
     summary=argument[8];
     
-    for (var i=9; i<argument_count; i=i+2){
+    animation=argument[9];
+    
+    for (var i=10; i<argument_count; i=i+2){
         ds_list_add(effects, argument[i]);
         ds_list_add(effect_odds, argument[i+1]);
     }

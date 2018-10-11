@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>render=null;
+image_speed=0;
 t=0;
 </string>
           </argument>

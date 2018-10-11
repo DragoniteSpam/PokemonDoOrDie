@@ -1,7 +1,7 @@
 /// void battle_input_ai(team, pokemon);
 
-// calculate the move (there is currently only one valid move)
-var value=0;
+// "calculate" the move
+var value=3;
 
 // calculate the target(s) (one random)
 var valid_targets=battle_get_valid_targets(argument1, value);

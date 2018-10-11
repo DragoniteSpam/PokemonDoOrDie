@@ -5,7 +5,13 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\se_hit</sound>
+    <sounds name="se">
+      <sounds name="move">
+        <sound>sound\se_move_swords_dance</sound>
+        <sound>sound\se_hit</sound>
+        <sound>sound\se_move_slash</sound>
+      </sounds>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_window9s_hgss</sprite>
@@ -18,6 +24,9 @@
     <sprites name="animations">
       <sprites name="moves">
         <sprite>sprites\spr_anim_move_tackle</sprite>
+        <sprite>sprites\spr_anim_move_punch</sprite>
+        <sprite>sprites\spr_anim_move_swords_dance</sprite>
+        <sprite>sprites\spr_anim_move_claw</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -113,7 +122,10 @@
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <script>scripts\ba_send_out_pokemon_hud.gml</script>
           <scripts name="moves">
-            <script>scripts\ba_move_uni_basic.gml</script>
+            <script>scripts\ba_move_basic.gml</script>
+            <script>scripts\ba_move_punch.gml</script>
+            <script>scripts\ba_move_swords_dance.gml</script>
+            <script>scripts\ba_move_claw.gml</script>
           </scripts>
           <script>scripts\ba_scroll_health.gml</script>
           <script>scripts\ba_exp_gain.gml</script>
@@ -165,9 +177,11 @@
       <script>scripts\draw_exp_bar.gml</script>
       <scripts name="effects">
         <script>scripts\new_effect_2d.gml</script>
+        <script>scripts\new_effect_world.gml</script>
       </scripts>
       <scripts name="move animation">
-        <script>scripts\e2d_hit.gml</script>
+        <script>scripts\e2d_generic.gml</script>
+        <script>scripts\e3d_generic.gml</script>
       </scripts>
     </scripts>
     <script>scripts\singleton.gml</script>
@@ -215,8 +229,14 @@
     </objects>
     <object>objects\World</object>
     <objects name="Graphics">
-      <object>objects\Effect2D</object>
-      <object>objects\Effect</object>
+      <objects name="2D">
+        <object>objects\Effect2D</object>
+        <object>objects\Effect</object>
+      </objects>
+      <objects name="3D">
+        <object>objects\WorldEffect</object>
+        <object>objects\WorldEffect2D</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

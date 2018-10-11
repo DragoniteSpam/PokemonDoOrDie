@@ -41,8 +41,7 @@ category=MoveCategories.PHYSICAL;
 effects=ds_list_create();
 effect_odds=ds_list_create();
 
-animation_you=ba_move_uni_basic;
-animation_opponent=ba_move_uni_basic;
+animation=ba_move_basic;
 </string>
           </argument>
         </arguments>

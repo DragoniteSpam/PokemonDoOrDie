@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Effect</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,20 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-alpha=1;
-color=c_white;
-xscale=1;
-yscale=1;
-rotation=0;
-
-animation_rate=0;
-animation_loop=false;
-
-t_fadein=0.5;
-t_still=t_fadein+0.5;
-t_fadeout=t_still+0.5;
+            <string>render=null;
+image_speed=0;
+t=0;
 </string>
           </argument>
         </arguments>

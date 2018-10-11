@@ -1,20 +1,27 @@
-/// Effect2D new_effect_2d(x, y, sprite, render, [xscale], [yscale], [rotation], [color], [alpha]);
+/// Effect2D new_effect_2d(x, y, sprite, render, t_fadein, t_still, t_fadeout, [xscale], [yscale], [rotation], [color], [alpha], [animation rate], [animation_loop?]);
 
 with (instance_create(argument[0], argument[1], Effect2D)){
     switch (argument_count){
+        case 14:
+            animation_loop=argument[13];
+        case 13:
+            animation_rate=argument[12];
+        case 12:
+            alpha=argument[11];
+        case 11:
+            color=argument[10];
+        case 10:
+            rotation=argument[9];
         case 9:
-            alpha=argument[8];
+            yscale=argument[8];
         case 8:
-            color=argument[7];
-        case 7:
-            rotation=argument[6];
-        case 6:
-            yscale=argument[5];
-        case 5:
-            xscale=argument[4];
+            xscale=argument[7];
         default:
             sprite_index=argument[2];
             render=argument[3];
+            t_fadein=argument[4];
+            t_still=argument[5];
+            t_fadeout=argument[6];
             break;
     }
 
