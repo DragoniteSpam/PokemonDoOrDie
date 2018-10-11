@@ -1,7 +1,13 @@
-/// Effect2D new_effect_2d(x, y, sprite, render, t_fadein, t_still, t_fadeout, [xscale], [yscale], [rotation], [color], [alpha], [animation rate], [animation_loop?]);
+/// Effect2D new_effect_2d(x, y, sprite, render, t_fadein, t_still, t_fadeout, [xscale], [yscale], [rotation], [color], [alpha], [animation rate], [animation_loop?], [xspeed], [yspeed], [damping]);
 
 with (instance_create(argument[0], argument[1], Effect2D)){
     switch (argument_count){
+        case 17:
+            damping=argument[16];
+        case 16:
+            yspeed=argument[15];
+        case 15:
+            xspeed=argument[14];
         case 14:
             animation_loop=argument[13];
         case 13:

@@ -29,4 +29,12 @@ if (animation_loop){
     image_index=min(image_number-1, image_index+animation_rate*World.dt);
 }
 
+x=x+xspeed*World.dt;
+y=y+yspeed*World.dt;
+z=z+zspeed*World.dt;
+
+xspeed=xspeed*(1-damping*World.dt);
+yspeed=yspeed*(1-damping*World.dt);
+zspeed=zspeed*(1-damping*World.dt);
+
 t=t+World.dt;

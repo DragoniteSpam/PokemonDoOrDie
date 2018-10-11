@@ -29,6 +29,9 @@
         <sprite>sprites\spr_anim_move_claw</sprite>
       </sprites>
     </sprites>
+    <sprites name="particles">
+      <sprite>sprites\spr_part_sphere</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
@@ -125,6 +128,7 @@
             <script>scripts\ba_move_basic.gml</script>
             <script>scripts\ba_move_punch.gml</script>
             <script>scripts\ba_move_swords_dance.gml</script>
+            <script>scripts\ba_move_quick_attack.gml</script>
             <script>scripts\ba_move_claw.gml</script>
           </scripts>
           <script>scripts\ba_scroll_health.gml</script>

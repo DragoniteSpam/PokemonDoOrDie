@@ -1,7 +1,15 @@
-/// Effect2D new_effect_world(x, y, z, xrot, yrot, zrot, scale, sprite, render, t_fadein, t_still, t_fadeout, [xscale], [yscale], [rotation], [color], [alpha], [animation rate], [animation loop?]);
+/// Effect2D new_effect_world(x, y, z, xrot, yrot, zrot, scale, sprite, render, t_fadein, t_still, t_fadeout, [xscale], [yscale], [rotation], [color], [alpha], [animation rate], [animation loop?], [xspeed], [yspeed], [zspeed], [damping]);
 
 with (instance_create(argument[0], argument[1], WorldEffect2D)){
     switch (argument_count){
+        case 23:
+            damping=argument[22];
+        case 22:
+            zspeed=argument[21];
+        case 21:
+            yspeed=argument[20];
+        case 20:
+            xspeed=argument[19];
         case 19:
             animation_loop=argument[18];
         case 18:

@@ -42,6 +42,10 @@ rotation=0;
 
 animation_rate=0;
 animation_loop=false;
+xspeed=0;
+yspeed=0;
+zspeed=0;
+damping=0;
 
 // timing stuff
 t_fadein=0.5;
