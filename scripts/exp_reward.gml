@@ -1,7 +1,7 @@
 /// int exp_reward(winner, loser);
 
 var a=1;    // 1 if wild pokémon, 1.5 if trainer pokémon, 1 if gen 7 rules
-var b=get_pokemon(argument1).reward_exp;
+var b=get_pokemon(argument1.species).reward_exp;
 var e=1;    // 1 if no lucky egg held, 1.5 if lucky egg held
 var f=1;    // 1.2 if two hearts of affection, 1 otherwise
 var l=get_level(argument1, get_pokemon(argument1.species).growth_rate);

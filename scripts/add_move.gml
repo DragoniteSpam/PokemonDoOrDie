@@ -14,7 +14,7 @@ with (instance_create(0, 0, DataMove)){
     
     for (var i=9; i<argument_count; i=i+2){
         ds_list_add(effects, argument[i]);
-        ds_list_add(effects, argument[i+1]);
+        ds_list_add(effect_odds, argument[i+1]);
     }
     
     return id;

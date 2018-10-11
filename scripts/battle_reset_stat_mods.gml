@@ -9,4 +9,6 @@ with (argument0){
     
     mod_accuracy=0;
     mod_evade=0;
+    
+    flag_downed=false;
 }
