@@ -1,5 +1,9 @@
 /// int battle_damage(move, user, target, critical?);
 
+var move=argument0;
+var user=argument1;
+var target=argument2;
+
 // todo sort these out
 var mod_targets=1;
 var mod_weather=1;
@@ -56,6 +60,6 @@ switch (move.category){
 
 var m=offense_mod/defense_mod*mod_weather*mod_badge*mod_critical*mod_random*mod_stab*mod_burn*mod_other;
 
-var base=(((2*get_level(argument1))/5+2)*move.value*offense/defense)/50+2;
+var base=(((2*get_level(argument1.experience, get_pokemon(argument1.species).growth_rate))/5+2)*move.value*offense/defense)/50+2;
 
 return floor(base*m);

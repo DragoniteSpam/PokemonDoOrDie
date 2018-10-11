@@ -49,7 +49,7 @@ switch (exe.action){
                         // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
                         // and if the exp all is turned on
                         // also you should probably make sure the victorious pokémon(s) are still alive
-                        var level=get_level(pokemon);
+                        var level=get_level(pokemon, get_pokemon(pokemon.species).growth_rate);
                         if (level<MAX_LEVEL){
                             var exp_gain=exp_reward(pokemon, exe.targets[| i]);
                             if (exp_gain==1){

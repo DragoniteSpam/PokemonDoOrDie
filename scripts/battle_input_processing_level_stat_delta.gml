@@ -1,6 +1,4 @@
 var pkmn=Battle.misc_data[? "who"];
-var old_level=Battle.misc_data[? "old level"];
-var new_level=Battle.misc_data[? "new level"];
 
 var max_n=7;
 
@@ -15,41 +13,23 @@ draw_rectangle_9s(spr_window9s_hgss, box_x, box_y, box_width, box_height);
 
 draw_set_valign(fa_middle);
 
-draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*i, pkmn.name);
-draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT, delta_hp);
+var delta_hp=Battle.misc_data[? "new hp"]-Battle.misc_data[? "old hp"];
+var delta_atk=Battle.misc_data[? "new atk"]-Battle.misc_data[? "old atk"];
+var delta_def=Battle.misc_data[? "new def"]-Battle.misc_data[? "old def"];
+var delta_spa=Battle.misc_data[? "new spa"]-Battle.misc_data[? "old spa"];
+var delta_spd=Battle.misc_data[? "new spd"]-Battle.misc_data[? "old spd"];
+var delta_spe=Battle.misc_data[? "new spe"]-Battle.misc_data[? "old spe"];
 
-finish this please
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2/*+UI_TEXT_OPTION_HEIGHT*i*/, pkmn.name);
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT, "+"+string(delta_hp));
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*2, "+"+string(delta_atk));
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*3, "+"+string(delta_def));
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*4, "+"+string(delta_spa));
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*5, "+"+string(delta_spd));
+draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*6, "+"+string(delta_spe));
 
 draw_selection_arrow(box_x+UI_TEXT_BOX_OFFSET_W/*+UI_TEXT_BOX_BUFFER/2*/, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*Battle.input_index);
 
-if (keyboard_check_released(vk_up)||keyboard_check_released(ord('W'))){
-    Battle.input_index=max(0, --Battle.input_index);
-}
-if (keyboard_check_released(vk_down)||keyboard_check_released(ord('S'))){
-    Battle.input_index=min(max_n-1, ++Battle.input_index);
-}
-if (keyboard_check_released(vk_left)||keyboard_check_released(ord('A'))){
-    Battle.input_index=0;
-}
-if (keyboard_check_released(vk_right)||keyboard_check_released(ord('D'))){
-    Battle.input_index=max_n-1;
-}
 if (keyboard_check_released(vk_enter)){
-    if (move_list[| Battle.input_index]==noone){
-        // to do play some kind of silly "invalid" sound
-    } else {
-        var value=move_list[| Battle.input_index];
-        // at some point in the future this needs to be moved to a different script that can
-        // account for selecting multiple valid targets
-        var valid_targets=battle_get_valid_targets(pkmn, value);
-        var targets=ds_list_create();
-        ds_list_add(targets, valid_targets[| irandom(ds_list_size(valid_targets)-1)]);
-        ds_list_destroy(valid_targets);
-        
-        battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
-        
-        battle_input_processing_reset();
-        
-        battle_debug("player has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn.name);
-    }
+    battle_debug("player has viewed the level stat delta screen for "+pkmn.name);
 }

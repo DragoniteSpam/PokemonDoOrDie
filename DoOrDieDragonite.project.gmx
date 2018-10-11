@@ -93,6 +93,7 @@
         <script>scripts\battle_input_processing_grand.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
         <script>scripts\battle_input_processing_level_stat_delta.gml</script>
+        <script>scripts\battle_input_processing_level_stat_total.gml</script>
         <script>scripts\battle_input_processing_reset.gml</script>
       </scripts>
       <script>scripts\battle_debug.gml</script>

@@ -13,8 +13,8 @@ with (instance_create(0, 0, DataMove)){
     summary=argument[8];
     
     for (var i=9; i<argument_count; i=i+2){
-        ds_list_add(effects, argument[9+i]);
-        ds_list_add(effects, argument[10+i]);
+        ds_list_add(effects, argument[i]);
+        ds_list_add(effects, argument[i+1]);
     }
     
     return id;

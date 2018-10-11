@@ -2,7 +2,7 @@
 
 var base=get_pokemon(argument0.species).base_stat[argument1];
 var iv=pkmn.ivs[argument1];
-var ev=pkmn.evs[argument2];
+var ev=pkmn.evs[argument1];
 
 if (argument1==Stats.HP){
     return floor(((base+iv)*2+floor(ev/4))*100/level)+level+10;

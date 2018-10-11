@@ -1,5 +1,8 @@
 /// array battle_get_hit(move, user, target);
 
+// this may not be useful but it's good information to have i guess
+var move=argument0;
+var user=argument1;
 var output=array_create(ds_list_size(argument2));
 
 if (move.accuracy==0){
