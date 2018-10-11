@@ -4,7 +4,7 @@ var t_dance=1.6;    // this is how long the sound effect is
 var t_wait=t_dance+0.25;
 
 var sword_count=6;
-var sword_distance=24;
+var sword_distance=16;
 var sword_height=24;
 var sword_rotation_rate=180;    // degrees per second
 var sword_scale=0.3;

@@ -90,14 +90,6 @@ d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
  * whenever you get around to drawing the game world, it probably goes here
  */
 
-/*
- * less-important effects
- */
-
-with (WorldEffect){
-    script_execute(render);
-}
-
 // i suppose you could also just say with (BattleDrawable) but it's possible that
 // you want some of them to be hidden or something
 for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
@@ -108,6 +100,14 @@ for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
 
 with (BattleAnimator){
     script_execute(script);
+}
+
+/*
+ * less-important effects go on top of everything else because the depth buffer is weird
+ */
+
+with (WorldEffect){
+    script_execute(render);
 }
 </string>
           </argument>

@@ -13,7 +13,7 @@ if (move.accuracy==0){
 } else {
     for (var i=0; i<ds_list_size(argument2); i++){
         // todo fly, dig, dive
-        var roll=random_range(0, 100)*math_accuracy(argument1)/math_evade(argument2[| i]);
+        var roll=random_range(0, 100)*math_mod(argument1, Stats.ACCURACY)/math_mod(argument2[| i], Stats.EVADE);
         if (roll<move.accuracy){
             output[i]=true;
         } else {

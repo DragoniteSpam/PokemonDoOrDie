@@ -28,6 +28,8 @@
         <sprite>sprites\spr_anim_move_swords_dance</sprite>
         <sprite>sprites\spr_anim_move_claw</sprite>
       </sprites>
+      <sprite>sprites\spr_anim_stat_rise</sprite>
+      <sprite>sprites\spr_anim_stat_fall</sprite>
     </sprites>
     <sprites name="particles">
       <sprite>sprites\spr_part_sphere</sprite>
@@ -82,6 +84,8 @@
         </scripts>
         <scripts name="individual actions">
           <script>scripts\battle_individual_action_text.gml</script>
+          <script>scripts\battle_individual_action_stat_change_animation.gml</script>
+          <script>scripts\battle_individual_action_stat_set.gml</script>
           <script>scripts\battle_individual_action_animation_move.gml</script>
           <script>scripts\battle_individual_action_death.gml</script>
           <script>scripts\battle_individual_action_scroll_health.gml</script>
@@ -121,6 +125,8 @@
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_death.gml</script>
+          <script>scripts\ba_stat_rise.gml</script>
+          <script>scripts\ba_stat_fall.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <script>scripts\ba_send_out_pokemon_hud.gml</script>
@@ -136,6 +142,9 @@
         </scripts>
         <script>scripts\bg_draw_drawable.gml</script>
         <script>scripts\bg_draw_hud.gml</script>
+        <scripts name="mask scripts">
+          <script>scripts\bm_stat_raise.gml</script>
+        </scripts>
       </scripts>
       <scripts name="effects">
         <script>scripts\be_attack_raise_1.gml</script>
@@ -149,13 +158,7 @@
       <script>scripts\team_alive.gml</script>
       <script>scripts\action_priority.gml</script>
       <scripts name="stats">
-        <script>scripts\math_speed.gml</script>
-        <script>scripts\math_attack.gml</script>
-        <script>scripts\math_sp_attack.gml</script>
-        <script>scripts\math_sp_defense.gml</script>
-        <script>scripts\math_defense.gml</script>
-        <script>scripts\math_accuracy.gml</script>
-        <script>scripts\math_evade.gml</script>
+        <script>scripts\math_mod.gml</script>
         <script>scripts\get_level.gml</script>
         <script>scripts\get_experience.gml</script>
         <script>scripts\exp_reward.gml</script>
@@ -186,6 +189,7 @@
       <scripts name="move animation">
         <script>scripts\e2d_generic.gml</script>
         <script>scripts\e3d_generic.gml</script>
+        <script>scripts\e3d_billboard.gml</script>
       </scripts>
     </scripts>
     <script>scripts\singleton.gml</script>
@@ -247,7 +251,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="21">
+  <constants number="22">
+    <constant name="STAT_MOD_LIMIT">6</constant>
     <constant name="MAX_LEVEL">100</constant>
     <constant name="c_exp">c_blue</constant>
     <constant name="W">room_width</constant>

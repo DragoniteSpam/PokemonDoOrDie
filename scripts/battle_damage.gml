@@ -21,41 +21,36 @@ if (argument3){
     mod_critical=2;
 }
 
+var cat_offense, cat_defense;
 var offense, defense, offense_mod, defense_mod;
 switch (move.category){
     case MoveCategories.PHYSICAL:
-        offense=user.act_attack;
-        defense=target.act_defense;
-        offense_mod=math_attack(user);
-        defense_mod=math_defense(target);
-        if (user.status=MajorStatus.BURN){
-            mod_burn=0.5;
-        }
+        cat_offense=Stats.ATTACK;
+        cat_defense=Stats.DEFENSE;
         break;
     case MoveCategories.SPECIAL:
-        offense=user.act_sp_attack;
-        defense=target.act_sp_defense;
-        offense_mod=math_sp_attack(user);
-        defense_mod=math_sp_defense(target);
+        cat_offense=Stats.SPATTACK;
+        cat_defense=Stats.SPDEFENSE;
         break;
     case MoveCategories.PHYSICAL_ATK_SPECIAL_DEF:
-        offense=user.act_attack;
-        defense=target.act_sp_defense;
-        offense_mod=math_attack(user);
-        defense_mod=math_sp_defense(target);
-        if (user.status=MajorStatus.BURN){
-            mod_burn=0.5;
-        }
+        cat_offense=Stats.ATTACK;
+        cat_defense=Stats.SPDEFENSE;
         break;
     case MoveCategories.SPECIAL_ATK_PHYSICAL_DEF:
-        offense=user.act_sp_attack;
-        defense=target.act_defense;
-        offense_mod=math_sp_attack(user);
-        defense_mod=math_defense(target);
+        cat_offense=Stats.SPATTACK;
+        cat_defense=Stats.DEFENSE;
         break;
     case MoveCategories.STATUS:
         show_error("you somehow managed to do a damage calculation on a status move, good job", true);
         break;
+}
+
+offense=user.act[cat_offense];
+defense=target.act[cat_defense];
+offense_mod=math_mod(user, cat_offense);
+defense_mod=math_mod(target, cat_defense);
+if (user.status=MajorStatus.BURN&&cat_offense==Stats.ATTACK){
+    mod_burn=0.5;
 }
 
 var m=offense_mod/defense_mod*mod_weather*mod_badge*mod_critical*mod_random*mod_stab*mod_burn*mod_other;

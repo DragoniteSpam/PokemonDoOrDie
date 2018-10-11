@@ -29,22 +29,20 @@
 name="";
 owner=noone;
 
-act_hp_max=50;
-act_hp_current=50;
-act_attack=20;
-act_defense=20;
-act_sp_attack=20;
-act_sp_defense=20;
-act_speed=20;
+act=array_create(6)
 
-mod_attack=0;
-mod_defense=0;
-mod_sp_attack=0;
-mod_sp_defense=0;
-mod_speed=0;
+for (var i=0; i&lt;6; i++){
+    act[i]=20;
+}
 
-mod_accuracy=0;
-mod_evade=0;
+act_hp=50;
+act[Stats.HP]=50;
+
+mods=array_create(8);
+
+for (var i=0; i&lt;8; i++){
+    mods[i]=0;
+}
 
 moves=array_create(4);
 for (var i=0; i&lt;4; i++){
@@ -115,7 +113,9 @@ enum Stats {
     DEFENSE,
     SPATTACK,
     SPDEFENSE,
-    SPEED
+    SPEED,
+    ACCURACY,
+    EVADE,
 }
 </string>
           </argument>

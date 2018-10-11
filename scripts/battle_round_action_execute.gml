@@ -47,7 +47,7 @@ if (!pokemon.flag_downed){
                                 }
                                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
                             }
-                            if (damage>=exe.targets[| i].act_hp_current){
+                            if (damage>=exe.targets[| i].act_hp){
                                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
                                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_send_out_pokemon_hud, exe.targets[| i].position));
                                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" fainted!"));
@@ -70,7 +70,7 @@ if (!pokemon.flag_downed){
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, exp_gain));
                                         var exp_next_level=get_experience(level+1, get_pokemon(pokemon.species).growth_rate);
                                         if (pokemon.experience+exp_gain>=exp_next_level){
-                                            var new_level=get_level(pokemon.experience, get_pokemon(pokemon.species).growht_rate);
+                                            var new_level=get_level(pokemon.experience, get_pokemon(pokemon.species).growth_rate);
                                             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+new_level+"!"));
                                             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_level_gain, pokemon, level, new_level));
                                             if (pokemon.experience+exp_gain>exp_next_level){
@@ -86,8 +86,7 @@ if (!pokemon.flag_downed){
                         if (!target_fainted){
                             for (var j=0; j<ds_list_size(move.effects); j++){
                                 if (irandom(100)<=move.effect_odds[| j]){
-                                    var effect_script=move.effects[| j];
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "Activate effect for "+pokemon.name+"'s "+move.name+": "+script_get_name(effect_script)));
+                                    script_execute(move.effects[| j], pokemon, exe.targets[| i]);
                                 }
                             }
                         }

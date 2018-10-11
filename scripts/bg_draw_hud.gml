@@ -31,7 +31,7 @@ if (user!=noone){
     draw_text(x+UI_BATTLE_HUD_WIDTH-32, text_y, level_string);
     
     // hp bar row
-    draw_health_bar(x+UI_BATTLE_HUD_WIDTH/2, hp_bar_y-bar_height/2, x+UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X, hp_bar_y+bar_height/2, user.act_hp_current/user.act_hp_max);
+    draw_health_bar(x+UI_BATTLE_HUD_WIDTH/2, hp_bar_y-bar_height/2, x+UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X, hp_bar_y+bar_height/2, user.act_hp/user.act[Stats.HP]);
     /*
      * if user.owner.battle_show_details:
      *   - show exp bar (can be placeholder for now)
@@ -40,7 +40,7 @@ if (user!=noone){
     if (user.owner==Camera.battle_pawn){
         // hp text row
         draw_set_halign(fa_center);
-        draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(user.act_hp_current)+"/"+string(user.act_hp_max));
+        draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(floor(user.act_hp))+"/"+string(user.act[Stats.HP]));
         
         // exp bar row
         var exp_base=get_experience(level, base.growth_rate);

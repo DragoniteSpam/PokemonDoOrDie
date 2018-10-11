@@ -1,3 +1,3 @@
 /// boolean alive(BattlePokemon);
 
-return argument0.act_hp_current>0;
+return argument0.act_hp>0;
