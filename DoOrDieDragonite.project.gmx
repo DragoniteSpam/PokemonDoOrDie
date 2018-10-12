@@ -125,8 +125,7 @@
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_death.gml</script>
-          <script>scripts\ba_stat_rise.gml</script>
-          <script>scripts\ba_stat_fall.gml</script>
+          <script>scripts\ba_stat_change.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <script>scripts\ba_send_out_pokemon_hud.gml</script>
@@ -143,7 +142,7 @@
         <script>scripts\bg_draw_drawable.gml</script>
         <script>scripts\bg_draw_hud.gml</script>
         <scripts name="mask scripts">
-          <script>scripts\bm_stat_raise.gml</script>
+          <script>scripts\bm_stat_change.gml</script>
         </scripts>
       </scripts>
       <scripts name="effects">
