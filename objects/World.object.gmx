@@ -40,8 +40,33 @@ all_moves[1]=add_move("Power-Up Punch", Types.FIGHTING, MoveCategories.PHYSICAL,
 all_moves[2]=add_move("Metal Claw", Types.STEEL, MoveCategories.PHYSICAL, 35, 50, 95, 0, MoveTargets.ADJACENT, "The target is raked with steel claws. This may also raise the user's Attack stat.", ba_move_claw, be_attack_raise_1, 10);
 all_moves[3]=add_move("Quick Attack", Types.NORMAL, MoveCategories.PHYSICAL, 30, 40, 100, 1, MoveTargets.ADJACENT, "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.", ba_move_quick_attack);
 
-dt=0;
+all_types=pbs_read_types(".\pbs\types.txt");
 
+// color values came from bulbapedia
+all_types[Types.NORMAL].color=$A8A878;
+all_types[Types.FIGHTING].color=$C03028;
+all_types[Types.FLYING].color=$A890F0;
+all_types[Types.POISON].color=$A040A0;
+all_types[Types.GROUND].color=$E0C068;
+all_types[Types.ROCK].color=$B8A038;
+all_types[Types.GHOST].color=$A8B820;
+all_types[Types.STEEL].color=$705898;
+all_types[Types.FIRE].color=$B8B8D0;
+all_types[Types.WATER].color=$F08030;
+all_types[Types.GRASS].color=$6890F0;
+all_types[Types.ELECTRIC].color=$78C850;
+all_types[Types.PSYCHIC].color=$F8D030;
+all_types[Types.ICE].color=$F85888;
+all_types[Types.DRAGON].color=$98D8D8;
+all_types[Types.DARK].color=$705848;
+//all_types[Types.FAIRY].color=$EE99AC; // fairy not implemented in the pbs
+all_types[Types.QMARKS].color=$68A090;
+
+/*
+ * finish up the init stuff
+ */
+
+dt=0;
 instance_deactivate_object(Struct);
 
 /*

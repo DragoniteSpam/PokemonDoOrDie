@@ -12,6 +12,7 @@ if (t==0){
     user.misc_data[? "mask alpha"]=0;
     user.misc_data[? "mask x"]=0;
     user.misc_data[? "mask y"]=0;
+    audio_play_sound(misc_data[? "sound"], 1, false);
 } else if (t<t_mask_fadein){
     user.misc_data[? "mask alpha"]=user.misc_data[? "mask alpha"]+World.dt/t_mask_fadein;
 } else if (t<t_mask_animation){

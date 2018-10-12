@@ -3,6 +3,27 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafiles number="1" name="pbs">
+      <datafile>
+        <name>types.txt</name>
+        <exists>-1</exists>
+        <size>2072</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>types.txt</filename>
+      </datafile>
+    </datafiles>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="se">
@@ -11,6 +32,8 @@
         <sound>sound\se_hit</sound>
         <sound>sound\se_move_slash</sound>
       </sounds>
+      <sound>sound\se_battle_decrease</sound>
+      <sound>sound\se_battle_increase</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -50,6 +73,7 @@
         <script>scripts\battle_begin_loop.gml</script>
         <script>scripts\battle_begin_end.gml</script>
         <script>scripts\battle_begin.gml</script>
+        <script>scripts\battle_end.gml</script>
       </scripts>
       <scripts name="processing">
         <script>scripts\battle_process.gml</script>
@@ -77,6 +101,7 @@
             <script>scripts\battle_round_action_anim_send_out_pokemon_hud.gml</script>
             <script>scripts\battle_round_action_anim_trainer_intro.gml</script>
           </scripts>
+          <script>scripts\battle_fade.gml</script>
         </scripts>
         <script>scripts\battle_action_conclude.gml</script>
         <scripts name="setup">
@@ -125,6 +150,7 @@
           <script>scripts\ba_retract_trainer.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_death.gml</script>
+          <script>scripts\ba_fade.gml</script>
           <script>scripts\ba_stat_change.gml</script>
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
@@ -167,10 +193,25 @@
       </scripts>
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\vector2.gml</script>
-      <script>scripts\ds_list_clone.gml</script>
       <script>scripts\battle_damage.gml</script>
       <script>scripts\get_progress_bar_scroll_rate.gml</script>
       <script>scripts\get_progress_bar_scroll_time.gml</script>
+      <scripts name="data structures">
+        <script>scripts\array_clear_2d.gml</script>
+        <script>scripts\ds_list_clone.gml</script>
+        <script>scripts\array_clear.gml</script>
+      </scripts>
+      <script>scripts\split.gml</script>
+      <scripts name="file">
+        <script>scripts\ini_read_boolean.gml</script>
+      </scripts>
+      <script>scripts\get_matchup.gml</script>
+      <script>scripts\get_matchup_on.gml</script>
+      <script>scripts\get_pawn_level.gml</script>
+      <script>scripts\get_prize_money.gml</script>
+      <scripts name="game maker">
+        <script>scripts\instanceof.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
@@ -187,6 +228,7 @@
       </scripts>
       <scripts name="move animation">
         <script>scripts\e2d_generic.gml</script>
+        <script>scripts\e2d_overlay_monochrome.gml</script>
         <script>scripts\e3d_generic.gml</script>
         <script>scripts\e3d_billboard.gml</script>
       </scripts>
@@ -195,9 +237,15 @@
     <scripts name="data">
       <script>scripts\get_pokemon.gml</script>
       <script>scripts\get_move.gml</script>
+      <script>scripts\get_type.gml</script>
       <scripts name="creation">
         <script>scripts\add_move.gml</script>
+        <script>scripts\add_type.gml</script>
+        <scripts name="pbs">
+          <script>scripts\pbs_read_types.gml</script>
+        </scripts>
       </scripts>
+      <script>scripts\set_type_matchups.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -229,6 +277,7 @@
     <objects name="Data">
       <object>objects\Struct</object>
       <object>objects\DataMove</object>
+      <object>objects\DataType</object>
       <object>objects\DataPokemon</object>
     </objects>
     <objects name="Debug">
@@ -250,16 +299,19 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="22">
-    <constant name="STAT_MOD_LIMIT">6</constant>
-    <constant name="MAX_LEVEL">100</constant>
+  <constants number="25">
+    <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_exp">c_blue</constant>
-    <constant name="W">room_width</constant>
-    <constant name="DEBUG">true</constant>
+    <constant name="c_health_high">c_green</constant>
     <constant name="c_health_low">c_red</constant>
     <constant name="c_health_mid">c_yellow</constant>
-    <constant name="c_health_high">c_green</constant>
-    <constant name="BATTLEFIELD_SIZE">256</constant>
+    <constant name="DEBUG">true</constant>
+    <constant name="H">room_height</constant>
+    <constant name="MAX_LEVEL">100</constant>
+    <constant name="STAT_MOD_LIMIT">6</constant>
+    <constant name="TYPE_IMMUNE">0</constant>
+    <constant name="TYPE_RESISTED">0.5</constant>
+    <constant name="TYPE_WEAK">2</constant>
     <constant name="UI_BATTLE_HUD_BUFFER_X">32</constant>
     <constant name="UI_BATTLE_HUD_BUFFER_Y">64</constant>
     <constant name="UI_BATTLE_HUD_HEIGHT">128</constant>
@@ -272,7 +324,7 @@
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
     <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
-    <constant name="H">room_height</constant>
+    <constant name="W">room_width</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

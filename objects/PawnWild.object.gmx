@@ -28,6 +28,8 @@
             <string>event_inherited();
 
 name="Wild Pawn";
+
+ai=0;
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,7 @@ switch (argument1){
         if (argument0<=15){
             return floor(b*((floor((argument0+1)/3)+24)/50));
         } else if (argument0<=36){
-            return floor(b*((n+14)/50));
+            return floor(b*((argument0+14)/50));
         }
         return floor(b*((floor(argument0/2)+24)/50));
 }

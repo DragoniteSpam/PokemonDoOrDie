@@ -27,64 +27,14 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Pokemon";
-summary="very basic";
+name="Base Type";
+pbs_internal_name="BASETYPE";
 
-base_stat=array_create(6);
-base_stat[Stats.HP]=60;
-base_stat[Stats.ATTACK]=60;
-base_stat[Stats.DEFENSE]=60;
-base_stat[Stats.SPATTACK]=60;
-base_stat[Stats.SPDEFENSE]=60;
-base_stat[Stats.SPEED]=60;
+special=false;
+color=c_yellow;
 
-// you can theoretically have as many types as you want, althoguh i warn you,
-// more than two is probably not a good idea
-type=ds_list_create();
-ds_list_add(type, Types.FIGHTING);
-ds_list_add(type, Types.STEEL);
-
-spr_front=spr_front_lucario;
-spr_back=spr_back_lucario;
-
-growth_rate=GrowthRates.MEDIUM_SLOW;
-reward_exp=50;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// constants and stuff
-
-enum Genders {
-    MALE,
-    FEMALE,
-    GENDERLESS,
-}
-
-enum GrowthRates {
-    ERRATIC,
-    FAST,
-    MEDIUM_FAST,
-    MEDIUM_SLOW,
-    SLOW,
-    FLUCTUATING,
-}
+// this is how much damage THIS type deals to each OTHER type
+on=null;
 </string>
           </argument>
         </arguments>

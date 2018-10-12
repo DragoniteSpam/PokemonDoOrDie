@@ -77,6 +77,8 @@ enum MoveCategories {
     SPECIAL_ATK_PHYSICAL_DEF,
 }
 
+// if you modify the pbs, remember to modify this otherwise you're not going to have a fun time.
+
 enum Types {
     NORMAL,
     FIGHTING,
@@ -87,6 +89,7 @@ enum Types {
     BUG,
     GHOST,
     STEEL,
+    QMARKS,
     FIRE,
     WATER,
     GRASS,
@@ -95,8 +98,7 @@ enum Types {
     ICE,
     DRAGON,
     DARK,
-    FAIRY,
-    QMARKS,
+//    FAIRY,    // vanilla pbs does not have this data so we'll leave it out
 }
 </string>
           </argument>

@@ -4,6 +4,7 @@
 // 2: mask sprite
 // 3: mask x speed
 // 4: mask y speed
+// 5: sound effect
 
 var params=argument0;
 
@@ -13,5 +14,6 @@ with (instance_create(0, 0, BattleAnimator)){
     misc_data[? "mask sprite"]=params[| 2];
     misc_data[? "mask speed x"]=params[| 3];
     misc_data[? "mask speed y"]=params[| 4];
+    misc_data[? "sound"]=params[| 5];
     script=params[| 1];
 }

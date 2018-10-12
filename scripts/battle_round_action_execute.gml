@@ -35,52 +35,79 @@ if (!pokemon.flag_downed){
                         if (move.category!=MoveCategories.STATUS){
                             // todo sort this out (calculating whether a hit is critical or not: remember, some conditions
                             // increase critical hit chances, and others negate them entirely)
-                            var critical_hit_threshold=1;
-                            var critical=irandom(16)<critical_hit_threshold;
-                            var damage=battle_damage(move, pokemon, exe.targets[| i], critical);
-                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, exe.targets[| i], damage));
-                            if (critical){
+                            var matchup=get_matchup_on(move.type, exe.targets[| i]);
+                            if (matchup==0){
+                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+exe.targets[| i].name));
+                            } else {
+                                var critical_hit_threshold=1;
+                                var critical=irandom(16)<critical_hit_threshold;
+                                var damage=battle_damage(move, pokemon, exe.targets[| i], critical);
+                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, exe.targets[| i], damage));
                                 if (array_length_1d(hit)>1){
-                                    var critical_message="A critical hit on "+exe.targets[| i].name+"!";
+                                    var matchup_message_postfix=" on "+exe.targets[| i];
                                 } else {
-                                    var critical_message="A critical hit!";
+                                    var matchup_message_postfix="";
                                 }
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
-                            }
-                            if (damage>=exe.targets[| i].act_hp){
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_send_out_pokemon_hud, exe.targets[| i].position));
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" fainted!"));
-                                target_fainted=true;
-                                exe.targets[| i].flag_downed=true;
-                                // todo: post-death effects, such as aftermath, destiny bond, etc
-                                if (pokemon.owner.object_index==PawnPlayer){
-                                    // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
-                                    // and if the exp all is turned on
-                                    // also you should probably make sure the victorious pokémon(s) are still alive
-                                    var level=get_level(pokemon, get_pokemon(pokemon.species).growth_rate);
-                                    if (level<MAX_LEVEL){
-                                        var exp_gain=exp_reward(pokemon, exe.targets[| i]);
-                                        if (exp_gain==1){
-                                            var points="point";
-                                        } else {
-                                            var points="points";
-                                        }
-                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" gained "+string(exp_gain)+" experience "+points+"!"));
-                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, exp_gain));
-                                        var exp_next_level=get_experience(level+1, get_pokemon(pokemon.species).growth_rate);
-                                        if (pokemon.experience+exp_gain>=exp_next_level){
-                                            var new_level=get_level(pokemon.experience, get_pokemon(pokemon.species).growth_rate);
-                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+new_level+"!"));
-                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_level_gain, pokemon, level, new_level));
-                                            if (pokemon.experience+exp_gain>exp_next_level){
-                                                var remainder=pokemon.experience+exp_gain-exp_next_level;
-                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, remainder));
-                                            }
-                                            // todo learning new moves
-                                        }
+                                if (matchup>1){
+                                    // this could be compacted a little but that would make potential localization a little bit tricky
+                                    if (array_length_1d(hit)>1){
+                                        var matchup_message="It's super effective on "+exe.targets[| i]+"!";
+                                    } else {
+                                        var matchup_message="It's super effective!";
                                     }
-                                } // i don't know what foes gaining experience would look like, but you're free to try it out all the same
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, matchup_message));
+                                } else if (matchup<1){
+                                    // this could be compacted a little but that would make potential localization a little bit tricky
+                                    if (array_length_1d(hit)>1){
+                                        var matchup_message="It's not very effective on "+exe.targets[| i]+"...";
+                                    } else {
+                                        var matchup_message="It's not very effective...";
+                                    }
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, matchup_message));
+                                }
+                                if (critical){
+                                    if (array_length_1d(hit)>1){
+                                        var critical_message="A critical hit on "+exe.targets[| i].name+"!";
+                                    } else {
+                                        var critical_message="A critical hit!";
+                                    }
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
+                                }
+                                if (damage>=exe.targets[| i].act_hp){
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_send_out_pokemon_hud, exe.targets[| i].position));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" fainted!"));
+                                    target_fainted=true;
+                                    exe.targets[| i].flag_downed=true;
+                                    // todo: post-death effects, such as aftermath, destiny bond, etc
+                                    if (pokemon.owner.object_index==PawnPlayer){
+                                        // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
+                                        // and if the exp all is turned on
+                                        // also you should probably make sure the victorious pokémon(s) are still alive
+                                        var level=get_level(pokemon, get_pokemon(pokemon.species).growth_rate);
+                                        if (level<MAX_LEVEL){
+                                            var exp_gain=exp_reward(pokemon, exe.targets[| i]);
+                                            if (exp_gain==1){
+                                                var points="point";
+                                            } else {
+                                                var points="points";
+                                            }
+                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" gained "+string(exp_gain)+" experience "+points+"!"));
+                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, exp_gain));
+                                            var exp_next_level=get_experience(level+1, get_pokemon(pokemon.species).growth_rate);
+                                            if (pokemon.experience+exp_gain>=exp_next_level){
+                                                var new_level=get_level(pokemon.experience, get_pokemon(pokemon.species).growth_rate);
+                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+new_level+"!"));
+                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_level_gain, pokemon, level, new_level));
+                                                if (pokemon.experience+exp_gain>exp_next_level){
+                                                    var remainder=pokemon.experience+exp_gain-exp_next_level;
+                                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, remainder));
+                                                }
+                                                // todo learning new moves
+                                            }
+                                        }
+                                    } // i don't know what foes gaining experience would look like, but you're free to try it out all the same
+                                } // endif type effectiveness
                             }
                         }
                         if (!target_fainted){
