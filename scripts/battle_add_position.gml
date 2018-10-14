@@ -2,7 +2,7 @@
 
 with (instance_create(argument1, argument2, BattleDrawable)){
     owner=argument0;
-    sprite_index=argument0.battle_sprite;
+    sprite_index=get_battle_sprite(argument0.battle_sprite);
     // this is so it knows which way to animate
     direction=argument3;
     // this is the position in the world where the battler is positioned

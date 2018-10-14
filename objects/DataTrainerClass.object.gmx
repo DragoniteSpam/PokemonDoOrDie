@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,14 +25,61 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name="AI Pawn";
-team=noone;
+            <string>event_inherited();
 
-trainer_index=0;
-trainer_id=irandom(1&lt;&lt;16-1);
-party=ds_list_create();
+name="Pawn";
+internal_name="PAWN";
 
-battle_input_script=battle_input_ai;
+battle_sprite=ClassBattleSprites.PLAYER;
+
+audio_battle=ClassBattleBGM.SILENCE;
+audio_victory=ClassVictoryBGM.SILENCE;
+audio_intro=ClassIntroME.SILENCE;
+
+ai=32;
+reward=32;
+
+gender=Genders.GENDERLESS;
+
+ai_notes=ds_list_create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// misc constants and stuff
+
+enum ClassBattleBGM {
+    SILENCE,
+}
+
+enum ClassVictoryBGM {
+    SILENCE,
+}
+
+enum ClassIntroME {
+    SILENCE,
+}
+
+enum ClassBattleSprites {
+    PLAYER,
+    RIVAL,
+}
 </string>
           </argument>
         </arguments>
@@ -55,10 +102,7 @@ battle_input_script=battle_input_ai;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// it's probably a good idea to iterate over the party and
-// destroy its contents also
-
-ds_list_destroy(party);
+            <string>ds_list_destroy(ai_notes);
 </string>
           </argument>
         </arguments>

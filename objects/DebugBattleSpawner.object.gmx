@@ -30,12 +30,12 @@ instance_create(0, 0, World);
 
 instance_create(0, 0, Battle);
 
-var pawn_player=instance_create(0, 0, PawnPlayer);
-var pawn_ai=instance_create(0, 0, Pawn);
+var pawn_player=pawn_create("Bilbo Baggins", PawnPlayer);
+var pawn_ai=pawn_create("Silver");
 
-var lucario=get_pokemon_from_name("Lucario");
-pawn_add_pokemon(pawn_player, lucario, "Ted");
-pawn_add_pokemon(pawn_ai, lucario);
+hello before you run the game you need to copy the addresses of the pokémon belonging to the
+Trainer party to the Pawn party, and call instance_activate_object on them because theyre
+asleep to save cpu cycles
 
 Camera.battle_pawn=pawn_player;
 

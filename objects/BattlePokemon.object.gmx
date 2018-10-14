@@ -78,6 +78,9 @@ position=-1;
 // this is so that the game can know that you've fainted before it executes the action that
 // makes you faint, i.e. to keep fainted pokémon from executing moves or beint targeted by other moves
 flag_downed=false;
+shadow=false;
+ball_type=0;
+shiny=false;
 </string>
           </argument>
         </arguments>

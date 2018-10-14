@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="5" name="datafiles">
-    <datafiles number="5" name="data">
-      <datafiles number="5" name="pbs">
+  <datafiles number="7" name="datafiles">
+    <datafiles number="7" name="data">
+      <datafiles number="7" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -58,6 +58,23 @@
           <filename>types.txt</filename>
         </datafile>
         <datafile>
+          <name>trainertypes.txt</name>
+          <exists>-1</exists>
+          <size>3130</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>trainertypes.txt</filename>
+        </datafile>
+        <datafile>
           <name>items.txt</name>
           <exists>-1</exists>
           <size>75228</size>
@@ -91,6 +108,23 @@
           </ConfigOptions>
           <filename>abilities.txt</filename>
         </datafile>
+        <datafile>
+          <name>trainers.txt</name>
+          <exists>-1</exists>
+          <size>1878</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>trainers.txt</filename>
+        </datafile>
       </datafiles>
     </datafiles>
   </datafiles>
@@ -104,6 +138,9 @@
       </sounds>
       <sound>sound\se_battle_decrease</sound>
       <sound>sound\se_battle_increase</sound>
+    </sounds>
+    <sounds name="bgm">
+      <sound>sound\bgm_silence</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -253,6 +290,7 @@
       <scripts name="monsters">
         <script>scripts\pokemon_auto_moves.gml</script>
       </scripts>
+      <script>scripts\pawn_create.gml</script>
     </scripts>
     <scripts name="math-ish">
       <script>scripts\alive.gml</script>
@@ -276,6 +314,7 @@
         <script>scripts\array_clear_2d.gml</script>
         <script>scripts\ds_list_clone.gml</script>
         <script>scripts\array_clear.gml</script>
+        <script>scripts\array_compose.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">
@@ -319,6 +358,8 @@
     <scripts name="data">
       <scripts name="creation">
         <script>scripts\add_move.gml</script>
+        <script>scripts\add_nature.gml</script>
+        <script>scripts\add_trainer_class.gml</script>
         <script>scripts\add_ability.gml</script>
         <script>scripts\add_pokemon.gml</script>
         <script>scripts\add_type.gml</script>
@@ -329,6 +370,8 @@
           <script>scripts\pbs_read_types.gml</script>
           <script>scripts\pbs_read_pokemon.gml</script>
           <script>scripts\pbs_read_moves.gml</script>
+          <script>scripts\pbs_read_trainer_classes.gml</script>
+          <script>scripts\pbs_read_trainers.gml</script>
           <script>scripts\pbs_read_items.gml</script>
           <script>scripts\pbs_read_abilities.gml</script>
           <script>scripts\pbs_read_move_function_code.gml</script>
@@ -339,6 +382,7 @@
           <script>scripts\const_evolution_methods.gml</script>
           <script>scripts\const_egg_groups.gml</script>
           <script>scripts\const_item_pockets.gml</script>
+          <script>scripts\const_natures.gml</script>
         </scripts>
         <scripts name="ehh">
           <script>scripts\add_pokemon_add_evolutions.gml</script>
@@ -346,21 +390,44 @@
       </scripts>
       <script>scripts\set_type_matchups.gml</script>
       <scripts name="get data">
+        <scripts name="assets">
+          <script>scripts\get_asset_from_name.gml</script>
+          <script>scripts\get_class_battle_sprite_from_name.gml</script>
+          <script>scripts\get_class_intro_me_from_name.gml</script>
+          <script>scripts\get_class_victory_bgm_from_name.gml</script>
+          <script>scripts\get_class_battle_bgm_from_name.gml</script>
+        </scripts>
         <script>scripts\get_ability_from_name.gml</script>
-        <script>scripts\get_item_pocket_from_name.gml</script>
-        <script>scripts\get_item_from_name.gml</script>
-        <script>scripts\get_pokemon_from_name.gml</script>
         <script>scripts\get_egg_group_from_name.gml</script>
         <script>scripts\get_evolution_method_from_name.gml</script>
         <script>scripts\get_generic_from_name.gml</script>
+        <script>scripts\get_trainer_from_name.gml</script>
+        <script>scripts\get_item_from_name.gml</script>
+        <script>scripts\get_item_pocket_from_name.gml</script>
         <script>scripts\get_move.gml</script>
+        <script>scripts\get_nature.gml</script>
         <script>scripts\get_move_from_name.gml</script>
+        <script>scripts\get_nature_from_name.gml</script>
         <script>scripts\get_pokemon.gml</script>
+        <script>scripts\get_pokemon_from_name.gml</script>
         <script>scripts\get_type.gml</script>
+        <script>scripts\get_trainer_class.gml</script>
+        <script>scripts\get_trainer.gml</script>
         <script>scripts\get_type_from_name.gml</script>
+        <script>scripts\get_trainer_class_from_name.gml</script>
         <scripts name="not data">
           <script>scripts\get_color_from_name.gml</script>
         </scripts>
+      </scripts>
+      <scripts name="pawn stuff">
+        <script>scripts\get_class_battle_sprite.gml</script>
+        <script>scripts\get_class_battle_bgm.gml</script>
+        <script>scripts\get_class_victory_bgm.gml</script>
+        <script>scripts\get_class_intro_me.gml</script>
+        <script>scripts\const_class_battle_sprites.gml</script>
+        <script>scripts\const_class_battle_bgm.gml</script>
+        <script>scripts\const_class_victory_bgm.gml</script>
+        <script>scripts\const_class_intro_me.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -394,6 +461,9 @@
       <object>objects\Struct</object>
       <object>objects\DataMove</object>
       <object>objects\DataItem</object>
+      <object>objects\DataNature</object>
+      <object>objects\DataTrainerClass</object>
+      <object>objects\DataTrainer</object>
       <object>objects\DataEvolutionMethod</object>
       <object>objects\DataType</object>
       <object>objects\DataAbility</object>

@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name="AI Pawn";
-team=noone;
+            <string>event_inherited();
 
-trainer_index=0;
-trainer_id=irandom(1&lt;&lt;16-1);
+name="Pawn";
+class=0;
+version=1;
+
+items=ds_list_create();
 party=ds_list_create();
-
-battle_input_script=battle_input_ai;
 </string>
           </argument>
         </arguments>
@@ -55,8 +55,13 @@ battle_input_script=battle_input_ai;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// it's probably a good idea to iterate over the party and
-// destroy its contents also
+            <string>ds_list_destroy(items);
+
+for (var i=0; i&lt;ds_list_size(party); i++){
+    with (party[| i]){
+        instance_destroy();
+    }
+}
 
 ds_list_destroy(party);
 </string>

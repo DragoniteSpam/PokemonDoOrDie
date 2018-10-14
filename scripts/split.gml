@@ -1,4 +1,4 @@
-/// array split(string, delimiter, as real?, block quotes?);
+/// array split(string, delimiter, [as real?,] [block quotes?]);
 
 var ESCAPE='\';
 var block='';

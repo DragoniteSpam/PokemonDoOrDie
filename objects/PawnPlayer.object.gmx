@@ -31,7 +31,7 @@ name="Player Pawn";
 
 battle_input_script=battle_input_player;
 
-battle_sprite=spr_ethan_back;
+battle_sprite=ClassBattleSprites.PLAYER;
 
 money=500;
 </string>
