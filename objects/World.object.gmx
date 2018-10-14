@@ -35,6 +35,13 @@ message_text_t=0;
 
 var t0=get_timer();
 
+// pawn stuff
+
+all_class_battle_bgm=const_class_battle_bgm();
+all_class_victory_bgm=const_class_victory_bgm();
+all_class_intro_me=const_class_intro_me();
+all_class_battle_sprites=const_class_battle_sprites();
+
 // core stuff
 
 all_evolution_methods=const_evolution_methods();            // dependencies: nothing
@@ -49,15 +56,8 @@ all_moves=pbs_read_moves(".\data\pbs\moves.txt");           // dependencies: typ
 all_items=pbs_read_items(".\data\pbs\items.txt");           // dependencies: moves
 all_pokemon=pbs_read_pokemon(".\data\pbs\monsters.txt");    // dependencies: moves, types, evolutions, items, abilities
 
-all_trainer_classes=pbs_read_trainer_classes(".\data\pbs\trainertypes.txt");
-all_trainers=pbs_read_trainers(".\data\pbs\trainers.txt");
-
-// pawn stuff
-
-all_class_battle_bgm=const_class_battle_bgm();
-all_class_victory_bgm=const_class_victory_bgm();
-all_class_intro_me=const_class_intro_me();
-all_class_battle_sprites=const_class_battle_sprites();
+all_trainer_classes=pbs_read_trainer_classes(".\data\pbs\trainertypes.txt");// dependencies: pawn stuff
+all_trainers=pbs_read_trainers(".\data\pbs\trainers.txt");  // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
 debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 

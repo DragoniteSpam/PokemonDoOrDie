@@ -1,4 +1,4 @@
-/// int recalculate_stat(pkmn, stat);
+/// int recalculate_stat(BattlePokemon, stat);
 
 var base=get_pokemon(argument0.species).base_stat[argument1];
 var iv=argument0.ivs[argument1];

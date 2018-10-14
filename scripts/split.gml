@@ -38,9 +38,6 @@ for (var i=1; i<=string_length(str); i++){
     //  - the previous character is not an escape
     //  - you're not in a block
     if (c==delimiter&&previous!=ESCAPE&&block==''){
-        if (asreal){
-            terms[index]=real(terms[index]);
-        }
         terms[++index]="";
     } else {
         // block if:
@@ -55,6 +52,12 @@ for (var i=1; i<=string_length(str); i++){
         } else {
             terms[index]=terms[index]+string_char_at(str, i);
         }
+    }
+}
+
+if (asreal){
+    for (var i=0; i<array_length_1d(terms); i++){
+        terms[i]=real(terms[i]);
     }
 }
 

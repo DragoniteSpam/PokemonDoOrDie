@@ -1,4 +1,4 @@
-/// void battle_reset_stat_mods(BattlePokemon);
+/// void pokemon_reset_stat_mods(BattlePokemon);
 
 with (argument0){
     recalculate_all_stats(id);

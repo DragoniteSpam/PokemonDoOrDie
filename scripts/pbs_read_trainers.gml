@@ -1,5 +1,6 @@
 /// array pbs_read_trainer_classes(filename);
 // the trainer class pbs is a plain text file that isn't in any conventional format.
+// some of it's csv-ish.
 
 enum PBSParseTrainerState {
     CLASS,
@@ -12,22 +13,24 @@ var state=PBSParseTrainerState.CLASS;
 var state_party_index=0;
 
 var text=file_text_as_list(argument0);
+var trainer_list=ds_list_create();
 
-var array=array_create(ds_list_size(text));
-
-var class, name, version, party_size, items;
-var party=ds_list_create();
+var trainer_class, trainer_name, trainer_version, trainer_items, trainer_party;
 
 for (var i=0; i<ds_list_size(text); i++){
     
     switch (state){
         case PBSParseTrainerState.CLASS:
-            class=get_trainer_class_from_name(text[| i]);
-            name='';
-            version=1;
-            party_size=1;
-            items=array_create(0);
-            ds_list_clear(party);
+            trainer_class=get_trainer_class_from_name(text[| i], true);
+            
+            if (trainer_class==-1){
+                show_error("not a trainer class in pbs trainers.txt: "+text[| i], true);
+            }
+            
+            trainer_name='';
+            trainer_version=1;
+            trainer_items=array_create(0);
+            trainer_party=noone;
             state=PBSParseTrainerState.NAME;
             state_party_index=0;
             break;
@@ -35,37 +38,38 @@ for (var i=0; i<ds_list_size(text); i++){
             var name_split=split(text[| i], ',');
             switch (array_length_1d(name_split)){
                 case 2:
-                    version=real(name_split[2]);
+                    trainer_version=real(name_split[2]);
                 case 1:
-                    name=name_split[0];
+                    trainer_name=name_split[0];
             }
             state=PBSParseTrainerState.SIZE;
             break;
         case PBSParseTrainerState.SIZE:
             var size_split=split(text[| i], ',');
-            party_size=real(size_split[0]);
+            trainer_party=array_create(real(size_split[0]));
             var n=array_length_1d(size_split);
             if (n>1){
-                items=array_create(n-1);
-                array_copy(items, 0, size_split, 1, n-1);
+                trainer_items=array_create(n-1);
+                array_copy(trainer_items, 0, size_split, 1, n-1);
             }
             state=PBSParseTrainerState.PARTY;
             break;
         case PBSParseTrainerState.PARTY:
             var terms=split(text[| i], ',');
             
+            var name='';
             var species=0;
             var level=5;
-            var hold_item=0;
-            var moves=noone;
-            var ability=0;
+            var hold_item=-1;
+            var moves=array_create(4);
+            array_clear(moves, -1);
+            var ability=-1;
             var gender=Genders.MALE;
             var form=0;
             var shiny=false;
             var nature=irandom(array_length_1d(all_natures)-1);
-            var iv=10;
+            var ivs=array_compose(10, 10, 10, 10, 10, 10);
             var happiness=70;
-            var nick='';
             var shadow=false;
             var ball=0;
             
@@ -73,76 +77,86 @@ for (var i=0; i<ds_list_size(text); i++){
                 case 17:
                     // at some point you probably want to convert this to the internal item name of the
                     // ball instead and assign a ball id to the item, to keep things simple
-                    ball=real(terms[16]);
+                    if (string_length(terms[16])>0){
+                        ball=real(terms[16]);
+                    }
                 case 16:
-                    shadow=real(terms[15]);
+                    if (string_length(terms[15])>0){
+                        shadow=boolean(terms[15]);
+                    }
                 case 15:
-                    all right im going to sleep, make sure "party" is a property of DataTrainer that gets copied
-                    onto each Pawn during battle instead of a property of Pawn
-                    
-                    therefore pawn_add_pokemon should probably to recast to trainer_add_pokemon
-                    
-                    also the player should probably be a mutable trainer, whose party and stuff gets modified,
-                    so we only have to write one system for managing parties instead of two
-                    
-                    also also instead of this whole great massive switch tree, just instantiate a pokémon of
-                    type terms[0] and level terms[1] and modify its properties from there (all initial values can
-                    be calculated knowing only those two values)
-                    
-                    i think thats it
+                    name=terms[14];
+                case 14:
+                    if (string_length(terms[13])>0){
+                        happiness=real(terms[13]);
+                    }
+                case 13:
+                    if (string_length(terms[12])>0){
+                        array_clear(ivs, real(terms[12]));
+                    }
+                case 12:
+                    nature=get_nature_from_name(terms[11]);
+                case 11:
+                    shiny=string_lower(terms[10])=="shiny";
+                case 10:
+                    if (string_length(terms[9])>0){
+                        form=real(terms[9]);
+                    }
+                case 9:
+                    if (string_lower(terms[8])=='m'){
+                        gender=Genders.MALE;
+                    } else if (string_lower(terms[8])=='f'){
+                        gender=Genders.FEMALE;
+                    }
+                case 8:
+                    if (string_length(terms[7])>0){
+                        ability=real(terms[7]);
+                    }
+                case 7:
+                    moves[3]=get_move_from_name(terms[6], true);
+                case 6:
+                    moves[2]=get_move_from_name(terms[5], true);
+                case 5:
+                    moves[1]=get_move_from_name(terms[4], true);
+                case 4:
+                    moves[0]=get_move_from_name(terms[3], true);
+                case 3:
+                    hold_item=get_item_from_name(terms[2], true);
+                case 2:
+                    if (string_length(terms[1])>0){
+                        level=real(terms[1]);
+                    }
+                case 1:
+                    species=get_pokemon_from_name(terms[0], true);
             }
             
-            if (++state_party_index==party_size){
+            var ev_value=min(85, floor(level*1.5));
+            var evs=array_compose(ev_value, ev_value, ev_value, ev_value, ev_value, ev_value);
+            
+            var base=get_pokemon(species);
+            if (string_length(name)==0){
+                name=base.name;
+            }
+            
+            if (species==-1){
+                show_error("not a pokémon species in pbs trainers.txt: "+terms[0], true);
+            }
+
+            trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), name, moves, hold_item, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
+            
+            if (++state_party_index==array_length_1d(trainer_party)){
+                ds_list_add(trainer_list, add_trainer(trainer_name, trainer_class, trainer_version, trainer_items, trainer_party));
                 state=PBSParseTrainerState.CLASS;
             }
             break;
     }
-    
-    var name='';
-    var internal_name='';
-    var reward=32;
-    var ai=32;
-    var battle_bgm=ClassBattleBGM.SILENCE;
-    var victory_bgm=ClassVictoryBGM.SILENCE;
-    var intro_me=ClassIntroME.SILENCE;
-    var gender=Genders.GENDERLESS;
-    var ai_notes=array_create(0);
-    
-    switch (array_length_1d(terms)){
-        case 10:
-            ai_notes=array_compose(terms[9]);
-        case 9:
-            ai=real(terms[8]);
-        case 8:
-            switch (string_lower(terms[7])){
-                case "male":
-                    gender=Genders.MALE;
-                    break;
-                case "female":
-                    gender=Genders.FEMALE;
-                    break;
-                case "genderless":
-                    gender=Genders.GENDERLESS;
-                    break;
-            }
-        case 7:
-            intro_me=get_class_intro_me_from_name(terms[6]);
-        case 6:
-            victory_bgm=get_class_victory_bgm_from_name(terms[5]);
-        case 5:
-            battle_bgm=get_class_battle_bgm_from_name(terms[4]);
-        case 4:
-            reward=real(terms[3]);
-        case 3:
-            name=terms[2];
-        case 2:
-            internal_name=terms[1];
-    }
-    
-    array[i]=add_trainer_class(name, reward, battle_bgm, victory_bgm, intro_me, ai, ai_notes, internal_name);
 }
 
 ds_list_destroy(text);
-ds_list_destroy(party);
+
+// we can't tell the number of trainers in the pbs file based on the number of lines in it
+// so we have to dynamically grow a list first and then convert the list to an array
+var array=ds_list_to_array(trainer_list);
+ds_list_destroy(trainer_list);
 
 return array;

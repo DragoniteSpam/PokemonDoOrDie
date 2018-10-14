@@ -66,34 +66,37 @@ for (var i=0; i<n-1; i++){
     }
     
     var stats=split(ini_read_string(section, "BaseStats", "50,50,50,50,50,50"), ',', true);
+    // essentials formats stats like hp/atk/def/spe/spa/spd but i format them
+    // like hp/atk/def/spa/spd/spe so we have to do a little work
+    array_swap(stats, Stats.SPATTACK, Stats.SPEED);
     
     var gender_string=ini_read_string(section, "GenderRate", "Genderless");
     var gender_rate;
     switch (string_minimal(gender_string)){
         case "alwaysmale":
-            gender_rate=GenderRates.ALWAYSMALE;
+            gender_rate=0;
             break;
         case "femaleoneeighth":
-            gender_rate=GenderRates.FEMALE125;
+            gender_rate=0.125;
             break;
         case "female25percent":
-            gender_rate=GenderRates.FEMALE25;
+            gender_rate=0.25;
             break;
         case "female50percent":
-            gender_rate=GenderRates.FEMALE50;
+            gender_rate=0.5;
             break;
         case "female75percent":
-            gender_rate=GenderRates.FEMALE75;
+            gender_rate=0.75;
             break;
         case "femaleseveneighths":
-            gender_rate=GenderRates.FEMALE875;
+            gender_rate=0.875;
             break;
         case "alwaysfemale":
-            gender_rate=GenderRates.ALWAYSFEMALE;
+            gender_rate=1;
             break;
         case "genderless":
         default:
-            gender_rate=GenderRates.GENDERLESS;
+            gender_rate=-1;
             break;
     }
     
@@ -123,7 +126,10 @@ for (var i=0; i<n-1; i++){
     }
     
     var base_exp=ini_read_real(section, "BaseEXP", 50);
-    var ev_rewards=split(ini_read_string(section, "EffortPoints", "0,1,0,1,0,0"), ',', true);
+    var ev_rewards=split(ini_read_string(section, "EffortPoints", "0,1,0,0,1,0"), ',', true);
+    // and again
+    array_swap(ev_rewards, Stats.SPATTACK, Stats.SPEED);
+    
     var catch_rate=ini_read_real(section, "Rareness", 100);
     var happiness=ini_read_real(section, "Happiness", 70);
     

@@ -33,6 +33,11 @@ trainer_id=irandom(1&lt;&lt;16-1);
 party=ds_list_create();
 
 battle_input_script=battle_input_ai;
+
+// This is a sprite that's (supposed to) get set based on
+// the result of
+// get_class_battle_sprite(get_trainer_class(get_trainer(trainer_id).class).battle_sprite)
+battle_sprite=spr_ethan_back;
 </string>
           </argument>
         </arguments>

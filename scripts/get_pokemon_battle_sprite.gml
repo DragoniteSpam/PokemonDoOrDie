@@ -5,6 +5,8 @@ enum SpriteSides {
     BACK
 }
 
+// todo stuff here based on gender, shiny, form and maybe a few other things
+
 switch (argument1){
     case SpriteSides.FRONT:
         return get_pokemon(argument0).spr_front;

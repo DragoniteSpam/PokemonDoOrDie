@@ -145,8 +145,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_window9s_hgss</sprite>
-    <sprite>sprites\spr_back_lucario</sprite>
-    <sprite>sprites\spr_front_lucario</sprite>
+    <sprite>sprites\spr_pokemon_unknown</sprite>
     <sprite>sprites\spr_select</sprite>
     <sprite>sprites\spr_silver_front</sprite>
     <sprite>sprites\spr_ethan_back</sprite>
@@ -250,7 +249,6 @@
       <script>scripts\battle_status.gml</script>
       <script>scripts\battle_get_hit.gml</script>
       <script>scripts\battle_continue.gml</script>
-      <script>scripts\battle_reset_stat_mods.gml</script>
       <script>scripts\battle_prioritize.gml</script>
       <scripts name="graphics">
         <scripts name="animation">
@@ -286,9 +284,13 @@
       </scripts>
     </scripts>
     <scripts name="pawn stuff">
-      <script>scripts\pawn_add_pokemon.gml</script>
+      <script>scripts\add_trainer_pokemon.gml</script>
+      <script>scripts\attach_pokemon_to_trainer.gml</script>
       <scripts name="monsters">
         <script>scripts\pokemon_auto_moves.gml</script>
+        <script>scripts\pokemon_auto_stats.gml</script>
+        <script>scripts\pokemon_reset_stat_mods.gml</script>
+        <script>scripts\pokemon_teach_move.gml</script>
       </scripts>
       <script>scripts\pawn_create.gml</script>
     </scripts>
@@ -311,10 +313,12 @@
       <script>scripts\get_progress_bar_scroll_rate.gml</script>
       <script>scripts\get_progress_bar_scroll_time.gml</script>
       <scripts name="data structures">
-        <script>scripts\array_clear_2d.gml</script>
-        <script>scripts\ds_list_clone.gml</script>
         <script>scripts\array_clear.gml</script>
+        <script>scripts\array_clear_2d.gml</script>
         <script>scripts\array_compose.gml</script>
+        <script>scripts\ds_list_clone.gml</script>
+        <script>scripts\ds_list_to_array.gml</script>
+        <script>scripts\array_swap.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">
@@ -332,6 +336,7 @@
         <script>scripts\string_minimal.gml</script>
       </scripts>
       <script>scripts\hex.gml</script>
+      <script>scripts\boolean.gml</script>
       <script>scripts\is_clamped.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
@@ -340,7 +345,6 @@
     <script>scripts\ds_list_max_width.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>
     <scripts name="graphics">
-      <script>scripts\get_pokemon_battle_sprite.gml</script>
       <script>scripts\draw_health_bar.gml</script>
       <script>scripts\draw_exp_bar.gml</script>
       <scripts name="effects">
@@ -358,6 +362,7 @@
     <scripts name="data">
       <scripts name="creation">
         <script>scripts\add_move.gml</script>
+        <script>scripts\add_trainer.gml</script>
         <script>scripts\add_nature.gml</script>
         <script>scripts\add_trainer_class.gml</script>
         <script>scripts\add_ability.gml</script>
@@ -391,30 +396,33 @@
       <script>scripts\set_type_matchups.gml</script>
       <scripts name="get data">
         <scripts name="assets">
+          <script>scripts\get_pokemon_battle_sprite.gml</script>
           <script>scripts\get_asset_from_name.gml</script>
+          <script>scripts\get_class_battle_bgm_from_name.gml</script>
           <script>scripts\get_class_battle_sprite_from_name.gml</script>
           <script>scripts\get_class_intro_me_from_name.gml</script>
           <script>scripts\get_class_victory_bgm_from_name.gml</script>
-          <script>scripts\get_class_battle_bgm_from_name.gml</script>
         </scripts>
+        <script>scripts\get_ability.gml</script>
         <script>scripts\get_ability_from_name.gml</script>
         <script>scripts\get_egg_group_from_name.gml</script>
         <script>scripts\get_evolution_method_from_name.gml</script>
         <script>scripts\get_generic_from_name.gml</script>
-        <script>scripts\get_trainer_from_name.gml</script>
         <script>scripts\get_item_from_name.gml</script>
         <script>scripts\get_item_pocket_from_name.gml</script>
         <script>scripts\get_move.gml</script>
-        <script>scripts\get_nature.gml</script>
         <script>scripts\get_move_from_name.gml</script>
+        <script>scripts\get_nature.gml</script>
         <script>scripts\get_nature_from_name.gml</script>
         <script>scripts\get_pokemon.gml</script>
         <script>scripts\get_pokemon_from_name.gml</script>
-        <script>scripts\get_type.gml</script>
-        <script>scripts\get_trainer_class.gml</script>
         <script>scripts\get_trainer.gml</script>
-        <script>scripts\get_type_from_name.gml</script>
+        <script>scripts\get_trainer_class.gml</script>
         <script>scripts\get_trainer_class_from_name.gml</script>
+        <script>scripts\get_trainer_from_data.gml</script>
+        <script>scripts\get_trainer_from_name.gml</script>
+        <script>scripts\get_type.gml</script>
+        <script>scripts\get_type_from_name.gml</script>
         <scripts name="not data">
           <script>scripts\get_color_from_name.gml</script>
         </scripts>

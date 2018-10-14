@@ -30,12 +30,11 @@ instance_create(0, 0, World);
 
 instance_create(0, 0, Battle);
 
-var pawn_player=pawn_create("Bilbo Baggins", PawnPlayer);
-var pawn_ai=pawn_create("Silver");
+(get_trainer_class(get_trainer_class_from_name("PLAYERPAWN", true))).battle_sprite=ClassBattleSprites.PLAYER;
+(get_trainer_class(get_trainer_class_from_name("PAWN", true))).battle_sprite=ClassBattleSprites.RIVAL;
 
-hello before you run the game you need to copy the addresses of the pokémon belonging to the
-Trainer party to the Pawn party, and call instance_activate_object on them because theyre
-asleep to save cpu cycles
+var pawn_player=pawn_create("PLAYERPAWN", "Bilbo Baggins", 1, PawnPlayer);
+var pawn_ai=pawn_create("PAWN", "Silver");
 
 Camera.battle_pawn=pawn_player;
 

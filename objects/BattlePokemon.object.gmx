@@ -53,16 +53,21 @@ previous_moves=ds_list_create();
 
 gender=Genders.MALE;
 status=MajorStatus.NONE;
+item=0;
+form=0;
+
+// the ability is an index 0..max ability index, not 0..size of
+// base ability list, because a pokémon's ability can be changed
+// during battle (Simple, etc)
+ability=0;
+// this is the one that goes 0..size of base ability index
+default_ability=0;
 
 experience=get_experience(20, get_pokemon(species).growth_rate);
 
-evs=array_create(6);
-ivs=array_create(6);
-
-for (var i=0; i&lt;6; i++){
-    evs[i]=0;
-    ivs[i]=irandom(31);
-}
+evs=array_compose(0, 0, 0, 0, 0, 0);
+ivs=array_compose(irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1),
+    irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1));
 
 // there are a few cases in which your individual types can be modified
 // in battle (but they're not very common)
@@ -78,6 +83,8 @@ position=-1;
 // this is so that the game can know that you've fainted before it executes the action that
 // makes you faint, i.e. to keep fainted pokémon from executing moves or beint targeted by other moves
 flag_downed=false;
+
+// some more things
 shadow=false;
 ball_type=0;
 shiny=false;
