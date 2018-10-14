@@ -33,8 +33,9 @@ instance_create(0, 0, Battle);
 var pawn_player=instance_create(0, 0, PawnPlayer);
 var pawn_ai=instance_create(0, 0, Pawn);
 
-pawn_add_pokemon(pawn_player, 0, "Ted");
-pawn_add_pokemon(pawn_ai, 0, "Lucario");
+var lucario=get_pokemon_from_name("Lucario");
+pawn_add_pokemon(pawn_player, lucario, "Ted");
+pawn_add_pokemon(pawn_ai, lucario);
 
 Camera.battle_pawn=pawn_player;
 

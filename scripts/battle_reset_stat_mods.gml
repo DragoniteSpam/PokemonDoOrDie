@@ -5,8 +5,8 @@ with (argument0){
         mods[i]=0;
     }
     
-    ds_list_clear(type);
-    type=ds_list_clone(get_pokemon(species).type);
+    ds_list_clear(types);
+    types=ds_list_clone(get_pokemon(species).types);
     
     flag_downed=false;
 }

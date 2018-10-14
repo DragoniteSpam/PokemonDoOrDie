@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,33 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// essential variables that all things need to have
+            <string>event_inherited();
 
-name="";
-summary="";
+name="Base Item";
+internal_name="BASEITEM";
+summary="it doesnt do anything";
+plural="Base Items";
 
-pbs_internal_name="";
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// more misc constants
+pocket=ItemPockets.ITEMS;
+price=500;
+
+overworld=0;
+battle=0;
+special=0;
+
+// ordinarily the id of the move that the tm/hm attaches to this item
+// but not necessarily
+value=0;
 </string>
           </argument>
         </arguments>

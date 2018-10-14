@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 name="Base Move";
+pbs_internal_name="BASEMOVE";
 summary="very basic";
 
 type=Types.NORMAL;
@@ -37,6 +38,7 @@ accuracy=100;
 priority=0;
 target=MoveTargets.ADJACENT;
 category=MoveCategories.PHYSICAL;
+flags=0;
 
 effects=ds_list_create();
 effect_odds=ds_list_create();
@@ -65,8 +67,19 @@ animation=ba_move_basic;
             <string>/// constants and stuff
 
 enum MoveTargets {
-    SELF,
     ADJACENT,
+    NONE,
+    ADJACENTRANDOM,
+    ALLOPPONENTS,
+    ALLNONUSER,
+    USER,
+    BATTLEFIELD,
+    USERTEAM,
+    OPPONENTTEAM,
+    PARTNER,
+    SINGLETEAMMATE,
+    SINGLEOPPONENT,
+    SINGLEACROSS
 }
 
 enum MoveCategories {
@@ -75,30 +88,6 @@ enum MoveCategories {
     STATUS,
     PHYSICAL_ATK_SPECIAL_DEF,
     SPECIAL_ATK_PHYSICAL_DEF,
-}
-
-// if you modify the pbs, remember to modify this otherwise you're not going to have a fun time.
-
-enum Types {
-    NORMAL,
-    FIGHTING,
-    FLYING,
-    POISON,
-    GROUND,
-    ROCK,
-    BUG,
-    GHOST,
-    STEEL,
-    QMARKS,
-    FIRE,
-    WATER,
-    GRASS,
-    ELECTRIC,
-    PSYCHIC,
-    ICE,
-    DRAGON,
-    DARK,
-//    FAIRY,    // vanilla pbs does not have this data so we'll leave it out
 }
 </string>
           </argument>

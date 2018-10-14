@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 name="Base Pokemon";
+kind="Base";
 summary="very basic";
 
 base_stat=array_create(6);
@@ -38,17 +39,51 @@ base_stat[Stats.SPATTACK]=60;
 base_stat[Stats.SPDEFENSE]=60;
 base_stat[Stats.SPEED]=60;
 
-// you can theoretically have as many types as you want, althoguh i warn you,
+// you can theoretically have as many types as you want, although i warn you,
 // more than two is probably not a good idea
-type=ds_list_create();
-ds_list_add(type, Types.FIGHTING);
-ds_list_add(type, Types.STEEL);
+types=ds_list_create();
+abilities=ds_list_create();
+hidden_abilities=ds_list_create();
+moves=ds_list_create();
+move_levels=ds_list_create();
+egg_moves=ds_list_create();
+egg_groups=ds_list_create();
+
+indices=ds_list_create();
+evolutions=ds_list_create();
 
 spr_front=spr_front_lucario;
 spr_back=spr_back_lucario;
 
+gender=0.5; // -1 means genderless, 0 means all male, 0.5 means 50/50, 1 means all female
 growth_rate=GrowthRates.MEDIUM_SLOW;
 reward_exp=50;
+catch_rate=100;
+happiness=70;
+egg_steps=6000;
+
+reward_ev[Stats.HP]=0;
+reward_ev[Stats.ATTACK]=0;
+reward_ev[Stats.DEFENSE]=0;
+reward_ev[Stats.SPATTACK]=0;
+reward_ev[Stats.SPDEFENSE]=0;
+reward_ev[Stats.SPEED]=0;
+
+height=1;
+weight=10;
+color=c_white;
+shape=1;
+habitat=Habitats.GRASSLAND;
+incense=-1;
+
+wild_items=array_create(100);
+
+form_name="";
+forms=ds_map_create();
+
+// ehh
+
+pbs_internal_name="BASEPOKEMON";
 </string>
           </argument>
         </arguments>
@@ -85,6 +120,69 @@ enum GrowthRates {
     SLOW,
     FLUCTUATING,
 }
+
+enum GenderRates {
+    ALWAYSMALE,
+    FEMALE125,
+    FEMALE25,
+    FEMALE50,
+    FEMALE75,
+    FEMALE875,
+    ALWAYSFEMALE,
+    GENDERLESS
+}
+
+enum Habitats {
+    CAVE,
+    FOREST,
+    GRASSLAND,
+    MOUNTAIN,
+    RARE,
+    ROUGHTERRAIN,
+    SEA,
+    URBAN,
+    WATERSEDGE,
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy(types);
+ds_list_destroy(abilities);
+ds_list_destroy(hidden_abilities);
+ds_list_destroy(moves);
+ds_list_destroy(move_levels);
+ds_list_destroy(egg_moves);
+ds_list_destroy(egg_groups);
+
+ds_list_destroy(indices);
+
+for (var i=0; i&lt;ds_list_size(evolutions); i++){
+    with (evolutions[| i]){
+        instance_destroy();
+    }
+}
+ds_list_destroy(evolutions);
+
+ds_map_destroy(forms);
 </string>
           </argument>
         </arguments>

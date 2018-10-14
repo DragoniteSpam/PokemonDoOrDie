@@ -44,14 +44,12 @@ for (var i=0; i&lt;8; i++){
     mods[i]=0;
 }
 
-moves=array_create(4);
-for (var i=0; i&lt;4; i++){
+moves=array_create(MOVE_LIMIT);
+for (var i=0; i&lt;MOVE_LIMIT; i++){
     moves[i]=noone;
 }
-moves[0]=0;
-moves[1]=1;
-moves[2]=2;
-moves[3]=3;
+
+previous_moves=ds_list_create();
 
 gender=Genders.MALE;
 status=MajorStatus.NONE;
@@ -68,7 +66,7 @@ for (var i=0; i&lt;6; i++){
 
 // there are a few cases in which your individual types can be modified
 // in battle (but they're not very common)
-type=ds_list_clone(get_pokemon(species).type);
+types=ds_list_clone(get_pokemon(species).types);
 
 // todo this
 nature=0;
@@ -143,7 +141,8 @@ enum Stats {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy(type);
+            <string>ds_list_destroy(types);
+ds_list_destroy(previous_moves);
 </string>
           </argument>
         </arguments>

@@ -11,7 +11,8 @@ ds_list_destroy(valid_targets);
 
 // put it all together
 
-battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument1, BattleTargets.OPPONENT, targets, value))
+var moveid=argument1.moves[value];
+battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument1, BattleTargets.OPPONENT, targets, moveid));
 
 // continue:
-battle_debug(argument0.owner.name+" has chosen their move for "+argument1.name);
+battle_debug(argument0.owner.name+" has chosen the move "+get_move(moveid).name+" for "+argument1.name);

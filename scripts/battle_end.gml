@@ -7,5 +7,5 @@ var params=argument0;
 // is finished executing
 
 // for now we just end the game
-
+show_message("That's the battle loop! Hopefully at some point in the future there will be an overworld to return to or something. For now the game is just going to close.");
 game_end();

@@ -27,20 +27,26 @@
             <kind>1</kind>
             <string>singleton();
 
+var f=file_text_open_write(LOG_FILE);
+file_text_close(f);
+
 message_text="";
 message_text_t=0;
 
-all_pokemon=array_create(1);
-all_moves=array_create(4);
+var t0=get_timer();
 
-all_pokemon[0]=instance_create(0, 0, DataPokemon);
+all_evolution_methods=const_evolution_methods();            // dependencies: nothing
+all_egg_groups=const_egg_groups();                          // dependencies: nothing
+all_item_pockets=const_item_pockets();                      // dependencies: nothing
 
-all_moves[0]=add_move("Swords Dance", Types.NORMAL, MoveCategories.STATUS, 20, 0, 0, 0, MoveTargets.SELF, "A frenetic dance to uplift the fighting spirit. This sharply raises the user's Attack stat.", ba_move_swords_dance, be_attack_raise_1, 100);
-all_moves[1]=add_move("Power-Up Punch", Types.FIGHTING, MoveCategories.PHYSICAL, 20, 40, 100, 0, MoveTargets.ADJACENT, "Striking opponents over and over makes the user's fists harder. Hitting a target raises the Attack stat.", ba_move_punch, be_attack_raise_1, 100);
-all_moves[2]=add_move("Metal Claw", Types.STEEL, MoveCategories.PHYSICAL, 35, 50, 95, 0, MoveTargets.ADJACENT, "The target is raked with steel claws. This may also raise the user's Attack stat.", ba_move_claw, be_attack_raise_1, 10);
-all_moves[3]=add_move("Quick Attack", Types.NORMAL, MoveCategories.PHYSICAL, 30, 40, 100, 1, MoveTargets.ADJACENT, "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.", ba_move_quick_attack);
+all_types=pbs_read_types(".\data\pbs\types.txt");           // dependencies: nothing
+all_abilities=pbs_read_abilities(".\data\pbs\abilities.txt");// dependencies: nothing
 
-all_types=pbs_read_types(".\pbs\types.txt");
+all_moves=pbs_read_moves(".\data\pbs\moves.txt");           // dependencies: types
+all_items=pbs_read_items(".\data\pbs\items.txt");           // dependencies: moves
+all_pokemon=pbs_read_pokemon(".\data\pbs\monsters.txt");    // dependencies: moves, types, evolutions, items, abilities
+
+debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 
 // color values came from bulbapedia
 all_types[Types.NORMAL].color=$A8A878;
@@ -59,7 +65,7 @@ all_types[Types.PSYCHIC].color=$F8D030;
 all_types[Types.ICE].color=$F85888;
 all_types[Types.DRAGON].color=$98D8D8;
 all_types[Types.DARK].color=$705848;
-//all_types[Types.FAIRY].color=$EE99AC; // fairy not implemented in the pbs
+//all_types[Types.FAIRY].color=$EE99AC; // fairy not implemented in the pbs but you can add it if you want
 all_types[Types.QMARKS].color=$68A090;
 
 /*
