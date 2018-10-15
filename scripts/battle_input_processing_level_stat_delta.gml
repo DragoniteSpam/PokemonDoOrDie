@@ -33,5 +33,4 @@ draw_selection_arrow(box_x+UI_TEXT_BOX_OFFSET_W/*+UI_TEXT_BOX_BUFFER/2*/, box_y+
 
 if (keyboard_check_released(vk_enter)){
     Battle.input_stage=BattleInputStages.LEVEL_STAT_TOTAL;
-//    battle_debug("player has viewed the level stat delta screen for "+pkmn.name);
 }

@@ -32,6 +32,7 @@ file_text_close(f);
 
 message_text="";
 message_text_t=0;
+message_wait=0;
 
 var t0=get_timer();
 
@@ -202,45 +203,60 @@ for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
 
 message_text_t=min(message_length, ++message_text_t);
 
-if (message_text_t==message_length){
-    // among other things, this probably needs to have a period of one second instead of two,
-    // and probably should be placed underneath the final line of text
-    /*if (current_second%2==0){
-        draw_sprite_ext(spr_select, 0, room_width-2*UI_TEXT_BOX_OFFSET_W, room_height-2*UI_TEXT_BOX_OFFSET_H, 2, 2, 270, c_white, 1);
-    }*/
-    if (Battle.input_processing!=noone){
-        battle_input_processing();
-    }
-}
-
 /*
- * Game Maker gurus do not like game logic in the Draw event.
- * I do not like Game Maker gurus. Actually, yes I do. But I don't
- * like their stance on game logic in the Draw event, at least,
- * not when there's only one active view. In libgdx and probably
- * some other frameworks/engines they're basically the same thing.
- *
- * By the way, don't use more than one view in this game unless
- * you have a really good idea about what you're doing, you'll 
- * most probably break things.
+ * ALL INPUT GOES BELOW THIS LINE
  */
 
-if (Battle.input_ready){
-    // if input processing is going on, the action button is handled in the script that draws the options on the screen, 'cause i'm a good engineer
-    if (keyboard_check_released(vk_enter)&amp;&amp;Battle.input_processing==noone){
-        if (message_text_t&lt;message_length){
-            message_text_t=message_length;
-        } else {
-            clear();
-            with (Battle){
-                battle_advance();
+if (message_wait==0){
+    if (message_text_t==message_length){
+        // among other things, this probably needs to have a period of one second instead of two,
+        // and probably should be placed underneath the final line of text (or at the end of it)
+        /*if (current_second%2==0){
+            draw_sprite_ext(spr_select, 0, room_width-2*UI_TEXT_BOX_OFFSET_W, room_height-2*UI_TEXT_BOX_OFFSET_H, 2, 2, 270, c_white, 1);
+        }*/
+        // in some circumstances input_processing can be reset in the battle input processing
+        // script, which will cause both input processing parts of this code to execute, which
+        // isn't supposed to happen. to solve that we save the state of that variable before
+        // we do anything to it.
+        var input_has_been_processed=Battle.input_processing!=noone;
+        if (input_has_been_processed){
+            battle_input_processing();
+        }
+    }
+    
+    /*
+     * Game Maker gurus do not like game logic in the Draw event.
+     * I do not like Game Maker gurus. Actually, yes I do. But I don't
+     * like their stance on game logic in the Draw event, at least,
+     * not when there's only one active view. In libgdx and probably
+     * some other frameworks/engines they're basically the same thing.
+     *
+     * By the way, don't use more than one view in this game unless
+     * you have a really good idea about what you're doing, you'll 
+     * most probably break things.
+     */
+    
+    if (Battle.input_ready){
+        // if input processing is going on, the action button is handled in the script that draws the options on the screen, 'cause i'm a good engineer
+        if (keyboard_check_released(vk_enter)){
+            if (/*Battle.input_processing==noone*/!input_has_been_processed){
+                if (message_text_t&lt;message_length){
+                    message_text_t=message_length;
+                } else {
+                    clear();
+                    with (Battle){
+                        battle_advance();
+                    }
+                }
             }
+        }
+    } else {
+        with (Battle){
+            battle_process();
         }
     }
 } else {
-    with (Battle){
-        battle_process();
-    }
+    message_wait=max(message_wait-dt, 0);
 }
 </string>
           </argument>

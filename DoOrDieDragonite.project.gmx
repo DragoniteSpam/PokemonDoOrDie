@@ -215,6 +215,7 @@
         </scripts>
         <scripts name="individual actions">
           <script>scripts\battle_individual_action_text.gml</script>
+          <script>scripts\battle_individual_action_wait.gml</script>
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
           <script>scripts\battle_individual_action_animation_move.gml</script>
@@ -344,6 +345,7 @@
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
+    <script>scripts\wait.gml</script>
     <script>scripts\debug.gml</script>
     <script>scripts\ds_list_max_width.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>

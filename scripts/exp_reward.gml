@@ -14,7 +14,7 @@ var s=2;    // no exp share:
             // exp all:
             //   - something else, deal with it later
             // THIS WILL REQUIRE THIS FUNCTION TO TAKE MORE PARAMETERS EVENTUALLY
-var t=1;    // 1 if this is ot, 1.5 if domestically obtained, 1.7 if internationally obtained
+var t=1;    // 1 if this bis ot, 1.5 if domestically obtained, 1.7 if internationally obtained
 var v=1;    // 1.2 if should have evolved and gen 6+ rules, 1 otherwise
 
 var level=get_level(argument0.experience, get_pokemon(argument0.species).growth_rate);
