@@ -445,11 +445,16 @@
         <script>scripts\const_class_intro_me.gml</script>
       </scripts>
     </scripts>
+    <scripts name="menu stuff">
+      <script>scripts\menu_input.gml</script>
+      <script>scripts\draw_menu_from_list.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
     <font>fonts\FPokemonMedium</font>
     <font>fonts\FPokemonLarge</font>
+    <font>fonts\FPokemonMediumLarge</font>
     <font>fonts\FPokemonHuge</font>
   </fonts>
   <objects name="objects">
@@ -512,7 +517,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="31">
+  <constants number="29">
+    <constant name="UI_TEXT_BOX_OFFSET_H">32</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
@@ -535,13 +541,10 @@
     <constant name="UI_BATTLE_HUD_BUFFER_Y">64</constant>
     <constant name="UI_BATTLE_HUD_HEIGHT">128</constant>
     <constant name="UI_BATTLE_HUD_WIDTH">400</constant>
-    <constant name="UI_TEXT_BOX_BUFFER">32</constant>
     <constant name="UI_TEXT_BOX_HEIGHT">160</constant>
-    <constant name="UI_TEXT_BOX_OFFSET_H">32</constant>
     <constant name="UI_TEXT_BOX_OFFSET_W">32</constant>
     <constant name="UI_TEXT_BOX_WIDTH">room_width</constant>
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
-    <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
     <constant name="UI_TEXT_WIDTH">room_width*2/3</constant>
     <constant name="W">room_width</constant>
   </constants>

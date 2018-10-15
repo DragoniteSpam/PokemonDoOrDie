@@ -199,34 +199,9 @@ draw_set_valign(fa_top);
 draw_set_color(c_black);
 
 var message_length=string_length(message_text);
+var option_max_n=ds_list_size(message_options);
 
 draw_text_ext(text_box_start_x+UI_TEXT_BOX_OFFSET_W, text_box_start_y+UI_TEXT_BOX_OFFSET_H, string_copy(message_text, 1, message_text_t), -1, UI_TEXT_WIDTH);
-
-/*
- * multiple choice things
- */
-
-var option_max_n=ds_list_size(message_options);
-if (option_max_n&gt;0){
-    var max_width=ds_list_max_width(message_options);
-    
-    var box_width=max_width+2*UI_TEXT_BOX_OFFSET_W+UI_TEXT_BOX_BUFFER;
-    var box_height=UI_TEXT_OPTION_HEIGHT*option_max_n+2*UI_TEXT_BOX_OFFSET_H;
-    var box_x=room_width-box_width;
-    var box_y=room_height-box_height;
-    
-    var text_spacing=font_get_size(FPokemonMedium);
-    
-    draw_rectangle_9s(spr_window9s_hgss, box_x, box_y, box_width, box_height);
-    
-    draw_set_valign(fa_middle);
-    
-    for (var i=0; i&lt;option_max_n; i++){
-        draw_text(box_x+UI_TEXT_BOX_BUFFER+UI_TEXT_BOX_OFFSET_W, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*i, message_options[| i]);
-    }
-    
-    draw_selection_arrow(box_x+UI_TEXT_BOX_OFFSET_W/*+UI_TEXT_BOX_BUFFER/2*/, box_y+UI_TEXT_BOX_OFFSET_H+text_spacing/2+UI_TEXT_OPTION_HEIGHT*message_option_index);
-}
 
 for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
     with (Battle.drawables[| i].hud){
@@ -243,6 +218,14 @@ message_text_t=min(message_length, ++message_text_t);
 if (message_wait==0){
     var input_has_been_processed=false;
     if (message_text_t==message_length){
+        /*
+         * multiple choice things
+         */
+        
+        if (option_max_n&gt;0){
+            draw_menu_from_list(message_options, message_option_index);
+        }
+        
         // among other things, this probably needs to have a period of one second instead of two,
         // and probably should be placed underneath the final line of text (or at the end of it)
         /*if (current_second%2==0){
@@ -282,14 +265,8 @@ if (message_wait==0){
                         battle_advance();
                     }
                 }
-            } else if (keyboard_check_released(vk_up)||keyboard_check_released(ord('W'))){
-                message_option_index=max(--message_option_index, 0);
-            } else if (keyboard_check_released(vk_down)||keyboard_check_released(ord('S'))){
-                message_option_index=min(++message_option_index, option_max_n-1);
-            } else if (keyboard_check_released(vk_left)||keyboard_check_released(ord('A'))){
-                message_option_index=0;
-            } else if (keyboard_check_released(vk_right)||keyboard_check_released(ord('D'))){
-                message_option_index=option_max_n-1;
+            } else {
+                message_option_index=menu_input(message_option_index, option_max_n);
             }
         }
     } else {

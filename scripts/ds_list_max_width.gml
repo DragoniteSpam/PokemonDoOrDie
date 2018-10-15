@@ -1,4 +1,5 @@
 /// double ds_list_max_width(list);
+// this depends on having the correct font set. be careful.
 
 var winner=0;
 
