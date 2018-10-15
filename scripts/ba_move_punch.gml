@@ -49,10 +49,8 @@ if (t<t_wait){
     // wait some more
 } else {
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

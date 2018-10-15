@@ -261,15 +261,17 @@ if (message_wait==0){
                     message_text_t=message_length;
                 } else {
                     clear();
-                    with (Battle){
-                        battle_advance();
-                    }
+                    battle_advance();
                 }
             } else {
                 message_option_index=menu_input(message_option_index, option_max_n);
             }
         }
     } else {
+        // I'm PRETTY sure this is going to end up being like animation
+        // effects and stuff. If it does, it should be removed from the
+        // root if/else entirely becuase you'll want it to be executing
+        // continuously.
         with (Battle){
             battle_process();
         }

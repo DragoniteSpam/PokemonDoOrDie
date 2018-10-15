@@ -89,12 +89,11 @@ enum BattleInputStages {
     MOVE,
     ITEM,
     SWITCH,
-    SWITCH_SUMMARY,
-    SWITCH_MOVES,
     FLEE,
     LEVEL_STAT_DELTA,
     LEVEL_STAT_TOTAL,
     // todo other screens such as the "learn a new move" screen
+    SWITCH_BEFORE_TURN,
 }
 </string>
           </argument>

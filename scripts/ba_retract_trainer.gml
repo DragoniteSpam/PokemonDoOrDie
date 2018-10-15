@@ -21,10 +21,8 @@ if (t<transition_time){
 } else {
     user.alpha=0;
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

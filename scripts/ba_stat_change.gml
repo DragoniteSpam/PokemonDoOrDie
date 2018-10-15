@@ -23,10 +23,8 @@ if (t==0){
 } else {
     user.mask_script=null;
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 user.misc_data[? "mask x"]=user.misc_data[? "mask x"]+mask_speed_x*World.dt;

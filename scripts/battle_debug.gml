@@ -5,6 +5,4 @@
 // button has already been pressed by the player.
 
 debug(argument0);
-with (Battle){
-    battle_advance();
-}
+battle_advance();

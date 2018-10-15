@@ -14,10 +14,8 @@ if (t<t_animation){
         instance_destroy();
     }
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

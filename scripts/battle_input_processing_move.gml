@@ -16,6 +16,18 @@ for (var i=0; i<array_length_1d(pkmn.moves); i++){
 
 if (false){
     // todo: move pp
+    var value=get_move_from_name("STRUGGLE", true);
+    // struggle automatically hits a random adjacent foe, if you want to change the
+    // move here, you might want to un-hard code this
+    var valid_targets=battle_get_valid_targets(pkmn, value);
+    var targets=ds_list_create();
+    ds_list_add(targets, valid_targets[| irandom(ds_list_size(valid_targets)-1)]);
+    ds_list_destroy(valid_targets);
+    
+    battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
+    
+    battle_input_processing_reset();
+    
     battle_debug(pkmn.name+" has no valid moves, struggling");
 } else {
     var max_n=ds_list_size(text_list);

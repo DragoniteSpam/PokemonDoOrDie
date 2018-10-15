@@ -11,10 +11,8 @@ if (t<scroll_time&&user.act_hp>0){
     // floating point imprecision or something
     user.act_hp=max(0, floor(misc_data[? "initial"]-amount));
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

@@ -18,10 +18,8 @@ if (t<fade_time){
     user.y=user.y+slide_dist_y*World.dt/(transition_time-still_time);
 } else {
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

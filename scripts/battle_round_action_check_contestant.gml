@@ -42,7 +42,8 @@ if (found==noone){
     if (World.settings.battle.battle_style_shift){
         if (pawn_alive>pawn_slots){
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
-            the game asks, but nothing happens. you should probably make something happen.
+            // currently the game asks but has you switch anyway
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn));
         }
     }
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" sent out "+found.name+"!"));

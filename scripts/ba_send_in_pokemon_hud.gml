@@ -9,10 +9,8 @@ if (t<transition_time){
     user.y=user.y-slide_rate_y*World.dt/transition_time;
 } else {
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

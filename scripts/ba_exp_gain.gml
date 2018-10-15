@@ -32,10 +32,8 @@ if (t<scroll_time&&user.experience<current+gain){
     // system that's already been written
     user.experience=current+gain;
     instance_destroy();
-    with (Battle){
-        input_ready=true;
-        battle_advance();
-    }
+    Battle.input_ready=true;
+    battle_advance();
 }
 
 t=t+World.dt;

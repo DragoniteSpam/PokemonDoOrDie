@@ -1,4 +1,6 @@
 /// void draw_menu_from_list(list, selected index);
+// this only draws the list, it does not control it. you most
+// likely want to use menu_input in conjunction with this.
 
 var max_n=ds_list_size(argument0);
 

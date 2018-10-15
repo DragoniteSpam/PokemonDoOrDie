@@ -1,9 +1,9 @@
 /// list ds_list_clone(list);
+// this doesn't really do anything special, it just makes ds_list_copy
+// slightly shorter.
 
 var list=ds_list_create();
 
-for (var i=0; i<ds_list_size(argument0); i++){
-    ds_list_add(list, argument0[| i]);
-}
+ds_list_copy(list, argument0);
 
 return list;

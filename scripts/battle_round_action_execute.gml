@@ -148,6 +148,4 @@ with (exe){
 }
 
 // continue:
-with (Battle){
-    battle_advance();
-}
+battle_advance();
