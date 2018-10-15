@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>species=0;
+            <string>burnspecies=0;
 name="";
-owner=noone;
+owner=noone;    // the Pawn (this should ONLY be used in battle)
+trainer=noone;  // the DataTrainer
 
 act=array_create(6)
 

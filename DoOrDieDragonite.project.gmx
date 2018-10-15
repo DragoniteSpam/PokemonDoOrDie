@@ -236,7 +236,7 @@
           <script>scripts\battle_get_valid_targets.gml</script>
         </scripts>
       </scripts>
-      <scripts name="input processing">
+      <scripts name="player input processing">
         <script>scripts\battle_input_processing.gml</script>
         <script>scripts\battle_input_processing_grand.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
@@ -291,6 +291,8 @@
         <script>scripts\pokemon_auto_stats.gml</script>
         <script>scripts\pokemon_reset_stat_mods.gml</script>
         <script>scripts\pokemon_teach_move.gml</script>
+        <script>scripts\heal.gml</script>
+        <script>scripts\heal_all.gml</script>
       </scripts>
       <script>scripts\pawn_create.gml</script>
     </scripts>
@@ -501,7 +503,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="30">
+  <constants number="31">
+    <constant name="N">chr($0a)</constant>
     <constant name="LOG_FILE">"log.txt"</constant>
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="MILLION">1000000</constant>

@@ -1,4 +1,4 @@
-/// array battle_get_hit(move, user, target);
+/// array battle_get_hit(move, user, targets);
 
 // this may not be useful but it's good information to have i guess
 var move=argument0;

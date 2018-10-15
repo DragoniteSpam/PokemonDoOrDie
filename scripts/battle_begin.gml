@@ -3,6 +3,7 @@ stage=BattleStages.BEGIN;
 for (var i=0; i<ds_list_size(teams); i++){
     for (var j=0; j<ds_list_size(teams[| i].owner.party); j++){
         pokemon_reset_stat_mods(teams[| i].owner.party[| j]);
+        teams[| i].owner.party[| j].owner=teams[| i].owner;
     }
 }
 

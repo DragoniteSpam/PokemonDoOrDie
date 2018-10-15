@@ -17,6 +17,11 @@ var trainer_list=ds_list_create();
 
 var trainer_class, trainer_name, trainer_version, trainer_items, trainer_party;
 
+// This script does error handling (or lack thereof). I'm going to try to add some
+// kind of validation to the other pbs files at some point but because developers
+// are more likely to mess with the trainer files than the other ones I'm prioritizing these.
+var errors=ds_list_create();
+
 for (var i=0; i<ds_list_size(text); i++){
     
     switch (state){
@@ -24,7 +29,7 @@ for (var i=0; i<ds_list_size(text); i++){
             trainer_class=get_trainer_class_from_name(text[| i], true);
             
             if (trainer_class==-1){
-                show_error("not a trainer class in pbs trainers.txt: "+text[| i], true);
+                ds_list_add(errors, "not a trainer class in pbs trainers.txt: "+text[| i]);
             }
             
             trainer_name='';
@@ -95,7 +100,12 @@ for (var i=0; i<ds_list_size(text); i++){
                         array_clear(ivs, real(terms[12]));
                     }
                 case 12:
-                    nature=get_nature_from_name(terms[11]);
+                    if (string_length(terms[11])>0){
+                        nature=get_nature_from_name(terms[11]);
+                        if (nature==-1){
+                            ds_list_add(errors, "bad nature in pbs trainers.txt: "+terms[11]+" of "+terms[0]);
+                        }
+                    }
                 case 11:
                     shiny=string_lower(terms[10])=="shiny";
                 case 10:
@@ -111,23 +121,54 @@ for (var i=0; i<ds_list_size(text); i++){
                 case 8:
                     if (string_length(terms[7])>0){
                         ability=real(terms[7]);
+                        if (ability==-1){
+                            ds_list_add(errors, "bad ability in pbs trainers.txt: "+terms[7]+" of "+terms[0]);
+                        }
                     }
                 case 7:
-                    moves[3]=get_move_from_name(terms[6], true);
+                    if (string_length(terms[6])>0){
+                        moves[3]=get_move_from_name(terms[6], true);
+                        if (moves[3]==-1){
+                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[6]+" of "+terms[0]);
+                        }
+                    }
                 case 6:
-                    moves[2]=get_move_from_name(terms[5], true);
+                    if (string_length(terms[5])>0){
+                        moves[2]=get_move_from_name(terms[5], true);
+                        if (moves[2]==-1){
+                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[5]+" of "+terms[0]);
+                        }
+                    }
                 case 5:
-                    moves[1]=get_move_from_name(terms[4], true);
+                    if (string_length(terms[4])>0){
+                        moves[1]=get_move_from_name(terms[4], true);
+                        if (moves[1]==-1){
+                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[4]+" of "+terms[0]);
+                        }
+                    }
                 case 4:
-                    moves[0]=get_move_from_name(terms[3], true);
+                    if (string_length(terms[3])>0){
+                        moves[0]=get_move_from_name(terms[3], true);
+                        if (moves[0]==-1){
+                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[3]+" of "+terms[0]);
+                        }
+                    }
                 case 3:
-                    hold_item=get_item_from_name(terms[2], true);
+                    if (string_length(terms[2])>0){
+                        hold_item=get_item_from_name(terms[2], true);
+                        if (hold_item==-1){
+                            ds_list_add(errors, "bad item in pbs trainers.txt: "+terms[2]+" of "+terms[0]);
+                        }
+                    }
                 case 2:
                     if (string_length(terms[1])>0){
                         level=real(terms[1]);
                     }
                 case 1:
                     species=get_pokemon_from_name(terms[0], true);
+                    if (species==-1){
+                        ds_list_add(errors, "not a pokémon species in pbs trainers.txt: "+terms[0]);
+                    }
             }
             
             var ev_value=min(85, floor(level*1.5));
@@ -138,11 +179,9 @@ for (var i=0; i<ds_list_size(text); i++){
                 name=base.name;
             }
             
-            if (species==-1){
-                show_error("not a pokémon species in pbs trainers.txt: "+terms[0], true);
+            if (species>-1){
+                trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), name, moves, hold_item, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
             }
-
-            trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), name, moves, hold_item, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
             
             if (++state_party_index==array_length_1d(trainer_party)){
                 ds_list_add(trainer_list, add_trainer(trainer_name, trainer_class, trainer_version, trainer_items, trainer_party));
@@ -152,11 +191,21 @@ for (var i=0; i<ds_list_size(text); i++){
     }
 }
 
+if (ds_list_size(errors)>0){
+    var error_string='';
+    for (var i=0; i<ds_list_size(errors); i++){
+        error_string=error_string+errors[| i]+N;
+    }
+    show_error(error_string, true);
+}
+
 ds_list_destroy(text);
 
 // we can't tell the number of trainers in the pbs file based on the number of lines in it
 // so we have to dynamically grow a list first and then convert the list to an array
 var array=ds_list_to_array(trainer_list);
 ds_list_destroy(trainer_list);
+
+ds_list_destroy(errors);
 
 return array;

@@ -7,7 +7,7 @@ switch (argument_count){
         position=argument[2];
 }
 
-argument[1].owner=argument[0];
+argument[1].trainer=argument[0];
 if (position<ds_list_size(argument[0].party)){
     ds_list_insert(argument[0].party, position, argument[1]);
 } else {

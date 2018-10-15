@@ -95,5 +95,7 @@ with (instance_create(0, 0, BattlePokemon)){
     // that might get passed in.
     pokemon_auto_stats(id);
     
+    heal(id);
+    
     return id;
 }
