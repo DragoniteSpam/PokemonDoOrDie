@@ -27,6 +27,9 @@ if (t<scroll_time&&user.experience<current+gain){
 } else {
     // cut it off here! don't worry, overflow isn't lost, it's just saved in the command to continue gaining
     // after the level up message has been shown
+    // you could make the argument that it would be smarter to do everything here so you don't need to mess
+    // with multiple scripts/action commands but then i would make the argument that i want to work with the
+    // system that's already been written
     user.experience=current+gain;
     instance_destroy();
     with (Battle){

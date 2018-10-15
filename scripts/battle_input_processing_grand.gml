@@ -1,6 +1,10 @@
 var text_list=ds_list_create();
 ds_list_add(text_list, "Fight!", "Item", "Switch", "Flee");
 
+if (DEBUG){
+    ds_list_add(text_list, "[Idle]");
+}
+
 var max_n=ds_list_size(text_list);
 var max_width=ds_list_max_width(text_list);
 
@@ -46,6 +50,11 @@ if (keyboard_check_released(vk_enter)){
             break;
         case 3:
 //            Battle.input_stage=BattleInputStages.FLEE;
+            break;
+        case 4:
+            battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, BattleTargets.SELF, noone, value));
+            battle_input_processing_reset();
+            battle_debug(pkmn.owner.name+" has chosen to idle for "+pkmn.name);
             break;
     }
 }

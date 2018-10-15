@@ -21,9 +21,7 @@ var level=get_level(argument0.experience, get_pokemon(argument0.species).growth_
 var next=get_experience(level+1, get_pokemon(argument0.species).growth_rate);
 var difference=next-argument0.experience;
 
-return difference*10;
-
-if (World.use_scaled_exp){
+if (World.settings.battle.use_scaled_exp){
     return floor((a*t*b*e*l*p*f*v)/(7*s));
 } else {
     return floor((a*b*l)/(5*s)*(power(3*l+10, 2.5)/power(l+lp+10, 2.5)+1)*t*e*p);

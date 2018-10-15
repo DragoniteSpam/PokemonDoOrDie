@@ -66,7 +66,7 @@ if (false){
             
             battle_input_processing_reset();
             
-            battle_debug("player has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn.name);
+            battle_debug(pkmn.owner.name+" has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn.name);
         }
     }
 }

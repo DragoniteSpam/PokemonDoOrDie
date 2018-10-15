@@ -8,6 +8,8 @@ var n=0;
 var f=0;
 
 switch (argument0.action){
+    case BattleActions.IDLE:
+        return 0;
     case BattleActions.MOVE:
         n=get_move(argument0.value);
         break;

@@ -215,6 +215,7 @@
         </scripts>
         <scripts name="individual actions">
           <script>scripts\battle_individual_action_text.gml</script>
+          <script>scripts\battle_individual_action_question.gml</script>
           <script>scripts\battle_individual_action_wait.gml</script>
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
@@ -345,6 +346,7 @@
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
+    <script>scripts\question.gml</script>
     <script>scripts\wait.gml</script>
     <script>scripts\debug.gml</script>
     <script>scripts\ds_list_max_width.gml</script>
@@ -464,7 +466,6 @@
         <object>objects\BattleAnimator</object>
       </objects>
     </objects>
-    <object>objects\Camera</object>
     <objects name="Core">
       <object>objects\PawnPlayer</object>
       <object>objects\PawnWild</object>
@@ -490,7 +491,6 @@
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>
     </objects>
-    <object>objects\World</object>
     <objects name="Graphics">
       <objects name="2D">
         <object>objects\Effect2D</object>
@@ -500,6 +500,12 @@
         <object>objects\WorldEffect</object>
         <object>objects\WorldEffect2D</object>
       </objects>
+    </objects>
+    <objects name="Other Singletons">
+      <object>objects\World</object>
+      <object>objects\Settings</object>
+      <object>objects\SettingsBattle</object>
+      <object>objects\Camera</object>
     </objects>
   </objects>
   <rooms name="rooms">

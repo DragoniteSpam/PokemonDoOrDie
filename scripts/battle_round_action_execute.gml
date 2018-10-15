@@ -137,6 +137,9 @@ if (!pokemon.flag_downed){
         case BattleActions.FLEE:
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled!"));
             break;
+        case BattleActions.IDLE:
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
+            break;
     }
 }
 
