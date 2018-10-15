@@ -215,14 +215,21 @@ if (message_text_t==message_length){
 
 /*
  * Game Maker gurus do not like game logic in the Draw event.
- * I do not like Game Maker gurus.
+ * I do not like Game Maker gurus. Actually, yes I do. But I don't
+ * like their stance on game logic in the Draw event, at least,
+ * not when there's only one active view. In libgdx and probably
+ * some other frameworks/engines they're basically the same thing.
+ *
+ * By the way, don't use more than one view in this game unless
+ * you have a really good idea about what you're doing, you'll 
+ * most probably break things.
  */
 
 if (Battle.input_ready){
-    if (keyboard_check_pressed(vk_enter)&amp;&amp;Battle.input_processing==noone/*if input processing is going on, the action button is handled in the script that draws the options on the screen, 'cause i'm a good engineer*/){
+    // if input processing is going on, the action button is handled in the script that draws the options on the screen, 'cause i'm a good engineer
+    if (keyboard_check_released(vk_enter)&amp;&amp;Battle.input_processing==noone){
         if (message_text_t&lt;message_length){
             message_text_t=message_length;
-        // } else if (battle processing){
         } else {
             clear();
             with (Battle){

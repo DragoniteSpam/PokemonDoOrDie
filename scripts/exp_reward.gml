@@ -17,6 +17,12 @@ var s=2;    // no exp share:
 var t=1;    // 1 if this is ot, 1.5 if domestically obtained, 1.7 if internationally obtained
 var v=1;    // 1.2 if should have evolved and gen 6+ rules, 1 otherwise
 
+var level=get_level(argument0.experience, get_pokemon(argument0.species).growth_rate);
+var next=get_experience(level+1, get_pokemon(argument0.species).growth_rate);
+var difference=next-argument0.experience;
+
+return difference*10;
+
 if (World.use_scaled_exp){
     return floor((a*t*b*e*l*p*f*v)/(7*s));
 } else {

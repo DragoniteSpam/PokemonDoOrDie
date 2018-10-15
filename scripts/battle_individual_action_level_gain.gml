@@ -1,4 +1,4 @@
-/// void battle_individual_action_exp_gain(BattleIndividualAction);
+/// void battle_individual_action_level_gain(BattleIndividualAction);
 // 0: user
 // 1. old level
 // 2: new level
@@ -9,7 +9,9 @@ var pkmn=params[| 0];
 // todo: ding-ding-ding sound that plays when you learn a new move or
 // gain a level
 
+Battle.input_processing=pkmn;
 Battle.input_stage=BattleInputStages.LEVEL_STAT_DELTA;
+
 Battle.misc_data[? "who"]=params[| 0];
 Battle.misc_data[? "old level"]=params[| 1];
 Battle.misc_data[? "new level"]=params[| 2];

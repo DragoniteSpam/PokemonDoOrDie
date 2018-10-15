@@ -336,6 +336,7 @@
       </scripts>
       <scripts name="string">
         <script>scripts\string_minimal.gml</script>
+        <script>scripts\string_commas.gml</script>
       </scripts>
       <script>scripts\hex.gml</script>
       <script>scripts\boolean.gml</script>
@@ -504,20 +505,20 @@
     <room>rooms\main</room>
   </rooms>
   <constants number="31">
-    <constant name="N">chr($0a)</constant>
-    <constant name="LOG_FILE">"log.txt"</constant>
-    <constant name="MOVE_LIMIT">4</constant>
-    <constant name="MILLION">1000000</constant>
-    <constant name="c_pink">make_color_rgb(255, 105, 180)</constant>
-    <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
+    <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
     <constant name="c_health_high">c_green</constant>
     <constant name="c_health_low">c_red</constant>
     <constant name="c_health_mid">c_yellow</constant>
+    <constant name="c_pink">make_color_rgb(255, 105, 180)</constant>
     <constant name="DEBUG">true</constant>
     <constant name="H">room_height</constant>
+    <constant name="LOG_FILE">"log.txt"</constant>
     <constant name="MAX_LEVEL">100</constant>
+    <constant name="MILLION">1000000</constant>
+    <constant name="MOVE_LIMIT">4</constant>
+    <constant name="N">chr($0a)</constant>
     <constant name="STAT_MOD_LIMIT">6</constant>
     <constant name="TYPE_IMMUNE">0</constant>
     <constant name="TYPE_RESISTED">0.5</constant>
@@ -533,7 +534,7 @@
     <constant name="UI_TEXT_BOX_WIDTH">room_width</constant>
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_OPTION_HEIGHT">36</constant>
-    <constant name="UI_TEXT_WIDTH">room_height*2/3</constant>
+    <constant name="UI_TEXT_WIDTH">room_width*2/3</constant>
     <constant name="W">room_width</constant>
   </constants>
   <help>

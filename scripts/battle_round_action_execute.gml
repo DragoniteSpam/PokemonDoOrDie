@@ -8,6 +8,7 @@ var pokemon=exe.user;
 if (!pokemon.flag_downed){
     switch (exe.action){
         case BattleActions.MOVE:
+            var base=get_pokemon(pokemon.species);
             var move=get_move(exe.value);
             var hit=battle_get_hit(move, pokemon, exe.targets);
             // todo: check for flinches or other conditions which may invalidate the entire turn
@@ -84,24 +85,28 @@ if (!pokemon.flag_downed){
                                         // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
                                         // and if the exp all is turned on
                                         // also you should probably make sure the victorious pokémon(s) are still alive
-                                        var level=get_level(pokemon, get_pokemon(pokemon.species).growth_rate);
+                                        var level=get_level(pokemon.experience, base.growth_rate);
                                         if (level<MAX_LEVEL){
+                                            // todo aggregate experience gain, i.e. if two pokémon go down at the same time you only gain
+                                            // experience once
                                             var exp_gain=exp_reward(pokemon, exe.targets[| i]);
+                                            var exp_next_level=get_experience(level+1, base.growth_rate);
                                             if (exp_gain==1){
                                                 var points="point";
                                             } else {
                                                 var points="points";
                                             }
-                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" gained "+string(exp_gain)+" experience "+points+"!"));
-                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, exp_gain));
-                                            var exp_next_level=get_experience(level+1, get_pokemon(pokemon.species).growth_rate);
+                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" gained "+string_commas(exp_gain, true)+" experience "+points+"!"));
+                                            var to_grow=min(exp_gain, exp_next_level-pokemon.experience);
+                                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, pokemon.experience, to_grow));
                                             if (pokemon.experience+exp_gain>=exp_next_level){
-                                                var new_level=get_level(pokemon.experience, get_pokemon(pokemon.species).growth_rate);
-                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+new_level+"!"));
+                                                var new_level=get_level(pokemon.experience+exp_gain, base.growth_rate);
+                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+string(new_level)+"!"));
                                                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_level_gain, pokemon, level, new_level));
                                                 if (pokemon.experience+exp_gain>exp_next_level){
-                                                    var remainder=pokemon.experience+exp_gain-exp_next_level;
-                                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, remainder));
+                                                    var new_level_exp=get_experience(new_level, base.growth_rate);
+                                                    var remainder=pokemon.experience+exp_gain-new_level_exp;
+                                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, new_level_exp, remainder));
                                                 }
                                                 // todo learning new moves
                                             }

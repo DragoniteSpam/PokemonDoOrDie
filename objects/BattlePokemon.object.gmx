@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>burnspecies=0;
+            <string>species=0;
 name="";
 owner=noone;    // the Pawn (this should ONLY be used in battle)
 trainer=noone;  // the DataTrainer
@@ -64,7 +64,7 @@ ability=0;
 // this is the one that goes 0..size of base ability index
 default_ability=0;
 
-experience=get_experience(20, get_pokemon(species).growth_rate);
+experience=1;
 
 evs=array_compose(0, 0, 0, 0, 0, 0);
 ivs=array_compose(irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1), irandom(1&lt;&lt;5-1),
