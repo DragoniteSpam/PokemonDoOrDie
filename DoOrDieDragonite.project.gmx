@@ -214,17 +214,17 @@
           <script>scripts\battle_action_send_in_leads.gml</script>
         </scripts>
         <scripts name="individual actions">
-          <script>scripts\battle_individual_action_text.gml</script>
-          <script>scripts\battle_individual_action_question.gml</script>
-          <script>scripts\battle_individual_action_switch_before_turn.gml</script>
-          <script>scripts\battle_individual_action_wait.gml</script>
-          <script>scripts\battle_individual_action_stat_change_animation.gml</script>
-          <script>scripts\battle_individual_action_stat_set.gml</script>
           <script>scripts\battle_individual_action_animation_move.gml</script>
           <script>scripts\battle_individual_action_death.gml</script>
-          <script>scripts\battle_individual_action_scroll_health.gml</script>
           <script>scripts\battle_individual_action_exp_gain.gml</script>
           <script>scripts\battle_individual_action_level_gain.gml</script>
+          <script>scripts\battle_individual_action_question.gml</script>
+          <script>scripts\battle_individual_action_scroll_health.gml</script>
+          <script>scripts\battle_individual_action_stat_change_animation.gml</script>
+          <script>scripts\battle_individual_action_stat_set.gml</script>
+          <script>scripts\battle_individual_action_switch_before_turn.gml</script>
+          <script>scripts\battle_individual_action_text.gml</script>
+          <script>scripts\battle_individual_action_wait.gml</script>
         </scripts>
       </scripts>
       <script>scripts\add_battle_round_action.gml</script>
@@ -249,6 +249,7 @@
         <script>scripts\battle_input_processing_reset.gml</script>
         <scripts name="extra controls">
           <script>scripts\battle_input_processing_control_switch_before_turn.gml</script>
+          <script>scripts\battle_input_processing_control_switch_normal.gml</script>
         </scripts>
       </scripts>
       <script>scripts\battle_debug.gml</script>

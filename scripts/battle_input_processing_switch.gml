@@ -11,10 +11,10 @@ ds_list_add(text_list, "Back");
 
 var max_n=ds_list_size(text_list);
 
-draw_menu_from_list(text_list, Battle.input_index);
-Battle.input_index=menu_input(Battle.input_index, max_n);
+draw_menu_from_list(text_list, World.message_option_index);
+World.message_option_index=menu_input(World.message_option_index, max_n);
 
-if (Battle.input_index<max_n-1){
+if (World.message_option_index<max_n-1){
     // todo draw the summary screen, preferably with stats and moves
     // visible at the same time, but if that's not an option, a key to
     // toggle between them

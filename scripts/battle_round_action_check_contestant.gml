@@ -31,19 +31,23 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
     }
 }
 
-// continue: in the message()
-
 if (found==noone){
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" has no more healthy Pokémon!"));
 } else {
-    // if you wanted to do multiplayer (which you do not) you would need to bypass
-    // this line. actually if you wanted to do multiplayer, this line would be the
-    // least of your worries.
-    if (World.settings.battle.battle_style_shift){
-        if (pawn_alive>pawn_slots){
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
-            // currently the game asks but has you switch anyway
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn));
+    if (team.owner==Camera.battle_pawn){
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "You need to send someone in. We'll get to that in a bit, I hope."));
+    } else {
+        // if you wanted to do multiplayer (which you do not) you would need to bypass
+        // this line. actually if you wanted to do multiplayer, this line would be the
+        // least of your worries.
+        if (World.settings.battle.battle_style_shift){
+            // If I recall, you don't get asked to switch in a double battle where you
+            // get two slots on the field.
+            if (pawn_alive>1&&pawn_slots==1){
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
+                // currently the game asks but has you switch anyway
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn));
+            }
         }
     }
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" sent out "+found.name+"!"));

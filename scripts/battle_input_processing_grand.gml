@@ -7,11 +7,11 @@ if (DEBUG){
 
 var max_n=ds_list_size(text_list);
 
-draw_menu_from_list(text_list, Battle.input_index);
-Battle.input_index=menu_input(Battle.input_index, max_n);
+draw_menu_from_list(text_list, World.message_option_index);
+World.message_option_index=menu_input(World.message_option_index, max_n);
 
 if (keyboard_check_released(vk_enter)){
-    switch (Battle.input_index){
+    switch (World.message_option_index){
         case 0:
             Battle.input_stage=BattleInputStages.MOVE;
             break;
@@ -19,7 +19,7 @@ if (keyboard_check_released(vk_enter)){
 //            Battle.input_stage=BattleInputStages.ITEM;
             break;
         case 2:
-//            Battle.input_stage=BattleInputStages.SWITCH;
+            Battle.input_stage=BattleInputStages.SWITCH;
             break;
         case 3:
 //            Battle.input_stage=BattleInputStages.FLEE;

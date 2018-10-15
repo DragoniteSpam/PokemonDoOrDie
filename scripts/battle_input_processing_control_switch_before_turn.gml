@@ -4,26 +4,16 @@
 // the meantime I'm going to hard-code this.
 
 if (keyboard_check_released(vk_enter)){
-    // There are a couple of ways to handle this, some more optimized
-    // than others, none of which I'm a fan of. This one's probably the
-    // least typing though.
-    if (Battle.input_index==ds_list_size(Camera.battle_pawn.party)){
-        switch (Battle.input_stage){
-            case BattleInputStages.SWITCH:
-                // nothing special
-                battle_input_processing_reset();
-                break;
-            case BattleInputStages.SWITCH_BEFORE_TURN:
-                battle_input_processing_reset();
-                battle_advance();
-                break;
-        }
+    if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)||World.message_option_index==0){
+        battle_input_processing_reset();
+        battle_advance();
     } else {
-        switch (Battle.input_stage){
-            case BattleInputStages.SWITCH:
-                break;
-            case BattleInputStages.SWITCH_BEFORE_TURN:
-                break;
-        }
+        // todo in multi battles when all of your front line goes down: mark
+        // BattlePokemon as "selected" when you choose them here so they can't
+        // be sent into both contestant slots at the same time.
+        Battle.misc_data[? string(Camera.battle_pawn)+" new "+string(Battle.input_processing.position)]=World.message_option_index;
+        World.message_option_result=World.message_option_index;
+        battle_input_processing_reset();
+        battle_advance();
     }
 }

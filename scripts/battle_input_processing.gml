@@ -6,6 +6,7 @@ switch (Battle.input_stage){
         battle_input_processing_move();
         break;
     case BattleInputStages.SWITCH:
+        battle_input_processing_switch(battle_input_processing_control_switch_normal);
         break;
     case BattleInputStages.FLEE:
         break;

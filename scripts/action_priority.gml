@@ -11,7 +11,7 @@ switch (argument0.action){
     case BattleActions.IDLE:
         return 0;
     case BattleActions.MOVE:
-        n=get_move(argument0.value);
+        n=get_move(argument0.value).priority;
         break;
     case BattleActions.SWITCH:
         n=20;

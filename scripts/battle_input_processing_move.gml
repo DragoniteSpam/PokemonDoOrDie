@@ -14,6 +14,9 @@ for (var i=0; i<array_length_1d(pkmn.moves); i++){
     }
 }
 
+ds_list_add(move_list, noone);
+ds_list_add(text_list, "(Back)");
+
 if (false){
     // todo: move pp
     var value=get_move_from_name("STRUGGLE", true);
@@ -32,14 +35,19 @@ if (false){
 } else {
     var max_n=ds_list_size(text_list);
     
-    draw_menu_from_list(text_list, Battle.input_index);    
-    Battle.input_index=menu_input(Battle.input_index, max_n);
+    draw_menu_from_list(text_list, World.message_option_index);    
+    World.message_option_index=menu_input(World.message_option_index, max_n);
     
-    if (keyboard_check_released(vk_enter)){
-        if (move_list[| Battle.input_index]==noone){
+    if (keyboard_check_released(vk_escape)){
+        Battle.input_stage=BattleInputStages.GRAND;
+        World.message_option_index=0;
+    } else if (keyboard_check_released(vk_enter)){
+        if (World.message_option_index==MOVE_LIMIT){
+            battle_input_processing_reset();
+        } else if (move_list[| World.message_option_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {
-            var value=move_list[| Battle.input_index];
+            var value=move_list[| World.message_option_index];
             // at some point in the future this needs to be moved to a different script that can
             // account for selecting multiple valid targets
             var valid_targets=battle_get_valid_targets(pkmn, value);
@@ -51,7 +59,7 @@ if (false){
             
             battle_input_processing_reset();
             
-            battle_debug(pkmn.owner.name+" has chosen the move "+text_list[| Battle.input_index]+" for "+pkmn.name);
+            battle_debug(pkmn.owner.name+" has chosen the move "+text_list[| World.message_option_index]+" for "+pkmn.name);
         }
     }
 }

@@ -1,4 +1,4 @@
-/// BattleExecutableAction add_battle_executable_action(action, user, target type, target, value);
+/// BattleExecutableAction add_battle_executable_action(action, user, target type, targets, value);
 
 with (instance_create(0, 0, BattleExecutableAction)){
     action=argument0;

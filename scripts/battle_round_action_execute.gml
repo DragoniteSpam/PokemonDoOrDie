@@ -129,16 +129,16 @@ if (!pokemon.flag_downed){
             }
             break;
         case BattleActions.ITEM:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used a(n) "+World.all_items[exe.value].name+"!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used a(n) "+World.all_items[exe.value].name+"! (Implement this later, please.)"));
             break;
         case BattleActions.SWITCH:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" switched to "+exe.value.name+"!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" switched to "+exe.value.name+"! (Implement this later, please.)"));
             break;
         case BattleActions.FLEE:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled! (Implement this later, please.)"));
             break;
         case BattleActions.IDLE:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around! (Implement this later, please.)"));
             break;
     }
 }

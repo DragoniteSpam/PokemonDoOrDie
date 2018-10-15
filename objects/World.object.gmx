@@ -35,7 +35,17 @@ message_text_t=0;
 message_wait=0;
 message_options=ds_list_create();
 message_option_ids=ds_list_create();
+
+// It makes all the sense in the world for this to be a
+// property of Battle, since (at least for now) these
+// variables are used in relation to that, but later on
+// we're going to need them for dialogue cutscenes and
+// stuff, probably, and I don't want to have two systems
+// that do the exact same thing.
 message_option_index=0;
+// This is supposed to be the "id" stored in message_option_ids
+// but you're allowed to hijack it for other purposes.
+message_option_result=-1;
 
 var t0=get_timer();
 
@@ -260,6 +270,11 @@ if (message_wait==0){
                 if (message_text_t&lt;message_length){
                     message_text_t=message_length;
                 } else {
+                    if (ds_list_size(message_options)&gt;0){
+                        message_option_result=message_option_ids[| message_option_index];
+                    } else {
+                        message_option_result=-1;
+                    }
                     clear();
                     battle_advance();
                 }
@@ -272,9 +287,7 @@ if (message_wait==0){
         // effects and stuff. If it does, it should be removed from the
         // root if/else entirely becuase you'll want it to be executing
         // continuously.
-        with (Battle){
-            battle_process();
-        }
+        battle_process();
     }
 } else {
     message_wait=max(message_wait-dt, 0);
