@@ -13,7 +13,8 @@ if (keyboard_check_released(vk_enter)){
         // be sent into both contestant slots at the same time.
         Battle.misc_data[? string(Camera.battle_pawn)+" new "+string(Battle.input_processing.position)]=World.message_option_index;
         World.message_option_result=World.message_option_index;
-        battle_input_processing_reset();
+        // don't do this quite yet
+        //battle_input_processing_reset();
         battle_advance();
     }
 }

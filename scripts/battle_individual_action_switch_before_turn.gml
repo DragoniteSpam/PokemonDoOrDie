@@ -1,10 +1,13 @@
 /// void battle_individual_action_switch_before_turn(params);
 // (no arguments)
 
+var result=World.message_option_result;
+World.message_option_result=-1;
+
 // This looks extremely bizarre since 0 is usually false and
 // 1 is usually true, but in this case we're actually checking
 // to see if the result is equal to zero.
-if (World.message_option_result==0){
+if (resuilt==0){
     var params=argument0;
     
     Battle.input_stage=BattleInputStages.SWITCH_BEFORE_TURN;
@@ -20,5 +23,6 @@ if (World.message_option_result==0){
     
     message("Who would you like to send in?");
 } else {
+    Battle.misc_data[? string(Camera.battle_pawn)+" new "+string(Battle.input_processing.position)]=noone;
     battle_advance();
 }

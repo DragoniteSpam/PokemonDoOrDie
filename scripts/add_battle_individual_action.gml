@@ -1,4 +1,4 @@
-/// BattleIndividualAction add_battle_individual_action(script, param0 .. paramn);
+/// BattleIndividualAction add_battle_individual_action(script, param0, .. paramn);
 
 with (instance_create(0, 0, BattleIndividualAction)){
     script=argument[0];

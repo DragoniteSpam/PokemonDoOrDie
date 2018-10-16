@@ -1,5 +1,5 @@
 /// void battle_individual_action_death(BattleIndividualAction);
-// 0: targets
+// 0: target
 
 var params=argument0;
 
