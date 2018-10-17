@@ -45,14 +45,17 @@ if (found==noone){
             // get two slots on the field.
             if (pawn_alive>1&&pawn_slots==1){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
-                // currently the game asks but has you switch anyway
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn));
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_execute_switch_before_turn));
+                for (var i=0; i<ds_list_size(Battle.contestants); i++){
+                    if (Battle.contestants[| i].owner==Camera.battle_pawn){
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn, i));
+                    }
+                }
             }
         }
         Battle.contestants[| argument0[| 0]]=found;
     }
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" sent out "+found.name+"!"));
+    // todo animate both the contestant and the hp bar
 }
 
 battle_advance();

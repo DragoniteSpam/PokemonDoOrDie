@@ -33,6 +33,7 @@ file_text_close(f);
 message_text="";
 message_text_t=0;
 message_wait=0;
+message_continue_after_wait=false;
 message_options=ds_list_create();
 message_option_ids=ds_list_create();
 
@@ -291,6 +292,10 @@ if (message_wait==0){
     }
 } else {
     message_wait=max(message_wait-dt, 0);
+    if (message_wait==0&amp;&amp;message_continue_after_wait){
+        message_continue_after_wait=false;
+        battle_advance();
+    }
 }
 </string>
           </argument>

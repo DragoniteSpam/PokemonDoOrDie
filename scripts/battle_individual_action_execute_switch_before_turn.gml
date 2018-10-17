@@ -5,11 +5,20 @@
 // if it means using the queue wrong.
 // (no arguments)
 
-var replacement=Battle.misc_data[? string(Camera.battle_pawn)+" new "+string(Battle.input_processing.position)];
+var replacement=Battle.replacements[| Battle.input_processing.position];
+var party=Camera.battle_pawn.party;
 
 if (replacement!=noone){
+    var replacement_index=-1;
+    for (var i=0; i<ds_list_size(party); i++){
+        if (part[| i]==replacement){
+            replacement_index=i;
+            break;
+        }
+    }
+    // This will break if replacement index isn't found. Try not to let that happen.
     var act_withdraw=add_battle_individual_action(battle_individual_action_withdraw, Battle.input_processing.position);
-    var act_swap=add_battle_individual_action(battle_individual_action_swap, replacement.
+    var act_swap=add_battle_individual_action(battle_individual_action_swap, replacement.position, replacement_index);
 }
 
 battle_advance();

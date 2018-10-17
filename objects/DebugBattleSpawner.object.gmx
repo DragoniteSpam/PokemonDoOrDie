@@ -52,6 +52,7 @@ var team=battle_add_team(pawn_player, SpriteSides.BACK);
 ds_list_add(Battle.teams, team);
 ds_list_add(Battle.contestants, noone);
 ds_list_add(Battle.drawables, battle_add_position(pawn_player, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 90, trans_distance, fade_time, offx, offy));
+ds_list_add(Battle.replacements, noone);
 
 dir=60;
 trans_distance=36;
@@ -63,6 +64,7 @@ team=battle_add_team(pawn_ai, SpriteSides.FRONT);
 ds_list_add(Battle.teams, team);
 ds_list_add(Battle.contestants, noone);
 ds_list_add(Battle.drawables, battle_add_position(pawn_ai, MIDPOINT+dist*dcos(dir), MIDPOINT-dist*dsin(dir), 270, trans_distance, fade_time, offx, offy));
+ds_list_add(Battle.replacements, noone);
 
 with (Battle){
     battle_begin();

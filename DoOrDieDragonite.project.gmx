@@ -189,11 +189,13 @@
       </scripts>
       <scripts name="actions">
         <script>scripts\battle_action_check_contestants.gml</script>
+        <script>scripts\battle_action_check_replacements_before_turn.gml</script>
         <script>scripts\battle_action_evaluate.gml</script>
         <script>scripts\battle_action_input.gml</script>
         <script>scripts\battle_action_execute.gml</script>
         <scripts name="round actions">
           <script>scripts\battle_round_action_check_contestant.gml</script>
+          <script>scripts\battle_round_action_change_contestant.gml</script>
           <script>scripts\battle_round_action_input.gml</script>
           <script>scripts\battle_round_action_text.gml</script>
           <script>scripts\battle_round_action_execute.gml</script>
@@ -202,6 +204,8 @@
           </scripts>
           <scripts name="animation">
             <script>scripts\battle_round_action_anim_retract_trainer.gml</script>
+            <script>scripts\battle_round_action_anim_submit_contestant.gml</script>
+            <script>scripts\battle_round_action_anim_retract_contestant.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_walking.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_hud.gml</script>
             <script>scripts\battle_round_action_anim_send_out_pokemon_hud.gml</script>
@@ -223,7 +227,6 @@
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
           <script>scripts\battle_individual_action_switch_before_turn.gml</script>
-          <script>scripts\battle_individual_action_execute_switch_before_turn.gml</script>
           <script>scripts\battle_individual_action_text.gml</script>
           <script>scripts\battle_individual_action_wait.gml</script>
         </scripts>
@@ -255,6 +258,7 @@
       </scripts>
       <script>scripts\battle_debug.gml</script>
       <script>scripts\add_battle_executable_action.gml</script>
+      <script>scripts\battle_is_on_field.gml</script>
       <script>scripts\battle_status.gml</script>
       <script>scripts\battle_get_hit.gml</script>
       <script>scripts\battle_continue.gml</script>
@@ -262,6 +266,8 @@
       <scripts name="graphics">
         <scripts name="animation">
           <script>scripts\ba_retract_trainer.gml</script>
+          <script>scripts\ba_retract_contestant.gml</script>
+          <script>scripts\ba_submit_contestant.gml</script>
           <script>scripts\ba_trainer_intro.gml</script>
           <script>scripts\ba_death.gml</script>
           <script>scripts\ba_fade.gml</script>
@@ -283,6 +289,7 @@
         <script>scripts\bg_draw_hud.gml</script>
         <scripts name="mask scripts">
           <script>scripts\bm_stat_change.gml</script>
+          <script>scripts\bm_retract_submit.gml</script>
         </scripts>
       </scripts>
       <scripts name="effects">
@@ -330,6 +337,7 @@
         <script>scripts\ds_list_clone.gml</script>
         <script>scripts\ds_list_to_array.gml</script>
         <script>scripts\array_swap.gml</script>
+        <script>scripts\ds_list_swap.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">
@@ -350,6 +358,7 @@
       <script>scripts\hex.gml</script>
       <script>scripts\boolean.gml</script>
       <script>scripts\is_clamped.gml</script>
+      <script>scripts\approach.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
