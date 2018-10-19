@@ -89,6 +89,9 @@ flag_downed=false;
 shadow=false;
 ball_type=0;
 shiny=false;
+
+spr_front=noone;
+spr_back=noone;
 </string>
           </argument>
         </arguments>

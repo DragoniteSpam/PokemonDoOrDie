@@ -1,4 +1,4 @@
-/// sprite get_pokemon_battle_sprite(BattlePokemon, side);
+/// sprite get_pokemon_sprite_hash_f(species, side);
 
 enum SpriteSides {
     FRONT,
@@ -9,7 +9,7 @@ enum SpriteSides {
 
 switch (argument1){
     case SpriteSides.FRONT:
-        return argument0.spr_front;
+        return spr_front;
     case SpriteSides.BACK:
-        return argument0.spr_back;
+        return spr_back;
 }

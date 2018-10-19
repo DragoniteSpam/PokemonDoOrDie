@@ -115,6 +115,10 @@ if (!surface_exists(surface)){
     surface=surface_create(sprite_width, sprite_height);
 }
 
+if (surface_get_width(surface)!=sprite_width||surface_get_height(surface)!=sprite_height){
+    surface_resize(surface, sprite_width, sprite_height);
+}
+
 d3d_end();
 d3d_set_hidden(false);
 

@@ -7,10 +7,11 @@ with (instance_create(0, 0, BattleAnimator)){
     
     user=Battle.drawables[| argument0[| 0]];
     user.alpha=0;
-    user.sprite_index=get_pokemon_battle_sprite(Battle.contestants[| argument0[| 0]].species, team.sprite_side);
+    user.sprite_index=get_pokemon_battle_sprite(Battle.contestants[| argument0[| 0]], team.sprite_side);
     user.image_index=0;
     user.x=user.offscreen_x;
     user.y=user.offscreen_y;
     user.z=user.offscreen_z;
+    user.scale=POKEMON_GLOBAL_SCALE;
     script=ba_send_in_pokemon_walking;
 }

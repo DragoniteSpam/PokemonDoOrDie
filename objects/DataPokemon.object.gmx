@@ -52,9 +52,6 @@ egg_groups=ds_list_create();
 indices=ds_list_create();
 evolutions=ds_list_create();
 
-spr_front=spr_pokemon_unknown;
-spr_back=spr_pokemon_unknown;
-
 gender=0.5; // -1 means genderless, 0 means all male, 0.5 means 50/50, 1 means all female
 growth_rate=GrowthRates.MEDIUM_SLOW;
 reward_exp=50;

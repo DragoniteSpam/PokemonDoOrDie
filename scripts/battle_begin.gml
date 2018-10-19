@@ -2,8 +2,40 @@ stage=BattleStages.BEGIN;
 
 for (var i=0; i<ds_list_size(teams); i++){
     for (var j=0; j<ds_list_size(teams[| i].owner.party); j++){
-        pokemon_reset_stat_mods(teams[| i].owner.party[| j]);
-        teams[| i].owner.party[| j].owner=teams[| i].owner;
+        var pkmn=teams[| i].owner.party[| j];
+        pokemon_reset_stat_mods(pkmn);
+        pkmn.owner=teams[| i].owner;
+        
+        var shf=get_pokemon_sprite_hash(pkmn, SpriteSides.FRONT);
+        var shb=get_pokemon_sprite_hash(pkmn, SpriteSides.BACK);
+        var shf_path=".\data\graphics\battlers\"+shf+".png";
+        var shb_path=".\data\graphics\battlers\"+shb+".png";
+        if (!ds_map_exists(sprite_hash, shf)){
+            if (file_exists(shf_path)){
+                var sf=sprite_add(shf_path, 0, false, false, 0, 0);
+                sprite_set_offset(sf, sprite_get_width(sf)/2, sprite_get_height(sf)*5/6);
+                sprite_hash[? shf]=sf;
+            } else {
+                debug("Could not find: "+shf_path);
+                var sf=spr_pokemon_unknown;
+            }
+            pkmn.spr_front=sf;
+        } else {
+            pkmn.spr_front=sprite_hash[? shf];
+        }
+        if (!ds_map_exists(sprite_hash, shb_path)){
+            if (file_exists(shb_path)){
+                var sb=sprite_add(shb_path, 0, false, false, 0, 0);
+                sprite_set_offset(sb, sprite_get_width(sb)/2, sprite_get_height(sb));
+                sprite_hash[? shb]=sb;
+            } else {
+                debug("Could not find: "+shb_path);
+                var sb=spr_pokemon_unknown;
+            }
+            pkmn.spr_back=sb;
+        } else {
+            pkmn.spr_back=sprite_hash[? shb];
+        }
     }
 }
 

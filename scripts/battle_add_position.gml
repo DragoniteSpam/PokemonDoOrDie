@@ -5,6 +5,8 @@ with (instance_create(argument1, argument2, BattleDrawable)){
     sprite_index=argument0.battle_sprite;
     // this is so it knows which way to animate
     direction=argument3;
+    // leave the scales as the defaults. that is, global = 0.5, xscale = 1, yscale = 1
+    scale=TRAINER_GLOBAL_SCALE;
     // this is the position in the world where the battler is positioned
     battle_x=argument1;
     battle_y=argument2;
