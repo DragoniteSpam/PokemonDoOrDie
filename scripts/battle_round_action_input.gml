@@ -3,6 +3,6 @@
 
 var team=Battle.teams[| argument0[| 0]];
 var pokemon=Battle.contestants[| argument0[| 0]];
-
+//show_message("Setting input for: "+team.name)
 // continue: inside these scripts
 script_execute(team.owner.battle_input_script, team, pokemon);

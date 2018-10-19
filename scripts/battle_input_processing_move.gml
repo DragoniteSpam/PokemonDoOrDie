@@ -39,12 +39,10 @@ if (false){
     World.message_option_index=menu_input(World.message_option_index, max_n);
     
     if (keyboard_check_released(vk_escape)){
-        Battle.input_stage=BattleInputStages.GRAND;
-        World.message_option_index=0;
+        battle_input_processing_reset(false);
     } else if (keyboard_check_released(vk_enter)){
         if (World.message_option_index==MOVE_LIMIT){
-            Battle.input_stage=BattleInputStages.GRAND;
-            World.message_option_index=0;
+            battle_input_processing_reset(false);
         } else if (move_list[| World.message_option_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {

@@ -28,6 +28,8 @@
             <string>name="AI Pawn";
 team=noone;
 
+// this is NOT your trainer class. the trainer class can be found in
+// get_trainer(trainer_index).class
 trainer_index=0;
 trainer_id=irandom(1&lt;&lt;16-1);
 party=ds_list_create();

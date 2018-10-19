@@ -5,8 +5,7 @@ if (keyboard_check_released(vk_enter)){
     var target=Camera.battle_pawn.party[| World.message_option_index];
     
     if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
-        Battle.input_stage=BattleInputStages.GRAND;
-        World.message_option_index=0;
+        battle_input_processing_reset(false);
     } else if (battle_is_on_field(target)){
         message(target.name+" is already in battle!");
     } else if (!alive(target)){

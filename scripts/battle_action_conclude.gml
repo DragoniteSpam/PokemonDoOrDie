@@ -54,6 +54,7 @@ switch (Battle.result){
             ds_queue_enqueue(Battle.round_actions, add_battle_round_action(battle_round_action_text, Camera.battle_pawn.name+" zonked out!"));
             ds_queue_enqueue(Battle.round_actions, add_battle_round_action(battle_fade, c_black, fade_time, 0));
             ds_queue_enqueue(Battle.round_actions, add_battle_round_action(battle_end, false));
+            ds_queue_enqueue(Battle.round_actions, add_battle_round_action(battle_individual_action_wait, 0.25, true));
         }
         break;
     case BattleStatus.DRAW:

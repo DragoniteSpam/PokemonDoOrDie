@@ -28,10 +28,7 @@ if (keyboard_check_released(vk_enter)){
             // be sent into both contestant slots at the same time.
             Battle.replacements[| Battle.misc_data[? "contestant slot to replace"]]=World.message_option_index;
             World.message_option_result=World.message_option_index;
-            Battle.input_stage=BattleInputStages.GRAND;
-            Battle.input_processing=noone;
-            // don't do this quite yet
-            //battle_input_processing_reset();
+            battle_input_processing_reset();
             battle_advance();
         }
     }
