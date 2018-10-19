@@ -5,7 +5,7 @@ var exe=argument0[| 0];
 
 var pokemon=exe.user;
 
-if (!pokemon.flag_downed){
+if (!pokemon.flag_downed&&debug_win==noone){
     switch (exe.action){
         case BattleActions.MOVE:
             var base=get_pokemon(pokemon.species);
@@ -146,6 +146,7 @@ if (!pokemon.flag_downed){
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" has already fainted!"));
                 } else {
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" was removed from the battle. (How horrible!)"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "(No experience was gained.)"));
                     // it seems sort of dumb that you can only modify a pokémon's hp by calling the "scroll health" animation.
                     // i don't know why i did it like that. also, a million is a safely large number that should always exceed
                     // the amount of available hp, but if you do something ridiculous to the scale of the numbers in this game,
@@ -158,6 +159,10 @@ if (!pokemon.flag_downed){
             }
             break;
         case BattleActions.AUTOVICTORY:
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" has forcefully ended the battle. "+pokemon.owner.name+" wins!"));
+            // todo remove (one of) the loser pawns' pokémon from the battlefield, to make room for the pawn's trainer to
+            // show up on the end battle screen
+            debug_win=pokemon.owner;
             break;
     }
 }

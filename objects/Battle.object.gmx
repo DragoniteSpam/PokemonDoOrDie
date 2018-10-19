@@ -50,6 +50,10 @@ individual_actions=ds_queue_create();
 priority=ds_priority_create();
 
 misc_data=ds_map_create();
+
+// debug stuff
+
+debug_win=noone;
 </string>
           </argument>
         </arguments>

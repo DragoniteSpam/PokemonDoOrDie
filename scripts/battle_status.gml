@@ -5,6 +5,10 @@ for (var i=0; i<ds_list_size(Battle.teams); i++){
     }
 }
 
+if (Battle.debug_win!=noone){
+    return BattleStatus.WIN;
+}
+
 switch (still_fighting){
     case 0:
         return BattleStatus.DRAW;

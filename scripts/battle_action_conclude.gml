@@ -7,11 +7,15 @@ switch (Battle.result){
         var victorious=noone;
         var losers=ds_list_create();
         for (var i=0; i<ds_list_size(Battle.teams); i++){
-            for (var j=0; j<ds_list_size(Battle.teams[| i].owner.party); j++){
-                if (alive(Battle.teams[| i].owner.party[| j])){
-                    victorious=Battle.teams[| i].owner;
-                    continue;
+            if (Battle.debug_win==noone){
+                for (var j=0; j<ds_list_size(Battle.teams[| i].owner.party); j++){
+                    if (alive(Battle.teams[| i].owner.party[| j])){
+                        victorious=Battle.teams[| i].owner;
+                        continue;
+                    }
                 }
+            } else {
+                victorious=Battle.debug_win;
             }
             if (victorious!=Battle.teams[| i].owner){
                 ds_list_add(losers, Battle.teams[| i].owner);
