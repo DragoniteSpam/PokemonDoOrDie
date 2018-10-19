@@ -117,21 +117,15 @@ enum BattleInputStages {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (var i=0; i&lt;ds_list_size(drawables); i++){
-    with (drawables[| i]){
-        instance_destroy();
-    }
-}
-
-ds_list_destroy(teams);
+            <string>ds_list_destroy_instances(teams);
 ds_list_destroy(contestants);
-ds_list_destroy(drawables);
+ds_list_destroy_instances(drawables);
 ds_list_destroy(replacements);
 
-ds_queue_destroy(actions);
-ds_queue_destroy(round_actions);
-ds_queue_destroy(individual_actions);
-ds_priority_destroy(priority);
+ds_queue_destroy_instances(actions);
+ds_queue_destroy_instances(round_actions);
+ds_queue_destroy_instances(individual_actions);
+ds_priority_destroy_instances(priority);
 
 ds_map_destroy(misc_data);
 </string>

@@ -76,7 +76,7 @@ if (!pokemon.flag_downed){
                                 }
                                 if (damage>=exe.targets[| i].act_hp){
                                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_send_out_pokemon_hud, exe.targets[| i].position));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, exe.targets[| i].position));
                                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" fainted!"));
                                     target_fainted=true;
                                     exe.targets[| i].flag_downed=true;
@@ -138,7 +138,26 @@ if (!pokemon.flag_downed){
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled! (Implement this later, please.)"));
             break;
         case BattleActions.IDLE:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around! (Implement this later, please.)"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
+            break;
+        case BattleActions.AUTOKO:
+            for (var i=0; i<ds_list_size(exe.targets); i++){
+                if (exe.targets[| i].flag_downed){
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" has already fainted!"));
+                } else {
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" was removed from the battle. (How horrible!)"));
+                    // it seems sort of dumb that you can only modify a pokémon's hp by calling the "scroll health" animation.
+                    // i don't know why i did it like that. also, a million is a safely large number that should always exceed
+                    // the amount of available hp, but if you do something ridiculous to the scale of the numbers in this game,
+                    // you should probably increase it or it won't actually be a ko.
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, exe.targets[| i], MILLION));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, exe.targets[| i].position));
+                    exe.targets[| i].flag_downed=true;
+                }
+            }
+            break;
+        case BattleActions.AUTOVICTORY:
             break;
     }
 }

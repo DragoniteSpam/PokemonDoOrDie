@@ -62,6 +62,8 @@ enum BattleActions {
     SWITCH,
     FLEE,
     IDLE,
+    AUTOKO,
+    AUTOVICTORY
 }
 
 enum BattleTargets {

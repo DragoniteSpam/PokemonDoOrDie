@@ -209,7 +209,6 @@
             <script>scripts\battle_round_action_anim_send_in_pokemon_walking.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_hud.gml</script>
             <script>scripts\battle_round_action_anim_retract_pokemon_hud.gml</script>
-            <script>scripts\battle_round_action_anim_send_out_pokemon_hud.gml</script>
             <script>scripts\battle_round_action_anim_trainer_intro.gml</script>
           </scripts>
           <script>scripts\battle_fade.gml</script>
@@ -278,7 +277,6 @@
           <script>scripts\ba_send_in_pokemon_walking.gml</script>
           <script>scripts\ba_send_in_pokemon_hud.gml</script>
           <script>scripts\ba_retract_pokemon_hud.gml</script>
-          <script>scripts\ba_send_out_pokemon_hud.gml</script>
           <scripts name="moves">
             <script>scripts\ba_move_basic.gml</script>
             <script>scripts\ba_move_punch.gml</script>
@@ -342,6 +340,9 @@
         <script>scripts\ds_list_to_array.gml</script>
         <script>scripts\array_swap.gml</script>
         <script>scripts\ds_list_swap.gml</script>
+        <script>scripts\ds_queue_destroy_instances.gml</script>
+        <script>scripts\ds_priority_destroy_instances.gml</script>
+        <script>scripts\ds_list_destroy_instances.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">

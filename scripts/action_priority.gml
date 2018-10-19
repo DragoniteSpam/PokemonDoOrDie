@@ -22,6 +22,12 @@ switch (argument0.action){
     case BattleActions.FLEE:
         n=22;
         break;
+    case BattleActions.AUTOKO:
+        return 23;
+        break;
+    case BattleActions.AUTOVICTORY:
+        return 24;
+        break;
 }
 
 // add a random amount of floating point between -0.25 and 0.25 to account for speed ties
