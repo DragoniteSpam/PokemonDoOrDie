@@ -7,5 +7,6 @@ with (instance_create(0, 0, BattleAnimator)){
     user.alpha=1;
     user.x=user.battle_x;
     user.y=user.battle_y;
+    user.z=user.battle_z;
     script=ba_retract_trainer;
 }

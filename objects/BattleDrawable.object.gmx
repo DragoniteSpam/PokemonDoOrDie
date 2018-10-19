@@ -39,8 +39,10 @@ blend=bm_normal;
 
 offscreen_x=x;
 offscreen_y=y;
+offscreen_z=0;
 battle_x=x;
 battle_y=y;
+battle_z=0;
 distance=0;
 fade_time=1;
 

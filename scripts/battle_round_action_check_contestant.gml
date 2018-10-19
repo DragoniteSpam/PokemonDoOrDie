@@ -3,6 +3,7 @@
 
 var team=Battle.teams[| argument0[| 0]];
 var found=noone;
+var found_index=-1;
 
 // todo this is going to get more complicated when you bring ai into it.
 // this is going to get even MORE complicated when you bring Zoroark into it,
@@ -11,6 +12,7 @@ var found=noone;
 
 for (var i=0; i<ds_list_size(team.owner.party); i++){
     if (alive(team.owner.party[| i])){
+        found_index=i;
         found=team.owner.party[| i];
         break;
     }
@@ -52,10 +54,9 @@ if (found==noone){
                 }
             }
         }
-        Battle.contestants[| argument0[| 0]]=found;
+        //Battle.contestants[| argument0[| 0]]=found;
     }
-    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" sent out "+found.name+"!"));
-    // todo animate both the contestant and the hp bar
+    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_set_replacement, argument0[| 0], found_index));
 }
 
 battle_advance();

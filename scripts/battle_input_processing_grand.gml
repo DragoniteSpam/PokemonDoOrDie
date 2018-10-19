@@ -25,6 +25,7 @@ if (keyboard_check_released(vk_enter)){
 //            Battle.input_stage=BattleInputStages.FLEE;
             break;
         case 4:
+            var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, BattleTargets.SELF, noone, 0));
             battle_input_processing_reset();
             battle_debug(pkmn.owner.name+" has chosen to idle for "+pkmn.name);

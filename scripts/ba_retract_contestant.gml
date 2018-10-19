@@ -7,6 +7,8 @@ if (t==0){
     user.misc_data[? "mask alpha"]=approach(user.misc_data[? "mask alpha"], 1, World.dt/t_shrink_time);
     user.xscale=approach(user.xscale, 0, t_shrink_time*World.dt);
     user.yscale=user.xscale;
+    user.xscale=lerp(user.xscale, 1, t_shrink_time*World.dt);
+    user.yscale=user.xscale;
 } else {
     user.mask_script=null;
     instance_destroy();

@@ -11,5 +11,6 @@ with (instance_create(0, 0, BattleAnimator)){
     user.image_index=0;
     user.x=user.offscreen_x;
     user.y=user.offscreen_y;
+    user.z=user.offscreen_z;
     script=ba_send_in_pokemon_walking;
 }
