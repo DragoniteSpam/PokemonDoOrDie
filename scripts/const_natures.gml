@@ -1,5 +1,3 @@
-debug("remember to define natures at some point");
-
 enum Natures {
     HARDY,
     LONELY,

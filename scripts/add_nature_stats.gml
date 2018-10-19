@@ -2,7 +2,7 @@
 // Makes it easier to write code to add natures because you only have to
 // specify the altered stats and not all of them
 
-var stat_mods=array_create(Stats.SPEED);
+var stat_mods=array_create(Stats.SPEED+1);
 array_clear(stat_mods, 1);
 
 switch (argument_count){
