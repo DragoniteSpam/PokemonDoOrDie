@@ -390,6 +390,7 @@
         <script>scripts\add_move.gml</script>
         <script>scripts\add_trainer.gml</script>
         <script>scripts\add_nature.gml</script>
+        <script>scripts\add_nature_stats.gml</script>
         <script>scripts\add_trainer_class.gml</script>
         <script>scripts\add_ability.gml</script>
         <script>scripts\add_pokemon.gml</script>

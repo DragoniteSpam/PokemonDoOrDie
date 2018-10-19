@@ -1,4 +1,4 @@
-/// DataMove add_move(name, hp, atk, def, spam spd, spe);
+/// DataMove add_nature(name, hp, atk, def, spam spd, spe);
 // if you want to do like contest stats or something you might want to modify this script
 
 with (instance_create(0, 0, DataNature)){
