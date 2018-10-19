@@ -4,17 +4,23 @@
 var team=Battle.teams[| argument0[| 0]];
 var found=noone;
 var found_index=-1;
+var game_over=false;
 
 // todo this is going to get more complicated when you bring ai into it.
 // this is going to get even MORE complicated when you bring Zoroark into it,
 // because you have to "fool" the text below into thinking "found" is not
 // a Zoroark.
 
-for (var i=0; i<ds_list_size(team.owner.party); i++){
-    if (alive(team.owner.party[| i])){
-        found_index=i;
-        found=team.owner.party[| i];
-        break;
+if (team.owner!=Camera.battle_pawn){
+    for (var i=0; i<ds_list_size(team.owner.party); i++){
+        if (alive(team.owner.party[| i])){
+            found_index=i;
+            found=team.owner.party[| i];
+            break;
+        }
+    }
+    if (found==noone){
+        game_over=true;
     }
 }
 
@@ -33,11 +39,14 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
     }
 }
 
-if (found==noone){
+if (game_over){
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" has no more healthy Pokémon!"));
 } else {
     if (team.owner==Camera.battle_pawn){
-        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "You need to send someone in. We'll get to that in a bit, I hope."));
+        // todo when this happens in wild battles, you should have the opportunity to flee
+        // todo if you enable forfeiting (or debug auto-win) trainer battles, you should have the opportunity to do that also
+        // the "who do you choose?" text is set in the action
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_after_death, argument0[| 0]));
     } else {
         // if you wanted to do multiplayer (which you do not) you would need to bypass
         // this line. actually if you wanted to do multiplayer, this line would be the
@@ -55,8 +64,8 @@ if (found==noone){
             }
         }
         //Battle.contestants[| argument0[| 0]]=found;
+        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_set_replacement, argument0[| 0], found_index));
     }
-    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_set_replacement, argument0[| 0], found_index));
 }
 
 battle_advance();

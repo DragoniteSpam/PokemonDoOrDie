@@ -228,6 +228,7 @@
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
           <script>scripts\battle_individual_action_switch_before_turn.gml</script>
+          <script>scripts\battle_individual_action_switch_after_death.gml</script>
           <script>scripts\battle_individual_action_set_replacement.gml</script>
           <script>scripts\battle_individual_action_text.gml</script>
           <script>scripts\battle_individual_action_wait.gml</script>
