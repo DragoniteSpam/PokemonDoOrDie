@@ -8,15 +8,16 @@ for (var i=0; i<ds_list_size(teams); i++){
         
         var shf=get_pokemon_sprite_hash(pkmn, SpriteSides.FRONT);
         var shb=get_pokemon_sprite_hash(pkmn, SpriteSides.BACK);
-        var shf_path=".\data\graphics\battlers\"+shf+".png";
-        var shb_path=".\data\graphics\battlers\"+shb+".png";
+        var shf_path=PATH_BATTLER+shf+".png";
+        var shb_path=PATH_BATTLER+shb+".png";
+        // If you can't find either of these files, the diagnostic error text thing is spat
+        // out in the get_pokemon_sprite_hash script.
         if (!ds_map_exists(sprite_hash, shf)){
             if (file_exists(shf_path)){
                 var sf=sprite_add(shf_path, 0, false, false, 0, 0);
                 sprite_set_offset(sf, sprite_get_width(sf)/2, sprite_get_height(sf)*5/6);
                 sprite_hash[? shf]=sf;
             } else {
-                debug("Could not find: "+shf_path);
                 var sf=spr_pokemon_unknown;
             }
             pkmn.spr_front=sf;
@@ -29,7 +30,6 @@ for (var i=0; i<ds_list_size(teams); i++){
                 sprite_set_offset(sb, sprite_get_width(sb)/2, sprite_get_height(sb));
                 sprite_hash[? shb]=sb;
             } else {
-                debug("Could not find: "+shb_path);
                 var sb=spr_pokemon_unknown;
             }
             pkmn.spr_back=sb;

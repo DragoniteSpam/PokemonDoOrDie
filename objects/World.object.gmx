@@ -64,15 +64,15 @@ all_egg_groups=const_egg_groups();                          // dependencies: not
 all_item_pockets=const_item_pockets();                      // dependencies: nothing
 all_natures=const_natures();                                // dependencies: nothing
 
-all_types=pbs_read_types(".\data\pbs\types.txt");           // dependencies: nothing
-all_abilities=pbs_read_abilities(".\data\pbs\abilities.txt");// dependencies: nothing
+all_types=pbs_read_types(PATH_PBS+"types.txt");           // dependencies: nothing
+all_abilities=pbs_read_abilities(PATH_PBS+"abilities.txt");// dependencies: nothing
 
-all_moves=pbs_read_moves(".\data\pbs\moves.txt");           // dependencies: types
-all_items=pbs_read_items(".\data\pbs\items.txt");           // dependencies: moves
-all_pokemon=pbs_read_pokemon(".\data\pbs\monsters.txt");    // dependencies: moves, types, evolutions, items, abilities
+all_moves=pbs_read_moves(PATH_PBS+"moves.txt");           // dependencies: types
+all_items=pbs_read_items(PATH_PBS+"items.txt");           // dependencies: moves
+all_pokemon=pbs_read_pokemon(PATH_PBS+"monsters.txt");    // dependencies: moves, types, evolutions, items, abilities
 
-all_trainer_classes=pbs_read_trainer_classes(".\data\pbs\trainertypes.txt");// dependencies: pawn stuff
-all_trainers=pbs_read_trainers(".\data\pbs\trainers.txt");  // dependencies: natures, abilities, moves, items, pokémon, trainer classes
+all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+"trainertypes.txt");// dependencies: pawn stuff
+all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");  // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
 debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 
@@ -107,6 +107,7 @@ settings=instance_create(0, 0, Settings);
  * finish up the init stuff
  */
 
+tf=array_compose("false", "true");
 dt=0;
 instance_deactivate_object(Struct);
 instance_deactivate_object(Settings);

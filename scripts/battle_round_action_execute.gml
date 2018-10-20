@@ -132,7 +132,32 @@ if (!pokemon.flag_downed&&debug_win==noone){
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used a(n) "+World.all_items[exe.value].name+"! (Implement this later, please.)"));
             break;
         case BattleActions.SWITCH:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" switched to "+exe.value.name+"! (Implement this later, please.)"));
+            // This is very much the same as the code in battle_action_check_replacements_before_turn.
+            // I may see about combining them at some point, but the data that they act on is slightly
+            // different, so that may not work. Also, Pursuit can interfere with this version. Also,
+            // it uses a different queue. it's certainly possible to fix that, but honestly it's probably
+            // just easier to maintain two separate versions.
+            var team=Battle.teams[| pokemon.position];
+            Battle.replacements[| pokemon.position]=exe.value;
+            var new_battler=team.owner.party[| exe.value];
+            if (team.owner==Camera.battle_pawn){
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, pokemon.name+", come back!"));
+            } else {
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, team.name+" called back "+pokemon.name+"!"));
+            }
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_retract_pokemon_hud, pokemon.position));
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_retract_contestant, pokemon.position));
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_wait, 0.25, true));
+            // this requires that Battle.replacements[| n] is set correctly. fortunately, we do that a
+            // few lines up.
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_change_contestant, pokemon.position));
+            if (team.owner==Camera.battle_pawn){
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, "Go, "+new_battler.name+"!"));
+            } else {
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, team.name+" sent out "+new_battler.name+"!"));
+            }
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, pokemon.position));
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, pokemon.position));
             break;
         case BattleActions.FLEE:
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled! (Implement this later, please.)"));

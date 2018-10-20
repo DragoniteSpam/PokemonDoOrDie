@@ -749,7 +749,9 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="31">
+  <constants number="33">
+    <constant name="PATH_PBS">".\data\pbs\"</constant>
+    <constant name="PATH_BATTLER">".\data\graphics\battlers\"</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
