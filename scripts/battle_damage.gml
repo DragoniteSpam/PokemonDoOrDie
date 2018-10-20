@@ -64,4 +64,4 @@ var m=offense_mod/defense_mod*mod_weather*mod_badge*mod_critical*mod_random*mod_
 
 var base=(((2*get_level(argument1.experience, get_pokemon(argument1.species).growth_rate))/5+2)*move.value*offense/defense)/50+2;
 
-return floor(base*m)*10;
+return floor(base*m);

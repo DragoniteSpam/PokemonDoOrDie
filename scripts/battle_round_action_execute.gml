@@ -28,31 +28,31 @@ if (!pokemon.flag_downed&&debug_win==noone){
             
             // the fact that i need to do basically the same thing twice is upsetting
             for (var i=0; i<array_length_1d(hit); i++){
+                var target=Battle.contestants[| exe.targets[| i]];
                 // the obvious part: if you're marked as being hit, execute the action, otherwise, ignore it
                 if (hit[i]){
                     // the less obvious part: if you're not marked as being already fainted, execute the action, otherwise, ignore it
-                    if (!exe.targets[| i].flag_downed){
-                        var target_fainted=false;
+                    if (!target.flag_downed){
                         if (move.category!=MoveCategories.STATUS){
                             // todo sort this out (calculating whether a hit is critical or not: remember, some conditions
                             // increase critical hit chances, and others negate them entirely)
-                            var matchup=get_matchup_on(move.type, exe.targets[| i]);
+                            var matchup=get_matchup_on(move.type, target);
                             if (matchup==0){
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+exe.targets[| i].name));
+                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+target.name));
                             } else {
                                 var critical_hit_threshold=1;
                                 var critical=irandom(16)<critical_hit_threshold;
-                                var damage=battle_damage(move, pokemon, exe.targets[| i], critical);
-                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, exe.targets[| i], damage));
+                                var damage=battle_damage(move, pokemon, target, critical);
+                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, damage));
                                 if (array_length_1d(hit)>1){
-                                    var matchup_message_postfix=" on "+exe.targets[| i];
+                                    var matchup_message_postfix=" on "+target;
                                 } else {
                                     var matchup_message_postfix="";
                                 }
                                 if (matchup>1){
                                     // this could be compacted a little but that would make potential localization a little bit tricky
                                     if (array_length_1d(hit)>1){
-                                        var matchup_message="It's super effective on "+exe.targets[| i]+"!";
+                                        var matchup_message="It's super effective on "+target+"!";
                                     } else {
                                         var matchup_message="It's super effective!";
                                     }
@@ -60,7 +60,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                 } else if (matchup<1){
                                     // this could be compacted a little but that would make potential localization a little bit tricky
                                     if (array_length_1d(hit)>1){
-                                        var matchup_message="It's not very effective on "+exe.targets[| i]+"...";
+                                        var matchup_message="It's not very effective on "+target+"...";
                                     } else {
                                         var matchup_message="It's not very effective...";
                                     }
@@ -68,18 +68,17 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                 }
                                 if (critical){
                                     if (array_length_1d(hit)>1){
-                                        var critical_message="A critical hit on "+exe.targets[| i].name+"!";
+                                        var critical_message="A critical hit on "+target.name+"!";
                                     } else {
                                         var critical_message="A critical hit!";
                                     }
                                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
                                 }
-                                if (damage>=exe.targets[| i].act_hp){
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, exe.targets[| i].position));
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" fainted!"));
-                                    target_fainted=true;
-                                    exe.targets[| i].flag_downed=true;
+                                if (damage>=target.act_hp){
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, target));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, target.position));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" fainted!"));
+                                    target.flag_downed=true;
                                     // todo: post-death effects, such as aftermath, destiny bond, etc
                                     if (pokemon.owner.object_index==PawnPlayer){
                                         // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
@@ -89,7 +88,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                         if (level<MAX_LEVEL){
                                             // todo aggregate experience gain, i.e. if two pokémon go down at the same time you only gain
                                             // experience once
-                                            var exp_gain=exp_reward(pokemon, exe.targets[| i]);
+                                            var exp_gain=exp_reward(pokemon, target);
                                             var exp_next_level=get_experience(level+1, base.growth_rate);
                                             if (exp_gain==1){
                                                 var points="point";
@@ -115,16 +114,16 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                 } // endif type effectiveness
                             }
                         }
-                        if (!target_fainted){
+                        if (!target.flag_downed){
                             for (var j=0; j<ds_list_size(move.effects); j++){
                                 if (irandom(100)<=move.effect_odds[| j]){
-                                    script_execute(move.effects[| j], pokemon, exe.targets[| i]);
+                                    script_execute(move.effects[| j], pokemon, target);
                                 }
                             }
                         }
                     }
                 } else {
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" avoided the attack!"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" avoided the attack!"));
                 }
             }
             break;
@@ -167,19 +166,20 @@ if (!pokemon.flag_downed&&debug_win==noone){
             break;
         case BattleActions.AUTOKO:
             for (var i=0; i<ds_list_size(exe.targets); i++){
-                if (exe.targets[| i].flag_downed){
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" has already fainted!"));
+                var target=Battle.contestants[| exe.targets[| i]];
+                if (target.flag_downed){
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" has already fainted!"));
                 } else {
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, exe.targets[| i].name+" was removed from the battle. (How horrible!)"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" was removed from the battle. (How horrible!)"));
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "(No experience was gained.)"));
                     // it seems sort of dumb that you can only modify a pokémon's hp by calling the "scroll health" animation.
                     // i don't know why i did it like that. also, a million is a safely large number that should always exceed
                     // the amount of available hp, but if you do something ridiculous to the scale of the numbers in this game,
                     // you should probably increase it or it won't actually be a ko.
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, exe.targets[| i], MILLION));
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, exe.targets[| i]));
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, exe.targets[| i].position));
-                    exe.targets[| i].flag_downed=true;
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, MILLION));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, target));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, target.position));
+                    target.flag_downed=true;
                 }
             }
             break;

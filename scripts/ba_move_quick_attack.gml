@@ -38,7 +38,7 @@ if (t<t_wait){
             var t_still=t_fadein+0.5;
             var t_fadeout=t_still+0.25;
             // other stuff
-            var draw=Battle.drawables[| target_list[| i].position];
+            var draw=Battle.drawables[| target_list[| i]];
             var f=0.35;
             var relative_z=sprite_get_height(draw.sprite_index)*f*draw.scale*draw.yscale;
             var position=world_to_2d(draw.x, draw.y, draw.z+relative_z);

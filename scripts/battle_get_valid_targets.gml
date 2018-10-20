@@ -1,4 +1,7 @@
 /// list battle_get_valid_targets(user, move index);
+// note: this returns a list of battlefield positions, not BattlePokemon,
+// as it did originally. you want a move to target a position, not an individual,
+// in the case that the individual switches out before the move lands.
 
 // todo not all moves have the same targeting abilities but for now we assume
 // that they do
@@ -15,7 +18,7 @@ for (var i=0; i<ds_list_size(Battle.contestants); i++){
     //if (Battle.contestants[| i].owner!=argument0.owner){
     // you generally cannot, however, hit yourself.
     if (Battle.contestants[| i]!=argument0){
-        ds_list_add(valid_targets, Battle.contestants[| i]);
+        ds_list_add(valid_targets, i);
     }
 }
 

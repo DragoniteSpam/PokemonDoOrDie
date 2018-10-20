@@ -23,12 +23,13 @@ if (t<t_wait){
 } else if (t<t_claw_1){
     if (!ds_map_exists(misc_data, "claw")){
         for (var i=0; i<ds_list_size(target_list); i++){
+            var target=Battle.contestants[| target_list[|  i]];
             // fade timestamps
             var t_fadein=0;
             var t_still=t_fadein+1.5;
             var t_fadeout=t_still+0.25;
             // other stuff
-            var draw=Battle.drawables[| target_list[| i].position];
+            var draw=Battle.drawables[| target_list[| i]];
             var f=0.35;
             var relative_z=sprite_get_height(draw.sprite_index)*f*draw.scale*draw.yscale;
             var position=world_to_2d(draw.x, draw.y, draw.z+relative_z);
