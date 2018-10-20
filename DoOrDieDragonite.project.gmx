@@ -503,8 +503,39 @@
         </scripts>
       </scripts>
       <scripts name="effects">
-        <script>scripts\be_attack_raise_1.gml</script>
+        <script>scripts\be_double_power_if_diving.gml</script>
+        <script>scripts\be_no_effect.gml</script>
         <script>scripts\be_not_implemented.gml</script>
+        <script>scripts\be_rollout.gml</script>
+        <script>scripts\be_trap_damage_finite_turns.gml</script>
+        <script>scripts\be_trap_infinite_turns.gml</script>
+        <script>scripts\be_user_heal_half.gml</script>
+        <scripts name="status">
+          <scripts name="minor">
+            <script>scripts\be_confuse.gml</script>
+            <script>scripts\be_flinch.gml</script>
+          </scripts>
+          <script>scripts\be_badly_poison_target.gml</script>
+          <script>scripts\be_paralyze_target.gml</script>
+          <script>scripts\be_poison_target.gml</script>
+          <script>scripts\be_burn_target.gml</script>
+        </scripts>
+        <scripts name="team">
+          <script>scripts\be_reflect.gml</script>
+        </scripts>
+        <scripts name="stat mod">
+          <scripts name="up">
+            <script>scripts\be_user_attack_raise_1.gml</script>
+            <script>scripts\be_user_sp_attack_raise_1.gml</script>
+            <script>scripts\be_user_speed_raise_1.gml</script>
+          </scripts>
+          <scripts name="down">
+            <script>scripts\be_target_defense_decrease_1.gml</script>
+            <script>scripts\be_target_sp_defense_decrease_1.gml</script>
+            <script>scripts\be_target_speed_decrease_1.gml</script>
+            <script>scripts\be_target_accuracy_decrease_1.gml</script>
+          </scripts>
+        </scripts>
       </scripts>
       <scripts name="abilities">
         <script>scripts\babl_default.gml</script>
@@ -554,6 +585,7 @@
         <script>scripts\ds_list_destroy_instances.gml</script>
         <script>scripts\random_element_from_array.gml</script>
         <script>scripts\random_element_from_list.gml</script>
+        <script>scripts\array_sum.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">
@@ -699,6 +731,7 @@
       <object>objects\BattlePokemon</object>
       <object>objects\BattleRoundAction</object>
       <object>objects\BattleIndividualAction</object>
+      <object>objects\BattleAppliedEffect</object>
       <object>objects\BattleTeam</object>
       <objects name="Graphics">
         <object>objects\BattleDrawable</object>

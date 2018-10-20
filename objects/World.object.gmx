@@ -298,6 +298,14 @@ if (message_wait==0){
         battle_advance();
     }
 }
+
+/*
+ * debug stuff?
+ */
+
+if (keyboard_check(vk_space)){
+    randomize();
+}
 </string>
           </argument>
         </arguments>

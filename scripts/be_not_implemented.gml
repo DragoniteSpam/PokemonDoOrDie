@@ -1,6 +1,10 @@
-/// void be_not_implemented(user, target);
+/// void be_not_implemented(user, target, move);
 
 var user=argument0;     // unused here
 var target=argument1;   // unused here
 
-ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "("+argument2.name+" has an effect that has not been implemented yet.)"));
+with (instance_create(0, 0, BattleAppliedEffect)){
+    ds_queue_enqueue(actions, add_battle_individual_action(battle_individual_action_text, "("+argument2.name+" has an effect that has not been implemented yet.)"));
+    
+    return id;
+}

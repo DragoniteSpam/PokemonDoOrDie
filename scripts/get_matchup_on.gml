@@ -1,9 +1,15 @@
-/// double get_matchup(type, BattlePokemon);
+/// double get_matchup_on(type, BattlePokemon, [applied effects list]);
+
+// todo this may become important for some effects that mess with
+// type, i.e. Flying Press and whatever
+if (argument_count==3){
+    var effects_list=argument[2];
+}
 
 var m=1;
 
-for (var i=0; i<ds_list_size(argument1.types); i++){
-    m=m*get_matchup(argument0, argument1.types[| i]);
+for (var i=0; i<ds_list_size(argument[1].types); i++){
+    m=m*get_matchup(argument[0], argument[1].types[| i]);
 }
 
 return m;
