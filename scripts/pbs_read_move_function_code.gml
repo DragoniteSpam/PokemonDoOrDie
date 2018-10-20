@@ -74,7 +74,7 @@ switch (value){
         break;
     case $a5:
         // this is handled by accuracy?
-        effects[0]=null;
+        effects[0]=be_no_effect;
         break;
     case $d0:
         effects[0]=be_trap_damage_finite_turns;
