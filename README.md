@@ -7,4 +7,6 @@ I can't grab embedded gifs from Twitter and I don't feel like copying them to im
 
 [Status effects](https://twitter.com/DragoniteSpam/status/1050539405348352000)
 
+[Turn switching](https://twitter.com/DragoniteSpam/status/1053545162742337536)
+
 I'll probably add more eventually.
