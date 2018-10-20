@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="35" name="datafiles">
-    <datafiles number="35" name="data">
-      <datafiles number="35" name="pbs">
+  <datafiles number="36" name="datafiles">
+    <datafiles number="36" name="data">
+      <datafiles number="36" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -126,8 +126,8 @@
           <filename>trainers.txt</filename>
         </datafile>
       </datafiles>
-      <datafiles number="35" name="graphics">
-        <datafiles number="35" name="battlers">
+      <datafiles number="36" name="graphics">
+        <datafiles number="36" name="battlers">
           <datafile>
             <name>059b.png</name>
             <exists>-1</exists>
@@ -144,23 +144,6 @@
               </Config>
             </ConfigOptions>
             <filename>059b.png</filename>
-          </datafile>
-          <datafile>
-            <name>064.png</name>
-            <exists>-1</exists>
-            <size>1153</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>064.png</filename>
           </datafile>
           <datafile>
             <name>082.png</name>
@@ -246,6 +229,23 @@
               </Config>
             </ConfigOptions>
             <filename>154b.png</filename>
+          </datafile>
+          <datafile>
+            <name>065.png</name>
+            <exists>-1</exists>
+            <size>1121</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>065.png</filename>
           </datafile>
           <datafile>
             <name>157.png</name>
@@ -504,6 +504,7 @@
       </scripts>
       <scripts name="effects">
         <script>scripts\be_attack_raise_1.gml</script>
+        <script>scripts\be_not_implemented.gml</script>
       </scripts>
       <scripts name="abilities">
         <script>scripts\babl_default.gml</script>
@@ -551,6 +552,8 @@
         <script>scripts\ds_queue_destroy_instances.gml</script>
         <script>scripts\ds_priority_destroy_instances.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
+        <script>scripts\random_element_from_array.gml</script>
+        <script>scripts\random_element_from_list.gml</script>
       </scripts>
       <script>scripts\split.gml</script>
       <scripts name="file">

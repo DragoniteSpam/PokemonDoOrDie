@@ -1,8 +1,6 @@
 /// void battle_input_player(team, pokemon);
 
-var catch=argument0;
-
-input_processing=argument1;
+input_processing=argument0;
 
 // continue: in the message()
-message("What will "+argument1.name+" do?");
+message("What will "+argument0.name+" do?");

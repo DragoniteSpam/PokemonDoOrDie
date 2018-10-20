@@ -117,7 +117,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                         if (!target.flag_downed){
                             for (var j=0; j<ds_list_size(move.effects); j++){
                                 if (irandom(100)<=move.effect_odds[| j]){
-                                    script_execute(move.effects[| j], pokemon, target);
+                                    script_execute(move.effects[| j], pokemon, target, move);
                                 }
                             }
                         }

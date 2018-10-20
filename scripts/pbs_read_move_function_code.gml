@@ -7,4 +7,12 @@ var value=hex(argument0);
 var effects=array_create(1);
 effects[0]=null;
 
+switch (value){
+    case 0:
+        break;
+    default:
+        effects[0]=be_not_implemented;
+        break;
+}
+
 return effects;

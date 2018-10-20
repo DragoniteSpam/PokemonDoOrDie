@@ -84,6 +84,11 @@ for (var i=0; i<ds_list_size(text); i++){
             }
         case 10:
             effect_chances[0]=real(terms[9]);
+            // status moves, etc. whose effects always trigger have a chance
+            // listed as "0" in moves.txt
+            if (effect_chances[0]==0){
+                effect_chances[0]=100;
+            }
         case 9:
             pp=real(terms[8]);
         case 8:

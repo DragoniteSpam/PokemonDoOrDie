@@ -28,6 +28,8 @@ if (argument3){
     mod_critical=2;
 }
 
+var level=get_level(argument1.experience, get_pokemon(argument1.species).growth_rate);
+
 var cat_offense, cat_defense;
 var offense, defense, offense_mod, defense_mod;
 switch (move.category){
@@ -62,6 +64,6 @@ if (user.status=MajorStatus.BURN&&cat_offense==Stats.ATTACK){
 
 var m=offense_mod/defense_mod*mod_weather*mod_badge*mod_critical*mod_random*mod_stab*mod_type*mod_burn*mod_other;
 
-var base=(((2*get_level(argument1.experience, get_pokemon(argument1.species).growth_rate))/5+2)*move.value*offense/defense)/50+2;
+var base=(((2*level)/5+2)*move.value*offense/defense)/50+2;
 
 return floor(base*m);

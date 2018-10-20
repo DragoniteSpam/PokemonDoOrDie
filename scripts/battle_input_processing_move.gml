@@ -24,7 +24,7 @@ if (false){
     // move here, you might want to un-hard code this
     var valid_targets=battle_get_valid_targets(pkmn, value);
     var targets=ds_list_create();
-    ds_list_add(targets, valid_targets[| irandom(ds_list_size(valid_targets)-1)]);
+    ds_list_add(targets, random_element_from_list(valid_targets));
     ds_list_destroy(valid_targets);
     
     battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
@@ -51,7 +51,7 @@ if (false){
             // account for selecting multiple valid targets
             var valid_targets=battle_get_valid_targets(pkmn, value);
             var targets=ds_list_create();
-            ds_list_add(targets, valid_targets[| irandom(ds_list_size(valid_targets)-1)]);
+            ds_list_add(targets, random_element_from_list(valid_targets));
             ds_list_destroy(valid_targets);
             
             battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
