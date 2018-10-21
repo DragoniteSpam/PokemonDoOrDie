@@ -29,7 +29,24 @@ if (keyboard_check_released(vk_enter)){
             Battle.input_stage=BattleInputStages.SWITCH;
             break;
         case 3:
-//            Battle.input_stage=BattleInputStages.FLEE;
+            // todo if this turns into a "forfeit" button for Trainer battles,
+            // you may want to bypass this check
+            var team_trapped=false;
+            for (var i=0; i<ds_list_size(Battle.contestants); i++){
+                var contestant=Battle.contestants[| i];
+                if (contestant.owner.team==Battle.input_processing.owner.team&&contestant.trapped_for>0){
+                    team_trapped=true;
+                    break;
+                }
+            }
+            // todo in wild battles in normal pokémon, if your speed stat is
+            // too low, you may be unable to escape. i hate this mechanic and
+            // won't be implementing it. you can, though.
+            if (team_trapped){
+                message("Your team is trapped and unable to flee!");
+            } else {
+//                Battle.input_stage=BattleInputStages.FLEE;
+            }
             break;
         // because we sort of know the order in which these options will appear
         // (if Idle exists it WILL be fourth, and if the debug options exist

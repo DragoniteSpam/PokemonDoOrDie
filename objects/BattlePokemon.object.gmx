@@ -82,7 +82,7 @@ invulnerable_move=-1;                       // the move being used (Fly and Boun
 momentum_move=-1;                           // Rollout of Ice Ball, or whatever it's called
 momentum_turn=1;                            // turn of Rollout or Ice Ball
 trapped_by=noone;                           // the pokémon trapping you
-trapped_for=-1;                             // how much longer you can be trapped (can be an arbitrarily big number for "infinite")
+trapped_for=0;                              // how much longer you can be trapped (can be an arbitrarily big number for "infinite")
 trap_residual_damage=0;                     // how much damage you take at the end of each turn; if you want, this can be accompanied by a type if you want typed damage
 // if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
 // IN pokemon_reset_volatile_stat_mods UNLESS YOU WANT IT TO PERSIST AFTER YOU SWITCH OUT.

@@ -15,7 +15,7 @@ with (argument0){
     momentum_move=-1;
     momentum_turn=1;
     trapped_by=noone;
-    trapped_for=-1;
+    trapped_for=0;
     trap_residual_damage=0;
     
     confused=0;

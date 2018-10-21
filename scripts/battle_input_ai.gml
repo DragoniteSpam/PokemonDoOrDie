@@ -13,6 +13,9 @@ ds_list_destroy(valid_targets);
 
 // put it all together
 
+// todo on the off chance that the ai wants to flee or switch, remember to check
+// if they're being trapped by anyone. this is intended to be done when the moves
+// are chosen, not when the moves are processed.
 var moveid=argument0.moves[value];
 battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument0, BattleTargets.OPPONENT, targets, moveid));
 

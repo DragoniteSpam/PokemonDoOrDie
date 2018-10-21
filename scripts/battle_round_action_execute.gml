@@ -244,6 +244,8 @@ if (!pokemon.flag_downed&&debug_win==noone){
     }
 }
 
+pokemon.trapped_for=max(--pokemon.trapped_for, 0);
+
 with (exe){
     instance_destroy();
 }
