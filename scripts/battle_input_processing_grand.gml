@@ -5,6 +5,7 @@ if (DEBUG||World.settings.battle.idle_allowed){
     ds_list_add(text_list, "Idle");
 }
 if (DEBUG){
+    ds_list_add(text_list, "[Auto-heal]");
     ds_list_add(text_list, "[Auto-KO]");
     ds_list_add(text_list, "[Auto-Victory]");
 }
@@ -13,6 +14,8 @@ var max_n=ds_list_size(text_list);
 
 draw_menu_from_list(text_list, World.message_option_index);
 World.message_option_index=menu_input(World.message_option_index, max_n);
+
+var debug_text="";
 
 if (keyboard_check_released(vk_enter)){
     switch (World.message_option_index){
@@ -38,21 +41,33 @@ if (keyboard_check_released(vk_enter)){
             var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, BattleTargets.SELF, noone, 0));
             battle_input_processing_reset();
-            battle_debug(pkmn.owner.name+" has chosen to idle for "+pkmn.name);
+            debug_text=pkmn.owner.name+" has chosen to idle for "+pkmn.name;
             break;
         case 5:
             var pkmn=Battle.input_processing;
-            battle_prioritize(add_battle_executable_action(BattleActions.AUTOKO, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
+            battle_prioritize(add_battle_executable_action(BattleActions.AUTOHEAL, pkmn, BattleTargets.SELF, noone, 0));
             battle_input_processing_reset();
-            battle_debug(pkmn.owner.name+" has chosen to auto-KO all foes with "+pkmn.name);
+            debug_text=pkmn.owner.name+" has chosen to auto-full-heal "+pkmn.name;
             break;
         case 6:
             var pkmn=Battle.input_processing;
+            battle_prioritize(add_battle_executable_action(BattleActions.AUTOKO, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
+            battle_input_processing_reset();
+            debug_text=pkmn.owner.name+" has chosen to auto-KO all foes with "+pkmn.name;
+            break;
+        case 7:
+            var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.AUTOVICTORY, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
             battle_input_processing_reset();
-            battle_debug(pkmn.owner.name+" has chosen to end the battle with "+pkmn.name);
+            debug_text=pkmn.owner.name+" has chosen to end the battle with "+pkmn.name;
             break;
     }
 }
 
 ds_list_destroy(text_list);
+
+// It's a good idea to delete the list before continuing, so we just make a note
+// that we need to continue at the end.
+if (string_length(debug_text)>0){
+    battle_debug(debug_text);
+}

@@ -30,8 +30,11 @@ owner=noone;
 
 sprite_side=SpriteSides.FRONT;
 
-reduce_physical_damage_turns=0;
-reduce_special_damage_turns=0;
+// in current pokémon the only ones that are used by any
+// moves are defense, special defense and speed. doubling
+// HP doesn't really make sense. doubling evasion would be
+// a violation of intergalactic law.
+double_stat=array_compose(0, 0, 0, 0, 0, 0, 0, 0);
 </string>
           </argument>
         </arguments>

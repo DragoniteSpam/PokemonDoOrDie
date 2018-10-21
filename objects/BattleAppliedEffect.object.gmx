@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>// a queue that gets merged with Battle.individual_actions
 // if the effect lands
-actions=ds_queue_create();
+scheduled_actions=ds_queue_create();
 
 damage_modifier=1;
 
@@ -58,7 +58,7 @@ accuracy_modifier=1;
             <string>// Don't destroy the instances in the action queue when this object
 // is destroyed. They live on in the Battle.individual_actions queue.
 
-ds_queue_destroy(actions);
+ds_queue_destroy(scheduled_actions);
 </string>
           </argument>
         </arguments>

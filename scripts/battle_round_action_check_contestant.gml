@@ -11,7 +11,7 @@ var game_over=false;
 // because you have to "fool" the text below into thinking "found" is not
 // a Zoroark.
 
-if (team.owner!=Camera.battle_pawn){
+if (team.owner!=Camera.battle_pawn&&!DEBUG){
     for (var i=0; i<ds_list_size(team.owner.party); i++){
         if (alive(team.owner.party[| i])){
             found_index=i;
@@ -42,7 +42,7 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
 if (game_over){
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" has no more healthy Pokémon!"));
 } else {
-    if (team.owner==Camera.battle_pawn){
+    if (team.owner==Camera.battle_pawn||DEBUG){
         // todo when this happens in wild battles, you should have the opportunity to flee
         // todo if you enable forfeiting (or debug auto-win) trainer battles, you should have the opportunity to do that also
         // the "who do you choose?" text is set in the action
@@ -57,7 +57,7 @@ if (game_over){
             if (pawn_alive>1&&pawn_slots==1){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
                 for (var i=0; i<ds_list_size(Battle.contestants); i++){
-                    if (Battle.contestants[| i].owner==Camera.battle_pawn){
+                    if (Battle.contestants[| i].owner==Camera.battle_pawn||DEBUG){
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn, i));
                     }
                 }

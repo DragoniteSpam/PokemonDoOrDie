@@ -73,7 +73,8 @@ types=ds_list_clone(get_pokemon(species).types);
 // todo this
 nature=0;
 
-// battle stuff
+// battle stuff: if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
+// IN pokemon_reset_stat_mods UNLESS YOU WANT IT TO PERSIST BETWEEN FIGHTS.
 
 position=-1;
 invulnerable_state=InvulnerableStates.NONE;

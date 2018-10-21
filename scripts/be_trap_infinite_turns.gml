@@ -7,7 +7,7 @@ with (instance_create(0, 0, BattleAppliedEffect)){
         argument1.trapped_by=argument0.position;
         argument1.trapped_for=MILLION;  // your computer will fail long before you manage to have a battle drag out for this long, even if you put it on autopilot
         argument1.trap_residual_damage=World.settings.battle.trap_residual_damage;
-        ds_queue_enqueue(actions, add_battle_individual_action(battle_individual_action_text, argument1.name+" was trapped by "+argument0.name+"!"));
+        ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, argument1.name+" was trapped by "+argument0.name+"!"));
     }
     
     return id;

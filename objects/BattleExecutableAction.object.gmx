@@ -62,6 +62,7 @@ enum BattleActions {
     SWITCH,
     FLEE,
     IDLE,
+    AUTOHEAL,
     AUTOKO,
     AUTOVICTORY
 }

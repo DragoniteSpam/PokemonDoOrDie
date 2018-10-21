@@ -9,6 +9,9 @@ var effects=array_create(1);
 
 // These could be hashed, except some codes (Thunder Fang, etc)
 // may get broken up into multiple codes, so these can't be hashed.
+// actually, they could be hashed anyway, you'd just put an array
+// or something in the hash, but that's a lot of work for a script
+// whose only job is to re-interpret Essentials data.
 
 switch (value){
     case $0:

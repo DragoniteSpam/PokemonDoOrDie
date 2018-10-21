@@ -4,8 +4,8 @@ var pkmn=Battle.input_processing;
 
 var text_list=ds_list_create();
 
-for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
-    ds_list_add(text_list, Camera.battle_pawn.party[| i].name);
+for (var i=0; i<ds_list_size(pkmn.owner.party); i++){
+    ds_list_add(text_list, pkmn.owner.party[| i].name);
 }
 ds_list_add(text_list, "Back");
 

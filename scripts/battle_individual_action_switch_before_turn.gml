@@ -13,10 +13,7 @@ if (result==0){
     Battle.input_stage=BattleInputStages.SWITCH_BEFORE_TURN;
     Battle.misc_data[? "contestant slot to replace"]=params[| 0];
     Battle.misc_data[? "allowed to not send anybody in"]=true;
-    // This doesn't serve a purpose other than to make sure the
-    // input processing code fires, since that part's skipped if
-    // the input processing variable is noone;
-    Battle.input_processing=Camera.battle_pawn;
+    Battle.input_processing=Battle.contestants[| params[| 0]];
     message("Who would you like to send in to replace "+Battle.contestants[| params[| 0]].name+"?");
 } else {
     Battle.replacements[| params[| 0]]=noone;
