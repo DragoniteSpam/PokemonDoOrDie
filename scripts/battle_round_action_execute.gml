@@ -35,6 +35,13 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 }
             }
             
+            if (pokemon.status==MajorStatus.PARALYZE){
+                if (random(1)<World.settings.battle.paralyze_immobilization_odds){
+                interrupted=true;
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is paralyzed and unable to move!"));
+                }
+            }
+            
             if (!interrupted){
                 var applied_effects=ds_list_create();
                 // calculate effects, chance of hitting, damage multipliers, etc
