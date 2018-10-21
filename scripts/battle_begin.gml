@@ -3,7 +3,8 @@ stage=BattleStages.BEGIN;
 for (var i=0; i<ds_list_size(teams); i++){
     for (var j=0; j<ds_list_size(teams[| i].owner.party); j++){
         var pkmn=teams[| i].owner.party[| j];
-        pokemon_reset_stat_mods(pkmn);
+        pokemon_reset_battle_stat_mods(pkmn);
+        pokemon_reset_volatile_stat_mods(pkmn);
         pkmn.owner=teams[| i].owner;
         
         var shf=get_pokemon_sprite_hash(pkmn, SpriteSides.FRONT);

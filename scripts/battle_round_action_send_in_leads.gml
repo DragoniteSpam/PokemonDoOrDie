@@ -3,6 +3,12 @@
 
 var team=Battle.teams[| argument0[| 0]];
 
+// it kind of bugs me that this is sort of the same as
+// battle_round_action_change_contestant, since they do pretty much the
+// same thing, so i'll probably merge them at some point
+
+// with that in mind, there's no need for pokemon_reset_volatile_stat_mods,
+// since that was taken care of when the battle was initialized
 message(team.name+" sent out "+team.owner.party[| 0].name+"!");
 Battle.contestants[| argument0[| 0]]=team.owner.party[| 0];
 // this is so each BattlePokemon knows where they are on the field

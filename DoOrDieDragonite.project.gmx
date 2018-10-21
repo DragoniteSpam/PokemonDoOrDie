@@ -432,12 +432,13 @@
           <script>scripts\battle_individual_action_level_gain.gml</script>
           <script>scripts\battle_individual_action_question.gml</script>
           <script>scripts\battle_individual_action_scroll_health.gml</script>
+          <script>scripts\battle_individual_action_refresh.gml</script>
+          <script>scripts\battle_individual_action_set_major_status.gml</script>
+          <script>scripts\battle_individual_action_set_replacement.gml</script>
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
-          <script>scripts\battle_individual_action_set_major_status.gml</script>
-          <script>scripts\battle_individual_action_switch_before_turn.gml</script>
           <script>scripts\battle_individual_action_switch_after_death.gml</script>
-          <script>scripts\battle_individual_action_set_replacement.gml</script>
+          <script>scripts\battle_individual_action_switch_before_turn.gml</script>
           <script>scripts\battle_individual_action_text.gml</script>
           <script>scripts\battle_individual_action_wait.gml</script>
         </scripts>
@@ -472,6 +473,7 @@
       <script>scripts\battle_is_on_field.gml</script>
       <script>scripts\battle_status.gml</script>
       <script>scripts\battle_get_hit.gml</script>
+      <script>scripts\battle_get_standing_targets.gml</script>
       <script>scripts\battle_continue.gml</script>
       <script>scripts\battle_prioritize.gml</script>
       <scripts name="graphics">
@@ -549,7 +551,8 @@
       <scripts name="monsters">
         <script>scripts\pokemon_auto_moves.gml</script>
         <script>scripts\pokemon_auto_stats.gml</script>
-        <script>scripts\pokemon_reset_stat_mods.gml</script>
+        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
+        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
         <script>scripts\pokemon_teach_move.gml</script>
         <script>scripts\heal.gml</script>
         <script>scripts\heal_all.gml</script>

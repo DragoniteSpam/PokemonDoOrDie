@@ -73,17 +73,27 @@ types=ds_list_clone(get_pokemon(species).types);
 // todo this
 nature=0;
 
-// battle stuff: if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
-// IN pokemon_reset_stat_mods UNLESS YOU WANT IT TO PERSIST BETWEEN FIGHTS.
+// battle stuff: resets on switch out, but can persist with Baton Pass
 
 position=-1;
-invulnerable_state=InvulnerableStates.NONE;
-invulnerable_move=-1;
-momentum_move=-1;
-momentum_turn=1;
-trapped_by=noone;
-trapped_for=-1;
-trap_residual_damage=0;
+
+invulnerable_state=InvulnerableStates.NONE; // affects damage calculations for a few moves
+invulnerable_move=-1;                       // the move being used (Fly and Bounce both result in Airborne and you may want to differentiate between them)
+momentum_move=-1;                           // Rollout of Ice Ball, or whatever it's called
+momentum_turn=1;                            // turn of Rollout or Ice Ball
+trapped_by=noone;                           // the pokémon trapping you
+trapped_for=-1;                             // how much longer you can be trapped (can be an arbitrarily big number for "infinite")
+trap_residual_damage=0;                     // how much damage you take at the end of each turn; if you want, this can be accompanied by a type if you want typed damage
+// if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
+// IN pokemon_reset_volatile_stat_mods UNLESS YOU WANT IT TO PERSIST AFTER YOU SWITCH OUT.
+
+// battle stuff: resets when the battle ends
+
+// todo this needs to increase or decrease at the end of every turn,
+// depending on how it's going to be used
+status_turn=0;                              // how much damage you take from Toxic poison, how much longer you will be asleep
+// if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
+// IN pokemon_reset_battle_stat_mods UNLESS YOU WANT IT TO PERSIST BETWEEN FIGHTS.
 
 // volatile status
 confused=0;

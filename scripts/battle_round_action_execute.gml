@@ -35,11 +35,17 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 }
             }
             
-            if (pokemon.status==MajorStatus.PARALYZE){
-                if (random(1)<World.settings.battle.paralyze_immobilization_odds){
-                interrupted=true;
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is paralyzed and unable to move!"));
-                }
+            switch (pokemon.status){
+                case MajorStatus.PARALYZE:
+                    if (random(1)<World.settings.battle.paralyze_immobilization_odds){
+                        interrupted=true;
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is paralyzed and unable to move!"));
+                    }
+                    break;
+                case MajorStatus.SLEEP:
+                    break;
+                case MajorStatus.FREEZE:
+                    break;
             }
             
             if (!interrupted){
@@ -50,7 +56,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 for (var i=0; i<ds_list_size(exe.targets); i++){
                     var sublist=ds_list_create();
                     for (var j=0; j<ds_list_size(move.effects); j++){
-                        if (irandom(100)<=move.effect_odds[| j]){
+                        var roll=irandom(100);
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "Roll value: "+string(roll)+"    odds: "+string(move.effect_odds[| j])));
+                        if (roll<=move.effect_odds[| j]){
                             var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], exe.value);
                             if (effect_result!=noone){
                                 ds_list_add(sublist, effect_result);
@@ -59,6 +67,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     }
                     ds_list_add(applied_effects, sublist);
                 }
+                var has_succeeded_probably=battle_get_standing_targets(move, pokemon, exe.targets);
                 var hit=battle_get_hit(move, pokemon, exe.targets, applied_effects);
                 var damage_total=0;
                 var effect_total=0;
@@ -192,7 +201,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 }
                 ds_list_destroy(applied_effects);
                 // if absolutely nothing of interest happened in this battle, inform the game of your failure
-                if (damage_total+effect_total==0){
+                if (!has_succeeded_probably){
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it failed!"));
                 }
             }
@@ -233,6 +242,16 @@ if (!pokemon.flag_downed&&debug_win==noone){
             break;
         case BattleActions.IDLE:
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
+            break;
+        case BattleActions.AUTOHEAL:
+            var amount=min(floor(pokemon.act[Stats.HP]/2), pokemon.act[Stats.HP]-pokemon.act_hp);
+            if (amount>0){
+                // nothing bad will happen if you do this for a total of zero health but it saves the
+                // computer a bit of effort
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, -amount));
+            }
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_refresh, pokemon));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" was restored!"));
             break;
         case BattleActions.AUTOKO:
             for (var i=0; i<ds_list_size(exe.targets); i++){
