@@ -23,7 +23,10 @@ var scroll_time=get_progress_bar_scroll_time(clear_time, gain, difference_exp);
 
 // if we hit a level-up, we stop
 if (t<scroll_time&&user.experience<current+gain){
-    user.experience=user.experience+delta_f;
+    // see comments in ba_scroll_hp
+    if (abs(current-user.experience-delta_f)<abs(gain)){
+        user.experience=user.experience+delta_f;
+    }
 } else {
     // cut it off here! don't worry, overflow isn't lost, it's just saved in the command to continue gaining
     // after the level up message has been shown
