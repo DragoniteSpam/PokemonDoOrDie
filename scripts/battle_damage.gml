@@ -80,7 +80,8 @@ defense=target.act[cat_defense];
 offense_mod=math_mod(user, cat_offense);
 defense_mod=math_mod(target, cat_defense);
 if (critical_hit){
-    defense_mod=max(defense_mod, 1);
+    offense_mod=max(offense_mod, 1);
+    defense_mod=min(defense_mod, 1);
 }
 if (user.status=MajorStatus.BURN&&cat_offense==Stats.ATTACK){
     mod_burn=0.5;

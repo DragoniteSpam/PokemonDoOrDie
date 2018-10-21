@@ -1,4 +1,4 @@
-/// void be_user_attack_raise_1(user, target, move);
+/// void be_user_attack_raise_1(user, target, move id);
 // this activates instantly upon being processed, it does not
 // get queued!
 // update: i don't know what the above comment is talking about.

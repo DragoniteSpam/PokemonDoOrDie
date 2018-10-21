@@ -1,4 +1,4 @@
-/// void be_user_sp_attack_raise_1(user, target, move);
+/// void be_user_sp_attack_raise_1(user, target, move id);
 
 var target=argument1;   // unused here
 var move=argument2;     // unused here

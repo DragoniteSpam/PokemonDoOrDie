@@ -31,11 +31,17 @@ singleton();
 
 use_scaled_exp=true;
 battle_style_shift=true;
+battle_gen=BattleGenerations.SIX;
 
 // Some game settings that you may not want the player to be able to
 // mess with. (But they can if you want to!)
 
 idle_allowed=true;
+damage_filter_turns=5;
+trap_finite_turns=5;
+trap_residual_damage=0.125; // 0.0625 in gen 5 and earlier
+confuse_min_turns=1;
+confuse_max_turns=4;
 </string>
           </argument>
         </arguments>

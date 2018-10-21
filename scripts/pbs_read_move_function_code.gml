@@ -19,12 +19,10 @@ switch (value){
         break;
     case $6:
         effects[0]=be_badly_poison_target;
-        // todo gen 6: if user is Poison type, move will always hit,
-        // even against invulnerable targets
+        effects[1]=be_always_hit_if_user_has_poison_type;
         break;
     case $7:
         effects[0]=be_paralyze_target;
-        // todo Thunder Wave: fails if target is immune to move's type
         // todo Bolt Strike: doubles the power of the next Fusion Flare
         // used in this round
         // todo gen 6: Body Slam power doubles and accuracy is perfect

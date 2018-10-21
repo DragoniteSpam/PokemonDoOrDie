@@ -1,4 +1,4 @@
-/// void battle_individual_action_stat_rise_animation(params);
+/// void battle_individual_action_stat_set(params);
 // 0: user
 // 1. stat
 // 2. value

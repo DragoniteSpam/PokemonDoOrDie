@@ -1,11 +1,14 @@
-/// void be_trap_infinite_turns(user, target, move);
+/// void be_trap_infinite_turns(user, target, move id);
 
-var user=argument0;     // unused here
-var target=argument1;   // unused here
+var move=argument2;     // unused here
 
 with (instance_create(0, 0, BattleAppliedEffect)){
-    ds_queue_enqueue(actions, add_battle_individual_action(battle_individual_action_text, "("+argument2.name+" has an effect that has not been implemented yet:#"+
-        "[trap for an indefinite number of turns])"));
+    if (argument1.trapped_by=noone){
+        argument1.trapped_by=argument0.position;
+        argument1.trapped_for=MILLION;  // your computer will fail long before you manage to have a battle drag out for this long, even if you put it on autopilot
+        argument1.trap_residual_damage=World.settings.battle.trap_residual_damage;
+        ds_queue_enqueue(actions, add_battle_individual_action(battle_individual_action_text, argument1.name+" was trapped by "+argument0.name+"!"));
+    }
     
     return id;
 }

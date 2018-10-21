@@ -434,6 +434,7 @@
           <script>scripts\battle_individual_action_scroll_health.gml</script>
           <script>scripts\battle_individual_action_stat_change_animation.gml</script>
           <script>scripts\battle_individual_action_stat_set.gml</script>
+          <script>scripts\battle_individual_action_set_major_status.gml</script>
           <script>scripts\battle_individual_action_switch_before_turn.gml</script>
           <script>scripts\battle_individual_action_switch_after_death.gml</script>
           <script>scripts\battle_individual_action_set_replacement.gml</script>
@@ -505,10 +506,11 @@
       <scripts name="effects">
         <script>scripts\be_double_power_if_diving.gml</script>
         <script>scripts\be_no_effect.gml</script>
-        <script>scripts\be_not_implemented.gml</script>
         <script>scripts\be_rollout.gml</script>
+        <script>scripts\be_not_implemented.gml</script>
         <script>scripts\be_trap_damage_finite_turns.gml</script>
         <script>scripts\be_trap_infinite_turns.gml</script>
+        <script>scripts\be_always_hit_if_user_has_poison_type.gml</script>
         <script>scripts\be_user_heal_half.gml</script>
         <scripts name="status">
           <scripts name="minor">
@@ -555,23 +557,11 @@
       <script>scripts\pawn_create.gml</script>
     </scripts>
     <scripts name="math-ish">
-      <script>scripts\alive.gml</script>
-      <script>scripts\team_alive.gml</script>
       <script>scripts\action_priority.gml</script>
-      <scripts name="stats">
-        <script>scripts\math_mod.gml</script>
-        <script>scripts\get_level.gml</script>
-        <script>scripts\get_experience.gml</script>
-        <script>scripts\exp_reward.gml</script>
-        <script>scripts\recalculate_all_stats.gml</script>
-        <script>scripts\recalculate_stat.gml</script>
-        <script>scripts\get_nature_modifier.gml</script>
-      </scripts>
-      <script>scripts\world_to_2d.gml</script>
-      <script>scripts\vector2.gml</script>
+      <script>scripts\alive.gml</script>
+      <script>scripts\approach.gml</script>
       <script>scripts\battle_damage.gml</script>
-      <script>scripts\get_progress_bar_scroll_rate.gml</script>
-      <script>scripts\get_progress_bar_scroll_time.gml</script>
+      <script>scripts\boolean.gml</script>
       <scripts name="data structures">
         <script>scripts\array_clear.gml</script>
         <script>scripts\array_clear_2d.gml</script>
@@ -587,27 +577,42 @@
         <script>scripts\random_element_from_list.gml</script>
         <script>scripts\array_sum.gml</script>
       </scripts>
-      <script>scripts\split.gml</script>
       <scripts name="file">
         <script>scripts\ini_read_boolean.gml</script>
         <script>scripts\file_text_as_list.gml</script>
       </scripts>
-      <script>scripts\get_matchup.gml</script>
-      <script>scripts\get_matchup_on.gml</script>
-      <script>scripts\get_pawn_level.gml</script>
-      <script>scripts\get_prize_money.gml</script>
       <scripts name="game maker">
         <script>scripts\instanceof.gml</script>
+      </scripts>
+      <script>scripts\get_pawn_level.gml</script>
+      <script>scripts\get_prize_money.gml</script>
+      <script>scripts\get_progress_bar_scroll_rate.gml</script>
+      <script>scripts\get_matchup.gml</script>
+      <script>scripts\get_progress_bar_scroll_time.gml</script>
+      <script>scripts\hex.gml</script>
+      <script>scripts\is_clamped.gml</script>
+      <script>scripts\split.gml</script>
+      <scripts name="stats">
+        <script>scripts\exp_reward.gml</script>
+        <script>scripts\get_experience.gml</script>
+        <script>scripts\get_level.gml</script>
+        <script>scripts\get_nature_modifier.gml</script>
+        <script>scripts\math_mod.gml</script>
+        <script>scripts\recalculate_all_stats.gml</script>
+        <script>scripts\recalculate_stat.gml</script>
       </scripts>
       <scripts name="string">
         <script>scripts\string_minimal.gml</script>
         <script>scripts\string_commas.gml</script>
         <script>scripts\string_pad.gml</script>
       </scripts>
-      <script>scripts\hex.gml</script>
-      <script>scripts\boolean.gml</script>
-      <script>scripts\is_clamped.gml</script>
-      <script>scripts\approach.gml</script>
+      <script>scripts\team_alive.gml</script>
+      <script>scripts\vector2.gml</script>
+      <script>scripts\world_to_2d.gml</script>
+      <scripts name="pokemon">
+        <script>scripts\get_matchup_on.gml</script>
+        <script>scripts\has_type.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>

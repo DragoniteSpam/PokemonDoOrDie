@@ -29,6 +29,9 @@
 owner=noone;
 
 sprite_side=SpriteSides.FRONT;
+
+reduce_physical_damage_turns=0;
+reduce_special_damage_turns=0;
 </string>
           </argument>
         </arguments>

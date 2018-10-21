@@ -1,4 +1,4 @@
-/// void be_target_speed_decrease_1(user, target, move);
+/// void be_target_speed_decrease_1(user, target, move id);
 
 var user=argument0;     // unused here
 var move=argument2;     // unused here

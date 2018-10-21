@@ -1,4 +1,4 @@
-/// void be_not_implemented(user, target, move);
+/// void be_not_implemented(user, target, move id);
 
 var user=argument0;     // unused here
 var target=argument1;   // unused here

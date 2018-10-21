@@ -1,11 +1,12 @@
-/// void be_flinch(user, target, move);
+/// void be_flinch(user, target, move id);
 
 var user=argument0;     // unused here
-var target=argument1;   // unused here
+var move=argument2;     // unused here
 
 with (instance_create(0, 0, BattleAppliedEffect)){
-    ds_queue_enqueue(actions, add_battle_individual_action(battle_individual_action_text, "("+argument2.name+" has an effect that has not been implemented yet:#"+
-        "[cause the target to flinch])"));
+    if (!argument1.flinch){
+        argument1.flinch=true;
+    }
     
     return id;
 }

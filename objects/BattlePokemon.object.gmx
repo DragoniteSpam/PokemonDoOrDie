@@ -30,14 +30,9 @@ name="";
 owner=noone;    // the Pawn (this should ONLY be used in battle)
 trainer=noone;  // the DataTrainer
 
-act=array_create(6)
-
-for (var i=0; i&lt;6; i++){
-    act[i]=20;
-}
+act=array_compose(50, 20, 20, 20, 20, 20)
 
 act_hp=50;
-act[Stats.HP]=50;
 
 mods=array_create(8);
 
@@ -54,6 +49,7 @@ previous_moves=ds_list_create();
 
 gender=Genders.MALE;
 status=MajorStatus.NONE;
+status_turns=0;
 item=0;
 form=0;
 
@@ -80,6 +76,17 @@ nature=0;
 // battle stuff
 
 position=-1;
+invulnerable_state=InvulnerableStates.NONE;
+invulnerable_move=-1;
+momentum_move=-1;
+momentum_turn=1;
+trapped_by=noone;
+trapped_for=-1;
+trap_residual_damage=0;
+
+// volatile status
+confused=0;
+flinch=false;
 
 // this is so that the game can know that you've fainted before it executes the action that
 // makes you faint, i.e. to keep fainted pokémon from executing moves or beint targeted by other moves
@@ -117,6 +124,7 @@ spr_back=noone;
 enum MajorStatus {
     NONE,
     POISON,
+    TOXIC,
     BURN,
     PARALYZE,
     SLEEP,
@@ -132,6 +140,13 @@ enum Stats {
     SPEED,
     ACCURACY,
     EVADE,
+}
+
+enum InvulnerableStates {
+    NONE,
+    UNDERWATER,
+    UNDERGROUND,
+    AIRBORNE,
 }
 </string>
           </argument>

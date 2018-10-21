@@ -18,7 +18,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 var sublist=ds_list_create();
                 for (var j=0; j<ds_list_size(move.effects); j++){
                     if (irandom(100)<=move.effect_odds[| j]){
-                        var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], move);
+                        var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], exe.value);
                         if (effect_result!=noone){
                             ds_list_add(sublist, effect_result);
                         }
