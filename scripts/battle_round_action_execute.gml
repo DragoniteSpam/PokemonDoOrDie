@@ -227,15 +227,11 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 if (target.flag_downed){
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" has already fainted!"));
                 } else {
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" was removed from the battle. (How horrible!)"));
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "(No experience was gained.)"));
                     // it seems sort of dumb that you can only modify a pokémon's hp by calling the "scroll health" animation.
-                    // i don't know why i did it like that. also, a million is a safely large number that should always exceed
-                    // the amount of available hp, but if you do something ridiculous to the scale of the numbers in this game,
-                    // you should probably increase it or it won't actually be a ko.
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, MILLION));
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, target));
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, target.position));
+                    // i don't know why i did it like that.
+                    damage=target.act_hp;
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, damage));
+                    battle_round_action_execute_faint_check(pokemon, target, damage);
                     target.flag_downed=true;
                 }
             }
