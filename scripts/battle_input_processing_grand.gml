@@ -26,7 +26,11 @@ if (keyboard_check_released(vk_enter)){
 //            Battle.input_stage=BattleInputStages.ITEM;
             break;
         case 2:
-            Battle.input_stage=BattleInputStages.SWITCH;
+            if (Battle.input_processing.trapped_for>0){
+                message(Battle.input_processing.name+" is trapped by the foe's "+Battle.contestants[| Battle.input_processing.trapped_by].name+"!");
+            } else {
+                Battle.input_stage=BattleInputStages.SWITCH;
+            }
             break;
         case 3:
             // todo if this turns into a "forfeit" button for Trainer battles,

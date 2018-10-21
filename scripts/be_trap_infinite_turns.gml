@@ -3,7 +3,7 @@
 var move=argument2;     // unused here
 
 with (instance_create(0, 0, BattleAppliedEffect)){
-    if (argument1.trapped_by=noone){
+    if (argument1.trapped_by==noone){
         argument1.trapped_by=argument0.position;
         argument1.trapped_for=MILLION;  // your computer will fail long before you manage to have a battle drag out for this long, even if you put it on autopilot
         argument1.trap_residual_damage=World.settings.battle.trap_residual_damage;

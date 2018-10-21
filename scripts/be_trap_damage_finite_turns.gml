@@ -1,7 +1,7 @@
 /// void be_trap_damage_finite_turns(user, target, move id);
 
 with (instance_create(0, 0, BattleAppliedEffect)){
-    if (argument1.trapped_by=noone){
+    if (argument1.trapped_by==noone){
         argument1.trapped_by=argument0.position;
         argument1.trapped_for=World.settings.battle.trap_finite_turns;
         argument1.trap_residual_damage=World.settings.battle.trap_residual_damage;
