@@ -212,7 +212,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
             break;
         case BattleActions.AUTOHEAL:
-            var amount=min(floor(pokemon.act[Stats.HP]/2), pokemon.act[Stats.HP]-pokemon.act_hp);
+            var amount=min(pokemon.act[Stats.HP], pokemon.act[Stats.HP]-pokemon.act_hp);
             if (amount>0){
                 // nothing bad will happen if you do this for a total of zero health but it saves the
                 // computer a bit of effort
