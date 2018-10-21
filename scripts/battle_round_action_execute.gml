@@ -22,6 +22,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 pokemon.confused--;
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
                 // todo animation
+                // todo in gen 7 apparently the confusion chance is one in three instead of one in two
                 if (choose(true, false)){
                     interrupted=true;
                     // todo animation
@@ -32,6 +33,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     } else {
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" hit itself in the confusion!"));
                     }
+                    var damage=battle_damage(World.move_confusion, pokemon, pokemon);
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
+                    battle_round_action_execute_faint_check(pokemon, pokemon, damage);
                 }
             }
             
@@ -56,9 +60,10 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 for (var i=0; i<ds_list_size(exe.targets); i++){
                     var sublist=ds_list_create();
                     for (var j=0; j<ds_list_size(move.effects); j++){
-                        var roll=irandom(100);
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "Roll value: "+string(roll)+"    odds: "+string(move.effect_odds[| j])));
-                        if (roll<=move.effect_odds[| j]){
+                        if (move.effect_odds[| j]==0){
+                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, move.name+" odds are zero"));
+                        }
+                        if (irandom(100)<=move.effect_odds[| j]||(DEBUG&&keyboard_check(vk_control))){
                             var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], exe.value);
                             if (effect_result!=noone){
                                 ds_list_add(sublist, effect_result);
@@ -135,44 +140,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
                                     }
                                     damage_total=damage_total+min(damage, target.act_hp);
-                                    if (damage>=target.act_hp){
-                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_death, target));
-                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, target.position));
-                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" fainted!"));
-                                        target.flag_downed=true;
-                                        // todo: post-death effects, such as aftermath, destiny bond, etc
-                                        if (pokemon.owner.object_index==PawnPlayer){
-                                            // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
-                                            // and if the exp all is turned on
-                                            // also you should probably make sure the victorious pokémon(s) are still alive
-                                            var level=get_level(pokemon.experience, base.growth_rate);
-                                            if (level<MAX_LEVEL){
-                                                // todo aggregate experience gain, i.e. if two pokémon go down at the same time you only gain
-                                                // experience once
-                                                var exp_gain=exp_reward(pokemon, target);
-                                                var exp_next_level=get_experience(level+1, base.growth_rate);
-                                                if (exp_gain==1){
-                                                    var points="point";
-                                                } else {
-                                                    var points="points";
-                                                }
-                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" gained "+string_commas(exp_gain, true)+" experience "+points+"!"));
-                                                var to_grow=min(exp_gain, exp_next_level-pokemon.experience);
-                                                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, pokemon.experience, to_grow));
-                                                if (pokemon.experience+exp_gain>=exp_next_level){
-                                                    var new_level=get_level(pokemon.experience+exp_gain, base.growth_rate);
-                                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" grew to level "+string(new_level)+"!"));
-                                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_level_gain, pokemon, level, new_level));
-                                                    if (pokemon.experience+exp_gain>exp_next_level){
-                                                        var new_level_exp=get_experience(new_level, base.growth_rate);
-                                                        var remainder=pokemon.experience+exp_gain-new_level_exp;
-                                                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_exp_gain, pokemon, new_level_exp, remainder));
-                                                    }
-                                                    // todo learning new moves
-                                                }
-                                            }
-                                        } // i don't know what foes gaining experience would look like, but you're free to try it out all the same
-                                    } // endif type effectiveness
+                                    battle_round_action_execute_faint_check(pokemon, target, damage);
                                 }
                             }
                             // apply move effects here, if the target is still alive

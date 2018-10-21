@@ -76,6 +76,13 @@ all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");  // dependencies: natur
 
 debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 
+/*
+ * hard-coding for now
+ */
+
+move_confusion=array_add(all_moves, add_move("Self-Confusion", Types.QMARKS, MoveCategories.PHYSICAL, 0, 40, 0, 0, MoveTargets.USER, "when you hit yourself in confusion", ba_move_basic, array_compose(be_no_effect), array_compose(0), "SELFCONFUSION"))
+move_struggle=get_move_from_name("STRUGGLE", true);
+
 // color values came from bulbapedia
 all_types[Types.NORMAL].color=$A8A878;
 all_types[Types.FIGHTING].color=$C03028;
