@@ -543,6 +543,10 @@
             <script>scripts\be_target_accuracy_decrease_1.gml</script>
           </scripts>
         </scripts>
+        <scripts name="help">
+          <script>scripts\be_help_stat_raise.gml</script>
+          <script>scripts\be_help_stat_fall.gml</script>
+        </scripts>
       </scripts>
       <scripts name="abilities">
         <script>scripts\babl_default.gml</script>

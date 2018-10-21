@@ -5,8 +5,7 @@ var move=argument2;     // unused here
 
 with (instance_create(0, 0, BattleAppliedEffect)){
     if (argument1.mods[Stats.SPEED]>-STAT_MOD_LIMIT){
-        // todo this is going to be used again at some point so it's probably a good idea to make it its own script
-        ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_stat_change_animation, argument1, ba_stat_change, spr_anim_stat_fall, 0, 64, se_battle_decrease));
+        be_help_stat_fall(argument1);
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, argument1.name+"'s Speed fell!"));
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_stat_set, argument1, Stats.SPEED, argument1.mods[Stats.SPEED]-1));
     } else {

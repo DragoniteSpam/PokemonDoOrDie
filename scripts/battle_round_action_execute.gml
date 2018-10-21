@@ -59,10 +59,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 // turn processing, etc) feels kind of bad but it's probably the easiest way to do this
                 for (var i=0; i<ds_list_size(exe.targets); i++){
                     var sublist=ds_list_create();
+                    Battle.misc_data[? "stat raise animations"]=0;
+                    Battle.misc_data[? "stat fall animations"]=0;
                     for (var j=0; j<ds_list_size(move.effects); j++){
-                        if (move.effect_odds[| j]==0){
-                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, move.name+" odds are zero"));
-                        }
                         if (irandom(100)<=move.effect_odds[| j]||(DEBUG&&keyboard_check(vk_control))){
                             var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], exe.value);
                             if (effect_result!=noone){

@@ -9,8 +9,7 @@ var move=argument2;     // unused here
 
 with (instance_create(0, 0, BattleAppliedEffect)){
     if (argument0.mods[Stats.ATTACK]<STAT_MOD_LIMIT){
-        // todo this is going to be used again at some point so it's probably a good idea to make it its own script
-        ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_stat_change_animation, argument0, ba_stat_change, spr_anim_stat_rise, 0, -64, se_battle_increase));
+        be_help_stat_raise(argument0);
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, argument0.name+"'s Attack rose!"));
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_stat_set, argument0, Stats.ATTACK, argument0.mods[Stats.ATTACK]+1));
     } else {
