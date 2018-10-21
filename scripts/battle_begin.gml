@@ -16,7 +16,7 @@ for (var i=0; i<ds_list_size(teams); i++){
         if (!ds_map_exists(sprite_hash, shf)){
             if (file_exists(shf_path)){
                 var sf=sprite_add(shf_path, 0, false, false, 0, 0);
-                sprite_set_offset(sf, sprite_get_width(sf)/2, sprite_get_height(sf)*5/6);
+                sprite_set_offset(sf, sprite_get_width(sf)/2, sprite_get_height(sf)/**5/6*/);
                 sprite_hash[? shf]=sf;
             } else {
                 var sf=spr_pokemon_unknown;
