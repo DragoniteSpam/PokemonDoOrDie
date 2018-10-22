@@ -94,17 +94,19 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     var target=Battle.contestants[| exe.targets[| i]];
                     target.animate_on=false;
                     var target_effects_list=applied_effects[| i];
+                    if (move.category!=MoveCategories.STATUS){
+                        has_succeeded_probably=true;
+                    }
                     // the obvious part: if you're marked as being hit, execute the action, otherwise, ignore it
                     if (hit[i]){
                         // the less obvious part: if you're not marked as being already fainted, execute the action, otherwise, ignore it
                         if (!target.flag_downed){
                             if (move.category!=MoveCategories.STATUS){
-                                has_succeeded_probably=true;
                                 // todo sort this out (calculating whether a hit is critical or not: remember, some conditions
                                 // increase critical hit chances, and others negate them entirely)
                                 var matchup=get_matchup_on(move.type, target, target_effects_list);
                                 if (matchup==0){
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+target.name));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+target.name+"..."));
                                 } else {
                                     var critical_hit_threshold=1;
                                     var critical=irandom(16)<critical_hit_threshold;
@@ -175,6 +177,11 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 // if absolutely nothing of interest happened in this battle, inform the game of your failure
                 if (!has_succeeded_probably){
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it failed!"));
+                }
+                
+                if (damage_total==0){
+                    pokemon.momentum_turn=0;
+                    pokemon.momentum_move=-1
                 }
             }
             break;
