@@ -4,9 +4,7 @@
 // the move array is modified (not counting the pokemon_auto_moves
 // script, since that sets things up slightly differently).
 
-with (argument0){
-    if (!ds_list_find_index(previous_moves, moves[argument2])==-1){
-        ds_list_add(previous_moves, moves[argument2]);
-    }
-    moves[argument2]=argument1;
+if (!ds_list_find_index(argument0.previous_moves, argument0.moves[argument2])==-1){
+    ds_list_add(argument0.previous_moves, argument0.moves[argument2]);
 }
+argument0.moves[argument2]=argument1;

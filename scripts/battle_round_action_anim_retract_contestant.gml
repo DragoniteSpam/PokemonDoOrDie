@@ -2,6 +2,7 @@
 // 0: drawable index
 
 Battle.input_ready=false;
+pokemon_reset_volatile_stat_mods(Battle.contestants[| argument0[| 0]]);
 with (instance_create(0, 0, BattleAnimator)){
     user=Battle.drawables[| argument0[| 0]];
     user.alpha=1;

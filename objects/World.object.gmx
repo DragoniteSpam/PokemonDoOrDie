@@ -119,7 +119,9 @@ dt=0;
 instance_deactivate_object(Struct);
 instance_deactivate_object(Settings);
 // these may be generated on the fly as the player runs into random
-// encounters so you'll have to deactivate them there also
+// encounters so you'll have to deactivate them there also.
+// it also means you can't ever say with (BattlePokemon).
+// i'm guessing that's going to be a problem every once in a while.
 instance_deactivate_object(BattlePokemon);
 </string>
           </argument>

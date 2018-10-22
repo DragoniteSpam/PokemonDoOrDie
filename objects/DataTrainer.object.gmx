@@ -58,6 +58,7 @@ party=ds_list_create();
             <string>ds_list_destroy(items);
 
 for (var i=0; i&lt;ds_list_size(party); i++){
+    instance_activate_object(parth[| i]);
     with (party[| i]){
         instance_destroy();
     }

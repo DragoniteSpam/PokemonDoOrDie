@@ -1,25 +1,29 @@
 /// void pokemon_reset_volatile_stat_mods(BattlePokemon);
 
-with (argument0){
-    recalculate_all_stats(id);
-    
-    for (var i=0; i<8; i++){
-        mods[i]=0;
-    }
-    
-    ds_list_clear(types);
-    types=ds_list_clone(get_pokemon(species).types);
-    
-    invulnerable_state=InvulnerableStates.NONE;
-    invulnerable_move=-1;
-    momentum_move=-1;
-    momentum_turn=1;
-    trapped_by=noone;
-    trapped_for=0;
-    trap_residual_damage=0;
-    
-    confused=0;
-    flinch=false;
-    
-    flag_downed=false;
+recalculate_all_stats(argument0);
+
+for (var i=0; i<8; i++){
+    argument0.mods[i]=0;
 }
+
+ds_list_clear(argument0.types);
+argument0.types=ds_list_clone(get_pokemon(argument0.species).types);
+
+argument0.invulnerable_state=InvulnerableStates.NONE;
+argument0.invulnerable_move=-1;
+argument0.momentum_move=-1;
+argument0.momentum_turn=1;
+argument0.trapped_by=-1;
+argument0.trapped_for=0;
+argument0.trap_residual_damage=0;
+
+argument0.confused=0;
+argument0.flinch=false;
+
+// entrapment isn't a volatile status on your part, but on your foes
+
+battle_remove_entrapments(argument0);
+
+// other stuff
+
+argument0.flag_downed=false;
