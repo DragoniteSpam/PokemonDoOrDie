@@ -1,18 +1,8 @@
-/// void draw_menu_from_list(list, selected index, [color list]);
+/// void draw_moves_from_list(move list, selected index);
 // this only draws the list, it does not control it. you most
 // likely want to use menu_input in conjunction with this.
 
-var text_list=argument[0];
-var selected_index=argument[1];
-var color_list=noone;
-
-switch (argument_count){
-    case 3:
-        color_list=argument[2];
-}
-
-var max_n=ds_list_size(text_list);
-var default_color=draw_get_colour();
+var max_n=ds_list_size(argument0);
 
 if (max_n==2){
 //    var text_font=FPokemonLarge;
@@ -25,7 +15,17 @@ if (max_n==2){
 }
 draw_set_font(text_font);
 
-var max_width=ds_list_max_width(text_list);
+var text_list=ds_list_create();
+for (var i=0; i<ds_list_size(argument0); i++){
+    if (argument0[| i]==-1){
+        ds_list_add(text_list, "---");
+    } else {
+        ds_list_add(text_list, get_move(argument0[| i]).name);
+    }
+}
+ds_list_add(text_list, "(Back)");
+
+var max_width=ds_list_max_width(argument0);
 
 var text_spacing=font_get_size(text_font)*1.5;
 
@@ -39,14 +39,9 @@ draw_rectangle_9s(spr_window9s_hgss, box_x, box_y, box_width, box_height);
 draw_set_valign(fa_middle);
 
 for (var i=0; i<max_n; i++){
-    if (color_list==noone){
-        var c=default_color;
-    } else {
-        var c=color_list[| i];
-    }
-    draw_text_colour(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+text_spacing*(i+1.5), selected_index[| i], c, c, c, c, 1);
+    draw_text(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+text_spacing*(i+1.5), argument0[| i]);
 }
 
-if (selected_index>=0){
-    draw_selection_arrow(box_x+UI_TEXT_BOX_OFFSET_W+text_spacing/3, box_y+text_spacing*(selected_index+1.5));
+if (argument1>=0){
+    draw_selection_arrow(box_x+UI_TEXT_BOX_OFFSET_W+text_spacing/3, box_y+text_spacing*(argument1+1.5));
 }

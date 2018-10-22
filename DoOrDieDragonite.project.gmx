@@ -562,19 +562,23 @@
       <script>scripts\add_trainer_pokemon.gml</script>
       <script>scripts\attach_pokemon_to_trainer.gml</script>
       <scripts name="monsters">
-        <script>scripts\pokemon_auto_moves.gml</script>
-        <script>scripts\pokemon_auto_stats.gml</script>
-        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
-        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
-        <script>scripts\pokemon_teach_move.gml</script>
+        <script>scripts\alive.gml</script>
+        <script>scripts\get_matchup_on.gml</script>
+        <script>scripts\has_type.gml</script>
         <script>scripts\heal.gml</script>
         <script>scripts\heal_all.gml</script>
+        <script>scripts\pokemon_auto_moves.gml</script>
+        <script>scripts\pokemon_auto_stats.gml</script>
+        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
+        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
+        <script>scripts\pokemon_teach_move.gml</script>
+        <script>scripts\team_alive.gml</script>
+        <script>scripts\total_pp.gml</script>
       </scripts>
       <script>scripts\pawn_create.gml</script>
     </scripts>
     <scripts name="math-ish">
       <script>scripts\action_priority.gml</script>
-      <script>scripts\alive.gml</script>
       <script>scripts\choose_gender.gml</script>
       <script>scripts\approach.gml</script>
       <script>scripts\battle_damage.gml</script>
@@ -624,13 +628,8 @@
         <script>scripts\string_commas.gml</script>
         <script>scripts\string_pad.gml</script>
       </scripts>
-      <script>scripts\team_alive.gml</script>
       <script>scripts\vector2.gml</script>
       <script>scripts\world_to_2d.gml</script>
-      <scripts name="pokemon">
-        <script>scripts\get_matchup_on.gml</script>
-        <script>scripts\has_type.gml</script>
-      </scripts>
     </scripts>
     <script>scripts\null.gml</script>
     <script>scripts\message.gml</script>
@@ -738,7 +737,9 @@
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
       <script>scripts\draw_menu_from_list.gml</script>
+      <script>scripts\draw_moves_list.gml</script>
     </scripts>
+    <script>scripts\debug_notes.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -801,6 +802,7 @@
       <object>objects\World</object>
       <object>objects\Settings</object>
       <object>objects\SettingsBattle</object>
+      <object>objects\SettingsGameplay</object>
       <object>objects\Camera</object>
     </objects>
   </objects>

@@ -1,23 +1,21 @@
 var pkmn=Battle.input_processing;
 
-var text_list=ds_list_create();
-// this is silly but we need a list of text for the "max width" script
-var move_list=ds_list_create();
-
-for (var i=0; i<array_length_1d(pkmn.moves); i++){
-    if (pkmn.moves[i]==noone){
-        ds_list_add(text_list, "---");
-        ds_list_add(move_list, noone);
-    } else {
-        ds_list_add(text_list, get_move(pkmn.moves[i]).name);
-        ds_list_add(move_list, pkmn.moves[i]);
+if (DEBUG&&keyboard_check_released(vk_f1)){
+    if (World.message_option_index<MOVE_LIMIT){
+        var n=World.message_option_index;
+        if (pkmn.moves[n]!=-1){
+            if (pkmn.move_pp[n]==0){
+                pkmn.move_pp[n]=1;
+            } else {
+                pkmn.move_pp[n]=0;
+            }
+        }
     }
 }
 
-ds_list_add(move_list, noone);
-ds_list_add(text_list, "(Back)");
+var continue_text="";
 
-if (false){
+if (total_pp(pkmn)==0){
     // todo: move pp
     var value=get_move_from_name("STRUGGLE", true);
     // struggle automatically hits a random adjacent foe, if you want to change the
@@ -31,22 +29,24 @@ if (false){
     
     battle_input_processing_reset();
     
-    battle_debug(pkmn.name+" has no valid moves, struggling");
+    continue_text=pkmn.name+" has no valid moves, struggling";
 } else {
-    var max_n=ds_list_size(text_list);
+    var max_n=array_length_1d(pkmn.moves[World.message_option_index])+1;
     
-    draw_menu_from_list(text_list, World.message_option_index);    
+    draw_moves_list(pkmn, World.message_option_index);    
     World.message_option_index=menu_input(World.message_option_index, max_n);
+    
+    // todo some key press to view move details
     
     if (keyboard_check_released(vk_escape)){
         battle_input_processing_reset(false);
     } else if (keyboard_check_released(vk_enter)){
         if (World.message_option_index==MOVE_LIMIT){
             battle_input_processing_reset(false);
-        } else if (move_list[| World.message_option_index]==noone){
+        } else if (pkmn.moves[World.message_option_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {
-            var value=move_list[| World.message_option_index];
+            var value=pkmn.moves[World.message_option_index];
             // at some point in the future this needs to be moved to a different script that can
             // account for selecting multiple valid targets
             var valid_targets=battle_get_valid_targets(pkmn, value);
@@ -58,10 +58,15 @@ if (false){
             
             battle_input_processing_reset();
             
-            battle_debug(pkmn.owner.name+" has chosen the move "+text_list[| World.message_option_index]+" for "+pkmn.name);
+            continue_text=pkmn.owner.name+" has chosen the move "+get_move(World.message_option_index).name+" for "+pkmn.name;
         }
     }
 }
 
-ds_list_destroy(text_list);
-ds_list_destroy(move_list);
+// as with a few places in this code, this isn't 100% necessary because
+// you'll return from the inner battle_advance EVENTUALLY to clean up the
+// data structures, but it makes me feel better to put that off until
+// the end.
+if (string_length(continue_text)>0){
+    battle_debug(continue_text);
+}

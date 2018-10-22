@@ -312,7 +312,7 @@ if (message_wait==0){
  * debug stuff?
  */
 
-if (keyboard_check(vk_space)){
+if (DEBUG&amp;&amp;keyboard_check(vk_space)){
     randomize();
 }
 </string>

@@ -8,3 +8,11 @@ if (!ds_list_find_index(argument0.previous_moves, argument0.moves[argument2])==-
     ds_list_add(argument0.previous_moves, argument0.moves[argument2]);
 }
 argument0.moves[argument2]=argument1;
+if (World.settings.gameplay.tms_infinite_use){
+    // if tms are infinite use, you don't want players to be able
+    // to restore pp for free by replacing and relearning tms
+    argument0.move_pp[count]=min(get_move(argument1).pp, argument0.move_pp[count]);
+} else {
+    argument0.move_pp[count]=get_move(argument1).pp;
+}
+argument0.move_pp_up[count]=0;

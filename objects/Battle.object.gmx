@@ -52,6 +52,10 @@ priority=ds_priority_create();
 sprite_hash=ds_map_create();
 misc_data=ds_map_create();
 
+// less important settings
+
+view_details=false;
+
 // debug stuff
 
 debug_win=noone;

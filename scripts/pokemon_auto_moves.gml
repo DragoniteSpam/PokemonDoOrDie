@@ -9,6 +9,8 @@ var count=0;
 while (n>=0){
     if (base.move_levels[| n]<=l){
         if (count<MOVE_LIMIT){
+            argument0.move_pp[count]=get_move(base.moves[| n]).pp;
+            argument0.move_pp_up[count]=0;
             argument0.moves[count++]=base.moves[| n];
         } else {
             ds_list_add(argument0.previous_moves, base.moves[| n]);
