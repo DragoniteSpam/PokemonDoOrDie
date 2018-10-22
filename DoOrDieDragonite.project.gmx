@@ -426,6 +426,7 @@
           </scripts>
           <scripts name="post round">
             <script>scripts\battle_round_post_trap_damage.gml</script>
+            <script>scripts\battle_round_post_major_status_damage.gml</script>
           </scripts>
         </scripts>
         <script>scripts\battle_action_conclude.gml</script>
@@ -574,6 +575,7 @@
     <scripts name="math-ish">
       <script>scripts\action_priority.gml</script>
       <script>scripts\alive.gml</script>
+      <script>scripts\choose_gender.gml</script>
       <script>scripts\approach.gml</script>
       <script>scripts\battle_damage.gml</script>
       <script>scripts\boolean.gml</script>

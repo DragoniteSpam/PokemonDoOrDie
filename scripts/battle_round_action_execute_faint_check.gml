@@ -9,6 +9,9 @@ if (argument2>=argument1.act_hp){
     argument1.flag_downed=true;
     // todo: post-death effects, such as aftermath, destiny bond, etc
     // you don't gain experience from taking down teammates, allies or yourself
+    // todo this will also not give you experience if the foe dies to something indirect like poison.
+    // this is because of the stuff in place to make implementing multiplayer not literally the worst
+    // thing ever. it would probably be a good idea to find a way around that for singleplayer.
     if (argument0.owner.object_index==PawnPlayer&&argument0.owner.team!=argument1.owner.team){
         // todo this but for all pokémon involved in the takedown, and whoever holds an exp share,
         // and if the exp all is turned on

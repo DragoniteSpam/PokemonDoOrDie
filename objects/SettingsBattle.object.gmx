@@ -44,6 +44,9 @@ confuse_min_turns=1;
 confuse_max_turns=4;
 paralyze_speed_factor=0.25;
 paralyze_immobilization_odds=0.25;
+poison_damage=0.125;
+toxic_damage_t1=0.0625;
+burn_damage=0.0625;
 </string>
           </argument>
         </arguments>

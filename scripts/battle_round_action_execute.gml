@@ -26,15 +26,10 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 if (choose(true, false)){
                     interrupted=true;
                     // todo animation
-                    if (pokemon.gender==Genders.MALE){
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" hit himself in the confusion!"));
-                    } else if (pokemon.gender==Genders.FEMALE){
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" hit herself in the confusion!"));
-                    } else {
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" hit itself in the confusion!"));
-                    }
                     var damage=battle_damage(World.move_confusion, pokemon, pokemon);
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
+                    var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
                     battle_round_action_execute_faint_check(pokemon, pokemon, damage);
                 }
             }
@@ -47,8 +42,12 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     }
                     break;
                 case MajorStatus.SLEEP:
+                    // when this is set, it should generate a random number of turns between 1
+                    // and(according to Serebii) 7, which decreases once each time this is checked
+                    // or twice if you have a sleep-hastening ability
                     break;
                 case MajorStatus.FREEZE:
+                    // on each turn there's a 20% chance of being thawed; no status turn counter necessary
                     break;
             }
             
