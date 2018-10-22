@@ -1,5 +1,13 @@
 /// void ba_move_basic();
 
+var continue_now=true;
+for (var i=0; i<ds_list_size(target_list); i++){
+    if (Battle.contestants[| target_list[| i]].animate_on){
+        continue_now=false;
+        break;
+    }
+}
+
 var t_wait=0.25;
 var t_advance=t_wait+0.2;
 var t_wait_2=t_advance+0.25;
@@ -48,6 +56,11 @@ if (t<t_wait){
 } else if (t<t_terminate){
     // wait some more
 } else {
+    continue_now=true;
+}
+
+
+if (continue_now){
     instance_destroy();
     Battle.input_ready=true;
     battle_advance();

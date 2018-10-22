@@ -1,3 +1,5 @@
+/// double array_sum(array);
+
 // no type checking. this will most likely crash if you try to sum an
 // array with one or more strings in it.
 

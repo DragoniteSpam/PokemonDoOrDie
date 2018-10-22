@@ -1,5 +1,8 @@
 /// void ba_move_swords_dance();
 
+// self moves don't need to check for animating targets
+var continue_now=false;
+
 var t_dance=1.6;    // this is how long the sound effect is
 var t_wait=t_dance+0.25;
 

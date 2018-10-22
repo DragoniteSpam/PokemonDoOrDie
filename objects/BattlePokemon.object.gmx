@@ -103,6 +103,9 @@ flinch=false;
 // makes you faint, i.e. to keep fainted pokémon from executing moves or beint targeted by other moves
 flag_downed=false;
 
+// control animations on me
+animate_on=false;
+
 // some more things
 shadow=false;
 ball_type=0;

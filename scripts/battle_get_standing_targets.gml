@@ -1,7 +1,6 @@
 /// boolean battle_get_standing_targets(move, user, targets);
 // this isn't used for any calculations, but it does tell the game if
-// any of the move's targets are still alive when it lands. this is only
-// useful because if there are no standing targets, the move will fail.
+// any of the move's targets are still alive when it lands.
 
 var move=argument0;
 var user=argument1;

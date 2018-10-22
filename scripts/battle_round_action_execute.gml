@@ -70,9 +70,10 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     }
                     ds_list_add(applied_effects, sublist);
                 }
-                var has_succeeded_probably=battle_get_standing_targets(move, pokemon, exe.targets);
+                var has_succeeded_probably=false;
                 var hit=battle_get_hit(move, pokemon, exe.targets, applied_effects);
                 var damage_total=0;
+                var damage_attempts=array_sum(hit);
                 var effect_total=0;
                 // todo: check for flinches or other conditions which may invalidate the entire turn
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used "+move.name+"!"));
@@ -91,12 +92,14 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 // the fact that i need to do basically the same thing twice is upsetting
                 for (var i=0; i<array_length_1d(hit); i++){
                     var target=Battle.contestants[| exe.targets[| i]];
+                    target.animate_on=false;
                     var target_effects_list=applied_effects[| i];
                     // the obvious part: if you're marked as being hit, execute the action, otherwise, ignore it
                     if (hit[i]){
                         // the less obvious part: if you're not marked as being already fainted, execute the action, otherwise, ignore it
                         if (!target.flag_downed){
                             if (move.category!=MoveCategories.STATUS){
+                                has_succeeded_probably=true;
                                 // todo sort this out (calculating whether a hit is critical or not: remember, some conditions
                                 // increase critical hit chances, and others negate them entirely)
                                 var matchup=get_matchup_on(move.type, target, target_effects_list);
@@ -137,6 +140,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                         }
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
                                     }
+                                    target.animate_on=true;
                                     damage_total=damage_total+min(damage, target.act_hp);
                                     battle_round_action_execute_faint_check(pokemon, target, damage);
                                 }
@@ -148,8 +152,10 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                     if (eff!=noone){
                                         while (!ds_queue_empty(eff.scheduled_actions)){
                                             ds_queue_enqueue(individual_actions, ds_queue_dequeue(eff.scheduled_actions));
+                                            effect_total++;
+                                            has_succeeded_probably=true;
+                                            target.animate_on=true;
                                         }
-                                        effect_total++;
                                     }
                                     with (eff){
                                         instance_destroy();
