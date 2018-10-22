@@ -3,131 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="36" name="datafiles">
-    <datafiles number="36" name="data">
-      <datafiles number="36" name="pbs">
-        <datafile>
-          <name>moves.txt</name>
-          <exists>-1</exists>
-          <size>87362</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>moves.txt</filename>
-        </datafile>
-        <datafile>
-          <name>monsters.txt</name>
-          <exists>-1</exists>
-          <size>563797</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>monsters.txt</filename>
-        </datafile>
-        <datafile>
-          <name>types.txt</name>
-          <exists>-1</exists>
-          <size>2072</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>types.txt</filename>
-        </datafile>
-        <datafile>
-          <name>trainertypes.txt</name>
-          <exists>-1</exists>
-          <size>3130</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>trainertypes.txt</filename>
-        </datafile>
-        <datafile>
-          <name>items.txt</name>
-          <exists>-1</exists>
-          <size>75228</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>items.txt</filename>
-        </datafile>
-        <datafile>
-          <name>abilities.txt</name>
-          <exists>-1</exists>
-          <size>11325</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>abilities.txt</filename>
-        </datafile>
-        <datafile>
-          <name>trainers.txt</name>
-          <exists>-1</exists>
-          <size>1878</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>trainers.txt</filename>
-        </datafile>
-      </datafiles>
-      <datafiles number="36" name="graphics">
-        <datafiles number="36" name="battlers">
+  <datafiles number="37" name="datafiles">
+    <datafiles number="37" name="data">
+      <datafiles number="37" name="graphics">
+        <datafiles number="37" name="battlers">
           <datafile>
             <name>059b.png</name>
             <exists>-1</exists>
@@ -197,9 +76,9 @@
             <filename>130b.png</filename>
           </datafile>
           <datafile>
-            <name>149b.png</name>
+            <name>148b.png</name>
             <exists>-1</exists>
-            <size>901</size>
+            <size>690</size>
             <exportAction>2</exportAction>
             <exportDir></exportDir>
             <overwrite>0</overwrite>
@@ -211,7 +90,7 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>149b.png</filename>
+            <filename>148b.png</filename>
           </datafile>
           <datafile>
             <name>154b.png</name>
@@ -333,6 +212,127 @@
             <filename>215.png</filename>
           </datafile>
         </datafiles>
+      </datafiles>
+      <datafiles number="37" name="pbs">
+        <datafile>
+          <name>moves.txt</name>
+          <exists>-1</exists>
+          <size>87362</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>moves.txt</filename>
+        </datafile>
+        <datafile>
+          <name>monsters.txt</name>
+          <exists>-1</exists>
+          <size>563797</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>monsters.txt</filename>
+        </datafile>
+        <datafile>
+          <name>types.txt</name>
+          <exists>-1</exists>
+          <size>2072</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>types.txt</filename>
+        </datafile>
+        <datafile>
+          <name>trainertypes.txt</name>
+          <exists>-1</exists>
+          <size>3130</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>trainertypes.txt</filename>
+        </datafile>
+        <datafile>
+          <name>items.txt</name>
+          <exists>-1</exists>
+          <size>75228</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>items.txt</filename>
+        </datafile>
+        <datafile>
+          <name>abilities.txt</name>
+          <exists>-1</exists>
+          <size>11325</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>abilities.txt</filename>
+        </datafile>
+        <datafile>
+          <name>trainers.txt</name>
+          <exists>-1</exists>
+          <size>1878</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>trainers.txt</filename>
+        </datafile>
       </datafiles>
     </datafiles>
   </datafiles>
