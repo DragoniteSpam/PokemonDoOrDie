@@ -15,7 +15,7 @@ argument0.momentum_move=-1;
 argument0.momentum_turn=1;
 argument0.trapped_by=-1;
 argument0.trapped_for=0;
-argument0.trap_residual_damage=0;
+argument0.trapped_residual_damage=0;
 
 argument0.confused=0;
 argument0.flinch=false;
