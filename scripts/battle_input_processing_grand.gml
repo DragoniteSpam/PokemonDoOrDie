@@ -24,6 +24,7 @@ if (keyboard_check_released(vk_enter)){
             break;
         case 1:
 //            Battle.input_stage=BattleInputStages.ITEM;
+            message("You have on items! Actually, items haven't been implemented yet. Do you want to do that? They're functionally not that different from Moves or Abilities.");
             break;
         case 2:
             if (Battle.input_processing.trapped_for>0){
