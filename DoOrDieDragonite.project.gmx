@@ -3,10 +3,27 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="37" name="datafiles">
-    <datafiles number="37" name="data">
-      <datafiles number="37" name="graphics">
-        <datafiles number="37" name="battlers">
+  <datafiles number="50" name="datafiles">
+    <datafiles number="50" name="data">
+      <datafiles number="50" name="graphics">
+        <datafiles number="50" name="battlers">
+          <datafile>
+            <name>059.png</name>
+            <exists>-1</exists>
+            <size>1401</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>059.png</filename>
+          </datafile>
           <datafile>
             <name>059b.png</name>
             <exists>-1</exists>
@@ -23,91 +40,6 @@
               </Config>
             </ConfigOptions>
             <filename>059b.png</filename>
-          </datafile>
-          <datafile>
-            <name>082.png</name>
-            <exists>-1</exists>
-            <size>1041</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>082.png</filename>
-          </datafile>
-          <datafile>
-            <name>094.png</name>
-            <exists>-1</exists>
-            <size>749</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>094.png</filename>
-          </datafile>
-          <datafile>
-            <name>130b.png</name>
-            <exists>-1</exists>
-            <size>1186</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>130b.png</filename>
-          </datafile>
-          <datafile>
-            <name>148b.png</name>
-            <exists>-1</exists>
-            <size>690</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>148b.png</filename>
-          </datafile>
-          <datafile>
-            <name>154b.png</name>
-            <exists>-1</exists>
-            <size>835</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>154b.png</filename>
           </datafile>
           <datafile>
             <name>065.png</name>
@@ -127,6 +59,193 @@
             <filename>065.png</filename>
           </datafile>
           <datafile>
+            <name>065fb.png</name>
+            <exists>-1</exists>
+            <size>1017</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>065fb.png</filename>
+          </datafile>
+          <datafile>
+            <name>082.png</name>
+            <exists>-1</exists>
+            <size>1041</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>082.png</filename>
+          </datafile>
+          <datafile>
+            <name>082b.png</name>
+            <exists>-1</exists>
+            <size>942</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>082b.png</filename>
+          </datafile>
+          <datafile>
+            <name>094.png</name>
+            <exists>-1</exists>
+            <size>749</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>094.png</filename>
+          </datafile>
+          <datafile>
+            <name>094b.png</name>
+            <exists>-1</exists>
+            <size>2203</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>094b.png</filename>
+          </datafile>
+          <datafile>
+            <name>130.png</name>
+            <exists>-1</exists>
+            <size>2951</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>130.png</filename>
+          </datafile>
+          <datafile>
+            <name>130b.png</name>
+            <exists>-1</exists>
+            <size>1186</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>130b.png</filename>
+          </datafile>
+          <datafile>
+            <name>148.png</name>
+            <exists>-1</exists>
+            <size>830</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>148.png</filename>
+          </datafile>
+          <datafile>
+            <name>148b.png</name>
+            <exists>-1</exists>
+            <size>690</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>148b.png</filename>
+          </datafile>
+          <datafile>
+            <name>154.png</name>
+            <exists>-1</exists>
+            <size>1061</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>154.png</filename>
+          </datafile>
+          <datafile>
+            <name>154b.png</name>
+            <exists>-1</exists>
+            <size>835</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>154b.png</filename>
+          </datafile>
+          <datafile>
             <name>157.png</name>
             <exists>-1</exists>
             <size>1032</size>
@@ -142,6 +261,23 @@
               </Config>
             </ConfigOptions>
             <filename>157.png</filename>
+          </datafile>
+          <datafile>
+            <name>157b.png</name>
+            <exists>-1</exists>
+            <size>1092</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>157b.png</filename>
           </datafile>
           <datafile>
             <name>169.png</name>
@@ -161,6 +297,40 @@
             <filename>169.png</filename>
           </datafile>
           <datafile>
+            <name>169b.png</name>
+            <exists>-1</exists>
+            <size>642</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>169b.png</filename>
+          </datafile>
+          <datafile>
+            <name>181.png</name>
+            <exists>-1</exists>
+            <size>812</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>181.png</filename>
+          </datafile>
+          <datafile>
             <name>181b.png</name>
             <exists>-1</exists>
             <size>691</size>
@@ -176,6 +346,23 @@
               </Config>
             </ConfigOptions>
             <filename>181b.png</filename>
+          </datafile>
+          <datafile>
+            <name>197.png</name>
+            <exists>-1</exists>
+            <size>654</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>197.png</filename>
           </datafile>
           <datafile>
             <name>197b.png</name>
@@ -211,9 +398,26 @@
             </ConfigOptions>
             <filename>215.png</filename>
           </datafile>
+          <datafile>
+            <name>215b.png</name>
+            <exists>-1</exists>
+            <size>810</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>215b.png</filename>
+          </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="37" name="pbs">
+      <datafiles number="50" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -372,6 +576,7 @@
       <sprite>sprites\spr_part_sphere</sprite>
     </sprites>
     <sprite>sprites\spr_move_category</sprite>
+    <sprite>sprites\spr_major_status</sprite>
     <sprite>sprites\spr_move_type</sprite>
   </sprites>
   <backgrounds name="background">
@@ -655,7 +860,8 @@
         <script>scripts\e3d_billboard.gml</script>
       </scripts>
       <scripts name="icons">
-        <script>scripts\draw_move_type.gml</script>
+        <script>scripts\draw_type.gml</script>
+        <script>scripts\draw_major_status.gml</script>
         <script>scripts\draw_move_category.gml</script>
       </scripts>
     </scripts>
@@ -714,6 +920,7 @@
         <script>scripts\get_item_from_name.gml</script>
         <script>scripts\get_item_pocket_from_name.gml</script>
         <script>scripts\get_move.gml</script>
+        <script>scripts\get_item.gml</script>
         <script>scripts\get_move_from_name.gml</script>
         <script>scripts\get_nature.gml</script>
         <script>scripts\get_nature_from_name.gml</script>
@@ -746,6 +953,7 @@
       <script>scripts\draw_menu_from_list.gml</script>
       <script>scripts\draw_moves_list.gml</script>
       <script>scripts\draw_moves_details.gml</script>
+      <script>scripts\draw_pokemon_details.gml</script>
     </scripts>
     <script>scripts\debug_notes.gml</script>
   </scripts>

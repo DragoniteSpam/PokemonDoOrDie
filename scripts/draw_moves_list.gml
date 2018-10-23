@@ -70,7 +70,7 @@ for (var i=0; i<max_n; i++){
         var yy=box_y+text_spacing*(i+1.5);
         draw_text(box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type-width_category-TEXT_BUFFER, yy, string(aux_list[| 4*i])+"/"+string(aux_list[| 4*i+1]));
         draw_move_category(aux_list[| 4*i+2], box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type-width_category, yy);
-        draw_move_type(aux_list[| 4*i+3], box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type, yy);
+        draw_type(aux_list[| 4*i+3], box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type, yy);
     }
 }
 

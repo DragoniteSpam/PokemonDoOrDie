@@ -1,4 +1,4 @@
-/// void draw_move_type(type, x, y);
+/// void draw_type(type, x, y);
 
 var w=sprite_get_width(spr_move_type);
 var offset=sprite_get_yoffset(spr_move_type);

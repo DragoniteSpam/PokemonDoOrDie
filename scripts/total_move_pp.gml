@@ -4,4 +4,4 @@ if (argument0.moves[argument1]==-1){
     return 0;
 }
 
-return argument0.move_pp[argument1]*(1+0.2*argument0.move_pp_up[argument1]);
+return get_move(argument0.moves[argument1]).pp*(1+0.2*argument0.move_pp_up[argument1]);

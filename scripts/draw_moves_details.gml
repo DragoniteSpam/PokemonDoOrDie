@@ -1,4 +1,4 @@
-/// void draw_moves_list(move index);
+/// void draw_moves_details(move index);
 // this only draws the list, it does not control it. you most
 // likely want to use menu_input in conjunction with this.
 
@@ -27,7 +27,7 @@ draw_set_font(FPokemonMedium);
 
 var  text="Type:  ";
 draw_text(W/2, start_y+96, text);
-draw_move_type(base_move.type, W/2+string_width(text)/2, start_y+96);
+draw_type(base_move.type, W/2+string_width(text)/2, start_y+96);
 
 var text="Category:  ";
 draw_text(W/2, start_y+128, text);
@@ -49,4 +49,4 @@ draw_text(third2, start_y+160, "Power: "+text);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-draw_text_ext(start_x+32, start_y+192-font_get_size(FPokemonMedium)/2, base_move.summary, -1, half_width*2-64);
+draw_text_ext(start_x+32, start_y+192-16, base_move.summary, -1, half_width*2-64);

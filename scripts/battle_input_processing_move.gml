@@ -36,7 +36,7 @@ if (total_pp(pkmn)==0){
     draw_moves_list(pkmn, message_option_index);    
     message_option_index=menu_input(message_option_index, max_n);
     
-    if (Battle.view_details){
+    if (Battle.view_details&&message_option_index<max_n-1){
         draw_moves_details(pkmn.moves[message_option_index]);
     }
     

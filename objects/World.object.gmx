@@ -207,6 +207,7 @@ enum vec4 {
             <kind>1</kind>
             <string>// UI stuff
 
+d3d_set_culling(false);
 draw_surface(application_surface, 0, 0);
 
 with (Effect){

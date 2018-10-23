@@ -34,11 +34,7 @@ act=array_compose(50, 20, 20, 20, 20, 20)
 
 act_hp=50;
 
-mods=array_create(8);
-
-for (var i=0; i&lt;8; i++){
-    mods[i]=0;
-}
+mods=array_compose(0, 0, 0, 0, 0, 0, 0, 0);
 
 moves=array_create(MOVE_LIMIT);
 move_pp=array_create(MOVE_LIMIT);
@@ -54,13 +50,13 @@ previous_moves=ds_list_create();
 gender=Genders.MALE;
 status=MajorStatus.NONE;
 status_turns=0;
-item=0;
+item=-1;
 form=0;
 
-// the ability is an index 0..max ability index, not 0..size of
+// the ability is a DataAbility, not an index 0..size of
 // base ability list, because a pokémon's ability can be changed
 // during battle (Simple, etc)
-ability=0;
+ability=noone;
 // this is the one that goes 0..size of base ability index
 default_ability=0;
 
@@ -139,14 +135,19 @@ spr_back=noone;
             <kind>1</kind>
             <string>/// constants and stuff
 
+// these are in this specific order because that's the order of the
+// icons in spr_major_status, which is a terrible reason, but the
+// alternative is mapping a lot of values onto other values
 enum MajorStatus {
-    NONE,
+    SLEEP,
     POISON,
-    TOXIC,
     BURN,
     PARALYZE,
-    SLEEP,
-    FREEZE
+    FREEZE,
+    FAINT,
+    POKERUS,
+    TOXIC,
+    NONE,
 }
 
 enum Stats {
