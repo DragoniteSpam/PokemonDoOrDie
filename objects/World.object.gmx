@@ -30,6 +30,17 @@
 var f=file_text_open_write(LOG_FILE);
 file_text_close(f);
 
+/*
+ * This will fork off a couple different settings objects (controls,
+ * battle, graphics, audio, maybe a few other things)
+ */
+
+settings=instance_create(0, 0, Settings);
+
+/*
+ * Stuff related to showing messages on the screen
+ */
+
 message_text="";
 message_text_t=0;
 message_wait=0;
@@ -64,15 +75,15 @@ all_egg_groups=const_egg_groups();                          // dependencies: not
 all_item_pockets=const_item_pockets();                      // dependencies: nothing
 all_natures=const_natures();                                // dependencies: nothing
 
-all_types=pbs_read_types(PATH_PBS+"types.txt");           // dependencies: nothing
-all_abilities=pbs_read_abilities(PATH_PBS+"abilities.txt");// dependencies: nothing
+all_types=pbs_read_types(PATH_PBS+"types.txt");             // dependencies: nothing
+all_abilities=pbs_read_abilities(PATH_PBS+"abilities.txt"); // dependencies: nothing
 
-all_moves=pbs_read_moves(PATH_PBS+"moves.txt");           // dependencies: types
-all_items=pbs_read_items(PATH_PBS+"items.txt");           // dependencies: moves
-all_pokemon=pbs_read_pokemon(PATH_PBS+"monsters.txt");    // dependencies: moves, types, evolutions, items, abilities
+all_moves=pbs_read_moves(PATH_PBS+"moves.txt");             // dependencies: types
+all_items=pbs_read_items(PATH_PBS+"items.txt");             // dependencies: moves
+all_pokemon=pbs_read_pokemon(PATH_PBS+"monsters.txt");      // dependencies: moves, types, evolutions, items, abilities
 
 all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+"trainertypes.txt");// dependencies: pawn stuff
-all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");  // dependencies: natures, abilities, moves, items, pokémon, trainer classes
+all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");    // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
 debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 
@@ -102,13 +113,6 @@ all_types[Types.DRAGON].color=$98D8D8;
 all_types[Types.DARK].color=$705848;
 //all_types[Types.FAIRY].color=$EE99AC; // fairy not implemented in the pbs but you can add it if you want
 all_types[Types.QMARKS].color=$68A090;
-
-/*
- * This will fork off a couple different settings objects (controls,
- * battle, graphics, audio, maybe a few other things)
- */
-
-settings=instance_create(0, 0, Settings);
 
 /*
  * finish up the init stuff

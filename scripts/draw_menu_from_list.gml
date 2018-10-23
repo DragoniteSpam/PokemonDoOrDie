@@ -44,7 +44,7 @@ for (var i=0; i<max_n; i++){
     } else {
         var c=color_list[| i];
     }
-    draw_text_colour(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+text_spacing*(i+1.5), selected_index[| i], c, c, c, c, 1);
+    draw_text_colour(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+text_spacing*(i+1.5), text_list[| i], c, c, c, c, 1);
 }
 
 if (selected_index>=0){

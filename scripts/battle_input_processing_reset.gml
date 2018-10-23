@@ -14,4 +14,5 @@ if (reset_input_processing){
 }
 
 Battle.input_stage=BattleInputStages.GRAND;
+Battle.view_details=false;
 World.message_option_index=0;

@@ -1,8 +1,8 @@
 var pkmn=Battle.input_processing;
 
 if (DEBUG&&keyboard_check_released(vk_f1)){
-    if (World.message_option_index<MOVE_LIMIT){
-        var n=World.message_option_index;
+    if (message_option_index<MOVE_LIMIT){
+        var n=message_option_index;
         if (pkmn.moves[n]!=-1){
             if (pkmn.move_pp[n]==0){
                 pkmn.move_pp[n]=1;
@@ -31,22 +31,29 @@ if (total_pp(pkmn)==0){
     
     continue_text=pkmn.name+" has no valid moves, struggling";
 } else {
-    var max_n=array_length_1d(pkmn.moves[World.message_option_index])+1;
+    var max_n=array_length_1d(pkmn.moves)+1;
     
-    draw_moves_list(pkmn, World.message_option_index);    
-    World.message_option_index=menu_input(World.message_option_index, max_n);
+    draw_moves_list(pkmn, message_option_index);    
+    message_option_index=menu_input(message_option_index, max_n);
+    
+    if (Battle.view_details){
+        draw_moves_details(pkmn.moves[message_option_index]);
+    }
     
     // todo some key press to view move details
     
     if (keyboard_check_released(vk_escape)){
         battle_input_processing_reset(false);
+    } else if (keyboard_check_released(vk_tab)){
+        // todo put a button prompt here so people know it exists
+        Battle.view_details=!Battle.view_details;
     } else if (keyboard_check_released(vk_enter)){
-        if (World.message_option_index==MOVE_LIMIT){
+        if (message_option_index==MOVE_LIMIT){
             battle_input_processing_reset(false);
-        } else if (pkmn.moves[World.message_option_index]==noone){
+        } else if (pkmn.moves[message_option_index]==noone){
             // to do play some kind of silly "invalid" sound
         } else {
-            var value=pkmn.moves[World.message_option_index];
+            var value=pkmn.moves[message_option_index];
             // at some point in the future this needs to be moved to a different script that can
             // account for selecting multiple valid targets
             var valid_targets=battle_get_valid_targets(pkmn, value);
@@ -58,7 +65,7 @@ if (total_pp(pkmn)==0){
             
             battle_input_processing_reset();
             
-            continue_text=pkmn.owner.name+" has chosen the move "+get_move(World.message_option_index).name+" for "+pkmn.name;
+            continue_text=pkmn.owner.name+" has chosen the move "+get_move(message_option_index).name+" for "+pkmn.name;
         }
     }
 }
