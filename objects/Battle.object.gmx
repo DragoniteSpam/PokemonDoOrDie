@@ -52,6 +52,11 @@ priority=ds_priority_create();
 sprite_hash=ds_map_create();
 misc_data=ds_map_create();
 
+// misc data defaults
+
+misc_data[? "stat raise animations"]=0;
+misc_data[? "stat fall animations"]=0;
+
 // less important settings
 
 view_details=false;

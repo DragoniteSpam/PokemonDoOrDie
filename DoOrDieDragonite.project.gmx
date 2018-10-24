@@ -668,6 +668,16 @@
             <script>scripts\bia_apply_major_status.gml</script>
             <script>scripts\bia_apply_flinch.gml</script>
             <script>scripts\bia_apply_confusion.gml</script>
+            <scripts name="stat mods">
+              <script>scripts\bia_apply_accuracy_decrease_1.gml</script>
+              <script>scripts\bia_apply_attack_decrease_1.gml</script>
+              <script>scripts\bia_apply_attack_raise_1.gml</script>
+              <script>scripts\bia_apply_defense_decrease_1.gml</script>
+              <script>scripts\bia_apply_sp_attack_raise_1.gml</script>
+              <script>scripts\bia_apply_sp_defense_decrease_1.gml</script>
+              <script>scripts\bia_apply_speed_decrease_1.gml</script>
+              <script>scripts\bia_apply_speed_raise_1.gml</script>
+            </scripts>
           </scripts>
         </scripts>
       </scripts>
@@ -763,10 +773,10 @@
             <script>scripts\be_user_speed_raise_1.gml</script>
           </scripts>
           <scripts name="down">
+            <script>scripts\be_target_accuracy_decrease_1.gml</script>
             <script>scripts\be_target_defense_decrease_1.gml</script>
             <script>scripts\be_target_sp_defense_decrease_1.gml</script>
             <script>scripts\be_target_speed_decrease_1.gml</script>
-            <script>scripts\be_target_accuracy_decrease_1.gml</script>
           </scripts>
         </scripts>
         <scripts name="help">

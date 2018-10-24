@@ -1,3 +1,12 @@
 /// void babl_enter_intimidate(queue, BattlePokemon);
 
-ds_queue_enqueue(argument0, add_battle_round_action(battle_round_action_text, "Trigger entry intimidate for "+argument1.name));
+// todo show ability card
+
+for (var i=0; i<ds_list_size(Battle.contestants); i++){
+    var contestant=Battle.contestants[| i];
+    // this isn't quite correct, intimidate only affects adjacent Pokémon,
+    // but i've envisioned the battlefield as more of a circle than a line
+    if (contestant!=noone&&contestant.owner.team!=argument1.owner.team){
+        bia_apply_attack_decrease_1(argument0, argument1, contestant, noone);
+    }
+}
