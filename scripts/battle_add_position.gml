@@ -1,4 +1,4 @@
-/// void battle_add_position(Pawn, x, y, direction, offscreen distance, fade time, hud offscreen x, hud offscreen y);
+/// void battle_add_position(Pawn, x, y, direction, offscreen distance, fade time, hud offscreen x, hud offscreen y, ability offscreen x, ability offscreen y);
 
 with (instance_create(argument1, argument2, BattleDrawable)){
     owner=argument0;
@@ -28,6 +28,16 @@ with (instance_create(argument1, argument2, BattleDrawable)){
         hud.battle_x=argument6-UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X;
     }
     hud.battle_y=hud.offscreen_y;
+    
+    hud_ability=instance_create(argument8, argument9, BattleHUDAbility);
+    hud_ability.offscreen_x=argument8;
+    hud_ability.offscreen_y=argument9;
+    if (argument8<room_width/2){
+        hud_ability.battle_x=argument8+UI_BATTLE_HUD_WIDTH+UI_BATTLE_HUD_BUFFER_X;
+    } else {
+        hud_ability.battle_x=argument8-UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X;
+    }
+    hud_ability.battle_y=hud.offscreen_y;
     
     return id;
 }

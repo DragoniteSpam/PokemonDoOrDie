@@ -629,7 +629,9 @@
             <script>scripts\battle_round_action_anim_retract_contestant.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_walking.gml</script>
             <script>scripts\battle_round_action_anim_send_in_pokemon_hud.gml</script>
+            <script>scripts\battle_round_action_anim_send_in_pokemon_ability.gml</script>
             <script>scripts\battle_round_action_anim_retract_pokemon_hud.gml</script>
+            <script>scripts\battle_round_action_anim_retract_pokemon_ability.gml</script>
             <script>scripts\battle_round_action_anim_trainer_intro.gml</script>
           </scripts>
           <script>scripts\battle_fade.gml</script>
@@ -666,6 +668,7 @@
           <script>scripts\battle_individual_action_wait.gml</script>
           <scripts name="help">
             <script>scripts\bia_apply_major_status.gml</script>
+            <script>scripts\bia_show_ability_card.gml</script>
             <script>scripts\bia_apply_flinch.gml</script>
             <script>scripts\bia_apply_confusion.gml</script>
             <scripts name="stat mods">
@@ -739,6 +742,7 @@
         </scripts>
         <script>scripts\bg_draw_drawable.gml</script>
         <script>scripts\bg_draw_hud.gml</script>
+        <script>scripts\bg_draw_hud_ability.gml</script>
         <scripts name="mask scripts">
           <script>scripts\bm_stat_change.gml</script>
           <script>scripts\bm_retract_submit.gml</script>
@@ -785,10 +789,16 @@
         </scripts>
       </scripts>
       <scripts name="abilities">
-        <script>scripts\babl_contact_paralyze_user.gml</script>
         <scripts name="escape">
           <script>scripts\babl_trap_steel.gml</script>
+        </scripts>
+        <scripts name="contact">
+          <script>scripts\babl_contact_paralyze_user.gml</script>
+        </scripts>
+        <scripts name="round start and end">
           <script>scripts\babl_round_end_shed_skin.gml</script>
+        </scripts>
+        <scripts name="entry and exit">
           <script>scripts\babl_enter_intimidate.gml</script>
         </scripts>
       </scripts>
@@ -1014,6 +1024,7 @@
       <objects name="Graphics">
         <object>objects\BattleDrawable</object>
         <object>objects\BattleHUD</object>
+        <object>objects\BattleHUDAbility</object>
         <object>objects\BattleAnimator</object>
       </objects>
     </objects>

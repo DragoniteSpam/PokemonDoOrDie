@@ -50,6 +50,7 @@ center_direction=0;
 
 owner=noone;
 hud=noone;
+hud_ability=noone;
 surface=surface_create(sprite_width, sprite_height);
 mask_script=null;
 

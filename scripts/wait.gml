@@ -1,4 +1,4 @@
-/// void message(seconds, [continue after wait?]);
+/// void wait(seconds, [continue after wait?]);
 
 World.message_wait=argument[0];
 

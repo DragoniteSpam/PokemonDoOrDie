@@ -22,15 +22,15 @@ if (pokemon_can_confuse(target)){
         case StatusAcceptance.MIRROR:
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_confusion, target, turns));
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, target.name+text));
-            if (user!=noone&&move!=noone&&pokemon_can_confuse(user)){
-                // todo show target ability card thing
+            if (user!=noone&&move!=noone&&pokemon_can_confuse(target)){
+                bia_show_ability_card(queue, user);
                 ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_confusion, user, turns));
                 ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, user.name+" was confused by "+target.name+"'s "+target.ability.name+"!"));
             }
             return true;
         case StatusAcceptance.BOUNCE:
             if (user!=noone&&move!=noone&&move.category==MoveCategories.STATUS){
-                // todo show target ability card thing
+                bia_show_ability_card(queue, target);
                 if (pokemon_can_confuse(user)){
                     ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_confusion, user, turns));
                     ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, user.name+" was confused by "+target.name+"'s "+target.ability.name+" instead!"));
