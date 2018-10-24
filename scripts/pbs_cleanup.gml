@@ -37,3 +37,6 @@ a=get_ability(get_ability_from_name("BLAZE", true));
 a.low_health_factor[Types.FIRE]=World.settings.battle.ability_low_health_move_power;
 a=get_ability(get_ability_from_name("OVERGROW", true));
 a.low_health_factor[Types.GRASS]=World.settings.battle.ability_low_health_move_power;
+
+a=get_ability(get_ability_from_name("INTIMIDATE", true));
+a.on_entry=babl_enter_intimidate;

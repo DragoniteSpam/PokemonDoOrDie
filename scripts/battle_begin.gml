@@ -41,6 +41,7 @@ for (var i=0; i<ds_list_size(teams); i++){
 }
 
 ds_queue_enqueue(actions, battle_action_send_in_leads);
+ds_queue_enqueue(actions, battle_action_lead_entry_abilities);
 
 message("The battle has started!");
 

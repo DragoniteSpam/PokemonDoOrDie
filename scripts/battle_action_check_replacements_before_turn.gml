@@ -29,5 +29,6 @@ for (var i=0; i<ds_list_size(replacements); i++){
         }
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, i));
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, i));
+        ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_entry_abilities, i));
     }
 }

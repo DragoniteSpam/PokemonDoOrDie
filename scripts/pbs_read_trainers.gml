@@ -178,7 +178,7 @@ for (var i=0; i<ds_list_size(text); i++){
             if (string_length(name)==0){
                 name=base.name;
             }
-            
+                    
             if (species>-1){
                 trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), name, moves, hold_item, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
             }

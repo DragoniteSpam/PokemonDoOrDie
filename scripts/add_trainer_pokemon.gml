@@ -50,26 +50,26 @@ with (instance_create(0, 0, BattlePokemon)){
         case 7:
             gender=argument[6];
         case 6:
-            item=argument[5];
-        case 5:
             // you can pass -2 as the ability parameter to select a random hidden
             // ability, if the base pokémon has one
-            if (argument[4]==-1){
+            if (argument[5]==-1){
                 default_ability=irandom(ds_list_size(base.abilities)-1);
                 ability=get_ability(base.abilities[| default_ability]);
-            } else if (argument[4]==-2){
+            } else if (argument[5]==-2){
                 default_ability=irandom(ds_list_size(base.hidden_abilities)-1);
                 ability=get_ability(base.hidden_abilities[| default_ability]);
             } else {
-                default_ability=argument[4];
-                if (argument[4]<ds_list_size(base.abilities)){
-                    ability=base.abilities[| argument[4]];
+                default_ability=argument[5];
+                if (argument[5]<ds_list_size(base.abilities)){
+                    ability=get_ability(base.abilities[| argument[5]]);
                 // no bounds checking on hidden abilities, once again, if this crashes the game
                 // that's your problem
                 } else {
-                    ability=base.hidden_abilities[| argument[4]-ds_list_size(base.abilities)];
+                    ability=get_ability(base.hidden_abilities[| argument[5]-ds_list_size(base.abilities)]);
                 }
             }
+        case 5:
+            item=argument[4];
         case 4:
             var move_array=argument[3];
             var n=min(array_length_1d(move_array), MOVE_LIMIT);

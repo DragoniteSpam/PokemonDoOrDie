@@ -225,6 +225,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             }
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, pokemon.position));
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, pokemon.position));
+            ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_entry_abilities, pokemon.position));
             break;
         case BattleActions.FLEE:
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled! (Implement this later, please.)"));

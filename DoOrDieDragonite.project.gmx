@@ -615,6 +615,7 @@
         <script>scripts\battle_action_execute.gml</script>
         <scripts name="round actions">
           <script>scripts\battle_round_action_check_contestant.gml</script>
+          <script>scripts\battle_round_action_entry_abilities.gml</script>
           <script>scripts\battle_round_action_change_contestant.gml</script>
           <script>scripts\battle_round_action_input.gml</script>
           <script>scripts\battle_round_action_text.gml</script>
@@ -643,6 +644,7 @@
         <script>scripts\battle_action_conclude.gml</script>
         <scripts name="setup">
           <script>scripts\battle_action_send_in_leads.gml</script>
+          <script>scripts\battle_action_lead_entry_abilities.gml</script>
         </scripts>
         <scripts name="individual actions">
           <script>scripts\battle_individual_action_animation_move.gml</script>
@@ -776,6 +778,7 @@
         <script>scripts\babl_contact_paralyze_user.gml</script>
         <scripts name="escape">
           <script>scripts\babl_trap_steel.gml</script>
+          <script>scripts\babl_enter_intimidate.gml</script>
         </scripts>
       </scripts>
     </scripts>
