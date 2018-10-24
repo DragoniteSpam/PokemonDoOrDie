@@ -29,3 +29,6 @@ array_clear(a.status_acceptance, StatusAcceptance.MIRROR);
 
 a=get_ability(get_ability_from_name("MAGNETPULL", true));
 a.can_escape=babl_trap_steel;
+
+a=get_ability(get_ability_from_name("LEVITATE", true));
+a.damage_from[Types.GROUND]=0;

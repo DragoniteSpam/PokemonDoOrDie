@@ -6,7 +6,7 @@ if (argument_count==3){
     var effects_list=argument[2];
 }
 
-var m=1;
+var m=argument[1].ability.damage_from[argument[0]];;
 
 for (var i=0; i<ds_list_size(argument[1].types); i++){
     m=m*get_matchup(argument[0], argument[1].types[| i]);
