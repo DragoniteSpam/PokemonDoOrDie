@@ -120,7 +120,11 @@ all_types[Types.QMARKS].color=$68A090;
  * finish up the init stuff
  */
 
-major_status_names=array_compose("Sleep", "Poison", "Burn", "Paralyze", "Freeze", "Faint", "Pokerus", "Toxic", "None");
+// normally, the words that the game can use to reference an
+// arbitrary status condition
+major_status_names=array_compose("Sleep", "Poison", "Burn", "Paralyze", "Freeze", "Faint", "Pokerus", "Poison", "None");
+// the words that the game can use to reference the infliction
+// of an arbitrary status condition
 major_status_verbs=array_compose("fell asleep", "was poisoned", "was burned", "was paralyzed", "was frozen", "fainted", "", "was badly poisoned", "");
 
 tf=array_compose("false", "true");

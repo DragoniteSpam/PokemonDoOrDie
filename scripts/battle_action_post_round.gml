@@ -17,5 +17,6 @@ for (var i=0; i<ds_list_size(contestants); i++){
     if (contestants[| i]!=noone){
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_post_trap_damage, i));
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_post_major_status_damage, i));
+        script_execute(contestants[| i].ability.on_round_end, round_actions, contestants[| i], contestants[| i].ability);
     }
 }

@@ -788,6 +788,7 @@
         <script>scripts\babl_contact_paralyze_user.gml</script>
         <scripts name="escape">
           <script>scripts\babl_trap_steel.gml</script>
+          <script>scripts\babl_round_end_shed_skin.gml</script>
           <script>scripts\babl_enter_intimidate.gml</script>
         </scripts>
       </scripts>

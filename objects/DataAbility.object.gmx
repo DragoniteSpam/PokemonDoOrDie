@@ -66,6 +66,10 @@ on_entry=null;
 
 // Static, Cute Charm, Flame Body, Poison Point, Rough Skin
 on_contact=null;
+
+// shed skin, speed boost, things that may happen on the end of
+// each round
+on_round_end=null;
 </string>
           </argument>
         </arguments>

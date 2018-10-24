@@ -31,9 +31,6 @@ if (!pokemon.flag_downed&&debug_win==noone){
 
             if (pokemon.flinch&&pokemon.ability.can_flinch){
                 interrupted=true;
-                // todo put this in post round. as it is, if flinch is inflicted on you but you're
-                // asleep or paralyzed or frozen, the flinch will still interrupt you the next round.
-                pokemon.flinch=false;
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
             }
             

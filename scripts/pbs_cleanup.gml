@@ -40,3 +40,6 @@ a.low_health_factor[Types.GRASS]=World.settings.battle.ability_low_health_move_p
 
 a=get_ability(get_ability_from_name("INTIMIDATE", true));
 a.on_entry=babl_enter_intimidate;
+
+a=get_ability(get_ability_from_name("SHEDSKIN", true));
+a.on_round_end=babl_round_end_shed_skin;
