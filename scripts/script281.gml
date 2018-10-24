@@ -1,6 +1,5 @@
 /// void battle_individual_action_set_major_status(params);
-// this does not check to see if the pokémon can actually be status'd,
-// it just applies it.
+
 // 0: user
 // 1: MajorStatus
 // 2: [status turn]

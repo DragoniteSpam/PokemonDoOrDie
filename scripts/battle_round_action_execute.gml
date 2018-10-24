@@ -12,28 +12,6 @@ if (!pokemon.flag_downed&&debug_win==noone){
             var move=get_move(exe.value);
             var interrupted=false;
             
-            if (pokemon.flinch&&pokemon.ability.can_flinch){
-                interrupted=true;
-                pokemon.flinch=false;
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
-            }
-            
-            if (pokemon.confused>0){
-                pokemon.confused--;
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
-                // todo animation
-                // todo in gen 7 apparently the confusion chance is one in three instead of one in two
-                if (choose(true, false)){
-                    interrupted=true;
-                    // todo animation
-                    var damage=battle_damage(World.move_confusion, pokemon, pokemon);
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
-                    var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
-                    battle_round_action_execute_faint_check(pokemon, pokemon, damage);
-                }
-            }
-            
             switch (pokemon.status){
                 case MajorStatus.PARALYZE:
                     if (random(1)<World.settings.battle.paralyze_immobilization_odds){
@@ -49,6 +27,31 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 case MajorStatus.FREEZE:
                     // on each turn there's a 20% chance of being thawed; no status turn counter necessary
                     break;
+            }
+
+            if (pokemon.flinch&&pokemon.ability.can_flinch){
+                interrupted=true;
+                // todo put this in post round. as it is, if flinch is inflicted on you but you're
+                // asleep or paralyzed or frozen, the flinch will still interrupt you the next round.
+                pokemon.flinch=false;
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
+            }
+            
+            if (max(--pokemon.confused, 0)==0){
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" snapped out of confusion!"));
+            } else {
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
+                // todo animation
+                // todo in gen 7 apparently the confusion chance is one in three instead of one in two
+                if (choose(true, false)){
+                    interrupted=true;
+                    // todo animation
+                    var damage=battle_damage(World.move_confusion, pokemon, pokemon);
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
+                    var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
+                    battle_round_action_execute_faint_check(pokemon, pokemon, damage);
+                }
             }
             
             if (!interrupted){

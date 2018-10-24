@@ -48,6 +48,7 @@ can_escape=scr_true;
 // Synchronize, Magic Bounce, Water Veil, Immunity, Limber
 status_acceptance=array_create(MajorStatus.NONE);
 array_clear(status_acceptance, StatusAcceptance.YES);
+minor_status_acceptance=StatusAcceptance.YES;
 
 // Levitate, Water Absorb, Flash Fire, Lightningrod, Motor Drive,
 // Thick Fat, perhaps some others
