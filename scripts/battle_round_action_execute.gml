@@ -12,7 +12,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             var move=get_move(exe.value);
             var interrupted=false;
             
-            if (pokemon.flinch){
+            if (pokemon.flinch&&pokemon.ability.can_flinch){
                 interrupted=true;
                 pokemon.flinch=false;
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
@@ -164,6 +164,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                     }
                                 }
                             } // endif target still alive
+                            if (move_get_flag(move, MoveFlags.CONTACT)){
+                                script_execute(target.ability.on_contact, pokemon, target, target.ability, move);
+                            }
                         } // endif target was alive to begin with
                     } else {
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" avoided the attack!"));

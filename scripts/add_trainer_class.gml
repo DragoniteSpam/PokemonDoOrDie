@@ -1,4 +1,4 @@
-/// DataMove add_move(name, reward, battle bgm, victory bgm, intro me, ai, ai notes, internal name);
+/// DataMove add_trainer_class(name, reward, battle bgm, victory bgm, intro me, ai, ai notes, internal name);
 // there may be some move flags and stuff added later
 
 with (instance_create(0, 0, DataTrainerClass)){

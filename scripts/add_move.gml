@@ -1,5 +1,4 @@
-/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects, effect odds, internal name);
-// there may be some move flags and stuff added later
+/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects, effect odds, flags, internal name);
 
 with (instance_create(0, 0, DataMove)){
     name=argument[0];
@@ -16,12 +15,15 @@ with (instance_create(0, 0, DataMove)){
     
     var array=argument[10];
     var array_odds=argument[11];
+    
     for (var i=0; i<array_length_1d(array); i++){
         ds_list_add(effects, array[i]);
         ds_list_add(effect_odds, array_odds[i]);
     }
     
-    pbs_internal_name=argument[12];
+    flags=argument[12];
+    
+    pbs_internal_name=argument[13];
     
     return id;
 }

@@ -6,4 +6,4 @@ for (var i=0; i<argument_count; i++){
     var go_away=argument[i];
 }
 
-return false;
+return 0;

@@ -44,6 +44,7 @@ effects=ds_list_create();
 effect_odds=ds_list_create();
 
 animation=ba_move_basic;
+animation_blending_color=c_white;
 </string>
           </argument>
         </arguments>
@@ -88,6 +89,30 @@ enum MoveCategories {
     STATUS,
     PHYSICAL_ATK_SPECIAL_DEF,
     SPECIAL_ATK_PHYSICAL_DEF,
+}
+
+// Each "letter" in the PBS move flag value corresponds to
+// a bit. Game Maker stores numbers in double-precision
+// floating point so you SHOULD be able to add quite a lot
+// of these (64 bits), but floating point is weird so don't
+// depend on it. I'd use an int64 ("long") instead but the
+// logical operators apparently won't give you an int64 back
+// and that might make things complicated.
+enum MoveFlags {
+    /*a*/CONTACT=1,
+    /*b*/PROTECTABLE_OFFENSE=2,
+    /*c*/PROTECTABLE_STATUS=4,
+    /*d*/SNATCHABLE=8,
+    /*e*/COPYABLE=16,
+    /*f*/ITEM_FLINCH_CHANCE=32,
+    /*g*/THAWABLE=64,
+    /*h*/HIGH_CRITICAL_HIT=128,
+    /*i*/BITING=256,
+    /*j*/PUNCHING=512,
+    /*k*/SOUND=1024,
+    /*l*/POWDER=2048,
+    /*m*/PULSE=4096,
+    /*n*/BOMB=8192
 }
 </string>
           </argument>

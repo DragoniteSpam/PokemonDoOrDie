@@ -13,7 +13,7 @@ for (var i=0; i<ds_list_size(text); i++){
     var name=terms[2];
     var summary=terms[3];
     
-    array[i]=add_ability(name, babl_default, summary, internal_name);
+    array[i]=add_ability(name, summary, internal_name);
 }
 
 ds_list_destroy(text);

@@ -49,6 +49,8 @@ paralyze_immobilization_odds=0.25;
 poison_damage=0.125;
 toxic_damage_t1=0.0625;
 burn_damage=0.0625;
+
+ability_contact_chance=30;
 </string>
           </argument>
         </arguments>

@@ -85,13 +85,15 @@ all_pokemon=pbs_read_pokemon(PATH_PBS+"monsters.txt");      // dependencies: mov
 all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+"trainertypes.txt");// dependencies: pawn stuff
 all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");    // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
+pbs_cleanup();
+
 debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
 
 /*
  * hard-coding for now
  */
 
-move_confusion=array_add(all_moves, add_move("Self-Confusion", Types.QMARKS, MoveCategories.PHYSICAL, 0, 40, 0, 0, MoveTargets.USER, "when you hit yourself in confusion", ba_move_basic, array_compose(be_no_effect), array_compose(0), "SELFCONFUSION"))
+move_confusion=array_add(all_moves, add_move("Self-Confusion", Types.QMARKS, MoveCategories.PHYSICAL, 0, 40, 0, 0, MoveTargets.USER, "when you hit yourself in confusion", ba_move_basic, array_compose(be_no_effect), array_compose(0), 0, "SELFCONFUSION"));
 move_struggle=get_move_from_name("STRUGGLE", true);
 
 // color values came from bulbapedia
@@ -117,6 +119,9 @@ all_types[Types.QMARKS].color=$68A090;
 /*
  * finish up the init stuff
  */
+
+major_status_names=array_compose("Sleep", "Poison", "Burn", "Paralyze", "Freeze", "Faint", "Pokerus", "Toxic", "None");
+major_status_verbs=array_compose("fell asleep", "was poisoned", "was burned", "was paralyzed", "was frozen", "fainted", "", "was badly poisoned", "");
 
 tf=array_compose("false", "true");
 dt=0;

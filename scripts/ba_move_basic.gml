@@ -36,7 +36,7 @@ if (t<t_wait){
             var t_fadeout=t_still+0.25;
             // other stuff
             var draw=Battle.drawables[| target_list[| i]];
-            var f=0.35;
+            var f=0.25;
             var relative_z=sprite_get_height(draw.sprite_index)*f*draw.scale*draw.yscale;
             var position=world_to_2d(draw.x, draw.y, draw.z+relative_z);
             // you may want to save this to the misc data map but in this case we just fire and forget

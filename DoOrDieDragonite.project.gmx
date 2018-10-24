@@ -565,15 +565,19 @@
     <sprites name="animations">
       <sprites name="moves">
         <sprite>sprites\spr_anim_move_tackle</sprite>
+        <sprite>sprites\spr_anim_move_shadow_claw</sprite>
+        <sprite>sprites\spr_anim_move_other_claw</sprite>
         <sprite>sprites\spr_anim_move_punch</sprite>
         <sprite>sprites\spr_anim_move_swords_dance</sprite>
         <sprite>sprites\spr_anim_move_claw</sprite>
+        <sprites name="particles">
+          <sprite>sprites\spr_part_sphere</sprite>
+          <sprite>sprites\spr_part_dark_sphere</sprite>
+          <sprite>sprites\spr_part_yellow_sphere</sprite>
+        </sprites>
       </sprites>
       <sprite>sprites\spr_anim_stat_rise</sprite>
       <sprite>sprites\spr_anim_stat_fall</sprite>
-    </sprites>
-    <sprites name="particles">
-      <sprite>sprites\spr_part_sphere</sprite>
     </sprites>
     <sprite>sprites\spr_move_category</sprite>
     <sprite>sprites\spr_major_status</sprite>
@@ -656,6 +660,9 @@
           <script>scripts\battle_individual_action_switch_before_turn.gml</script>
           <script>scripts\battle_individual_action_text.gml</script>
           <script>scripts\battle_individual_action_wait.gml</script>
+          <scripts name="help">
+            <script>scripts\bia_apply_major_status.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <script>scripts\add_battle_round_action.gml</script>
@@ -762,7 +769,7 @@
         </scripts>
       </scripts>
       <scripts name="abilities">
-        <script>scripts\babl_default.gml</script>
+        <script>scripts\babl_contact_paralyze_user.gml</script>
       </scripts>
     </scripts>
     <scripts name="pawn stuff">
@@ -782,6 +789,9 @@
         <script>scripts\team_alive.gml</script>
         <script>scripts\total_pp.gml</script>
         <script>scripts\total_move_pp.gml</script>
+        <scripts name="can">
+          <script>scripts\pokemon_can_have_status.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\pawn_create.gml</script>
     </scripts>
@@ -838,8 +848,11 @@
       </scripts>
       <script>scripts\vector2.gml</script>
       <script>scripts\world_to_2d.gml</script>
+      <script>scripts\move_get_flag.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
+    <script>scripts\scr_true.gml</script>
+    <script>scripts\scr_false.gml</script>
     <script>scripts\message.gml</script>
     <script>scripts\question.gml</script>
     <script>scripts\wait.gml</script>
@@ -888,6 +901,7 @@
           <script>scripts\pbs_read_items.gml</script>
           <script>scripts\pbs_read_abilities.gml</script>
           <script>scripts\pbs_read_move_function_code.gml</script>
+          <script>scripts\pbs_cleanup.gml</script>
         </scripts>
         <script>scripts\add_individual_evolution.gml</script>
         <script>scripts\add_evolution_method.gml</script>
@@ -985,21 +999,21 @@
       <object>objects\Pawn</object>
     </objects>
     <objects name="Data">
-      <object>objects\Struct</object>
-      <object>objects\DataMove</object>
-      <object>objects\DataItem</object>
-      <object>objects\DataNature</object>
-      <object>objects\DataTrainerClass</object>
-      <object>objects\DataTrainer</object>
-      <object>objects\DataEvolutionMethod</object>
-      <object>objects\DataType</object>
-      <object>objects\DataAbility</object>
-      <object>objects\DataItemPocket</object>
-      <object>objects\DataEggGroup</object>
-      <object>objects\DataPokemon</object>
       <objects name="Auxiliary">
         <object>objects\DataIndividualEvolution</object>
       </objects>
+      <object>objects\DataAbility</object>
+      <object>objects\DataEggGroup</object>
+      <object>objects\DataEvolutionMethod</object>
+      <object>objects\DataItem</object>
+      <object>objects\DataItemPocket</object>
+      <object>objects\DataMove</object>
+      <object>objects\DataNature</object>
+      <object>objects\DataPokemon</object>
+      <object>objects\DataTrainer</object>
+      <object>objects\DataTrainerClass</object>
+      <object>objects\DataType</object>
+      <object>objects\Struct</object>
     </objects>
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>

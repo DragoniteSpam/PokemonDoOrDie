@@ -5,6 +5,9 @@ var text=file_text_as_list(argument0);
 
 var array=array_create(ds_list_size(text));
 
+var A=ord('A');
+var Z=ord('Z');
+
 for (var i=0; i<ds_list_size(text); i++){
     var terms=split(text[| i], ',', false);
     
@@ -27,8 +30,6 @@ for (var i=0; i<ds_list_size(text); i++){
             description=terms[13];
         case 13:
             flags=0;
-            var A=ord('A');
-            var Z=ord('Z');
             for (var j=1; j<=string_length(terms[12]); j++){
                 var c=string_ord_at(string_upper(terms[12]), j);
                 if (is_clamped(c, A, Z)){
@@ -124,7 +125,7 @@ for (var i=0; i<ds_list_size(text); i++){
             internal_name=terms[1];
     }
     
-    array[i]=add_move(name, type, category, pp, base_power, accuracy, priority, target, description, ba_move_basic, effect_codes, effect_chances, internal_name);
+    array[i]=add_move(name, type, category, pp, base_power, accuracy, priority, target, description, ba_move_basic, effect_codes, effect_chances, flags, internal_name);
 }
 
 ds_list_destroy(text);

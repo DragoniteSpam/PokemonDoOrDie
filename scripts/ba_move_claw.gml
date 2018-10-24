@@ -44,7 +44,7 @@ if (t<t_wait){
             // animation
             var animation_rate=9;
             // you may want to save this to the misc data map but in this case we just fire and forget
-            misc_data[? "claw"]=new_effect_2d(position[vec2.xx], position[vec2.yy], spr_anim_move_claw, e2d_generic, t_fadein, t_still, t_fadeout, 1.5, 1.5, 0, c_white, 0, animation_rate, false);
+            misc_data[? "claw"]=new_effect_2d(position[vec2.xx], position[vec2.yy], spr_anim_move_claw, e2d_generic, t_fadein, t_still, t_fadeout, 1.5, 1.5, 0, misc_data[? "color"], 0, animation_rate, false);
         }
         audio_play_sound(se_move_slash, 1, false);
     }
