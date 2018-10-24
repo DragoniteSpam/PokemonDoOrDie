@@ -15,7 +15,7 @@ var move=argument5;
 
 // todo each status should have an animation to go with it.
 
-if (pokemon_can_have_status(user, status)){
+if (pokemon_can_have_status(target, status)){
     switch (target.ability.status_acceptance[status]){
         case StatusAcceptance.YES:
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, target, status, status_turn));

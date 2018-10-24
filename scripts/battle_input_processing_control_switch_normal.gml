@@ -2,7 +2,7 @@
 // see comments in battle_input_processing_control_switch_before_turn
 
 if (keyboard_check_released(vk_enter)){
-    var target=Camera.battle_pawn.party[| World.message_option_index];
+    var target=Battle.input_processing.owner.party[| World.message_option_index];
     
     if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
         battle_input_processing_reset(false);

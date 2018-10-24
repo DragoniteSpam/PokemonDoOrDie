@@ -65,7 +65,7 @@ if (total_pp(pkmn)==0){
             
             battle_input_processing_reset();
             
-            continue_text=pkmn.owner.name+" has chosen the move "+get_move(message_option_index).name+" for "+pkmn.name;
+            continue_text=pkmn.owner.name+" has chosen the move "+get_move(pkmn.moves[message_option_index]).name+" for "+pkmn.name;
         }
     }
 }

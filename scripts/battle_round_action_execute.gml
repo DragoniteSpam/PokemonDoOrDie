@@ -37,20 +37,24 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
             }
             
-            if (max(--pokemon.confused, 0)==0){
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" snapped out of confusion!"));
-            } else {
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
-                // todo animation
-                // todo in gen 7 apparently the confusion chance is one in three instead of one in two
-                if (choose(true, false)){
-                    interrupted=true;
+            // if this check is not in place the "snapped out of confusion" message will appear on
+            // every single turn and that's incorrect
+            if (pokemon.confused>0){
+                if (max(--pokemon.confused, 0)==0){
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" snapped out of confusion!"));
+                } else {
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
                     // todo animation
-                    var damage=battle_damage(World.move_confusion, pokemon, pokemon);
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
-                    var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
-                    battle_round_action_execute_faint_check(pokemon, pokemon, damage);
+                    // todo in gen 7 apparently the confusion chance is one in three instead of one in two
+                    if (choose(true, false)){
+                        interrupted=true;
+                        // todo animation
+                        var damage=battle_damage(World.move_confusion, pokemon, pokemon);
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
+                        var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
+                        battle_round_action_execute_faint_check(pokemon, pokemon, damage);
+                    }
                 }
             }
             

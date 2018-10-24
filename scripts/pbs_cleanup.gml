@@ -21,3 +21,8 @@ a.on_contact=babl_contact_paralyze_user;
 
 a=get_ability(get_ability_from_name("INNERFOCUS", true));
 a.can_flinch=false;
+
+a=get_ability(get_ability_from_name("SYNCHRONIZE", true));
+array_clear(a.status_acceptance, StatusAcceptance.MIRROR);
+// syncronize doesn't affect minor status. you can make it do that if you
+// want, though.

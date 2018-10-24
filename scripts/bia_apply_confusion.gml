@@ -13,7 +13,7 @@ if (argument_count>5){
     var text=" became confused!";
 }
 
-if (pokemon_can_confuse(user)){
+if (pokemon_can_confuse(target)){
     switch (target.ability.minor_status_acceptance){
         case StatusAcceptance.YES:
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_confusion, target, turns));

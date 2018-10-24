@@ -5,7 +5,7 @@ var user=argument1;
 var target=argument2;
 var move=argument3;
 
-if (pokemon_can_flinch(user)){
+if (pokemon_can_flinch(target)){
     ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_flinch, target));
 }
 
