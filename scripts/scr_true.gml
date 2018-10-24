@@ -2,7 +2,7 @@
 // Takes any number of arguments and always returns true.
 
 for (var i=0; i<argument_count; i++){
-    var go_away=argument[i];
+    var a=argument[i];
 }
 
-return false;
+return true;

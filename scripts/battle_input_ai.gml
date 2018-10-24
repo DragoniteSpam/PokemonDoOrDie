@@ -2,6 +2,9 @@
 
 var team=argument0.owner.team;
 
+// todo something with this eventually
+var can_escape=pokemon_can_escape(argument0);
+
 // "calculate" the move
 var value=irandom(array_length_1d(argument0.moves)-1);
 

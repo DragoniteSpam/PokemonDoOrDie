@@ -774,6 +774,9 @@
       </scripts>
       <scripts name="abilities">
         <script>scripts\babl_contact_paralyze_user.gml</script>
+        <scripts name="escape">
+          <script>scripts\babl_trap_steel.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <scripts name="pawn stuff">
@@ -797,6 +800,7 @@
           <script>scripts\pokemon_can_have_status.gml</script>
           <script>scripts\pokemon_can_flinch.gml</script>
           <script>scripts\pokemon_can_confuse.gml</script>
+          <script>scripts\pokemon_can_escape.gml</script>
         </scripts>
       </scripts>
       <script>scripts\pawn_create.gml</script>

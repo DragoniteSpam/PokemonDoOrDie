@@ -27,8 +27,8 @@ if (keyboard_check_released(vk_enter)){
             message("You have on items! Actually, items haven't been implemented yet. Do you want to do that? They're functionally not that different from Moves or Abilities.");
             break;
         case 2:
-            if (Battle.input_processing.trapped_for>0){
-                message(Battle.input_processing.name+" is trapped by the foe's "+Battle.contestants[| Battle.input_processing.trapped_by].name+"!");
+            if (!pokemon_can_escape(Battle.input_processing)){
+                message(Battle.input_processing.name+" is trapped and can't get away!");
             } else {
                 Battle.input_stage=BattleInputStages.SWITCH;
             }
@@ -37,9 +37,12 @@ if (keyboard_check_released(vk_enter)){
             // todo if this turns into a "forfeit" button for Trainer battles,
             // you may want to bypass this check
             var team_trapped=false;
+            // the runtime for this actually isn't very good but it's rare that
+            // it's going to process a large number of things so i don't mind
+            // too much
             for (var i=0; i<ds_list_size(Battle.contestants); i++){
                 var contestant=Battle.contestants[| i];
-                if (contestant.owner.team==Battle.input_processing.owner.team&&contestant.trapped_for>0){
+                if (contestant.owner.team==Battle.input_processing.owner.team&&pokemon_can_escape(contestant)){
                     team_trapped=true;
                     break;
                 }

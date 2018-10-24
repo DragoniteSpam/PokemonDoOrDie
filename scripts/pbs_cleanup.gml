@@ -26,3 +26,6 @@ a=get_ability(get_ability_from_name("SYNCHRONIZE", true));
 array_clear(a.status_acceptance, StatusAcceptance.MIRROR);
 // syncronize doesn't affect minor status. you can make it do that if you
 // want, though.
+
+a=get_ability(get_ability_from_name("MAGNETPULL", true));
+a.can_escape=babl_trap_steel;
