@@ -35,6 +35,9 @@ if (effects_list==noone){
 }
 var mod_burn=1;
 var mod_other=1;
+if (user.act_hp/user.act[Stats.HP]<=World.settings.battle.ability_low_health_threshold){
+    mod_other=mod_other*user.ability.low_health_factor[move.type];
+}
 
 // no need to waste time with fancy arithmetic
 // (you may want to do this with some of the other mods as well)

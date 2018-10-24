@@ -32,3 +32,8 @@ a.can_escape=babl_trap_steel;
 
 a=get_ability(get_ability_from_name("LEVITATE", true));
 a.damage_from[Types.GROUND]=0;
+
+a=get_ability(get_ability_from_name("BLAZE", true));
+a.low_health_factor[Types.FIRE]=World.settings.battle.ability_low_health_move_power;
+a=get_ability(get_ability_from_name("OVERGROW", true));
+a.low_health_factor[Types.GRASS]=World.settings.battle.ability_low_health_move_power;

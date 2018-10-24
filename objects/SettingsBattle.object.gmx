@@ -51,6 +51,8 @@ toxic_damage_t1=0.0625;
 burn_damage=0.0625;
 
 ability_contact_chance=30;
+ability_low_health_move_power=1.5;
+ability_low_health_threshold=1/3;
 </string>
           </argument>
         </arguments>
