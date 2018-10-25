@@ -52,7 +52,10 @@ if (total_pp(pkmn)==0){
             battle_input_processing_reset(false);
         } else if (pkmn.moves[message_option_index]==noone){
             // to do play some kind of silly "invalid" sound
+        } else if (pkmn.move_pp[message_option_index]==0){
+            message("There is no PP left for that move!");
         } else {
+            pkmn.move_pp[message_option_index]--;
             var value=pkmn.moves[message_option_index];
             // at some point in the future this needs to be moved to a different script that can
             // account for selecting multiple valid targets
