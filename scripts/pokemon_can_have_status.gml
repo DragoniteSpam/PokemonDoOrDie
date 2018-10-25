@@ -4,6 +4,10 @@ if (argument0.status!=MajorStatus.NONE){
     return false;
 }
 
+if (argument1==MajorStatus.NONE){
+    return true;
+}
+
 // todo some abilities (Corrision) bypass the type check
 
 // There are a lot of conditions to determine whether or not you're

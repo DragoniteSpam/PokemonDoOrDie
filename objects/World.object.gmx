@@ -126,6 +126,8 @@ major_status_names=array_compose("Sleep", "Poison", "Burn", "Paralyze", "Freeze"
 // the words that the game can use to reference the infliction
 // of an arbitrary status condition
 major_status_verbs=array_compose("fell asleep", "was poisoned", "was burned", "was paralyzed", "was frozen", "fainted", "", "was badly poisoned", "");
+// color tinting for rendering pokémon with the status
+major_status_colors=array_compose(c_white, merge_color(c_purple, c_white, 0.65), merge_color(c_red, c_white, 0.65), merge_color(c_yellow, c_white, 0.65), merge_color(c_aqua, c_white, 0.65), c_white, c_white, merge_color(c_purple, c_white, 0.55), c_white);
 
 tf=array_compose("false", "true");
 dt=0;
