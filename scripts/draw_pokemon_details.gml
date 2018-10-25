@@ -9,7 +9,7 @@ if (argument0==-1){
 var base_species=get_pokemon(argument0.species);
 
 var half_width=400;
-var half_height=256;
+var half_height=272;
 var start_x=W/2-half_width;
 var start_y=H/2-half_height;
 var picture_width=sprite_get_width(argument0.spr_front);
@@ -66,10 +66,10 @@ if (argument0.item==-1){
     draw_text(content_x+picture_buffer+text_width, start_y+320, get_item(argument0.item).name);
 }
 var text_width=string_width("Ability: ");
-draw_text_colour(content_x+picture_buffer, start_y+416, "Ability: ", c_blue, c_blue, c_blue, c_blue, 1);
-draw_text(content_x+picture_buffer+text_width, start_y+416, argument0.ability.name);
+draw_text_colour(content_x+picture_buffer, start_y+448, "Ability: ", c_blue, c_blue, c_blue, c_blue, 1);
+draw_text(content_x+picture_buffer+text_width, start_y+448, argument0.ability.name);
 draw_set_valign(fa_top);
-draw_text_ext(content_x+picture_buffer, start_y+448-16, argument0.ability.summary, -1, half_width*2-picture_width-picture_buffer*2);
+draw_text_ext(content_x+picture_buffer, start_y+480-16, argument0.ability.summary, -1, half_width*2-picture_width-picture_buffer*2);
 if (argument0.item!=-1){
     draw_text_ext(content_x+picture_buffer, start_y+352-16, get_item(argument0.item).summary, -1, half_width*2-picture_width-picture_buffer*2);
 }
