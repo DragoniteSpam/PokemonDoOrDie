@@ -56,6 +56,9 @@ for (var i=0; i<ds_list_size(text); i++){
             if (n>1){
                 trainer_items=array_create(n-1);
                 array_copy(trainer_items, 0, size_split, 1, n-1);
+                for (var j=1; j<n; j++){
+                    trainer_items[j-1]=get_item_from_name(size_split[j], true);
+                }
             }
             state=PBSParseTrainerState.PARTY;
             break;
