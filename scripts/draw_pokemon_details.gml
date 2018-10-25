@@ -23,7 +23,8 @@ draw_rectangle_9s(spr_window9s_hgss, start_x, start_y, half_width*2, half_height
 
 // todo if you have a major status, tint the sprite the way your battle
 // sprite would be
-draw_sprite_part(argument0.spr_front, 0, 0, 0, picture_width, picture_height, start_x+picture_buffer, H/2-picture_height/2);
+var c=World.major_status_colors[argument0.status];
+draw_sprite_general(argument0.spr_front, 0, 0, 0, picture_width, picture_height, start_x+picture_buffer, H/2-picture_height/2, 1, 1, 0, c, c, c, c, 1);
 
 draw_set_font(FPokemonMediumLarge);
 draw_set_halign(fa_center);
