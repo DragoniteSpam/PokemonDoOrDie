@@ -23,13 +23,13 @@ for (var i=0; i<ds_list_size(text); i++){
         case 11:
             move=get_move_from_name(terms[10], true);
         case 10:
-            // todo convert this into some other cless clunky piece of data
+            // todo convert this into some other less clunky piece of data
             special=real(terms[9]);
         case 9:
-            // todo convert this into some other cless clunky piece of data
+            // todo convert this into some other less clunky piece of data
             battle=real(terms[8]);
         case 8:
-            // todo convert this into some other cless clunky piece of data
+            // todo convert this into some other less clunky piece of data
             overworld=real(terms[7]);
         case 7:
             description=terms[6];

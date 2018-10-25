@@ -46,10 +46,13 @@ for (var i=1; i<=string_length(str); i++){
         if ((c=='"'||c=="'")&&previous!=ESCAPE){
             if (block==c){
                 block='';
-            } else {
+            } else if (string_length(block)==0){
                 block=c;
+            } else {
+                terms[index]=terms[index]+string_char_at(str, i);
             }
         } else {
+            // code duplication aaaaaaaa
             terms[index]=terms[index]+string_char_at(str, i);
         }
     }
