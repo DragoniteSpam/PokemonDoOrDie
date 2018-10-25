@@ -8,6 +8,7 @@ with (instance_create(0, 0, BattleAppliedEffect)){
         argument1.trapped_for=MILLION;  // your computer will fail long before you manage to have a battle drag out for this long, even if you put it on autopilot
         argument1.trapped_residual_damage=0;    // if you want to make a version that also does residual damage, clone this script and name it such
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, argument1.name+" was trapped by "+argument0.name+"!"));
+        cancel_if_target_fainted=true;
     }
     
     return id;

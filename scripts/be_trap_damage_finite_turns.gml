@@ -6,6 +6,7 @@ with (instance_create(0, 0, BattleAppliedEffect)){
         argument1.trapped_for=World.settings.battle.trap_finite_turns;
         argument1.trapped_residual_damage=World.settings.battle.trapped_residual_damage;
         ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, argument1.name+" was trapped by "+argument0.name+"'s "+get_move(argument2).name+"!"));
+        cancel_if_target_fainted=true;
     }
     
     return id;

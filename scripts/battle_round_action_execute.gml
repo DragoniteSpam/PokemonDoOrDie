@@ -152,10 +152,10 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                 }
                             }
                             // apply move effects here, if the target is still alive
-                            if (!target.flag_downed){
-                                for (var j=0; j<ds_list_size(target_effects_list); j++){
-                                    var eff=target_effects_list[| j];
-                                    if (eff!=noone){
+                            for (var j=0; j<ds_list_size(target_effects_list); j++){
+                                var eff=target_effects_list[| j];
+                                if (eff!=noone){
+                                    if (!eff.cancel_if_target_fainted||!target.flag_downed){
                                         while (!ds_queue_empty(eff.scheduled_actions)){
                                             ds_queue_enqueue(individual_actions, ds_queue_dequeue(eff.scheduled_actions));
                                             effect_total++;
@@ -163,11 +163,11 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                             target.animate_on=true;
                                         }
                                     }
-                                    with (eff){
-                                        instance_destroy();
-                                    }
                                 }
-                            } // endif target still alive
+                                with (eff){
+                                    instance_destroy();
+                                }
+                            }
                             if (move_get_flag(move, MoveFlags.CONTACT)){
                                 script_execute(target.ability.on_contact, pokemon, target, target.ability, move);
                             }
