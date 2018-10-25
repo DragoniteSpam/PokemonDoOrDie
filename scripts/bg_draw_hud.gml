@@ -27,7 +27,10 @@ if (user!=noone){
     
     var level_string="Lv. "+string(level);
     
-    draw_sprite(spr_gender, user.gender, x+UI_BATTLE_HUD_WIDTH-32-32-string_width(level_string), text_y);
+    draw_sprite(spr_gender, user.gender, x+UI_BATTLE_HUD_WIDTH-16-32-string_width(level_string), text_y);
+    if (user.status!=MajorStatus.NONE){
+        draw_major_status(user.status, x+UI_BATTLE_HUD_WIDTH-16-32-string_width(level_string)-sprite_get_width(spr_gender)-sprite_get_width(spr_major_status), text_y);
+    }
     
     draw_set_halign(fa_right);
     draw_text(x+UI_BATTLE_HUD_WIDTH-32, text_y, level_string);
