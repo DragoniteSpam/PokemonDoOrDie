@@ -17,6 +17,9 @@ switch (value){
     case $0:
         effects[0]=be_no_effect;
         break;
+    case $2:
+        effects[0]=be_recoil_025;
+        break;
     case $5:
         effects[0]=be_poison_target;
         break;

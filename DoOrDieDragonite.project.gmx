@@ -757,6 +757,7 @@
         <script>scripts\be_trap_infinite_turns.gml</script>
         <script>scripts\be_always_hit_if_user_has_poison_type.gml</script>
         <script>scripts\be_user_heal_half.gml</script>
+        <script>scripts\be_recoil_025.gml</script>
         <scripts name="status">
           <scripts name="minor">
             <script>scripts\be_confuse.gml</script>

@@ -50,7 +50,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
                         var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
-                        battle_round_action_execute_faint_check(pokemon, pokemon, damage);
+                        battle_round_action_execute_faint_check(individual_actions, pokemon, pokemon, damage);
                     }
                 }
             }
@@ -148,7 +148,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                     }
                                     target.animate_on=true;
                                     damage_total=damage_total+min(damage, target.act_hp);
-                                    battle_round_action_execute_faint_check(pokemon, target, damage);
+                                    battle_round_action_execute_faint_check(individual_actions, pokemon, target, damage);
                                 }
                             }
                             // apply move effects here, if the target is still alive
@@ -250,7 +250,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     // i don't know why i did it like that.
                     damage=target.act_hp;
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, damage));
-                    battle_round_action_execute_faint_check(pokemon, target, damage);
+                    battle_round_action_execute_faint_check(individual_actions, pokemon, target, damage);
                     target.flag_downed=true;
                 }
             }

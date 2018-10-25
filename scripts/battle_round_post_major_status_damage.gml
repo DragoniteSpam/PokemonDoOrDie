@@ -30,7 +30,7 @@ if (amount!=0){
     amount=max(amount, pkmn.act_hp-pkmn.act[Stats.HP]);
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pkmn, amount));
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
-    battle_round_action_execute_faint_check(pkmn, pkmn, amount);
+    battle_round_action_execute_faint_check(individual_actions, pkmn, pkmn, amount);
 }
 
 battle_advance();
