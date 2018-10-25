@@ -43,3 +43,22 @@ a.on_entry=babl_enter_intimidate;
 
 a=get_ability(get_ability_from_name("SHEDSKIN", true));
 a.on_round_end=babl_round_end_shed_skin;
+
+var item;
+item=get_item(get_item_from_name("MIRACLESEED", true));
+item.battle_hold_damage_mod=bi_damage_mod_grass;
+
+item=get_item(get_item_from_name("CHARCOAL", true));
+item.battle_hold_damage_mod=bi_damage_mod_fire;
+
+item=get_item(get_item_from_name("MAGNET", true));
+item.battle_hold_damage_mod=bi_damage_mod_electric;
+
+item=get_item(get_item_from_name("MYSTICWATER", true));
+item.battle_hold_damage_mod=bi_damage_mod_water;
+
+item=get_item(get_item_from_name("SILKSCARF", true));
+item.battle_hold_damage_mod=bi_damage_mod_normal;
+
+item=get_item(get_item_from_name("LEFTOVERS", true));
+item.battle_hold_post_turn=bi_post_turn_leftovers;

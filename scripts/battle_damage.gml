@@ -38,6 +38,9 @@ var mod_other=1;
 if (user.act_hp/user.act[Stats.HP]<=World.settings.battle.ability_low_health_threshold){
     mod_other=mod_other*user.ability.low_health_factor[move.type];
 }
+if (user.item!=-1){
+    mod_other=mod_other*script_execute(get_item(user.item).battle_hold_damage_mod, user, target, move);
+}
 
 // no need to waste time with fancy arithmetic
 // (you may want to do this with some of the other mods as well)

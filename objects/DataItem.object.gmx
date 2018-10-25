@@ -35,13 +35,54 @@ plural="Base Items";
 pocket=ItemPockets.ITEMS;
 price=500;
 
-overworld=0;
-battle=0;
-special=0;
+overworld=null;
+battle=null;
+// this may not be necessary at all but i'm not going to delete it
+// quite yet
+special=null;
 
 // ordinarily the id of the move that the tm/hm attaches to this item
 // but not necessarily
 value=0;
+
+battle_use=bi_no_use;
+
+battle_hold_post_turn=bi_post_turn_nothing;
+battle_hold_damage_mod=bi_damage_mod_default;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// constants and stuff
+
+enum ItemOverworldUsability {
+    NOPE,
+    POKEMON,
+    TRAINER,
+}
+
+enum ItemBattleUsability {
+    NOPE,
+    POKEMON,
+    BALL,
+    UNKNOWN,
+}
 </string>
           </argument>
         </arguments>

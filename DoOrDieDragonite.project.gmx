@@ -803,6 +803,23 @@
           <script>scripts\babl_enter_intimidate.gml</script>
         </scripts>
       </scripts>
+      <scripts name="items">
+        <scripts name="from bag">
+          <script>scripts\bi_no_use.gml</script>
+        </scripts>
+        <scripts name="hold items">
+          <script>scripts\bi_post_turn_nothing.gml</script>
+          <scripts name="damage modification">
+            <script>scripts\bi_damage_mod_default.gml</script>
+            <script>scripts\bi_damage_mod_grass.gml</script>
+            <script>scripts\bi_damage_mod_fire.gml</script>
+            <script>scripts\bi_damage_mod_electric.gml</script>
+            <script>scripts\bi_damage_mod_water.gml</script>
+            <script>scripts\bi_damage_mod_normal.gml</script>
+          </scripts>
+          <script>scripts\bi_post_turn_leftovers.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
     <scripts name="pawn stuff">
       <script>scripts\add_trainer_pokemon.gml</script>
@@ -936,6 +953,8 @@
           <script>scripts\pbs_read_items.gml</script>
           <script>scripts\pbs_read_abilities.gml</script>
           <script>scripts\pbs_read_move_function_code.gml</script>
+          <script>scripts\pbs_read_item_overworld_code.gml</script>
+          <script>scripts\pbs_read_item_battle_code.gml</script>
           <script>scripts\pbs_cleanup.gml</script>
         </scripts>
         <script>scripts\add_individual_evolution.gml</script>

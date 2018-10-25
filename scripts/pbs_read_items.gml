@@ -14,23 +14,24 @@ for (var i=0; i<ds_list_size(text); i++){
     var pocket=1;
     var price=0;
     var description='';
-    var overworld=0;
-    var battle=0;
-    var special=0;
+    var overworld=null;
+    var battle=null;
+    var special=null;
     var move=-1;
     
     switch (array_length_1d(terms)){
         case 11:
             move=get_move_from_name(terms[10], true);
         case 10:
-            // todo convert this into some other less clunky piece of data
-            special=real(terms[9]);
+            // this will probably not be used
+            //special=real(terms[9]);
+            special=0;
         case 9:
             // todo convert this into some other less clunky piece of data
-            battle=real(terms[8]);
+            battle=pbs_read_item_battle_code(real(terms[8]));
         case 8:
             // todo convert this into some other less clunky piece of data
-            overworld=real(terms[7]);
+            overworld=pbs_read_item_overworld_code(real(terms[7]));
         case 7:
             description=terms[6];
         case 6:
