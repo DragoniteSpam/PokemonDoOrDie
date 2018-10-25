@@ -9,4 +9,6 @@ I can't grab embedded gifs from Twitter and I don't feel like copying them to im
 
 [Turn switching](https://twitter.com/DragoniteSpam/status/1053545162742337536)
 
+[Abilities](https://twitter.com/DragoniteSpam/status/1055524452702842881)
+
 I'll probably add more eventually.
