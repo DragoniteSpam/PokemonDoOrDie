@@ -23,8 +23,11 @@ if (keyboard_check_released(vk_enter)){
             Battle.input_stage=BattleInputStages.MOVE;
             break;
         case 1:
-//            Battle.input_stage=BattleInputStages.ITEM;
-            message("You have on items! Actually, items haven't been implemented yet. Do you want to do that? They're functionally not that different from Moves or Abilities.");
+            if (pawn_item_total(Battle.input_processing.owner)==0){
+                message(Battle.input_processing.owner.name+" has no available items!");
+            } else {
+                Battle.input_stage=BattleInputStages.ITEM;
+            }
             break;
         case 2:
             if (!pokemon_can_escape(Battle.input_processing)){

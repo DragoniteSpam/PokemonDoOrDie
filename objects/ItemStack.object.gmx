@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Struct</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,53 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>index=0;
+count=1;
 
-name="Pawn";
-class=0;
-version=1;
-
-items=array_compose(ds_list_create(),   // items
-    ds_list_create(),                   // medicine
-    ds_list_create(),                   // balls
-    ds_list_create(),                   // tms
-    ds_list_create(),                   // berries
-    ds_list_create(),                   // mail
-    ds_list_create(),                   // battle
-    ds_list_create());                  // key
-party=ds_list_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>ds_list_destroy(items);
-
-for (var i=0; i&lt;ds_list_size(party); i++){
-    instance_activate_object(parth[| i]);
-    with (party[| i]){
-        instance_destroy();
-    }
-}
-
-ds_list_destroy(party);
+instance_deactivate_object(id);
 </string>
           </argument>
         </arguments>

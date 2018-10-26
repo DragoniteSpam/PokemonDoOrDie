@@ -37,7 +37,7 @@ for (var i=0; i<ds_list_size(text); i++){
         case 6:
             price=real(terms[5]);
         case 5:
-            pocket=get_item_pocket_from_name(terms[4]);
+            pocket=pbs_read_item_pocket(real(terms[4]));
         case 4:
             plural=terms[3];
         case 3:

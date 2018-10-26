@@ -7,7 +7,7 @@ with (instance_create(0, 0, DataTrainer)){
     
     var item_array=argument[3];
     for (var i=0; i<array_length_1d(item_array); i++){
-        ds_list_add(items, item_array[i]);
+        trainer_add_item(id, item_array[i]);
     }
     
     var party_array=argument[4];

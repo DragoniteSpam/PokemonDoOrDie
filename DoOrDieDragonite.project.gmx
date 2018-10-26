@@ -699,6 +699,7 @@
       <scripts name="player input processing">
         <script>scripts\battle_input_processing.gml</script>
         <script>scripts\battle_input_processing_grand.gml</script>
+        <script>scripts\battle_input_processing_item.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
         <script>scripts\battle_input_processing_switch.gml</script>
         <script>scripts\battle_input_processing_level_stat_delta.gml</script>
@@ -846,6 +847,18 @@
         </scripts>
       </scripts>
       <script>scripts\pawn_create.gml</script>
+      <scripts name="inventory">
+        <scripts name="help">
+          <script>scripts\trainer_add_item.gml</script>
+          <script>scripts\trainer_has_item.gml</script>
+          <script>scripts\trainer_item_total.gml</script>
+          <script>scripts\trainer_item_pocket_total.gml</script>
+        </scripts>
+        <script>scripts\pawn_add_item.gml</script>
+        <script>scripts\pawn_item_total.gml</script>
+        <script>scripts\pawn_item_pocket_total.gml</script>
+        <script>scripts\pawn_has_item.gml</script>
+      </scripts>
     </scripts>
     <scripts name="math-ish">
       <script>scripts\action_priority.gml</script>
@@ -955,6 +968,7 @@
           <script>scripts\pbs_read_move_function_code.gml</script>
           <script>scripts\pbs_read_item_overworld_code.gml</script>
           <script>scripts\pbs_read_item_battle_code.gml</script>
+          <script>scripts\pbs_read_item_pocket.gml</script>
           <script>scripts\pbs_cleanup.gml</script>
         </scripts>
         <script>scripts\add_individual_evolution.gml</script>
@@ -985,10 +999,11 @@
         <script>scripts\get_egg_group_from_name.gml</script>
         <script>scripts\get_evolution_method_from_name.gml</script>
         <script>scripts\get_generic_from_name.gml</script>
+        <script>scripts\get_item.gml</script>
         <script>scripts\get_item_from_name.gml</script>
+        <script>scripts\get_item_pocket.gml</script>
         <script>scripts\get_item_pocket_from_name.gml</script>
         <script>scripts\get_move.gml</script>
-        <script>scripts\get_item.gml</script>
         <script>scripts\get_move_from_name.gml</script>
         <script>scripts\get_nature.gml</script>
         <script>scripts\get_nature_from_name.gml</script>
@@ -1049,13 +1064,14 @@
       </objects>
     </objects>
     <objects name="Core">
+      <object>objects\Pawn</object>
       <object>objects\PawnPlayer</object>
       <object>objects\PawnWild</object>
-      <object>objects\Pawn</object>
     </objects>
     <objects name="Data">
       <objects name="Auxiliary">
         <object>objects\DataIndividualEvolution</object>
+        <object>objects\ItemStack</object>
       </objects>
       <object>objects\DataAbility</object>
       <object>objects\DataEggGroup</object>
