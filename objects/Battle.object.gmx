@@ -60,6 +60,7 @@ misc_data[? "stat fall animations"]=0;
 // less important settings
 
 view_details=false;
+view_item_pocket=ItemPockets.ITEMS;
 
 // debug stuff
 
@@ -102,6 +103,7 @@ enum BattleInputStages {
     GRAND,
     MOVE,
     ITEM,
+    ITEM_INTERNAL,
     SWITCH,
     FLEE,
     LEVEL_STAT_DELTA,

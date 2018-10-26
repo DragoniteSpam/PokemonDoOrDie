@@ -6,10 +6,10 @@ if (argument_count==3){
     var n=1;
 }
 
-var list=argument0.items[get_item(argument1).pocket];
+var list=argument[0].items[get_item(argument[1]).pocket];
 
 for (var i=0; i<ds_list_size(list); i++){
-    if (list[| i].index==argument1){
+    if (list[| i].index==argument[1]){
         list[| i].count=list[| i].count-n;
         if (list[| i].count<=0){
             instance_activate_object(list[| i]);

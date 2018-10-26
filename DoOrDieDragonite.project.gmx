@@ -700,6 +700,7 @@
         <script>scripts\battle_input_processing.gml</script>
         <script>scripts\battle_input_processing_grand.gml</script>
         <script>scripts\battle_input_processing_item.gml</script>
+        <script>scripts\battle_input_processing_item_internal.gml</script>
         <script>scripts\battle_input_processing_move.gml</script>
         <script>scripts\battle_input_processing_switch.gml</script>
         <script>scripts\battle_input_processing_level_stat_delta.gml</script>
