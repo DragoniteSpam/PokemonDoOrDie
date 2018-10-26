@@ -850,11 +850,13 @@
       <scripts name="inventory">
         <scripts name="help">
           <script>scripts\trainer_add_item.gml</script>
+          <script>scripts\trainer_remove_item.gml</script>
           <script>scripts\trainer_has_item.gml</script>
           <script>scripts\trainer_item_total.gml</script>
           <script>scripts\trainer_item_pocket_total.gml</script>
         </scripts>
         <script>scripts\pawn_add_item.gml</script>
+        <script>scripts\pawn_remove_item.gml</script>
         <script>scripts\pawn_item_total.gml</script>
         <script>scripts\pawn_item_pocket_total.gml</script>
         <script>scripts\pawn_has_item.gml</script>
