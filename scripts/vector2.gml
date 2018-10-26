@@ -1,7 +1,5 @@
 /// array vector2(x, y);
+// there's really no reason to use this over array_compose but i think
+// it looks nice so i'm keeping it
 
-var array;
-array[1]=argument1;
-array[0]=argument0;
-
-return array;
+return array_compose(argument0, argument1);

@@ -36,7 +36,7 @@ pocket=ItemPockets.ITEMS;
 price=500;
 
 overworld=null;
-battle=null;
+battle=bi_no_use;
 // this may not be necessary at all but i'm not going to delete it
 // quite yet
 special=null;
@@ -45,7 +45,8 @@ special=null;
 // but not necessarily
 value=0;
 
-battle_use=bi_no_use;
+battle_use_from_bag=bi_no_use;
+battle_use_action=bi_action_no_use;
 
 battle_hold_post_turn=bi_post_turn_nothing;
 battle_hold_damage_mod=bi_damage_mod_default;
@@ -81,6 +82,7 @@ enum ItemBattleUsability {
     NOPE,
     POKEMON,
     BALL,
+    TRAINER,
     UNKNOWN,
 }
 </string>

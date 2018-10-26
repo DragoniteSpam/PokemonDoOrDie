@@ -104,6 +104,7 @@ enum BattleInputStages {
     MOVE,
     ITEM,
     ITEM_INTERNAL,
+    ITEM_POKEMON,
     SWITCH,
     FLEE,
     LEVEL_STAT_DELTA,

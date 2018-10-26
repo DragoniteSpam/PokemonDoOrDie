@@ -62,3 +62,7 @@ item.battle_hold_damage_mod=bi_damage_mod_normal;
 
 item=get_item(get_item_from_name("LEFTOVERS", true));
 item.battle_hold_post_turn=bi_post_turn_leftovers;
+
+item=get_item(get_item_from_name("FULLRESTORE", true));
+item.battle_use_from_bag=bi_use_full_restore;
+item.battle_use_action=bi_action_full_restore;

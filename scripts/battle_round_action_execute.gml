@@ -193,7 +193,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             }
             break;
         case BattleActions.ITEM:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used a(n) "+World.all_items[exe.value].name+"! (Implement this later, please.)"));
+            script_execute(get_item(exe.value).battle_use_action, individual_actions, pokemon, exe.value);
             break;
         case BattleActions.SWITCH:
             // This is very much the same as the code in battle_action_check_replacements_before_turn.

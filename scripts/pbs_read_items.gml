@@ -14,8 +14,8 @@ for (var i=0; i<ds_list_size(text); i++){
     var pocket=1;
     var price=0;
     var description='';
-    var overworld=null;
-    var battle=null;
+    var overworld=ItemOverworldUsability.NOPE;
+    var battle=ItemBattleUsability.NOPE;
     var special=null;
     var move=-1;
     

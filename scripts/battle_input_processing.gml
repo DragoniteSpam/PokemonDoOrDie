@@ -11,6 +11,9 @@ switch (Battle.input_stage){
     case BattleInputStages.ITEM_INTERNAL:
         battle_input_processing_item_internal(Battle.view_item_pocket);
         break;
+    case BattleInputStages.ITEM_POKEMON:
+        battle_input_processing_switch(battle_input_processing_control_switch_item);
+        break;
     case BattleInputStages.SWITCH:
         battle_input_processing_switch(battle_input_processing_control_switch_normal);
         break;
