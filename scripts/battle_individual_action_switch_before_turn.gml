@@ -11,10 +11,10 @@ World.message_option_result=-1;
 // to see if the result is equal to zero.
 if (result==0){
     Battle.input_stage=BattleInputStages.SWITCH_BEFORE_TURN;
-    Battle.misc_data[? "contestant slot to replace"]=params[| 0];
-    Battle.misc_data[? "allowed to not send anybody in"]=true;
+    Battle.misc_data[? 'contestant slot to replace']=params[| 0];
+    Battle.misc_data[? 'allowed to not send anybody in']=true;
     Battle.input_processing=Battle.contestants[| params[| 0]];
-    message("Who would you like to send in to replace "+Battle.contestants[| params[| 0]].name+"?");
+    message(L('Who would you like to send in to replace %0?', Battle.contestants[| params[| 0]].name));
 } else {
     Battle.replacements[| params[| 0]]=noone;
     battle_advance();

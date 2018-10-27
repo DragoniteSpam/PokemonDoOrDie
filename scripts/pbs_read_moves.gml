@@ -42,51 +42,51 @@ for (var i=0; i<ds_list_size(text); i++){
             // i could do math on this too but since the values need to be manually mapped to
             // an enum anyway there's not much point
             switch (terms[10]){
-                case "00":
+                case '00':
                 default:
                     target=MoveTargets.ADJACENT;
                     break;
-                case "01":
+                case '01':
                     target=MoveTargets.NONE;
                     break;
-                case "02":
+                case '02':
                     target=MoveTargets.ADJACENTRANDOM;
                     break;
-                case "04":
+                case '04':
                     target=MoveTargets.ALLOPPONENTS;
                     break;
-                case "08":
+                case '08':
                     target=MoveTargets.ALLNONUSER;
                     break;
-                case "10":
+                case '10':
                     target=MoveTargets.USER;
                     break;
-                case "20":
+                case '20':
                     target=MoveTargets.BATTLEFIELD;
                     break;
-                case "40":
+                case '40':
                     target=MoveTargets.USERTEAM;
                     break;
-                case "80":
+                case '80':
                     target=MoveTargets.OPPONENTTEAM;
                     break;
-                case "100":
+                case '100':
                     target=MoveTargets.PARTNER;
                     break;
-                case "200":
+                case '200':
                     target=MoveTargets.SINGLETEAMMATE;
                     break;
-                case "400":
+                case '400':
                     target=MoveTargets.SINGLEOPPONENT;
                     break;
-                case "800":
+                case '800':
                     target=MoveTargets.SINGLEACROSS;
                     break;
             }
         case 10:
             effect_chances[0]=real(terms[9]);
             // status moves, etc. whose effects always trigger have a chance
-            // listed as "0" in moves.txt
+            // listed as '0' in moves.txt
             if (effect_chances[0]==0){
                 effect_chances[0]=100;
             }
@@ -96,14 +96,14 @@ for (var i=0; i<ds_list_size(text); i++){
             accuracy=real(terms[7]);
         case 7:
             switch (string_lower(terms[6])){
-                case "physical":
+                case 'physical':
                 default:
                     category=MoveCategories.PHYSICAL;
                     break;
-                case "special":
+                case 'special':
                     category=MoveCategories.SPECIAL;
                     break;
-                case "status":
+                case 'status':
                     category=MoveCategories.STATUS;
                     break;
             }

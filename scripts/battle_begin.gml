@@ -9,8 +9,8 @@ for (var i=0; i<ds_list_size(teams); i++){
         
         var shf=get_pokemon_sprite_hash(pkmn, SpriteSides.FRONT);
         var shb=get_pokemon_sprite_hash(pkmn, SpriteSides.BACK);
-        var shf_path=PATH_BATTLER+shf+".png";
-        var shb_path=PATH_BATTLER+shb+".png";
+        var shf_path=PATH_BATTLER+shf+'.png';
+        var shb_path=PATH_BATTLER+shb+'.png';
         // If you can't find either of these files, the diagnostic error text thing is spat
         // out in the get_pokemon_sprite_hash script.
         if (!ds_map_exists(sprite_hash, shf)){
@@ -43,6 +43,6 @@ for (var i=0; i<ds_list_size(teams); i++){
 ds_queue_enqueue(actions, battle_action_send_in_leads);
 ds_queue_enqueue(actions, battle_action_lead_entry_abilities);
 
-message("The battle has started!");
+message(L('The battle has started!'));
 
 // control returns to the ui prompt

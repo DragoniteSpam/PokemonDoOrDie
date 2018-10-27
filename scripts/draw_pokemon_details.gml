@@ -32,7 +32,7 @@ draw_set_halign(fa_center);
 var text=argument0.name;
 
 if (argument0.name!=base_species.name){
-    text=text+" ("+base_species.name+")";
+    text=text+' ('+base_species.name+')';
 }
 
 draw_text(content_middle, start_y+48, text);
@@ -51,22 +51,25 @@ draw_set_font(FPokemonMedium);
 // this feels off-centered but i can't for the life of me figure out why
 // that would be, the math is really simple
 var level=get_level(argument0.experience, base_species.growth_rate);
-draw_text(start_x+picture_width/2, H/2+picture_height*0.6, "Lv. "+string(level));
+draw_text(start_x+picture_width/2, H/2+picture_height*0.6, L('Lv.')+' '+string(level));
 if (level<MAX_LEVEL){
     var to_next=get_experience(level+1, base_species.growth_rate)
-    draw_text(start_x+picture_width/2, H/2+picture_height*0.6+64, string_commas(to_next-argument0.experience, true)+"#to next");
+    draw_text(start_x+picture_width/2, H/2+picture_height*0.6+64, L('%0#to next', string_commas(to_next-argument0.experience, true)));
 }
 
 draw_set_halign(fa_left);
-draw_text_colour(content_x+picture_buffer, start_y+320, "Item: ", c_blue, c_blue, c_blue, c_blue, 1);
-var text_width=string_width("Item: ");
+var text=L('Item:');
+draw_text_colour(content_x+picture_buffer, start_y+320, text, c_blue, c_blue, c_blue, c_blue, 1);
+var text_width=string_width(text+' ');
 if (argument0.item==-1){
-    draw_text_colour(content_x+picture_buffer+text_width, start_y+320, "(none)", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+    draw_text_colour(content_x+picture_buffer+text_width, start_y+320, L('(none)'), c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 } else {
     draw_text(content_x+picture_buffer+text_width, start_y+320, get_item(argument0.item).name);
 }
-var text_width=string_width("Ability: ");
-draw_text_colour(content_x+picture_buffer, start_y+448, "Ability: ", c_blue, c_blue, c_blue, c_blue, 1);
+
+text=L('Ability:');
+var text_width=string_width(text+' ');
+draw_text_colour(content_x+picture_buffer, start_y+448, text, c_blue, c_blue, c_blue, c_blue, 1);
 draw_text(content_x+picture_buffer+text_width, start_y+448, argument0.ability.name);
 draw_set_valign(fa_top);
 draw_text_ext(content_x+picture_buffer, start_y+480-16, argument0.ability.summary, -1, half_width*2-picture_width-picture_buffer*2);
@@ -77,7 +80,7 @@ if (argument0.item!=-1){
 draw_set_valign(fa_center);
 
 var stat_text=ds_list_create();
-ds_list_add(stat_text, "HP:", "Attack:", "Defense:", "Sp. Attack:", "Sp. Defense:", "Speed:");
+ds_list_add(stat_text, L('HP:'), L('Attack:'), L('Defense:'), L('Sp. Attack:'), L('Sp. Defense:'), L('Speed:'));
 
 var nature=get_nature(argument0.nature);
 
@@ -87,7 +90,7 @@ for (var i=0; i<ds_list_size(stat_text); i++){
         var bar_length=160;
         var yy=start_y+96+32*i;
         draw_text(content_x+picture_buffer, yy, stat_text[| i]);
-        draw_text(content_x+picture_buffer+160, yy, string(argument0.act_hp)+"/"+string(argument0.act[i]));
+        draw_text(content_x+picture_buffer+160, yy, string(argument0.act_hp)+'/'+string(argument0.act[i]));
         draw_health_bar(content_x+picture_buffer+80, yy+32-bar_height/2, content_x+picture_buffer+80+bar_length, yy+32+bar_height/2, argument0.act_hp/argument0.act[Stats.HP]);
     } else {
         if (nature.affects[i]>1){
@@ -100,13 +103,13 @@ for (var i=0; i<ds_list_size(stat_text); i++){
         draw_text_colour(content_x+picture_buffer, start_y+96+32*(i+1), stat_text[| i], nc, nc, nc, nc, 1);
         if (argument0.mods[i]>0){
             var mc=c_red;
-            var mtext=" (+"+string(argument0.mods[i])+")";
+            var mtext=' (+'+string(argument0.mods[i])+')';
         } else if (argument0.mods[i]<0){
             var mc=c_blue;
-            var mtext=" ("+string(argument0.mods[i])+")";
+            var mtext=' ('+string(argument0.mods[i])+')';
         } else {
             var mc=c_black;
-            var mtext="";
+            var mtext='';
         }
         draw_text_colour(content_x+picture_buffer+160, start_y+96+32*(i+1), string(floor(argument0.act[i]*math_mod(argument0, i)))+mtext, mc, mc, mc, mc, 1);
     }
@@ -117,10 +120,10 @@ ds_list_destroy(stat_text);
 var width_category=sprite_get_width(spr_move_category);
 var width_type=sprite_get_width(spr_move_type);
 
-draw_text_colour(content_middle, start_y+96, "Moves", c_blue, c_blue, c_blue, c_blue, 1);
+draw_text_colour(content_middle, start_y+96, L('Moves'), c_blue, c_blue, c_blue, c_blue, 1);
 for (var i=0; i<array_length_1d(argument0.moves); i++){
     if (argument0.moves[i]==-1){
-        draw_text(content_middle, start_y+128+32*i, "---");
+        draw_text(content_middle, start_y+128+32*i, '---');
     } else {
         var base_move=get_move(argument0.moves[i]);
         var f=argument0.move_pp[i]/total_move_pp(argument0, i);
@@ -141,4 +144,4 @@ for (var i=0; i<array_length_1d(argument0.moves); i++){
 }
 
 draw_text_colour(content_middle, start_y+288, nature.name, c_blue, c_blue, c_blue, c_blue, 1);
-draw_text(content_middle+string_width(nature.name), start_y+288, " nature");
+draw_text(content_middle+string_width(nature.name+' '), start_y+288, L('nature'));

@@ -8,7 +8,7 @@ var can_escape=pokemon_can_escape(argument0);
 var value;
 // todo if you have no PP and don't want to switch, AI should struggle
 if (total_pp(argument0)>0){
-    // "calculate" the move
+    // 'calculate' the move
     do {
         value=irandom(array_length_1d(argument0.moves)-1);
     } until(argument0.moves[value]!=-1&&argument0.move_pp[value]>0);
@@ -33,4 +33,4 @@ ds_list_destroy(valid_targets);
 battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument0, BattleTargets.OPPONENT, targets, value));
 
 // continue:
-battle_debug(team.owner.name+" has chosen the move "+get_move(value).name+" for "+argument0.name);
+battle_debug(team.owner.name+' has chosen the move '+get_move(value).name+' for '+argument0.name);

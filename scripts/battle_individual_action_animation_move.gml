@@ -10,5 +10,5 @@ with (instance_create(0, 0, BattleAnimator)){
     user=params[| 0];
     target_list=params[| 1];
     script=params[| 2].animation;
-    misc_data[? "color"]=params[| 2].animation_blending_color;
+    misc_data[? 'color']=params[| 2].animation_blending_color;
 }

@@ -6,4 +6,4 @@
 
 var params=argument0;
 
-question(params[| 0], "Yes", 0, "No", 1);
+question(params[| 0], L('Yes'), 0, L('No'), 1);

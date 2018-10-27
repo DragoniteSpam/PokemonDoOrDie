@@ -11,9 +11,9 @@ for (var i=0; i<ds_list_size(replacements); i++){
             // This is the wrong kind of action but we can get away with using it here
             // because it doesn't do anything specific.
             if (team.owner==Camera.battle_pawn){
-                ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, Battle.contestants[| i].name+", come back!"));
+                ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, L('%0, come back!', Battle.contestants[| i].name)));
             } else {
-                ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, team.name+" called back "+Battle.contestants[| i].name+"!"));
+                ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, L('%0 called back %1!', team.name, Battle.contestants[| i].name)));
             }
             ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_retract_pokemon_hud, i));
             ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_retract_contestant, i));
@@ -23,9 +23,9 @@ for (var i=0; i<ds_list_size(replacements); i++){
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_change_contestant, i));
         // And again.
         if (team.owner==Camera.battle_pawn){
-            ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, "Go, "+new_battler.name+"!"));
+            ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, L('Go, %0!', new_battler.name)));
         } else {
-            ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, team.name+" sent out "+new_battler.name+"!"));
+            ds_queue_enqueue(round_actions, add_battle_round_action(battle_individual_action_text, L('%0 sent out %1!', team.name, new_battler.name)));
         }
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, i));
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, i));

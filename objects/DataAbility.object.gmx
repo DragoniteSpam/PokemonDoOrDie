@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Ability";
-pbs_internal_name="BASEABILITY";
-summary="it does something probably";
+name='Base Ability';
+pbs_internal_name='BASEABILITY';
+summary='it does something probably';
 
 /*
  * Don't hard-code abilities into the battle system! Do this instead.

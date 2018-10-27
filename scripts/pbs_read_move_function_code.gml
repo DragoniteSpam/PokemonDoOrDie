@@ -95,7 +95,7 @@ switch (value){
         break;
     default:
         effects[0]=be_not_implemented;
-        debug("Unimplemented function code: "+string(value)+" (0x"+argument0+")");
+        debug('Unimplemented function code: '+string(value)+' (0x'+argument0+')');
         break;
 }
 

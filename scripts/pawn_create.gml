@@ -24,7 +24,7 @@ switch (argument_count){
 }
 
 if (string_length(pdisplayname)==0){
-    pdisplayname=get_trainer_class(pclass).name+" "+pname;
+    pdisplayname=get_trainer_class(pclass).name+' '+pname;
 }
 
 with (instance_create(0, 0, ptype)){

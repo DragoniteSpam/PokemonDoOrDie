@@ -8,7 +8,7 @@ var game_over=false;
 
 // todo this is going to get more complicated when you bring ai into it.
 // this is going to get even MORE complicated when you bring Zoroark into it,
-// because you have to "fool" the text below into thinking "found" is not
+// because you have to fool the text below into thinking found is not
 // a Zoroark.
 
 if (team.owner!=Camera.battle_pawn&&!DEBUG){
@@ -40,12 +40,12 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
 }
 
 if (game_over){
-    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, team.name+" has no more healthy Pokémon!"));
+    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 has no more healthy Pokémon!', team.name)));
 } else {
     if (team.owner==Camera.battle_pawn||DEBUG){
         // todo when this happens in wild battles, you should have the opportunity to flee
         // todo if you enable forfeiting (or debug auto-win) trainer battles, you should have the opportunity to do that also
-        // the "who do you choose?" text is set in the action
+        // the 'who do you choose?' text is set in the action
         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_after_death, argument0[| 0]));
     } else {
         // if you wanted to do multiplayer (which you do not) you would need to bypass
@@ -55,7 +55,7 @@ if (game_over){
             // If I recall, you don't get asked to switch in a double battle where you
             // get two slots on the field.
             if (pawn_alive>1&&pawn_slots==1){
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, team.name+" is about to send out "+found.name+". Would you like to change Pokémon?"));
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, L('%0 is about to send in %1. Would you like to change Pokémon?', team.name, found.name)));
                 for (var i=0; i<ds_list_size(Battle.contestants); i++){
                     if (Battle.contestants[| i].owner==Camera.battle_pawn||DEBUG){
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn, i));

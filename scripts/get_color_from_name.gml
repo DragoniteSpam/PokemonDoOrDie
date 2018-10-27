@@ -1,28 +1,31 @@
 /// color get_color_from_name(name);
 
 switch (string_minimal(argument0)){
-    case "black":
+    // there's no real point in localizing these strings, unless
+    // your PBS files are in some other language
+    case 'black':
         return c_black;
-    case "blue":
+    case 'blue':
         return c_blue;
-    case "brown":
+    case 'brown':
         return c_brown;
-    case "gray":
+    case 'gray':
         return c_gray;
-    case "green":
+    case 'green':
         return c_green;
-    case "pink":
+    case 'pink':
         return c_pink;
-    case "purple":
+    case 'purple':
         return c_purple;
-    case "red":
+    case 'red':
         return c_red;
-    case "white":
+    case 'white':
         return c_white;
-    case "yellow":
+    case 'yellow':
         return c_yellow;
 }
 
 // i'm guessing you're rarely going to get to this but just in case
-// (if you omit this the script will return 0, which is also c_black)
+// (if you omit the return the script will return 0 by default,
+// which is also c_black)
 return c_white;

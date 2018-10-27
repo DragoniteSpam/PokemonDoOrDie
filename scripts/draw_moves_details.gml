@@ -25,26 +25,26 @@ draw_text(W/2, start_y+48, base_move.name);
 
 draw_set_font(FPokemonMedium);
 
-var  text="Type:  ";
+var  text=L('Type:');
 draw_text(W/2, start_y+96, text);
-draw_type(base_move.type, W/2+string_width(text)/2, start_y+96);
+draw_type(base_move.type, W/2+string_width(text+'  ')/2, start_y+96);
 
-var text="Category:  ";
+var text=L('Category:');
 draw_text(W/2, start_y+128, text);
-draw_move_category(base_move.category, W/2+string_width(text)/2, start_y+128);
+draw_move_category(base_move.category, W/2+string_width(text+'  ')/2, start_y+128);
 
 if (base_move.accuracy==0){
-    var text="N/A"
+    var text=L('N/A');
 } else {
-    var text=string(base_move.accuracy)+"%";
+    var text=string(base_move.accuracy)+'%';
 }
-draw_text(third, start_y+160, "Accuracy: "+text);
+draw_text(third, start_y+160, L('Accuracy: %0', text));
 if (base_move.accuracy==0){
-    var text="N/A"
+    var text=L('N/A')
 } else {
     var text=string(base_move.value);
 }
-draw_text(third2, start_y+160, "Power: "+text);
+draw_text(third2, start_y+160, L('Power: %0', text));
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

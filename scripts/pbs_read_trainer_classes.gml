@@ -29,13 +29,13 @@ for (var i=0; i<ds_list_size(text); i++){
             }
         case 8:
             switch (string_lower(terms[7])){
-                case "male":
+                case 'male':
                     gender=Genders.MALE;
                     break;
-                case "female":
+                case 'female':
                     gender=Genders.FEMALE;
                     break;
-                case "genderless":
+                case 'genderless':
                     gender=Genders.GENDERLESS;
                     break;
             }

@@ -16,7 +16,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 case MajorStatus.PARALYZE:
                     if (random(1)<World.settings.battle.paralyze_immobilization_odds){
                         interrupted=true;
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is paralyzed and unable to move!"));
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 is paralyzed and unable to move!', pokemon.name)));
                     }
                     break;
                 case MajorStatus.SLEEP:
@@ -31,16 +31,16 @@ if (!pokemon.flag_downed&&debug_win==noone){
 
             if (pokemon.flinch&&pokemon.ability.can_flinch){
                 interrupted=true;
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" flinched and couldn't move!"));
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L("%0 flinched and couldn't move!", pokemon.name)));
             }
             
-            // if this check is not in place the "snapped out of confusion" message will appear on
+            // if this check is not in place the 'snapped out of confusion' message will appear on
             // every single turn and that's incorrect
             if (pokemon.confused>0){
                 if (max(--pokemon.confused, 0)==0){
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" snapped out of confusion!"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 snapped out of confusion!', pokemon.name)));
                 } else {
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is confused!"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 is confused!', pokemon.name)));
                     // todo animation
                     // todo in gen 7 apparently the confusion chance is one in three instead of one in two
                     if (choose(true, false)){
@@ -48,7 +48,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                         // todo animation
                         var damage=battle_damage(World.move_confusion, pokemon, pokemon);
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
-                        var msg=choose_gender(pokemon.gender, pokemon.name+" hit himself in the confusion!", pokemon.name+" hit herself in the confusion!", pokemon.name+" hit itself in the confusion!");
+                        var msg=choose_gender(pokemon.gender, L('%0 hit himself in confusion!', pokemon.name),
+                            L('%0 hit herself in confusion!', pokemon.name),
+                            L('%0 hit itself in confusion!', pokemon.name));
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
                         battle_round_action_execute_faint_check(individual_actions, pokemon, pokemon, damage);
                     }
@@ -80,7 +82,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 var damage_attempts=array_sum(hit);
                 var effect_total=0;
                 // todo: check for flinches or other conditions which may invalidate the entire turn
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" used "+move.name+"!"));
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 used %1!', pokemon.name)));
                 // todo: other conditions under which a move may fail
                 
                 var hit_count=0;
@@ -110,39 +112,34 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                 // increase critical hit chances, and others negate them entirely)
                                 var matchup=get_matchup_on(move.type, target, target_effects_list);
                                 if (matchup==0){
-                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it doesn't affect "+target.name+"..."));
+                                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L("But it doesn't affect %0...", target.name)));
                                 } else {
                                     var critical_hit_threshold=1;
                                     var critical=irandom(16)<critical_hit_threshold;
                                     var damage=battle_damage(move, pokemon, target, critical, target_effects_list);
                                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, damage));
-                                    if (array_length_1d(hit)>1){
-                                        var matchup_message_postfix=" on "+target;
-                                    } else {
-                                        var matchup_message_postfix="";
-                                    }
                                     if (matchup>1){
                                         // this could be compacted a little but that would make potential localization a little bit tricky
                                         if (array_length_1d(hit)>1){
-                                            var matchup_message="It's super effective on "+target+"!";
+                                            var matchup_message=L("It's super effective on %0!", target.name);
                                         } else {
-                                            var matchup_message="It's super effective!";
+                                            var matchup_message=L("It's super effective!");
                                         }
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, matchup_message));
                                     } else if (matchup<1){
                                         // this could be compacted a little but that would make potential localization a little bit tricky
                                         if (array_length_1d(hit)>1){
-                                            var matchup_message="It's not very effective on "+target+"...";
+                                            var matchup_message=L("It's not very effective on %0...", target);
                                         } else {
-                                            var matchup_message="It's not very effective...";
+                                            var matchup_message=L("It's not very effective...");
                                         }
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, matchup_message));
                                     }
                                     if (critical){
                                         if (array_length_1d(hit)>1){
-                                            var critical_message="A critical hit on "+target.name+"!";
+                                            var critical_message=L('A critical hit on %0', target.name);
                                         } else {
-                                            var critical_message="A critical hit!";
+                                            var critical_message=L('A critical hit!');
                                         }
                                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, critical_message));
                                     }
@@ -173,7 +170,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                             }
                         } // endif target was alive to begin with
                     } else {
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" avoided the attack!"));
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 avoided the attack!', target.name)));
                     } // endif hit[i]
                 }
                 // delete the applied effects list, and any lists it contains
@@ -183,7 +180,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 ds_list_destroy(applied_effects);
                 // if absolutely nothing of interest happened in this battle, inform the game of your failure
                 if (!has_succeeded_probably){
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, "But it failed!"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('But it failed!')));
                 }
                 
                 if (damage_total==0){
@@ -205,9 +202,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
             Battle.replacements[| pokemon.position]=exe.value;
             var new_battler=team.owner.party[| exe.value];
             if (team.owner==Camera.battle_pawn){
-                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, pokemon.name+", come back!"));
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0, come back!', pokemon.name)));
             } else {
-                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, team.name+" called back "+pokemon.name+"!"));
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0 called back %1!', team.name, pokemon.name)));
             }
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_retract_pokemon_hud, pokemon.position));
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_retract_contestant, pokemon.position));
@@ -216,19 +213,19 @@ if (!pokemon.flag_downed&&debug_win==noone){
             // few lines up.
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_change_contestant, pokemon.position));
             if (team.owner==Camera.battle_pawn){
-                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, "Go, "+new_battler.name+"!"));
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('Go, %0!', new_battler.name)));
             } else {
-                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, team.name+" sent out "+new_battler.name+"!"));
+                ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0 sent out %1!', team.name, new_battler.name)));
             }
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, pokemon.position));
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, pokemon.position));
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_entry_abilities, pokemon.position));
             break;
         case BattleActions.FLEE:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" fled! (Implement this later, please.)"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 fled! (Implement this later, please.)', pokemon.name)));
             break;
         case BattleActions.IDLE:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" is just hanging around!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 is just hanging around!', pokemon.name)));
             break;
         case BattleActions.AUTOHEAL:
             var amount=min(pokemon.act[Stats.HP], pokemon.act[Stats.HP]-pokemon.act_hp);
@@ -238,15 +235,15 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, -amount));
             }
             ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_refresh, pokemon));
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" was restored!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 was restored!', pokemon.name)));
             break;
         case BattleActions.AUTOKO:
             for (var i=0; i<ds_list_size(exe.targets); i++){
                 var target=Battle.contestants[| exe.targets[| i]];
                 if (target.flag_downed){
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, target.name+" has already fainted!"));
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 has already fainted!', target.name)));
                 } else {
-                    // it seems sort of dumb that you can only modify a pokémon's hp by calling the "scroll health" animation.
+                    // it seems sort of dumb that you can only modify a pokémon's hp by calling the 'scroll health' animation.
                     // i don't know why i did it like that.
                     damage=target.act_hp;
                     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, target, damage));
@@ -256,7 +253,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             }
             break;
         case BattleActions.AUTOVICTORY:
-            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, pokemon.name+" has forcefully ended the battle. "+pokemon.owner.name+" wins!"));
+            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 has forcefully ended the battle. %1 wins!', pokemon.name, pokemon.owner.name)));
             // todo remove (one of) the loser pawns' pokémon from the battlefield, to make room for the pawn's trainer to
             // show up on the end battle screen
             debug_win=pokemon.owner;

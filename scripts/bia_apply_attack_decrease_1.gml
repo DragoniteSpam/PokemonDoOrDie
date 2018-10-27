@@ -7,11 +7,11 @@ var move=argument[3];
 
 if (target.mods[Stats.ATTACK]>-STAT_MOD_LIMIT){
     be_help_stat_fall(queue, target);
-    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, target.name+"'s Attack fell!"));
+    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L("%0's Attack fell!", target.name)));
     ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_stat_set, target, Stats.ATTACK, target.mods[Stats.ATTACK]-1));
     return true;
 } else {
-    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, target.name+"'s Attack won't go any lower!"));
+    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L("%0's Attack won't go any lower!", target.name)));
 }
 
 return false;

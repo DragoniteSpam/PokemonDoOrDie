@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>species=0;
-name="";
+name='';
 owner=noone;    // the Pawn (this should ONLY be used in battle)
 trainer=noone;  // the DataTrainer
 
@@ -82,7 +82,7 @@ invulnerable_move=-1;                       // the move being used (Fly and Boun
 momentum_move=-1;                           // Rollout of Ice Ball, or whatever it's called
 momentum_turn=0;                            // turn of Rollout or Ice Ball
 trapped_by=-1;                              // the pokémon trapping you
-trapped_for=0;                              // how much longer you can be trapped (can be an arbitrarily big number for "infinite")
+trapped_for=0;                              // how much longer you can be trapped (can be an arbitrarily big number for 'infinite')
 trapped_residual_damage=0;                     // how much damage you take at the end of each turn; if you want, this can be accompanied by a type if you want typed damage
 // if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
 // IN pokemon_reset_volatile_stat_mods UNLESS YOU WANT IT TO PERSIST AFTER YOU SWITCH OUT.

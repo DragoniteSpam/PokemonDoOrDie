@@ -16,10 +16,10 @@ array_clear(array, 1);
 // first we need to populate the array of types
 for (var i=0; i<n; i++){
     var section=string(i);
-    var name=ini_read_string(section, "Name", "Normal");
-    var internal_name=ini_read_string(section, "InternalName", "NORMAL");
+    var name=ini_read_string(section, 'Name', 'Normal');
+    var internal_name=ini_read_string(section, 'InternalName', 'NORMAL');
     
-    var special=ini_read_boolean(section, "IsSpecialType", "false");
+    var special=ini_read_boolean(section, 'IsSpecialType', 'false');
     
     array[i]=add_type(name, special, c_white, n, internal_name);
 }
@@ -28,9 +28,9 @@ for (var i=0; i<n; i++){
 // the DataType.on array
 for (var i=0; i<n; i++){
     var section=string(i);
-    var weaknesses=split(ini_read_string(section, "Weaknesses", ""), ',');
-    var resistances=split(ini_read_string(section, "Resistances", ""), ',');
-    var immunities=split(ini_read_string(section, "Immunities", ""), ',');
+    var weaknesses=split(ini_read_string(section, 'Weaknesses', ''), ',');
+    var resistances=split(ini_read_string(section, 'Resistances', ''), ',');
+    var immunities=split(ini_read_string(section, 'Immunities', ''), ',');
     
     // type[i] takes 2x damage from type[k]
     for (var j=0; j<array_length_1d(weaknesses); j++){

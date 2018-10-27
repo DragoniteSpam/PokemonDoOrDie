@@ -10,7 +10,7 @@ switch (argument0){
         return ItemBattleUsability.BALL;
     case 4:
         // i'm pretty sure there are no items in vanilla essentials
-        // that use this code ("can be used directly, but does not
-        // disappear after use") but ehh
+        // that use this code ('can be used directly, but does not
+        // disappear after use') but ehh
         return ItemBattleUsability.UNKNOWN;
 }

@@ -29,7 +29,7 @@ for (var i=0; i<ds_list_size(text); i++){
             trainer_class=get_trainer_class_from_name(text[| i], true);
             
             if (trainer_class==-1){
-                ds_list_add(errors, "not a trainer class in pbs trainers.txt: "+text[| i]);
+                ds_list_add(errors, 'not a trainer class in pbs trainers.txt: '+text[| i]);
             }
             
             trainer_name='';
@@ -106,11 +106,11 @@ for (var i=0; i<ds_list_size(text); i++){
                     if (string_length(terms[11])>0){
                         nature=get_nature_from_name(terms[11]);
                         if (nature==-1){
-                            ds_list_add(errors, "bad nature in pbs trainers.txt: "+terms[11]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad nature in pbs trainers.txt: '+terms[11]+' of '+terms[0]);
                         }
                     }
                 case 11:
-                    shiny=string_lower(terms[10])=="shiny";
+                    shiny=string_lower(terms[10])=='shiny';
                 case 10:
                     if (string_length(terms[9])>0){
                         form=real(terms[9]);
@@ -125,42 +125,42 @@ for (var i=0; i<ds_list_size(text); i++){
                     if (string_length(terms[7])>0){
                         ability=real(terms[7]);
                         if (ability==-1){
-                            ds_list_add(errors, "bad ability in pbs trainers.txt: "+terms[7]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad ability in pbs trainers.txt: '+terms[7]+' of '+terms[0]);
                         }
                     }
                 case 7:
                     if (string_length(terms[6])>0){
                         moves[3]=get_move_from_name(terms[6], true);
                         if (moves[3]==-1){
-                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[6]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad move in pbs trainers.txt: '+terms[6]+' of '+terms[0]);
                         }
                     }
                 case 6:
                     if (string_length(terms[5])>0){
                         moves[2]=get_move_from_name(terms[5], true);
                         if (moves[2]==-1){
-                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[5]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad move in pbs trainers.txt: '+terms[5]+' of '+terms[0]);
                         }
                     }
                 case 5:
                     if (string_length(terms[4])>0){
                         moves[1]=get_move_from_name(terms[4], true);
                         if (moves[1]==-1){
-                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[4]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad move in pbs trainers.txt: '+terms[4]+' of '+terms[0]);
                         }
                     }
                 case 4:
                     if (string_length(terms[3])>0){
                         moves[0]=get_move_from_name(terms[3], true);
                         if (moves[0]==-1){
-                            ds_list_add(errors, "bad move in pbs trainers.txt: "+terms[3]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad move in pbs trainers.txt: '+terms[3]+' of '+terms[0]);
                         }
                     }
                 case 3:
                     if (string_length(terms[2])>0){
                         hold_item=get_item_from_name(terms[2], true);
                         if (hold_item==-1){
-                            ds_list_add(errors, "bad item in pbs trainers.txt: "+terms[2]+" of "+terms[0]);
+                            ds_list_add(errors, 'bad item in pbs trainers.txt: '+terms[2]+' of '+terms[0]);
                         }
                     }
                 case 2:
@@ -170,7 +170,7 @@ for (var i=0; i<ds_list_size(text); i++){
                 case 1:
                     species=get_pokemon_from_name(terms[0], true);
                     if (species==-1){
-                        ds_list_add(errors, "not a pokémon species in pbs trainers.txt: "+terms[0]);
+                        ds_list_add(errors, 'not a pokémon species in pbs trainers.txt: '+terms[0]);
                     }
             }
             
@@ -183,7 +183,7 @@ for (var i=0; i<ds_list_size(text); i++){
             }
                     
             if (species>-1){
-                trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), name, moves, hold_item, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
+                trainer_party[state_party_index]=add_trainer_pokemon(species, real(terms[1]), hold_item, moves, ability, gender, form, shiny, nature, ivs, evs, happiness, name, shadow, ball);
             }
             
             if (++state_party_index==array_length_1d(trainer_party)){

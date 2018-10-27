@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Pokemon";
-kind="Base";
-summary="very basic";
+name='Base Pokemon';
+kind='Base';
+summary='very basic';
 
 base_stat=array_create(6);
 base_stat[Stats.HP]=60;
@@ -75,12 +75,12 @@ incense=-1;
 
 wild_items=array_create(100);
 
-form_name="";
+form_name='';
 forms=ds_map_create();
 
 // ehh
 
-pbs_internal_name="BASEPOKEMON";
+pbs_internal_name='BASEPOKEMON';
 </string>
           </argument>
         </arguments>

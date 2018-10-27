@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Egg Group";
+name='Base Egg Group';
 
 restricted=false;       // false if this group can breed with itself, true if it can't (undiscovered)
 unrestricted=false;     // true if this group can breed with anything (ditto), false if it can't

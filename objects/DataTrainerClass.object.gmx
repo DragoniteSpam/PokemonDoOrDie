@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Pawn";
-internal_name="PAWN";
+name='Pawn';
+internal_name='PAWN';
 
 battle_sprite=ClassBattleSprites.PLAYER;
 

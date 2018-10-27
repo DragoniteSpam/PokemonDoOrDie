@@ -41,7 +41,7 @@ settings=instance_create(0, 0, Settings);
  * Stuff related to showing messages on the screen
  */
 
-message_text="";
+message_text='';
 message_text_t=0;
 message_wait=0;
 message_continue_after_wait=false;
@@ -55,7 +55,7 @@ message_option_ids=ds_list_create();
 // stuff, probably, and I don't want to have two systems
 // that do the exact same thing.
 message_option_index=0;
-// This is supposed to be the "id" stored in message_option_ids
+// This is supposed to be the 'id' stored in message_option_ids
 // but you're allowed to hijack it for other purposes.
 message_option_result=-1;
 
@@ -75,26 +75,26 @@ all_egg_groups=const_egg_groups();                          // dependencies: not
 all_item_pockets=const_item_pockets();                      // dependencies: nothing
 all_natures=const_natures();                                // dependencies: nothing
 
-all_types=pbs_read_types(PATH_PBS+"types.txt");             // dependencies: nothing
-all_abilities=pbs_read_abilities(PATH_PBS+"abilities.txt"); // dependencies: nothing
+all_types=pbs_read_types(PATH_PBS+'types.txt');             // dependencies: nothing
+all_abilities=pbs_read_abilities(PATH_PBS+'abilities.txt'); // dependencies: nothing
 
-all_moves=pbs_read_moves(PATH_PBS+"moves.txt");             // dependencies: types
-all_items=pbs_read_items(PATH_PBS+"items.txt");             // dependencies: moves
-all_pokemon=pbs_read_pokemon(PATH_PBS+"monsters.txt");      // dependencies: moves, types, evolutions, items, abilities
+all_moves=pbs_read_moves(PATH_PBS+'moves.txt');             // dependencies: types
+all_items=pbs_read_items(PATH_PBS+'items.txt');             // dependencies: moves
+all_pokemon=pbs_read_pokemon(PATH_PBS+'monsters.txt');      // dependencies: moves, types, evolutions, items, abilities
 
-all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+"trainertypes.txt");// dependencies: pawn stuff
-all_trainers=pbs_read_trainers(PATH_PBS+"trainers.txt");    // dependencies: natures, abilities, moves, items, pokémon, trainer classes
+all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+'trainertypes.txt');// dependencies: pawn stuff
+all_trainers=pbs_read_trainers(PATH_PBS+'trainers.txt');    // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
 pbs_cleanup();
 
-debug("data init took "+string((get_timer()-t0)/MILLION)+" seconds");
+debug('data init took '+string((get_timer()-t0)/MILLION)+' seconds');
 
 /*
- * hard-coding for now
+ * hard-coding for now; later they should be part of a data file
  */
 
-move_confusion=array_add(all_moves, add_move("Self-Confusion", Types.QMARKS, MoveCategories.PHYSICAL, 0, 40, 0, 0, MoveTargets.USER, "when you hit yourself in confusion", ba_move_basic, array_compose(be_no_effect), array_compose(0), 0, "SELFCONFUSION"));
-move_struggle=get_move_from_name("STRUGGLE", true);
+move_confusion=array_add(all_moves, add_move('Self-Confusion', Types.QMARKS, MoveCategories.PHYSICAL, 0, 40, 0, 0, MoveTargets.USER, 'when you hit yourself in confusion', ba_move_basic, array_compose(be_no_effect), array_compose(0), 0, 'SELFCONFUSION'));
+move_struggle=get_move_from_name('STRUGGLE', true);
 
 // color values came from bulbapedia
 all_types[Types.NORMAL].color=$A8A878;
@@ -122,14 +122,14 @@ all_types[Types.QMARKS].color=$68A090;
 
 // normally, the words that the game can use to reference an
 // arbitrary status condition
-major_status_names=array_compose("Sleep", "Poison", "Burn", "Paralyze", "Freeze", "Faint", "Pokerus", "Poison", "None");
+major_status_names=array_compose(L('Sleep'), L('Poison'), L('Burn'), L('Paralyze'), L('Freeze'), L('Faint'), L('Pokerus'), L('Poison'), L('None'));
 // the words that the game can use to reference the infliction
 // of an arbitrary status condition
-major_status_verbs=array_compose("fell asleep", "was poisoned", "was burned", "was paralyzed", "was frozen", "fainted", "", "was badly poisoned", "");
+major_status_verbs=array_compose(L('fell asleep'), L('was poisoned'), L('was burned'), L('was paralyzed'), L('was frozen'), L('fainted'), '', L('was badly poisoned'), '');
 // color tinting for rendering pokémon with the status
 major_status_colors=array_compose(c_white, merge_color(c_purple, c_white, 0.65), merge_color(c_red, c_white, 0.65), merge_color(c_yellow, c_white, 0.65), merge_color(c_aqua, c_white, 0.65), c_white, c_white, merge_color(c_purple, c_white, 0.55), c_white);
 
-tf=array_compose("false", "true");
+tf=array_compose(L('false'), L('true'));
 dt=0;
 instance_deactivate_object(Struct);
 instance_deactivate_object(Settings);

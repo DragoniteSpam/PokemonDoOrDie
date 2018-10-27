@@ -54,8 +54,8 @@ misc_data=ds_map_create();
 
 // misc data defaults
 
-misc_data[? "stat raise animations"]=0;
-misc_data[? "stat fall animations"]=0;
+misc_data[? 'stat raise animations']=0;
+misc_data[? 'stat fall animations']=0;
 
 // less important settings
 
@@ -109,7 +109,7 @@ enum BattleInputStages {
     FLEE,
     LEVEL_STAT_DELTA,
     LEVEL_STAT_TOTAL,
-    // todo other screens such as the "learn a new move" screen
+    // todo other screens such as the 'learn a new move' screen
     SWITCH_BEFORE_TURN,
 }
 </string>

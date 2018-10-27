@@ -11,9 +11,9 @@ var params=argument0;
 Battle.input_ready=false;
 with (instance_create(0, 0, BattleAnimator)){
     user=Battle.drawables[| params[| 0].position];
-    misc_data[? "mask sprite"]=params[| 2];
-    misc_data[? "mask speed x"]=params[| 3];
-    misc_data[? "mask speed y"]=params[| 4];
-    misc_data[? "sound"]=params[| 5];
+    misc_data[? 'mask sprite']=params[| 2];
+    misc_data[? 'mask speed x']=params[| 3];
+    misc_data[? 'mask speed y']=params[| 4];
+    misc_data[? 'sound']=params[| 5];
     script=params[| 1];
 }

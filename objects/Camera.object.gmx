@@ -41,7 +41,7 @@ xup=0;
 yup=0;
 zup=1;
 
-// THEORETICALLY - and this is a really big "theoretically" -
+// THEORETICALLY - and this is a really big 'theoretically' -
 // you could make this a multiplayer game and each client would
 // be able to play the right animation and poll the right contestant
 // for input based on this variable.

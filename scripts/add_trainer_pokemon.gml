@@ -1,6 +1,5 @@
-/// BattlePokemon add_trainer_pokemon(species, level, [name], [moves], [hold item], [ability], [gender], [form], [shiny?], [nature], [ivs], [evs], [happiness], [name], [shadow?], [ball]);
-//                                    0        1      2       3        4            5          6         7       8         9         10     11     12           13      14         15
-
+/// BattlePokemon add_trainer_pokemon(species, level, [item], [moves], [ability], [gender], [form], [shiny?], [nature], [ivs], [evs], [happiness], [name], [shadow?], [ball]);
+//                                    0        1      2       3        4          5         6       7         8         9      10     11           12      13         14
 with (instance_create(0, 0, BattlePokemon)){
     var base=get_pokemon(argument[0]);
 
@@ -27,29 +26,29 @@ with (instance_create(0, 0, BattlePokemon)){
     }
     
     switch (argument_count){
-        case 16:
-            ball_type=argument[15];
         case 15:
-            shadow=argument[14];
+            ball_type=argument[15];
         case 14:
-            name=argument[13];
+            shadow=argument[14];
         case 13:
+            name=argument[13];
+        case 12:
             happiness=argument[12];
         // there is no bounds checking on ivs/evs. if you assign an array of size, say, 4, and later
         // the game crashes when you try to access array[5], that's your problem.
-        case 12:
-            evs=argument[11];
         case 11:
-            ivs=argument[10];
+            evs=argument[11];
         case 10:
-            nature=argument[9];
+            ivs=argument[10];
         case 9:
-            shiny=argument[8];
+            nature=argument[9];
         case 8:
-            form=argument[7];
+            shiny=argument[8];
         case 7:
-            gender=argument[6];
+            form=argument[7];
         case 6:
+            gender=argument[6];
+        case 5:
             // you can pass -2 as the ability parameter to select a random hidden
             // ability, if the base pokémon has one
             if (argument[5]==-1){
@@ -68,8 +67,6 @@ with (instance_create(0, 0, BattlePokemon)){
                     ability=get_ability(base.hidden_abilities[| argument[5]-ds_list_size(base.abilities)]);
                 }
             }
-        case 5:
-            item=argument[4];
         case 4:
             var move_array=argument[3];
             var n=min(array_length_1d(move_array), MOVE_LIMIT);
@@ -87,7 +84,7 @@ with (instance_create(0, 0, BattlePokemon)){
                 }
             }
         case 3:
-            name=argument[2];
+            item=argument[2];
             break;
     }
     

@@ -6,7 +6,7 @@ if (argument3>=argument2.act_hp){
     var base=get_pokemon(argument1.species);
     ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_death, argument2));
     ds_queue_enqueue(argument0, add_battle_individual_action(battle_round_action_anim_retract_pokemon_hud, argument2.position));
-    ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, argument2.name+" fainted!"));
+    ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, L('%0 fainted!', argument2.name)));
     argument2.flag_downed=true;
     // todo: post-death effects, such as aftermath, destiny bond, etc
     // you don't gain experience from taking down teammates, allies or yourself
@@ -24,16 +24,15 @@ if (argument3>=argument2.act_hp){
             var exp_gain=exp_reward(argument1, argument2);
             var exp_next_level=get_experience(level+1, base.growth_rate);
             if (exp_gain==1){
-                var points="point";
+                ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, L('%0 gained one experience point!', argument1.name)));
             } else {
-                var points="points";
+                ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, L('%0 gained %1 experience points!', argument1.name, string_commas(exp_gain, true))));
             }
-            ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, argument1.name+" gained "+string_commas(exp_gain, true)+" experience "+points+"!"));
             var to_grow=min(exp_gain, exp_next_level-argument1.experience);
             ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_exp_gain, argument1, argument1.experience, to_grow));
             if (argument1.experience+exp_gain>=exp_next_level){
                 var new_level=get_level(argument1.experience+exp_gain, base.growth_rate);
-                ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, argument1.name+" grew to level "+string(new_level)+"!"));
+                ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_text, L('%0 grew to level %1!', argument1.name, string(new_level))));
                 ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_level_gain, argument1, level, new_level));
                 if (argument1.experience+exp_gain>exp_next_level){
                     var new_level_exp=get_experience(new_level, base.growth_rate);

@@ -7,7 +7,7 @@ var color_list=ds_list_create();
 var aux_list=ds_list_create();
 for (var i=0; i<array_length_1d(argument0.moves); i++){
     if (argument0.moves[i]==-1){
-        ds_list_add(text_list, "---");
+        ds_list_add(text_list, '---');
         ds_list_add(color_list, c_dkgray);
         ds_list_add(aux_list, -1, -1, -1, -1);
     } else {
@@ -26,7 +26,7 @@ for (var i=0; i<array_length_1d(argument0.moves); i++){
         }
     }
 }
-ds_list_add(text_list, "(Back)");
+ds_list_add(text_list, L('(Back)'));
 ds_list_add(color_list, c_black);
 ds_list_add(aux_list, -1, -1, -1, -1);
 
@@ -68,7 +68,7 @@ draw_set_halign(fa_right);
 for (var i=0; i<max_n; i++){
     if (aux_list[| 4*i]>-1){
         var yy=box_y+text_spacing*(i+1.5);
-        draw_text(box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type-width_category-TEXT_BUFFER, yy, string(aux_list[| 4*i])+"/"+string(aux_list[| 4*i+1]));
+        draw_text(box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type-width_category-TEXT_BUFFER, yy, string(aux_list[| 4*i])+'/'+string(aux_list[| 4*i+1]));
         draw_move_category(aux_list[| 4*i+2], box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type-width_category, yy);
         draw_type(aux_list[| 4*i+3], box_x+box_width-UI_TEXT_BOX_OFFSET_W-width_type, yy);
     }

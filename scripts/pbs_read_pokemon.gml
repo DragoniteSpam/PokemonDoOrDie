@@ -50,91 +50,91 @@ var pokemon_map=ds_map_create();
 for (var i=0; i<n-1; i++){
     var section=string(i+1);
     
-    var name=ini_read_string(section, "Name", "Bulbasaur");
-    var internal_name=ini_read_string(section, "InternalName", "BULBASAUR");
+    var name=ini_read_string(section, 'Name', 'Bulbasaur');
+    var internal_name=ini_read_string(section, 'InternalName', 'BULBASAUR');
     // This is slow because it grows an array. But it's used to interpret PBS and if
     // you know what you're doing it won't execute in a shipped game so that's okay.
     // (You could look up the number of types and create the array of that size but
     // honestly that's a lot of work for something this simple.)
     var types=null;
-    types[0]=type_map[? ini_read_string(section, "Type1", "NORMAL")];
+    types[0]=type_map[? ini_read_string(section, 'Type1', 'NORMAL')];
     // ini_key_exists would be way more elegant but it also appears to take a lot of time
     // also pbs files will only ever have one or two types
-    var tt=type_map[? ini_read_string(section, "Type2", "QMARKS")];
+    var tt=type_map[? ini_read_string(section, 'Type2', 'QMARKS')];
     if (tt!=Types.QMARKS){
         types[1]=tt;
     }
     
-    var stats=split(ini_read_string(section, "BaseStats", "50,50,50,50,50,50"), ',', true);
+    var stats=split(ini_read_string(section, 'BaseStats', '50,50,50,50,50,50'), ',', true);
     // essentials formats stats like hp/atk/def/spe/spa/spd but i format them
     // like hp/atk/def/spa/spd/spe so we have to do a little work
     array_swap(stats, Stats.SPATTACK, Stats.SPEED);
     
-    var gender_string=ini_read_string(section, "GenderRate", "Genderless");
+    var gender_string=ini_read_string(section, 'GenderRate', 'Genderless');
     var gender_rate;
     switch (string_minimal(gender_string)){
-        case "alwaysmale":
+        case 'alwaysmale':
             gender_rate=0;
             break;
-        case "femaleoneeighth":
+        case 'femaleoneeighth':
             gender_rate=0.125;
             break;
-        case "female25percent":
+        case 'female25percent':
             gender_rate=0.25;
             break;
-        case "female50percent":
+        case 'female50percent':
             gender_rate=0.5;
             break;
-        case "female75percent":
+        case 'female75percent':
             gender_rate=0.75;
             break;
-        case "femaleseveneighths":
+        case 'femaleseveneighths':
             gender_rate=0.875;
             break;
-        case "alwaysfemale":
+        case 'alwaysfemale':
             gender_rate=1;
             break;
-        case "genderless":
+        case 'genderless':
         default:
             gender_rate=-1;
             break;
     }
     
-    var growth_string=ini_read_string(section, "GrowthRate", "Parabolic");
+    var growth_string=ini_read_string(section, 'GrowthRate', 'Parabolic');
     var growth_rate;
     switch (string_minimal(growth_string)){
-        case "fast":
+        case 'fast':
             growth_rate=GrowthRates.FAST;
             break;
-        case "medium":
-        case "mediumfast":
+        case 'medium':
+        case 'mediumfast':
             growth_rate=GrowthRates.MEDIUM_FAST;
             break;
-        case "slow":
+        case 'slow':
             growth_rate=GrowthRates.SLOW;
-        case "parabolic":
-        case "mediumslow":
+        case 'parabolic':
+        case 'mediumslow':
             growth_rate=GrowthRates.MEDIUM_SLOW;
             break;
-        case "erratic":
+        case 'erratic':
             growth_rate=GrowthRates.ERRATIC;
             break;
-        case "fluctuating":
+        case 'fluctuating':
         default:
             growth_rate=GrowthRates.FLUCTUATING;
             break;
     }
     
-    var base_exp=ini_read_real(section, "BaseEXP", 50);
-    var ev_rewards=split(ini_read_string(section, "EffortPoints", "0,1,0,0,1,0"), ',', true);
+    var base_exp=ini_read_real(section, 'BaseEXP', 50);
+    var ev_rewards=split(ini_read_string(section, 'EffortPoints', '0,1,0,0,1,0'), ',', true);
     // and again
     array_swap(ev_rewards, Stats.SPATTACK, Stats.SPEED);
     
-    var catch_rate=ini_read_real(section, "Rareness", 100);
-    var happiness=ini_read_real(section, "Happiness", 70);
+    var catch_rate=ini_read_real(section, 'Rareness', 100);
+    var happiness=ini_read_real(section, 'Happiness', 70);
     
-    var ability_text=split(ini_read_string(section, "Abilities", "SWIFTSWIM"), ',');
-    var hidden_ability_text=split(ini_read_string(section, "HiddenAbility", "SWIFTSWIM"), ',');
+    var ability_text=split(ini_read_string(section, 'Abilities', 'SWIFTSWIM'), ',');
+    var hidden_ability_text=split(ini_read_string(section, 'HiddenAbility', 'SWIFTSWIM'), ',');
     var abilities=array_create(array_length_1d(ability_text));
     var hidden_abilities=array_create(array_length_1d(hidden_ability_text));
     for (var j=0; j<array_length_1d(abilities); j++){
@@ -144,7 +144,7 @@ for (var i=0; i<n-1; i++){
         hidden_abilities[j]=ability_map[? hidden_ability_text[j]];
     }
     
-    var move_text=split(ini_read_string(section, "Moves", ""), ',');
+    var move_text=split(ini_read_string(section, 'Moves', ''), ',');
     var moves=noone;
     moves[array_length_1d(move_text)/2-1, 1]=0;
     for (var j=0; j<array_height_2d(moves); j++){
@@ -152,77 +152,77 @@ for (var i=0; i<n-1; i++){
         moves[j, 1]=real(move_text[j*2])
     }
     
-    var egg_moves_text=split(ini_read_string(section, "EggMoves", ""), ',');
+    var egg_moves_text=split(ini_read_string(section, 'EggMoves', ''), ',');
     var egg_moves=array_create(array_length_1d(egg_moves_text));
     for (var j=0; j<array_length_1d(egg_moves); j++){
         egg_moves[j]=move_map[? egg_moves_text[j]];
     }
     
-    var egg_group_text=split(ini_read_string(section, "Compatibility", "Undiscovered"), ',');
+    var egg_group_text=split(ini_read_string(section, 'Compatibility', 'Undiscovered'), ',');
     var egg_groups=array_create(array_length_1d(egg_group_text));
     for (var j=0; j<array_length_1d(egg_groups); j++){
         egg_groups[j]=egg_group_map[? egg_group_text[j]];
     }
     
-    var egg_steps=ini_read_real(section, "StepsToHatch", 6000);
-    var height=ini_read_real(section, "Height", 1);
-    var weight=ini_read_real(section, "Weight", 10);
-    var color=get_color_from_name(ini_read_string(section, "Color", "Blue"));
+    var egg_steps=ini_read_real(section, 'StepsToHatch', 6000);
+    var height=ini_read_real(section, 'Height', 1);
+    var weight=ini_read_real(section, 'Weight', 10);
+    var color=get_color_from_name(ini_read_string(section, 'Color', 'Blue'));
     
     // you MAY want to make this an enum, too. i don't think it's an especially
     // useful attribute, though, so i'm not going to dedicate resources to it.
-    var shape=ini_read_real(section, "Shape", 1);
+    var shape=ini_read_real(section, 'Shape', 1);
     
-    var habitat_text=ini_read_string(section, "Habitat", "Grassland");
+    var habitat_text=ini_read_string(section, 'Habitat', 'Grassland');
     var habitat;
     switch (string_minimal(habitat_text)){
-        case "cave":
+        case 'cave':
             habitat=Habitats.CAVE;
             break;
-        case "forest":
+        case 'forest':
             habitat=Habitats.FOREST;
             break;
-        case "grassland":
+        case 'grassland':
             habitat=Habitats.GRASSLAND;
             break;
-        case "mountain":
+        case 'mountain':
             habitat=Habitats.MOUNTAIN;
             break;
-        case "roughterrain":
+        case 'roughterrain':
             habitat=Habitats.ROUGHTERRAIN;
             break;
-        case "sea":
+        case 'sea':
             habitat=Habitats.SEA;
             break;
-        case "urban":
+        case 'urban':
             habitat=Habitats.URBAN;
             break;
-        case "watersedge":
+        case 'watersedge':
             habitat=Habitats.WATERSEDGE;
             break;
-        case "rare":
+        case 'rare':
         default:
             habitat=Habitats.RARE;
             break;
     }
     
-    var regional_indices=split(ini_read_string(section, "RegionalNumbers", "1,1"), ',', true);
-    var kind=ini_read_string(section, "Kind", "Seed");
+    var regional_indices=split(ini_read_string(section, 'RegionalNumbers', '1,1'), ',', true);
+    var kind=ini_read_string(section, 'Kind', 'Seed');
     
     // evolutions are dealt with later
     var evolutions=noone;
     
-    var summary=ini_read_string(section, "Pokedex", "the quick brown fox jumped over the lazy dog");
+    var summary=ini_read_string(section, 'Pokedex', 'the quick brown fox jumped over the lazy dog');
     
-    // the way pokémon does wild hold items is "common" = 50%, "uncommon" = 5% and "rare" = 1%
+    // the way pokémon does wild hold items is 'common' = 50%, 'uncommon' = 5% and 'rare' = 1%
     // UNLESS all three values are the same, in which case the item appears 100% of the time.
     // i decided it doesn't have to be like this and you can have any item distribution that you
     // want (with a resolution of 1/100) but that means that interpreting the pbs data is a bit
     // complicated.
     var wild_item_distribution=array_create(100);
-    var wild_item_common=item_map[? ini_read_string(section, "WildItemCommon", "")];
-    var wild_item_uncommon=item_map[? ini_read_string(section, "WildItemUncommon", "")];
-    var wild_item_rare=item_map[? ini_read_string(section, "WildItemRare", "")];
+    var wild_item_common=item_map[? ini_read_string(section, 'WildItemCommon', '')];
+    var wild_item_uncommon=item_map[? ini_read_string(section, 'WildItemUncommon', '')];
+    var wild_item_rare=item_map[? ini_read_string(section, 'WildItemRare', '')];
     if (wild_item_common==wild_item_uncommon==wild_item_rare){
         array_clear(wild_item_distribution, wild_item_common);
     } else {
@@ -236,8 +236,8 @@ for (var i=0; i<n-1; i++){
         wild_item_distribution[55]=wild_item_rare;
     }
     
-    var form_name=ini_read_string(section, "FormName", "");
-    var incense=item_map[? ini_read_string(section, "Incense", "")];
+    var form_name=ini_read_string(section, 'FormName', '');
+    var incense=item_map[? ini_read_string(section, 'Incense', '')];
 
     array[i]=add_pokemon(name, types, stats, gender_rate, growth_rate, base_exp, ev_rewards, catch_rate, happiness, abilities,
         hidden_abilities, moves, egg_moves, egg_groups, egg_steps, height, weight, color, shape, habitat, regional_indices,
@@ -249,7 +249,7 @@ for (var i=0; i<n-1; i++){
 for (var i=0; i<n-1; i++){
     var section=string(i+1);
     
-    var str=ini_read_string(section, "Evolutions", "");    
+    var str=ini_read_string(section, 'Evolutions', '');    
     if (string_length(str)>0){
         var evolution_text=split(str, ',');
         var evolutions=noone;

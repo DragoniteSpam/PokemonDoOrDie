@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Type";
-pbs_internal_name="BASETYPE";
+name='Base Type';
+pbs_internal_name='BASETYPE';
 
 special=false;
 color=c_yellow;

@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>/// essential variables that all things need to have
 
-name="";
-summary="";
+name='';
+summary='';
 
-pbs_internal_name="";
+pbs_internal_name='';
 </string>
           </argument>
         </arguments>

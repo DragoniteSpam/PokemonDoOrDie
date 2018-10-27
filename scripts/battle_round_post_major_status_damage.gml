@@ -3,21 +3,23 @@
 
 var pkmn=Battle.contestants[| argument0[| 0]];
 var amount=0;
-var msg="";
+var msg='';
 
 switch (pkmn.status){
     case MajorStatus.POISON:
         amount=pkmn.act[Stats.HP]*World.settings.battle.poison_damage;
-        msg=pkmn.name+" was hurt by poison!";
+        msg=L('%0 was hurt by poison!', pkmn.name);
         break;
     case MajorStatus.TOXIC:
         amount=pkmn.act[Stats.HP]*World.settings.battle.toxic_damage_t1*pkmn.status_turn;
         pkmn.status_turn++;
-        msg=pkmn.name+" was hurt by poison!";
+        msg=L('%0 was hurt by poison!', pkmn.name);
         break;
     case MajorStatus.BURN:
         amount=pkmn.act[Stats.HP]*World.settings.battle.burn_damage;
-        msg=choose_gender(pkmn.gender, pkmn.name+" was hurt by his burn!", pkmn.name+" was hurt by her burn!", pkmn.name+" was hurt by its burn!");
+        msg=choose_gender(pkmn.gender, L('%0 was hurt by his burn!', pkmn.name),
+            L('%0 was hurt by her burn!', pkmn.name),
+            L('%0 was hurt by its burn!', pkmn.name));
         break;
 }
 

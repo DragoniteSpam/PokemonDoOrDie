@@ -1046,6 +1046,7 @@
       <script>scripts\draw_pokemon_details.gml</script>
     </scripts>
     <script>scripts\debug_notes.gml</script>
+    <script>scripts\L.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -1119,8 +1120,8 @@
     <room>rooms\main</room>
   </rooms>
   <constants number="33">
-    <constant name="PATH_PBS">".\data\pbs\"</constant>
-    <constant name="PATH_BATTLER">".\data\graphics\battlers\"</constant>
+    <constant name="PATH_PBS">'.\data\pbs\'</constant>
+    <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
@@ -1130,7 +1131,7 @@
     <constant name="c_pink">make_color_rgb(255, 105, 180)</constant>
     <constant name="DEBUG">true</constant>
     <constant name="H">room_height</constant>
-    <constant name="LOG_FILE">"log.txt"</constant>
+    <constant name="LOG_FILE">'log.txt'</constant>
     <constant name="MAX_LEVEL">100</constant>
     <constant name="MILLION">1000000</constant>
     <constant name="MOVE_LIMIT">4</constant>

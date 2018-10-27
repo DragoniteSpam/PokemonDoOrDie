@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="Base Item";
-internal_name="BASEITEM";
-summary="it doesnt do anything";
-plural="Base Items";
+name='Base Item';
+internal_name='BASEITEM';
+summary='it doesnt do anything';
+plural='Base Items';
 
 pocket=ItemPockets.ITEMS;
 price=500;
