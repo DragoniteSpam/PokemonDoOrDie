@@ -3,6 +3,10 @@
 // and Magic Bounce and all that other stuff every time you want to
 // apply a major status.
 
+// You shouldn't use this to apply "no status," because it'll look for
+// text to display on the screen to communicate this, but there won't
+// be any text, so the game will crash.
+
 var queue=argument0;
 var user=argument1;
 var target=argument2;
@@ -15,19 +19,88 @@ var move=argument5;
 
 // todo each status should have an animation to go with it.
 
+// by the way, 2/3 of this script is choosing the text to display
+// based on status. Sorry about that. I had an array of status verbs earlier
+// but it was really ugly and I started to get worried that it wouldn't
+// work well with translateable text.
+// Maybe you could make a script similar to choose_gender but that will
+// probably give you the same problem as you had with the array of verbs.
+
 if (pokemon_can_have_status(target, status)){
     switch (target.ability.status_acceptance[status]){
         case StatusAcceptance.YES:
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, target, status, status_turn));
-            ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L('%0 %1!', target.name, World.major_status_verbs[status])));
+            var text;
+            switch (status){
+                case MajorStatus.POISON:
+                    text=L("%0 was poisoned!", target.name);
+                    break;
+                case MajorStatus.TOXIC:
+                    text=L("%0 was badly poisoned!", target.name);
+                    break;
+                case MajorStatus.BURN:
+                    text=L("%0 was burned!", target.name);
+                    break;
+                case MajorStatus.FREEZE:
+                    text=L("%0 was frozen!", target.name);
+                    break;
+                case MajorStatus.SLEEP:
+                    text=L("%0 fell asleep!", target.name);
+                    break;
+                case MajorStatus.PARALYZE:
+                    text=L("%0 was paralyzed!", target.name);
+                    break;
+            }
+            ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, text));
             return true;
         case StatusAcceptance.MIRROR:
             ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, target, status, status_turn));
-            ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L('%0 %1!', target.name, World.major_status_verbs[status])));
+            var text;
+            switch (status){
+                case MajorStatus.POISON:
+                    text=L("%0 was poisoned!", target.name);
+                    break;
+                case MajorStatus.TOXIC:
+                    text=L("%0 was badly poisoned!", target.name);
+                    break;
+                case MajorStatus.BURN:
+                    text=L("%0 was burned!", target.name);
+                    break;
+                case MajorStatus.FREEZE:
+                    text=L("%0 was frozen!", target.name);
+                    break;
+                case MajorStatus.SLEEP:
+                    text=L("%0 fell asleep!", target.name);
+                    break;
+                case MajorStatus.PARALYZE:
+                    text=L("%0 was paralyzed!", target.name);
+                    break;
+            }
+            ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, text));
             if (user!=noone&&move!=noone&&pokemon_can_have_status(user, status)){
                 bia_show_ability_card(queue, target);
                 ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, user, status, status_turn));
-                ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L("%0 %1 by %2's %3!", user.name, World.major_status_verbs[status], target.name, target.ability.name)));
+                switch (status){
+                    case MajorStatus.POISON:
+                        text=L("%0 was poisoned by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                    case MajorStatus.TOXIC:
+                        text=L("%0 was badly poisoned by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                    case MajorStatus.BURN:
+                        text=L("%0 was burned by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                    case MajorStatus.FREEZE:
+                        text=L("%0 was frozen by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                    case MajorStatus.SLEEP:
+                        text=L("%0 fell asleep by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                    case MajorStatus.PARALYZE:
+                        text=L("%0 was paralyzed by %1's %2!", user.name, target.name, target.ability.name);
+                        break;
+                }
+                ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, text));
             }
             return true;
         case StatusAcceptance.BOUNCE:
@@ -41,11 +114,53 @@ if (pokemon_can_have_status(target, status)){
                 // outer check.
                 if (pokemon_can_have_status(user, status)){
                     ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, user, status, status_turn));
-                    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L("%0 %1 by %2's %3 instead!", user.name, World.major_status_verbs[status], target.name, target.ability.name)));
+                    var text;
+                    switch (status){
+                        case MajorStatus.POISON:
+                            text=L("%0 was poisoned by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                        case MajorStatus.TOXIC:
+                            text=L("%0 was badly poisoned by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                        case MajorStatus.BURN:
+                            text=L("%0 was burned by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                        case MajorStatus.FREEZE:
+                            text=L("%0 was frozen by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                        case MajorStatus.SLEEP:
+                            text=L("%0 fell asleep by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                        case MajorStatus.PARALYZE:
+                            text=L("%0 was paralyzed by %1's %2 instead!", user.name, target.name, target.ability.name);
+                            break;
+                    }
+                    ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, text));
                 }
             } else {
                 ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_set_major_status, target, status, status_turn));
-                ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, L('%0 %1!', target.name, World.major_status_verbs[status])));
+                var text;
+                switch (status){
+                    case MajorStatus.POISON:
+                        text=L("%0 was poisoned!", target.name);
+                        break;
+                    case MajorStatus.TOXIC:
+                        text=L("%0 was badly poisoned!", target.name);
+                        break;
+                    case MajorStatus.BURN:
+                        text=L("%0 was burned!", target.name);
+                        break;
+                    case MajorStatus.FREEZE:
+                        text=L("%0 was frozen!", target.name);
+                        break;
+                    case MajorStatus.SLEEP:
+                        text=L("%0 fell asleep!", target.name);
+                        break;
+                    case MajorStatus.PARALYZE:
+                        text=L("%0 was paralyzed!", target.name);
+                        break;
+                }
+                ds_queue_enqueue(queue, add_battle_individual_action(battle_individual_action_text, text));
                 return true;
             }
             break;

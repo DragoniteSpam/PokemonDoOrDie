@@ -142,9 +142,6 @@ all_types[Types.QMARKS].color=$68A090;
 // normally, the words that the game can use to reference an
 // arbitrary status condition
 major_status_names=array_compose(L('Sleep'), L('Poison'), L('Burn'), L('Paralyze'), L('Freeze'), L('Faint'), L('Pokerus'), L('Poison'), L('None'));
-// the words that the game can use to reference the infliction
-// of an arbitrary status condition
-major_status_verbs=array_compose(L('fell asleep'), L('was poisoned'), L('was burned'), L('was paralyzed'), L('was frozen'), L('fainted'), '', L('was badly poisoned'), '');
 // color tinting for rendering pokémon with the status
 major_status_colors=array_compose(c_white, merge_color(c_purple, c_white, 0.65), merge_color(c_red, c_white, 0.65), merge_color(c_yellow, c_white, 0.65), merge_color(c_aqua, c_white, 0.65), c_white, c_white, merge_color(c_purple, c_white, 0.55), c_white);
 
