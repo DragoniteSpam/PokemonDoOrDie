@@ -45,7 +45,7 @@ if (keyboard_check_released(vk_enter)){
             // too much
             for (var i=0; i<ds_list_size(Battle.contestants); i++){
                 var contestant=Battle.contestants[| i];
-                if (contestant.owner.team==Battle.input_processing.owner.team&&pokemon_can_escape(contestant)){
+                if (contestant.owner.team==Battle.input_processing.owner.team&&!pokemon_can_escape(contestant)){
                     team_trapped=true;
                     break;
                 }
@@ -57,6 +57,7 @@ if (keyboard_check_released(vk_enter)){
                 message(L('Your team is trapped and unable to flee!'));
             } else {
                 //battle_input_processing_reset(BattleInputStages.FLEE);
+                message(L("You aren't allowed to flee during the demo!"));
             }
             break;
         // because we sort of know the order in which these options will appear
