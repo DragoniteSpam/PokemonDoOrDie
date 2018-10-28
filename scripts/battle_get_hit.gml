@@ -1,5 +1,5 @@
 /// array battle_get_hit(move, user, targets, effects list);
-// todo make an "overloaded" version of this that doesn't take an effects list
+// todo make an 'overloaded' version of this that doesn't take an effects list
 
 // this may not be useful but it's good information to have i guess
 var move=argument0;

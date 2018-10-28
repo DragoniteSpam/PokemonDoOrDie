@@ -28,7 +28,7 @@ if (t<t_wait){
     draw.x=draw.x+xc;
     draw.y=draw.y+yc;
 } else if (t<t_wait_2){
-    if (!ds_map_exists(misc_data, "hit flash")){
+    if (!ds_map_exists(misc_data, 'hit flash')){
         for (var i=0; i<ds_list_size(target_list); i++){
             // fade timestamps
             var t_fadein=0.25;
@@ -43,7 +43,7 @@ if (t<t_wait){
             (new_effect_2d(position[vec2.xx], position[vec2.yy], spr_anim_move_tackle, e2d_generic, t_fadein, t_still, t_fadeout)).alpha=0;
         }
         audio_play_sound(se_hit, 1, false);
-        misc_data[? "hit flash"]=true;
+        misc_data[? 'hit flash']=true;
     }
     // otherwise wait
 } else if (t<t_retract){

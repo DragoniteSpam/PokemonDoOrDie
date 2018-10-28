@@ -13,7 +13,7 @@ for (var i=0; i<ds_list_size(pkmn.owner.party); i++){
         ds_list_add(color_list, c_red);
     }
 }
-ds_list_add(text_list, "Back");
+ds_list_add(text_list, L('(Back)'));
 ds_list_add(color_list, c_black);
 
 var max_n=ds_list_size(text_list);

@@ -77,7 +77,7 @@ switch (move.category){
         cat_defense=Stats.DEFENSE;
         break;
     case MoveCategories.STATUS:
-        show_error("you somehow managed to do a damage calculation on a status move, good job", true);
+        show_error('you somehow managed to do a damage calculation on a status move, good job', true);
         break;
 }
 

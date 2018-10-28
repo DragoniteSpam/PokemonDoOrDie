@@ -6,7 +6,7 @@ var item=argument1;
 // you could check for the need to heal confusion, infatuation
 // and any other minor statuses you may wish to add, if you want
 if (user.act_hp==user.act[Stats.HP]&&user.status==MajorStatus.NONE){
-    message(user.name+" is pretty healthy already!");
+    message(L('%0 is pretty healthy already!', user.name));
     return noone;
 }
 

@@ -59,6 +59,25 @@ message_option_index=0;
 // but you're allowed to hijack it for other purposes.
 message_option_result=-1;
 
+/*
+ * language
+ * do this before you initialize anything involving text
+ */
+
+language_codes=array_compose("default");    // it, ja, pt, etc.
+language_names=array_compose("English");
+
+language=Languages.ENGLISH;
+
+language_text=array_compose(ds_map_create());
+read_language(language_text, language);
+
+language_text_not_found=ds_map_create();
+
+/*
+ * pbs
+ */
+
 var t0=get_timer();
 
 // pawn stuff
@@ -170,6 +189,10 @@ enum vec3 {
 
 enum vec4 {
     r, g, b, a
+}
+
+enum Languages {
+    ENGLISH,
 }
 </string>
           </argument>

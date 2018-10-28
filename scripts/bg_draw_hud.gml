@@ -25,7 +25,7 @@ if (user!=noone){
     draw_rectangle_9s(spr_window9s_hgss, x, y, UI_BATTLE_HUD_WIDTH, UI_BATTLE_HUD_HEIGHT-offset);
     draw_text(x+32, text_y, user.name);
     
-    var level_string="Lv. "+string(level);
+    var level_string=L('Lv. %0', string(level));
     
     draw_sprite(spr_gender, user.gender, x+UI_BATTLE_HUD_WIDTH-16-32-string_width(level_string), text_y);
     if (user.status!=MajorStatus.NONE){
@@ -45,7 +45,7 @@ if (user!=noone){
     if (user.owner==Camera.battle_pawn){
         // hp text row
         draw_set_halign(fa_center);
-        draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(floor(user.act_hp))+"/"+string(user.act[Stats.HP]));
+        draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(floor(user.act_hp))+'/'+string(user.act[Stats.HP]));
         
         // exp bar row
         var exp_base=get_experience(level, base.growth_rate);

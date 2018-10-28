@@ -13,11 +13,11 @@ if (DEBUG&&keyboard_check_released(vk_f1)){
     }
 }
 
-var continue_text="";
+var continue_text='';
 
 if (total_pp(pkmn)==0){
     // todo: move pp
-    var value=get_move_from_name("STRUGGLE", true);
+    var value=World.move_struggle;
     // struggle automatically hits a random adjacent foe, if you want to change the
     // move here, you might want to un-hard code this
     var valid_targets=battle_get_valid_targets(pkmn, value);
@@ -29,7 +29,7 @@ if (total_pp(pkmn)==0){
     
     battle_input_processing_reset();
     
-    continue_text=pkmn.name+" has no valid moves, struggling";
+    continue_text=pkmn.name+' has no valid moves, struggling';
 } else {
     var max_n=array_length_1d(pkmn.moves)+1;
     
@@ -51,9 +51,9 @@ if (total_pp(pkmn)==0){
         if (message_option_index==MOVE_LIMIT){
             battle_input_processing_reset(false);
         } else if (pkmn.moves[message_option_index]==noone){
-            // to do play some kind of silly "invalid" sound
+            // to do play some kind of silly 'invalid' sound
         } else if (pkmn.move_pp[message_option_index]==0){
-            message("There is no PP left for that move!");
+            message(L('There is no PP left for that move!'));
         } else {
             pkmn.move_pp[message_option_index]--;
             var value=pkmn.moves[message_option_index];
@@ -68,7 +68,7 @@ if (total_pp(pkmn)==0){
             
             battle_input_processing_reset();
             
-            continue_text=pkmn.owner.name+" has chosen the move "+get_move(pkmn.moves[message_option_index]).name+" for "+pkmn.name;
+            continue_text=pkmn.owner.name+' has chosen the move '+get_move(pkmn.moves[message_option_index]).name+' for '+pkmn.name;
         }
     }
 }

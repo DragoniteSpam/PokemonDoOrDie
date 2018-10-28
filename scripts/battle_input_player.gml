@@ -3,4 +3,4 @@
 input_processing=argument0;
 
 // continue: in the message()
-message("What will "+argument0.name+" do?");
+message(L('What will %0 do?', argument0.name));

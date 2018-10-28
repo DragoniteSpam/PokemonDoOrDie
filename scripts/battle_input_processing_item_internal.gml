@@ -5,15 +5,14 @@ var list=get_trainer(Battle.input_processing.owner.trainer_index).items[argument
 for (var i=0; i<ds_list_size(list); i++){
     var stack=list[| i];
     if (stack.count>1){
-        var suffix=" x "+string(stack.count);
+        ds_list_add(text_list, L('%0 x %1', get_item(stack.index).name));
     } else {
-        var suffix="";
+        ds_list_add(text_list, L('%0', get_item(stack.index).name));
     }
-    ds_list_add(text_list, get_item(stack.index).name+suffix);
     ds_list_add(item_list, stack.index);
 }
 
-ds_list_add(text_list, "(Back)");
+ds_list_add(text_list, L('(Back)'));
 
 var max_n=ds_list_size(text_list);
 
@@ -24,7 +23,7 @@ var max_n=ds_list_size(text_list);
 draw_menu_from_list(text_list, World.message_option_index);
 World.message_option_index=menu_input(World.message_option_index, max_n);
 
-var continue_message="";
+var continue_message='';
 
 if (keyboard_check_released(vk_enter)){
     if (World.message_option_index==max_n-1){
@@ -34,16 +33,16 @@ if (keyboard_check_released(vk_enter)){
         switch (item.battle){
             case ItemBattleUsability.NOPE:
             case ItemBattleUsability.UNKNOWN:
-                message(item.name+" can't be used in battle!");
+                message(L("%0 can't be used in battle!", item.name));
                 break;
             case ItemBattleUsability.POKEMON:
-                Battle.misc_data[? "item to use"]=item_list[| World.message_option_index];
+                Battle.misc_data[? 'item to use']=item_list[| World.message_option_index];
                 battle_input_processing_reset(false, BattleInputStages.ITEM_POKEMON);
                 break;
             case ItemBattleUsability.BALL:
                 // you need to select a target if multiple valid targetes exist,
                 // but this isn't useful in a trainer battle anyway
-                message("we haven't implemented this type of battle item yet!");
+                message(L("We haven't implemented this type of battle item yet!"));
                 break;
             case ItemBattleUsability.TRAINER:
                 // takes the user, because we probably need the information
@@ -58,7 +57,7 @@ if (keyboard_check_released(vk_enter)){
                 if (output!=noone){
                     battle_prioritize(output);
                     battle_input_processing_reset();
-                    continue_message=pkmn.owner.name+" has chosen to use a(n) "+get_item(item).name;
+                    continue_message=pkmn.owner.name+' has chosen to use a(n) '+get_item(item).name;
                 }
                 break;
         }

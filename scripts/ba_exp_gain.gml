@@ -1,5 +1,5 @@
-var gain=misc_data[? "gain"];
-var current=misc_data[? "current"];
+var gain=misc_data[? 'gain'];
+var current=misc_data[? 'current'];
 var base=get_pokemon(user.species);
 
 var current_level=get_level(current, base.growth_rate);
@@ -8,9 +8,9 @@ var next_level_exp=get_experience(current_level+1, base.growth_rate);
 var difference_exp=next_level_exp-current_level_exp;
 
 if (current+gain>next_level_exp){
-    show_error("gained experience would overflow the next level;"+N+
+    show_error('gained experience would overflow the next level;'+N+
         "you're curretnly not allowed to do that, experience gain"+N+
-        " has to be split up through battle_round_action_execute", true);
+        ' has to be split up through battle_round_action_execute', true);
 }
 
 var clear_time=1;   // the amount of time it should take the exp bar to fully fill

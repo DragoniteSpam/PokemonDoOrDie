@@ -29,7 +29,7 @@ var index=0;
 // This grows an array, so it's slow. Try not to use it in the step event, or otherwise
 // more than necessary.
 var terms;
-terms[0]="";
+terms[0]='';
 for (var i=1; i<=string_length(str); i++){
     var c=string_char_at(str, i);
     var previous=string_char_at(str, i-1);

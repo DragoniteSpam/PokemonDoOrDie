@@ -19,7 +19,5 @@ with (instance_create(0, 0, BattleAppliedEffect)){
         }
     }
     
-    ds_queue_enqueue(scheduled_actions, add_battle_individual_action(battle_individual_action_text, "damage modifier: "+string(damage_modifier)));
-    
     return id;
 }

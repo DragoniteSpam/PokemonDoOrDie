@@ -27,44 +27,44 @@ with (instance_create(0, 0, BattlePokemon)){
     
     switch (argument_count){
         case 15:
-            ball_type=argument[15];
+            ball_type=argument[14];
         case 14:
-            shadow=argument[14];
+            shadow=argument[13];
         case 13:
-            name=argument[13];
+            name=argument[12];
         case 12:
-            happiness=argument[12];
+            happiness=argument[11];
         // there is no bounds checking on ivs/evs. if you assign an array of size, say, 4, and later
         // the game crashes when you try to access array[5], that's your problem.
         case 11:
-            evs=argument[11];
+            evs=argument[10];
         case 10:
-            ivs=argument[10];
+            ivs=argument[9];
         case 9:
-            nature=argument[9];
+            nature=argument[8];
         case 8:
-            shiny=argument[8];
+            shiny=argument[7];
         case 7:
-            form=argument[7];
+            form=argument[6];
         case 6:
-            gender=argument[6];
+            gender=argument[5];
         case 5:
             // you can pass -2 as the ability parameter to select a random hidden
             // ability, if the base pokémon has one
-            if (argument[5]==-1){
+            if (argument[4]==-1){
                 default_ability=irandom(ds_list_size(base.abilities)-1);
                 ability=get_ability(base.abilities[| default_ability]);
-            } else if (argument[5]==-2){
+            } else if (argument[4]==-2){
                 default_ability=irandom(ds_list_size(base.hidden_abilities)-1);
                 ability=get_ability(base.hidden_abilities[| default_ability]);
             } else {
-                default_ability=argument[5];
-                if (argument[5]<ds_list_size(base.abilities)){
-                    ability=get_ability(base.abilities[| argument[5]]);
+                default_ability=argument[4];
+                if (argument[4]<ds_list_size(base.abilities)){
+                    ability=get_ability(base.abilities[| argument[4]]);
                 // no bounds checking on hidden abilities, once again, if this crashes the game
                 // that's your problem
                 } else {
-                    ability=get_ability(base.hidden_abilities[| argument[5]-ds_list_size(base.abilities)]);
+                    ability=get_ability(base.hidden_abilities[| argument[4]-ds_list_size(base.abilities)]);
                 }
             }
         case 4:

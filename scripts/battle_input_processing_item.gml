@@ -9,7 +9,7 @@ for (var i=0; i<array_length_1d(trainer.items); i++){
     }
 }
 
-ds_list_add(text_list, "(Back)");
+ds_list_add(text_list, L('(Back)'));
 // you could add a dummy value to the pocket_list so that they're
 // the same size but it's never going to be looked up so you don't
 // have to

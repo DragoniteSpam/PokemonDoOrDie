@@ -3,9 +3,9 @@
 var w=sprite_get_width(spr_move_category);
 var offset=sprite_get_yoffset(spr_move_category);
 
-// this is a fix for the "solution" i came up with for the problem
-// of moves dealing damage that aren't their designated type, and
-// by that i mean psyshock and psystrke and i think that's it.
+// this is a fix for the 'solution' i came up with for the problem
+// of moves dealing damage that aren't their designated category,
+// and by that i mean psyshock and psystrke and i think that's it.
 switch (argument0){
     case MoveCategories.PHYSICAL_ATK_SPECIAL_DEF:
         argument0=MoveCategories.PHYSICAL;

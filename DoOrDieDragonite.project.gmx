@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="50" name="datafiles">
-    <datafiles number="50" name="data">
-      <datafiles number="50" name="graphics">
-        <datafiles number="50" name="battlers">
+  <datafiles number="52" name="datafiles">
+    <datafiles number="52" name="data">
+      <datafiles number="52" name="graphics">
+        <datafiles number="52" name="battlers">
           <datafile>
             <name>059.png</name>
             <exists>-1</exists>
@@ -59,9 +59,9 @@
             <filename>065.png</filename>
           </datafile>
           <datafile>
-            <name>065fb.png</name>
+            <name>065b.png</name>
             <exists>-1</exists>
-            <size>1017</size>
+            <size>1043</size>
             <exportAction>2</exportAction>
             <exportDir></exportDir>
             <overwrite>0</overwrite>
@@ -73,7 +73,7 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>065fb.png</filename>
+            <filename>065b.png</filename>
           </datafile>
           <datafile>
             <name>082.png</name>
@@ -417,7 +417,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="50" name="pbs">
+      <datafiles number="52" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -538,6 +538,23 @@
           <filename>trainers.txt</filename>
         </datafile>
       </datafiles>
+      <datafile>
+        <name>strings.txt</name>
+        <exists>-1</exists>
+        <size>3979</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>strings.txt</filename>
+      </datafile>
     </datafiles>
   </datafiles>
   <NewExtensions/>
@@ -588,8 +605,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\draw_rectangle_9s.gml</script>
-    <script>scripts\clear.gml</script>
     <scripts name="battle">
       <script>scripts\battle_add_team.gml</script>
       <script>scripts\battle_add_position.gml</script>
@@ -827,130 +842,7 @@
         </scripts>
       </scripts>
     </scripts>
-    <scripts name="pawn stuff">
-      <script>scripts\add_trainer_pokemon.gml</script>
-      <script>scripts\attach_pokemon_to_trainer.gml</script>
-      <scripts name="monsters">
-        <script>scripts\alive.gml</script>
-        <script>scripts\get_matchup_on.gml</script>
-        <script>scripts\has_type.gml</script>
-        <script>scripts\heal.gml</script>
-        <script>scripts\heal_all.gml</script>
-        <script>scripts\pokemon_auto_moves.gml</script>
-        <script>scripts\pokemon_auto_stats.gml</script>
-        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
-        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
-        <script>scripts\pokemon_teach_move.gml</script>
-        <script>scripts\team_alive.gml</script>
-        <script>scripts\total_pp.gml</script>
-        <script>scripts\total_move_pp.gml</script>
-        <scripts name="can">
-          <script>scripts\pokemon_can_have_status.gml</script>
-          <script>scripts\pokemon_can_flinch.gml</script>
-          <script>scripts\pokemon_can_confuse.gml</script>
-          <script>scripts\pokemon_can_escape.gml</script>
-        </scripts>
-      </scripts>
-      <script>scripts\pawn_create.gml</script>
-      <scripts name="inventory">
-        <scripts name="help">
-          <script>scripts\trainer_add_item.gml</script>
-          <script>scripts\trainer_remove_item.gml</script>
-          <script>scripts\trainer_has_item.gml</script>
-          <script>scripts\trainer_item_total.gml</script>
-          <script>scripts\trainer_item_pocket_total.gml</script>
-        </scripts>
-        <script>scripts\pawn_add_item.gml</script>
-        <script>scripts\pawn_remove_item.gml</script>
-        <script>scripts\pawn_item_total.gml</script>
-        <script>scripts\pawn_item_pocket_total.gml</script>
-        <script>scripts\pawn_has_item.gml</script>
-      </scripts>
-    </scripts>
-    <scripts name="math-ish">
-      <script>scripts\action_priority.gml</script>
-      <script>scripts\choose_gender.gml</script>
-      <script>scripts\approach.gml</script>
-      <script>scripts\battle_damage.gml</script>
-      <script>scripts\boolean.gml</script>
-      <scripts name="data structures">
-        <script>scripts\array_clear.gml</script>
-        <script>scripts\array_add.gml</script>
-        <script>scripts\array_clear_2d.gml</script>
-        <script>scripts\array_compose.gml</script>
-        <script>scripts\ds_list_clone.gml</script>
-        <script>scripts\ds_list_to_array.gml</script>
-        <script>scripts\array_swap.gml</script>
-        <script>scripts\ds_list_swap.gml</script>
-        <script>scripts\ds_queue_destroy_instances.gml</script>
-        <script>scripts\ds_priority_destroy_instances.gml</script>
-        <script>scripts\ds_list_destroy_instances.gml</script>
-        <script>scripts\random_element_from_array.gml</script>
-        <script>scripts\random_element_from_list.gml</script>
-        <script>scripts\array_sum.gml</script>
-      </scripts>
-      <scripts name="file">
-        <script>scripts\ini_read_boolean.gml</script>
-        <script>scripts\file_text_as_list.gml</script>
-      </scripts>
-      <scripts name="game maker">
-        <script>scripts\instanceof.gml</script>
-      </scripts>
-      <script>scripts\get_pawn_level.gml</script>
-      <script>scripts\get_prize_money.gml</script>
-      <script>scripts\get_progress_bar_scroll_rate.gml</script>
-      <script>scripts\get_matchup.gml</script>
-      <script>scripts\get_progress_bar_scroll_time.gml</script>
-      <script>scripts\hex.gml</script>
-      <script>scripts\is_clamped.gml</script>
-      <script>scripts\split.gml</script>
-      <scripts name="stats">
-        <script>scripts\exp_reward.gml</script>
-        <script>scripts\get_experience.gml</script>
-        <script>scripts\get_level.gml</script>
-        <script>scripts\get_nature_modifier.gml</script>
-        <script>scripts\math_mod.gml</script>
-        <script>scripts\recalculate_all_stats.gml</script>
-        <script>scripts\recalculate_stat.gml</script>
-      </scripts>
-      <scripts name="string">
-        <script>scripts\string_minimal.gml</script>
-        <script>scripts\string_commas.gml</script>
-        <script>scripts\string_pad.gml</script>
-      </scripts>
-      <script>scripts\vector2.gml</script>
-      <script>scripts\world_to_2d.gml</script>
-      <script>scripts\move_get_flag.gml</script>
-    </scripts>
-    <script>scripts\null.gml</script>
-    <script>scripts\scr_true.gml</script>
-    <script>scripts\scr_false.gml</script>
-    <script>scripts\message.gml</script>
-    <script>scripts\question.gml</script>
-    <script>scripts\wait.gml</script>
-    <script>scripts\debug.gml</script>
-    <script>scripts\ds_list_max_width.gml</script>
-    <script>scripts\draw_selection_arrow.gml</script>
-    <scripts name="graphics">
-      <script>scripts\draw_health_bar.gml</script>
-      <script>scripts\draw_exp_bar.gml</script>
-      <scripts name="effects">
-        <script>scripts\new_effect_2d.gml</script>
-        <script>scripts\new_effect_world.gml</script>
-      </scripts>
-      <scripts name="move animation">
-        <script>scripts\e2d_generic.gml</script>
-        <script>scripts\e2d_overlay_monochrome.gml</script>
-        <script>scripts\e3d_generic.gml</script>
-        <script>scripts\e3d_billboard.gml</script>
-      </scripts>
-      <scripts name="icons">
-        <script>scripts\draw_type.gml</script>
-        <script>scripts\draw_major_status.gml</script>
-        <script>scripts\draw_move_category.gml</script>
-      </scripts>
-    </scripts>
-    <script>scripts\singleton.gml</script>
+    <script>scripts\clear.gml</script>
     <scripts name="data">
       <scripts name="creation">
         <script>scripts\add_move.gml</script>
@@ -1038,6 +930,87 @@
         <script>scripts\const_class_intro_me.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\debug.gml</script>
+    <script>scripts\debug_notes.gml</script>
+    <script>scripts\draw_rectangle_9s.gml</script>
+    <script>scripts\draw_selection_arrow.gml</script>
+    <script>scripts\ds_list_max_width.gml</script>
+    <scripts name="graphics">
+      <script>scripts\draw_health_bar.gml</script>
+      <script>scripts\draw_exp_bar.gml</script>
+      <scripts name="effects">
+        <script>scripts\new_effect_2d.gml</script>
+        <script>scripts\new_effect_world.gml</script>
+      </scripts>
+      <scripts name="move animation">
+        <script>scripts\e2d_generic.gml</script>
+        <script>scripts\e2d_overlay_monochrome.gml</script>
+        <script>scripts\e3d_generic.gml</script>
+        <script>scripts\e3d_billboard.gml</script>
+      </scripts>
+      <scripts name="icons">
+        <script>scripts\draw_type.gml</script>
+        <script>scripts\draw_major_status.gml</script>
+        <script>scripts\draw_move_category.gml</script>
+      </scripts>
+    </scripts>
+    <script>scripts\L.gml</script>
+    <scripts name="math-ish">
+      <script>scripts\action_priority.gml</script>
+      <script>scripts\choose_gender.gml</script>
+      <script>scripts\approach.gml</script>
+      <script>scripts\battle_damage.gml</script>
+      <script>scripts\boolean.gml</script>
+      <scripts name="data structures">
+        <script>scripts\array_add.gml</script>
+        <script>scripts\array_clear.gml</script>
+        <script>scripts\array_clear_2d.gml</script>
+        <script>scripts\array_compose.gml</script>
+        <script>scripts\array_sum.gml</script>
+        <script>scripts\array_swap.gml</script>
+        <script>scripts\ds_list_clone.gml</script>
+        <script>scripts\ds_list_destroy_instances.gml</script>
+        <script>scripts\ds_list_swap.gml</script>
+        <script>scripts\ds_list_to_array.gml</script>
+        <script>scripts\read_language.gml</script>
+        <script>scripts\ds_priority_destroy_instances.gml</script>
+        <script>scripts\ds_queue_destroy_instances.gml</script>
+        <script>scripts\random_element_from_array.gml</script>
+        <script>scripts\random_element_from_list.gml</script>
+      </scripts>
+      <scripts name="file">
+        <script>scripts\ini_read_boolean.gml</script>
+        <script>scripts\file_text_as_list.gml</script>
+      </scripts>
+      <scripts name="game maker">
+        <script>scripts\instanceof.gml</script>
+      </scripts>
+      <script>scripts\get_pawn_level.gml</script>
+      <script>scripts\get_prize_money.gml</script>
+      <script>scripts\get_progress_bar_scroll_rate.gml</script>
+      <script>scripts\get_matchup.gml</script>
+      <script>scripts\get_progress_bar_scroll_time.gml</script>
+      <script>scripts\hex.gml</script>
+      <script>scripts\is_clamped.gml</script>
+      <script>scripts\split.gml</script>
+      <scripts name="stats">
+        <script>scripts\exp_reward.gml</script>
+        <script>scripts\get_experience.gml</script>
+        <script>scripts\get_level.gml</script>
+        <script>scripts\get_nature_modifier.gml</script>
+        <script>scripts\math_mod.gml</script>
+        <script>scripts\recalculate_all_stats.gml</script>
+        <script>scripts\recalculate_stat.gml</script>
+      </scripts>
+      <scripts name="string">
+        <script>scripts\string_minimal.gml</script>
+        <script>scripts\string_commas.gml</script>
+        <script>scripts\string_pad.gml</script>
+      </scripts>
+      <script>scripts\vector2.gml</script>
+      <script>scripts\world_to_2d.gml</script>
+      <script>scripts\move_get_flag.gml</script>
+    </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
       <script>scripts\draw_menu_from_list.gml</script>
@@ -1045,8 +1018,53 @@
       <script>scripts\draw_moves_details.gml</script>
       <script>scripts\draw_pokemon_details.gml</script>
     </scripts>
-    <script>scripts\debug_notes.gml</script>
-    <script>scripts\L.gml</script>
+    <script>scripts\message.gml</script>
+    <script>scripts\null.gml</script>
+    <scripts name="pawn stuff">
+      <script>scripts\add_trainer_pokemon.gml</script>
+      <script>scripts\attach_pokemon_to_trainer.gml</script>
+      <scripts name="monsters">
+        <script>scripts\alive.gml</script>
+        <script>scripts\get_matchup_on.gml</script>
+        <script>scripts\has_type.gml</script>
+        <script>scripts\heal.gml</script>
+        <script>scripts\heal_all.gml</script>
+        <script>scripts\pokemon_auto_moves.gml</script>
+        <script>scripts\pokemon_auto_stats.gml</script>
+        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
+        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
+        <script>scripts\pokemon_teach_move.gml</script>
+        <script>scripts\team_alive.gml</script>
+        <script>scripts\total_pp.gml</script>
+        <script>scripts\total_move_pp.gml</script>
+        <scripts name="can">
+          <script>scripts\pokemon_can_have_status.gml</script>
+          <script>scripts\pokemon_can_flinch.gml</script>
+          <script>scripts\pokemon_can_confuse.gml</script>
+          <script>scripts\pokemon_can_escape.gml</script>
+        </scripts>
+      </scripts>
+      <script>scripts\pawn_create.gml</script>
+      <scripts name="inventory">
+        <scripts name="help">
+          <script>scripts\trainer_add_item.gml</script>
+          <script>scripts\trainer_remove_item.gml</script>
+          <script>scripts\trainer_has_item.gml</script>
+          <script>scripts\trainer_item_total.gml</script>
+          <script>scripts\trainer_item_pocket_total.gml</script>
+        </scripts>
+        <script>scripts\pawn_add_item.gml</script>
+        <script>scripts\pawn_remove_item.gml</script>
+        <script>scripts\pawn_item_total.gml</script>
+        <script>scripts\pawn_item_pocket_total.gml</script>
+        <script>scripts\pawn_has_item.gml</script>
+      </scripts>
+    </scripts>
+    <script>scripts\question.gml</script>
+    <script>scripts\scr_false.gml</script>
+    <script>scripts\scr_true.gml</script>
+    <script>scripts\singleton.gml</script>
+    <script>scripts\wait.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -1119,7 +1137,8 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="33">
+  <constants number="34">
+    <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>

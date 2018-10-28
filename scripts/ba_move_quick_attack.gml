@@ -39,7 +39,7 @@ if (t<t_wait){
 } else if (t<t_wait_2){
     user_draw.x=user_draw.battle_x;
     user_draw.y=user_draw.battle_y;
-    if (!ds_map_exists(misc_data, "hit")){
+    if (!ds_map_exists(misc_data, 'hit')){
         for (var i=0; i<ds_list_size(target_list); i++){
             // fade timestamps
             var t_fadein=0;
@@ -58,7 +58,7 @@ if (t<t_wait){
             }
         }
         audio_play_sound(se_hit, 1, false);
-        misc_data[? "hit"]=true;
+        misc_data[? 'hit']=true;
     }
     // otherwise wait
 } else if (t<t_terminate){

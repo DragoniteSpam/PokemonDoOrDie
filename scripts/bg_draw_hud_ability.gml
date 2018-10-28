@@ -9,5 +9,5 @@ if (user!=noone){
     
     // text row
     draw_rectangle_9s(spr_window9s_hgss, x, y, UI_BATTLE_HUD_WIDTH, height);
-    draw_text(x+32, y+32, user.name+"'s "+user.ability.name);
+    draw_text(x+32, y+32, L("%0's %1", user.name, user.ability.name));
 }

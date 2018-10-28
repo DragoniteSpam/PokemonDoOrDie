@@ -1,13 +1,13 @@
 var text_list=ds_list_create();
-ds_list_add(text_list, "Fight!", "Item", "Switch", "Flee");
+ds_list_add(text_list, L('Fight!'), L('Item'), L('Switch'), L('Flee'));
 
 if (DEBUG||World.settings.battle.idle_allowed){
-    ds_list_add(text_list, "Idle");
+    ds_list_add(text_list, L('Idle'));
 }
 if (DEBUG){
-    ds_list_add(text_list, "[Auto-heal]");
-    ds_list_add(text_list, "[Auto-KO]");
-    ds_list_add(text_list, "[Auto-Victory]");
+    ds_list_add(text_list, L('[Auto-heal]'));
+    ds_list_add(text_list, L('[Auto-KO]'));
+    ds_list_add(text_list, L('[Auto-Victory]'));
 }
 
 var max_n=ds_list_size(text_list);
@@ -15,7 +15,7 @@ var max_n=ds_list_size(text_list);
 draw_menu_from_list(text_list, World.message_option_index);
 World.message_option_index=menu_input(World.message_option_index, max_n);
 
-var debug_text="";
+var debug_text='';
 
 if (keyboard_check_released(vk_enter)){
     switch (World.message_option_index){
@@ -24,20 +24,20 @@ if (keyboard_check_released(vk_enter)){
             break;
         case 1:
             if (pawn_item_total(Battle.input_processing.owner)==0){
-                message(Battle.input_processing.owner.name+" has no available items!");
+                message(L('%0 has no available items!', Battle.input_processing.owner.name));
             } else {
                 Battle.input_stage=BattleInputStages.ITEM;
             }
             break;
         case 2:
             if (!pokemon_can_escape(Battle.input_processing)){
-                message(Battle.input_processing.name+" is trapped and can't get away!");
+                message(L("%0 is trapped and can't get away!", Battle.input_processing.name));
             } else {
                 Battle.input_stage=BattleInputStages.SWITCH;
             }
             break;
         case 3:
-            // todo if this turns into a "forfeit" button for Trainer battles,
+            // todo if this turns into a 'forfeit' button for Trainer battles,
             // you may want to bypass this check
             var team_trapped=false;
             // the runtime for this actually isn't very good but it's rare that
@@ -54,7 +54,7 @@ if (keyboard_check_released(vk_enter)){
             // too low, you may be unable to escape. i hate this mechanic and
             // won't be implementing it. you can, though.
             if (team_trapped){
-                message("Your team is trapped and unable to flee!");
+                message(L('Your team is trapped and unable to flee!'));
             } else {
 //                Battle.input_stage=BattleInputStages.FLEE;
             }
@@ -69,25 +69,25 @@ if (keyboard_check_released(vk_enter)){
             var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, BattleTargets.SELF, noone, 0));
             battle_input_processing_reset();
-            debug_text=pkmn.owner.name+" has chosen to idle for "+pkmn.name;
+            debug_text=pkmn.owner.name+' has chosen to idle for '+pkmn.name;
             break;
         case 5:
             var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.AUTOHEAL, pkmn, BattleTargets.SELF, noone, 0));
             battle_input_processing_reset();
-            debug_text=pkmn.owner.name+" has chosen to auto-full-heal "+pkmn.name;
+            debug_text=pkmn.owner.name+' has chosen to auto-full-heal '+pkmn.name;
             break;
         case 6:
             var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.AUTOKO, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
             battle_input_processing_reset();
-            debug_text=pkmn.owner.name+" has chosen to auto-KO all foes with "+pkmn.name;
+            debug_text=pkmn.owner.name+' has chosen to auto-KO all foes with '+pkmn.name;
             break;
         case 7:
             var pkmn=Battle.input_processing;
             battle_prioritize(add_battle_executable_action(BattleActions.AUTOVICTORY, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
             battle_input_processing_reset();
-            debug_text=pkmn.owner.name+" has chosen to end the battle with "+pkmn.name;
+            debug_text=pkmn.owner.name+' has chosen to end the battle with '+pkmn.name;
             break;
     }
 }

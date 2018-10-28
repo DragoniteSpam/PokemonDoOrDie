@@ -20,7 +20,7 @@ for (var i=1; i<=string_length(argument0); i++){
         result=result+(c-A+10);
     // otherwise complain
     } else {
-        show_error("bad input for hex(str)", true);
+        show_error('bad input for hex(str): '+argument0, true);
     }
 }
 

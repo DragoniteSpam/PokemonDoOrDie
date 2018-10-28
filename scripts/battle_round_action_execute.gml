@@ -64,8 +64,8 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 // turn processing, etc) feels kind of bad but it's probably the easiest way to do this
                 for (var i=0; i<ds_list_size(exe.targets); i++){
                     var sublist=ds_list_create();
-                    Battle.misc_data[? "stat raise animations"]=0;
-                    Battle.misc_data[? "stat fall animations"]=0;
+                    Battle.misc_data[? 'stat raise animations']=0;
+                    Battle.misc_data[? 'stat fall animations']=0;
                     for (var j=0; j<ds_list_size(move.effects); j++){
                         if (irandom(100)<=move.effect_odds[| j]||(DEBUG&&keyboard_check(vk_control))){
                             var effect_result=script_execute(move.effects[| j], pokemon, Battle.contestants[| exe.targets[| i]], exe.value);
@@ -82,7 +82,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                 var damage_attempts=array_sum(hit);
                 var effect_total=0;
                 // todo: check for flinches or other conditions which may invalidate the entire turn
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 used %1!', pokemon.name)));
+                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 used %1!', pokemon.name, move.name)));
                 // todo: other conditions under which a move may fail
                 
                 var hit_count=0;

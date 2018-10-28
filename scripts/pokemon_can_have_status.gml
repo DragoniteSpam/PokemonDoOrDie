@@ -12,7 +12,7 @@ if (argument1==MajorStatus.NONE){
 
 // There are a lot of conditions to determine whether or not you're
 // allowed to pick up a major status condition, so this switch tree
-// only detects the ones that would make that a "no" and the script
+// only detects the ones that would make that a 'no' and the script
 // returns true if none of them are met.
 switch (argument1){
     case MajorStatus.POISON:

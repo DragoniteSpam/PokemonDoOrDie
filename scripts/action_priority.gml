@@ -43,7 +43,7 @@ if (argument0.user.status==MajorStatus.PARALYZE){
 
 // add a random amount of floating point between -0.25 and 0.25 to account for speed ties
 // the range of possible numerical speeds is about between 1 and 3,000, so dividing the
-// result by 10,000 should be a pretty safe way to "normalize" it to a decimal
+// result by 10,000 should be a pretty safe way to 'normalize' it to a decimal
 f=(argument0.user.act[Stats.SPEED]*math_mod(argument0.user, Stats.SPEED)+random_range(-0.25, 0.25))/10000;
 
 return n+f*fmod;
