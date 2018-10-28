@@ -3,11 +3,11 @@
 // trying to make a custom battle system, I suggest you do that. But in
 // the meantime I'm going to hard-code this.
 
+// This value should be set whenever the input stage is set to this.
+// Yes, I gave it that ridiculously long name to be funny.
+var opt_out=Battle.misc_data[? 'allowed to not send anybody in'];
+
 if (keyboard_check_released(vk_enter)){
-    // This value should be set whenever the input stage is set to this.
-    // Yes, I gave it that ridiculously long name to be funny.
-    var opt_out=Battle.misc_data[? 'allowed to not send anybody in'];
-    
     if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
         if (opt_out){
             battle_input_processing_reset();
@@ -31,5 +31,12 @@ if (keyboard_check_released(vk_enter)){
             battle_input_processing_reset();
             battle_advance();
         }
+    }
+} else if (keyboard_check_released(vk_escape)){
+    if (opt_out){
+        battle_input_processing_reset();
+        battle_advance();
+    } else {
+        message(L('You need to select somebody to send in!'));
     }
 }

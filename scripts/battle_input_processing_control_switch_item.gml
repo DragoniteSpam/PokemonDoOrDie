@@ -15,4 +15,6 @@ if (keyboard_check_released(vk_enter)){
             battle_debug(pkmn.owner.name+' has chosen to use a(n) '+get_item(item).name);
         }
     }
+} else if (keyboard_check_released(vk_escape)){
+    battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
 }

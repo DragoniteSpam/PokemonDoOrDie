@@ -18,4 +18,6 @@ if (keyboard_check_released(vk_enter)){
         
         battle_debug(pkmn.owner.name+' has chosen to switch to '+target.name+'.');
     }
+} else if (keyboard_check_released(vk_escape)){
+    battle_input_processing_reset(false);
 }

@@ -62,6 +62,8 @@ if (keyboard_check_released(vk_enter)){
                 break;
         }
     }
+} else if (keyboard_check_released(vk_escape)){
+    battle_input_processing_reset(false, BattleInputStages.ITEM);
 }
 
 ds_list_destroy(text_list);

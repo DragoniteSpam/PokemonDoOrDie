@@ -26,6 +26,8 @@ if (keyboard_check_released(vk_enter)){
         battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
         Battle.view_item_pocket=pocket_list[| World.message_option_index];
     }
+} else if (keyboard_check_released(vk_escape)){
+    battle_input_processing_reset(false);
 }
 
 ds_list_destroy(text_list);
