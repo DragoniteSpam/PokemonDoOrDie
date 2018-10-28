@@ -57,7 +57,7 @@ if (keyboard_check_released(vk_enter)){
                 if (output!=noone){
                     battle_prioritize(output);
                     battle_input_processing_reset();
-                    continue_message=pkmn.owner.name+' has chosen to use a(n) '+get_item(item).name;
+                    continue_message=Battle.input_processing.owner.name+' has chosen to use a(n) '+get_item(item).name;
                 }
                 break;
         }

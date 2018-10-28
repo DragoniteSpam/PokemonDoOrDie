@@ -16,7 +16,7 @@ if (keyboard_check_released(vk_enter)){
             message(L('You need to select somebody to send in!'));
         }
     } else {
-        var target=Camera.battle_pawn.party[| World.message_option_index];
+        var target=Battle.input_processing.owner.party[| World.message_option_index];
         
         if (!alive(target)){
             message(L('%0 is unable to fight!', target.name));

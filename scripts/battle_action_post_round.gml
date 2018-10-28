@@ -15,6 +15,10 @@
 // trapping moves (whirlpool, fire spin, etc)
 for (var i=0; i<ds_list_size(contestants); i++){
     if (contestants[| i]!=noone){
+        // anything that can get silently reset
+        contestants[| i].flinch=false;
+        
+        // anything that the player ought to be informed about
         var contestant=contestants[| i];
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_post_trap_damage, i));
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_post_major_status_damage, i));
