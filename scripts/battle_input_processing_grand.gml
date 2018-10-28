@@ -20,20 +20,20 @@ var debug_text='';
 if (keyboard_check_released(vk_enter)){
     switch (World.message_option_index){
         case 0:
-            Battle.input_stage=BattleInputStages.MOVE;
+            battle_input_processing_reset(false, BattleInputStages.MOVE);
             break;
         case 1:
             if (pawn_item_total(Battle.input_processing.owner)==0){
                 message(L('%0 has no available items!', Battle.input_processing.owner.name));
             } else {
-                Battle.input_stage=BattleInputStages.ITEM;
+                battle_input_processing_reset(false, BattleInputStages.ITEM);
             }
             break;
         case 2:
             if (!pokemon_can_escape(Battle.input_processing)){
                 message(L("%0 is trapped and can't get away!", Battle.input_processing.name));
             } else {
-                Battle.input_stage=BattleInputStages.SWITCH;
+                battle_input_processing_reset(false, BattleInputStages.SWITCH);
             }
             break;
         case 3:
@@ -56,7 +56,7 @@ if (keyboard_check_released(vk_enter)){
             if (team_trapped){
                 message(L('Your team is trapped and unable to flee!'));
             } else {
-//                Battle.input_stage=BattleInputStages.FLEE;
+                //battle_input_processing_reset(BattleInputStages.FLEE);
             }
             break;
         // because we sort of know the order in which these options will appear

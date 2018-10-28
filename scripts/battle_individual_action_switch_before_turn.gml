@@ -10,7 +10,7 @@ World.message_option_result=-1;
 // 1 is usually true, but in this case we're actually checking
 // to see if the result is equal to zero.
 if (result==0){
-    Battle.input_stage=BattleInputStages.SWITCH_BEFORE_TURN;
+    battle_input_processing_reset(false, BattleInputStages.SWITCH_BEFORE_TURN);
     Battle.misc_data[? 'contestant slot to replace']=params[| 0];
     Battle.misc_data[? 'allowed to not send anybody in']=true;
     Battle.input_processing=Battle.contestants[| params[| 0]];

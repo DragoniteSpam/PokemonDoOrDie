@@ -23,7 +23,7 @@ if (keyboard_check_released(vk_enter)){
     if (World.message_option_index==max_n-1){
         battle_input_processing_reset(false);
     } else {
-        Battle.input_stage=BattleInputStages.ITEM_INTERNAL;
+        battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
         Battle.view_item_pocket=pocket_list[| World.message_option_index];
     }
 }

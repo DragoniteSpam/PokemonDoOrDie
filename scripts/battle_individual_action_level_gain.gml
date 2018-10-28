@@ -10,7 +10,7 @@ var pkmn=params[| 0];
 // gain a level
 
 Battle.input_processing=pkmn;
-Battle.input_stage=BattleInputStages.LEVEL_STAT_DELTA;
+battle_input_processing_reset(false, BattleInputStages.LEVEL_STAT_DELTA);
 
 Battle.misc_data[? 'who']=params[| 0];
 Battle.misc_data[? 'old level']=params[| 1];

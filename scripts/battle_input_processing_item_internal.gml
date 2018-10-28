@@ -5,7 +5,7 @@ var list=get_trainer(Battle.input_processing.owner.trainer_index).items[argument
 for (var i=0; i<ds_list_size(list); i++){
     var stack=list[| i];
     if (stack.count>1){
-        ds_list_add(text_list, L('%0 x %1', get_item(stack.index).name));
+        ds_list_add(text_list, L('%0 x %1', get_item(stack.index).name, stack.count));
     } else {
         ds_list_add(text_list, L('%0', get_item(stack.index).name));
     }

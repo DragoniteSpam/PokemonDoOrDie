@@ -1,9 +1,8 @@
 /// void battle_input_processing_control_switch_item();
 
 if (keyboard_check_released(vk_enter)){
-    if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
-        battle_input_processing_reset(BattleInputStages.ITEM_INTERNAL);
-        battle_advance();
+    if (World.message_option_index==ds_list_size(Battle.input_processing.owner.party)){
+        battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
     } else {
         var pkmn=Battle.input_processing.owner.party[| World.message_option_index];
         var item=Battle.misc_data[? 'item to use'];

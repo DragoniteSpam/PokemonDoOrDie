@@ -29,5 +29,5 @@ draw_text(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+1.5*text_spacing+text_s
 draw_text(box_x+text_spacing+UI_TEXT_BOX_OFFSET_W, box_y+1.5*text_spacing+text_spacing*6, L('+%0 Speed', delta_spe));
 
 if (keyboard_check_released(vk_enter)||keyboard_check_released(vk_escape)){
-    Battle.input_stage=BattleInputStages.LEVEL_STAT_TOTAL;
+    battle_input_processing_reset(false, BattleInputStages.LEVEL_STAT_TOTAL);
 }
