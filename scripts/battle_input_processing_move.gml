@@ -25,7 +25,7 @@ if (total_pp(pkmn)==0){
     ds_list_add(targets, random_element_from_list(valid_targets));
     ds_list_destroy(valid_targets);
     
-    battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
+    battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, targets, value));
     
     battle_input_processing_reset();
     
@@ -64,7 +64,7 @@ if (total_pp(pkmn)==0){
             ds_list_add(targets, random_element_from_list(valid_targets));
             ds_list_destroy(valid_targets);
             
-            battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, BattleTargets.OPPONENT, targets, value));
+            battle_prioritize(add_battle_executable_action(BattleActions.MOVE, pkmn, targets, value));
             
             battle_input_processing_reset();
             

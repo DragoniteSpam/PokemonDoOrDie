@@ -42,6 +42,7 @@ flags=0;
 
 effects=ds_list_create();
 effect_odds=ds_list_create();
+ai_score_modification=ds_list_create();
 
 animation=ba_move_basic;
 animation_blending_color=c_white;
@@ -98,6 +99,10 @@ enum MoveCategories {
 // depend on it. I'd use an int64 ('long') instead but the
 // logical operators apparently won't give you an int64 back
 // and that might make things complicated.
+
+// If for some reason you need to add more than 32-ish move
+// flags it's probably safest and least headache-inducing to
+// make a MoveFlagsB enum and variable.
 enum MoveFlags {
     /*a*/CONTACT=1,
     /*b*/PROTECTABLE_OFFENSE=2,
@@ -140,6 +145,7 @@ enum MoveFlags {
 
 ds_list_destroy(effects);
 ds_list_destroy(effect_odds);
+ds_list_destroy(ai_score_modification);
 </string>
           </argument>
         </arguments>

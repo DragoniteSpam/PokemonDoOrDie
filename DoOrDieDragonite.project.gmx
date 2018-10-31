@@ -710,6 +710,30 @@
         <scripts name="help">
           <script>scripts\battle_get_valid_targets.gml</script>
         </scripts>
+        <scripts name="standard ai">
+          <script>scripts\battle_ai_move_score.gml</script>
+          <script>scripts\battle_ai_choose_move.gml</script>
+          <script>scripts\battle_ai_can_choose_move.gml</script>
+          <scripts name="move effects">
+            <script>scripts\baim_no_effect.gml</script>
+            <script>scripts\baim_trap.gml</script>
+            <script>scripts\baim_poison_target.gml</script>
+            <script>scripts\baim_burn_target.gml</script>
+            <script>scripts\baim_paralyze_target.gml</script>
+            <script>scripts\baim_flinch.gml</script>
+            <script>scripts\baim_user_heal_half.gml</script>
+            <script>scripts\baim_reflect.gml</script>
+            <script>scripts\baim_confuse.gml</script>
+            <script>scripts\baim_user_attack_raise_1.gml</script>
+            <script>scripts\baim_user_sp_attack_raise_1.gml</script>
+            <script>scripts\baim_user_speed_raise_1.gml</script>
+            <script>scripts\baim_target_defense_decrease_1.gml</script>
+            <script>scripts\baim_target_sp_defense_decrease_1.gml</script>
+            <script>scripts\baim_target_accuracy_decrease_1.gml</script>
+            <script>scripts\baim_target_speed_decrease_1.gml</script>
+          </scripts>
+          <script>scripts\battle_ai_should_withdraw.gml</script>
+        </scripts>
       </scripts>
       <scripts name="player input processing">
         <script>scripts\battle_input_processing.gml</script>
@@ -865,6 +889,7 @@
           <script>scripts\pbs_read_items.gml</script>
           <script>scripts\pbs_read_abilities.gml</script>
           <script>scripts\pbs_read_move_function_code.gml</script>
+          <script>scripts\pbs_read_move_ai_code.gml</script>
           <script>scripts\pbs_read_item_overworld_code.gml</script>
           <script>scripts\pbs_read_item_battle_code.gml</script>
           <script>scripts\pbs_read_item_pocket.gml</script>
@@ -959,6 +984,7 @@
       <script>scripts\action_priority.gml</script>
       <script>scripts\choose_gender.gml</script>
       <script>scripts\approach.gml</script>
+      <script>scripts\estimated_accuracy.gml</script>
       <script>scripts\battle_damage.gml</script>
       <script>scripts\boolean.gml</script>
       <scripts name="data structures">
@@ -977,6 +1003,8 @@
         <script>scripts\ds_queue_destroy_instances.gml</script>
         <script>scripts\random_element_from_array.gml</script>
         <script>scripts\random_element_from_list.gml</script>
+        <script>scripts\array_max.gml</script>
+        <script>scripts\array_standard_deviation.gml</script>
       </scripts>
       <scripts name="file">
         <script>scripts\ini_read_boolean.gml</script>
@@ -1026,6 +1054,7 @@
       <scripts name="monsters">
         <script>scripts\alive.gml</script>
         <script>scripts\get_matchup_on.gml</script>
+        <script>scripts\get_matchup_on_pokemon.gml</script>
         <script>scripts\has_type.gml</script>
         <script>scripts\heal.gml</script>
         <script>scripts\heal_all.gml</script>
@@ -1042,7 +1071,13 @@
           <script>scripts\pokemon_can_flinch.gml</script>
           <script>scripts\pokemon_can_confuse.gml</script>
           <script>scripts\pokemon_can_escape.gml</script>
+          <script>scripts\pokemon_can_lower_stat.gml</script>
+          <script>scripts\pokemon_can_raise_stat.gml</script>
         </scripts>
+        <script>scripts\pokemon_hp_f.gml</script>
+        <script>scripts\pokemon_calculated_stat.gml</script>
+        <script>scripts\pokemon_live_teammate_count.gml</script>
+        <script>scripts\get_pokemon_level.gml</script>
       </scripts>
       <script>scripts\pawn_create.gml</script>
       <scripts name="inventory">

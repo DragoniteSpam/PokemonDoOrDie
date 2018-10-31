@@ -12,6 +12,9 @@ if (keyboard_check_released(vk_enter)){
         if (output!=noone){
             battle_prioritize(output);
             battle_input_processing_reset();
+            // todo IN MULTI BATTLES you need to mark the item as "in use"
+            // so you can't use it more than once on the same turn, for both
+            // you and the ai.
             battle_debug(pkmn.owner.name+' has chosen to use a(n) '+get_item(item).name);
         }
     }

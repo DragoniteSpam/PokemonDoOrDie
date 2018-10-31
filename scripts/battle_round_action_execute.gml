@@ -187,6 +187,9 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     pokemon.momentum_turn=0;
                     pokemon.momentum_move=-1
                 }
+                
+                // it doesn't have to succeed but as long as the move lands this gets set
+                pokemon.last_move=exe.value;
             }
             break;
         case BattleActions.ITEM:

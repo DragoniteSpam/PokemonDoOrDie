@@ -5,9 +5,9 @@ var item=argument1;
 
 // you could check for the need to heal confusion, infatuation
 // and any other minor statuses you may wish to add, if you want
-if (user.act_hp==user.act[Stats.HP]&&user.status==MajorStatus.NONE){
+if (pokemon_hp_f(user)==1&&user.status==MajorStatus.NONE){
     message(L('%0 is pretty healthy already!', user.name));
     return noone;
 }
 
-return add_battle_executable_action(BattleActions.ITEM, user, BattleTargets.SELF, noone, item);
+return add_battle_executable_action(BattleActions.ITEM, user, noone, item);

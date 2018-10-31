@@ -17,6 +17,7 @@ for (var i=0; i<ds_list_size(contestants); i++){
     if (contestants[| i]!=noone){
         // anything that can get silently reset
         contestants[| i].flinch=false;
+        contestants[| i].turn_count++;
         
         // anything that the player ought to be informed about
         var contestant=contestants[| i];

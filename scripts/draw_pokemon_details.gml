@@ -91,7 +91,7 @@ for (var i=0; i<ds_list_size(stat_text); i++){
         var yy=start_y+96+32*i;
         draw_text(content_x+picture_buffer, yy, stat_text[| i]);
         draw_text(content_x+picture_buffer+160, yy, string(argument0.act_hp)+'/'+string(argument0.act[i]));
-        draw_health_bar(content_x+picture_buffer+80, yy+32-bar_height/2, content_x+picture_buffer+80+bar_length, yy+32+bar_height/2, argument0.act_hp/argument0.act[Stats.HP]);
+        draw_health_bar(content_x+picture_buffer+80, yy+32-bar_height/2, content_x+picture_buffer+80+bar_length, yy+32+bar_height/2, pokemon_hp_f(argument0));
     } else {
         if (nature.affects[i]>1){
             var nc=c_red;

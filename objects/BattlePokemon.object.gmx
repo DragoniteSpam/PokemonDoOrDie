@@ -95,9 +95,11 @@ status_turn=0;                              // how much damage you take from Tox
 // if/when you add more to this list REMEMBER TO MIRROR THE CHANGES
 // IN pokemon_reset_battle_stat_mods UNLESS YOU WANT IT TO PERSIST BETWEEN FIGHTS.
 
-// volatile status
+// volatile status (pokemon_reset_volatile_stat_mods)
 confused=0;
 flinch=false;
+turn_count=0;
+last_move=-1;
 
 // this is so that the game can know that you've fainted before it executes the action that
 // makes you faint, i.e. to keep fainted pokémon from executing moves or beint targeted by other moves

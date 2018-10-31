@@ -68,25 +68,25 @@ if (keyboard_check_released(vk_enter)){
         // selected what you think you selected, though.
         case 4:
             var pkmn=Battle.input_processing;
-            battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, BattleTargets.SELF, noone, 0));
+            battle_prioritize(add_battle_executable_action(BattleActions.IDLE, pkmn, noone, 0));
             battle_input_processing_reset();
             debug_text=pkmn.owner.name+' has chosen to idle for '+pkmn.name;
             break;
         case 5:
             var pkmn=Battle.input_processing;
-            battle_prioritize(add_battle_executable_action(BattleActions.AUTOHEAL, pkmn, BattleTargets.SELF, noone, 0));
+            battle_prioritize(add_battle_executable_action(BattleActions.AUTOHEAL, pkmn, noone, 0));
             battle_input_processing_reset();
             debug_text=pkmn.owner.name+' has chosen to auto-full-heal '+pkmn.name;
             break;
         case 6:
             var pkmn=Battle.input_processing;
-            battle_prioritize(add_battle_executable_action(BattleActions.AUTOKO, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
+            battle_prioritize(add_battle_executable_action(BattleActions.AUTOKO, pkmn, battle_get_valid_targets(pkmn, -1), 0));
             battle_input_processing_reset();
             debug_text=pkmn.owner.name+' has chosen to auto-KO all foes with '+pkmn.name;
             break;
         case 7:
             var pkmn=Battle.input_processing;
-            battle_prioritize(add_battle_executable_action(BattleActions.AUTOVICTORY, pkmn, BattleTargets.SELF, battle_get_valid_targets(pkmn, -1), 0));
+            battle_prioritize(add_battle_executable_action(BattleActions.AUTOVICTORY, pkmn, battle_get_valid_targets(pkmn, -1), 0));
             battle_input_processing_reset();
             debug_text=pkmn.owner.name+' has chosen to end the battle with '+pkmn.name;
             break;

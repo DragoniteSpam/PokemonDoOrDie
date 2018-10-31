@@ -1,6 +1,6 @@
 /// void bi_post_turn_leftovers(queue, BattlePokemon, item);
 
-if (argument1.act_hp<argument1.act[Stats.HP]){
+if (pokemon_hp_f(argument1)<1){
     // there are some conditions that can cause this to fail such as
     // Heal Block effects or probably the Klutz ability, but none of them
     // are going to come into play here

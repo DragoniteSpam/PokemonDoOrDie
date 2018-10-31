@@ -19,6 +19,8 @@ argument0.trapped_residual_damage=0;
 
 argument0.confused=0;
 argument0.flinch=false;
+argument0.turn_count=0;
+argument0.last_move=-1;
 
 // entrapment isn't a volatile status on your part, but on your foes
 

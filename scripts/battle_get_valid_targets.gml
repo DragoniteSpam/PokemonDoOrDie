@@ -1,9 +1,9 @@
-/// list battle_get_valid_targets(user, move index);
+/// list battle_get_valid_targets(user, move index=-1);
 // note: this returns a list of battlefield positions, not BattlePokemon,
 // as it did originally. you want a move to target a position, not an individual,
 // in the case that the individual switches out before the move lands.
 
-if (argument1>=0){
+if (argument1>-1){
     var move_target=get_move(argument1).target;
 } else {
     var move_target=MoveTargets.ALLOPPONENTS;

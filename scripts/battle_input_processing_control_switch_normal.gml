@@ -13,7 +13,7 @@ if (keyboard_check_released(vk_enter)){
     } else {
         var index=World.message_option_index;
         var pkmn=Battle.input_processing;
-        battle_prioritize(add_battle_executable_action(BattleActions.SWITCH, pkmn, BattleTargets.SELF, noone, World.message_option_index));
+        battle_prioritize(add_battle_executable_action(BattleActions.SWITCH, pkmn, noone, World.message_option_index));
         battle_input_processing_reset();
         
         battle_debug(pkmn.owner.name+' has chosen to switch to '+target.name+'.');

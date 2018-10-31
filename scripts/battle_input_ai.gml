@@ -1,10 +1,26 @@
 /// void battle_input_ai(pokemon);
 
+enum TrainerAI {
+    MINIMUM=1,
+    MEDIUM=32,
+    HIGH=48,
+    BEST=100
+}
+
 var team=argument0.owner.team;
 
 // todo something with this eventually
 var can_escape=pokemon_can_escape(argument0);
 
+var move_scores=array_create(array_length_1d(argument0.moves));
+array_clear(move_scores, 0);
+var total_score=0;
+
+var valid_targets=battle_get_valid_targets();
+var target=random_element_from_list(valid_targets);
+ds_list_destroy(valid_targets);
+
+/*
 var value;
 // todo if you have no PP and don't want to switch, AI should struggle
 if (total_pp(argument0)>0){
@@ -30,7 +46,8 @@ ds_list_destroy(valid_targets);
 // todo on the off chance that the ai wants to flee or switch, remember to check
 // if they're being trapped by anyone. this is intended to be done when the moves
 // are chosen, not when the moves are processed.
-battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument0, BattleTargets.OPPONENT, targets, value));
+battle_prioritize(add_battle_executable_action(BattleActions.MOVE, argument0, targets, value));
+*/
 
 // continue:
 battle_debug(team.owner.name+' has chosen the move '+get_move(value).name+' for '+argument0.name);

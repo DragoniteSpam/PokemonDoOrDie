@@ -28,6 +28,9 @@ if (move.accuracy==0){
         }
         // todo fly, dig, dive
         var target=Battle.contestants[| argument2[| i]];
+        // todo re-format this so that it uses estimated_accuracy and the
+        // output value checks roll < accuracy calculation instead of whatever
+        // it checks right now
         var roll=accuracy_base+accuracy_modifier*random_range(0, 100)*math_mod(argument1, Stats.ACCURACY)/math_mod(target, Stats.EVADE);
         output[i]=(roll<move.accuracy);
     }

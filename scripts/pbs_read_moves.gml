@@ -14,6 +14,7 @@ for (var i=0; i<ds_list_size(text); i++){
     var name='';
     var internal_name='';
     var effect_codes=array_create(0);
+    var ai_codes=array_create(0);
     var base_power=50;
     var type=Types.NORMAL;
     var category=MoveCategories.PHYSICAL;
@@ -119,13 +120,14 @@ for (var i=0; i<ds_list_size(text); i++){
             for (var j=array_length_1d(effect_codes)-1; j>=0; j--){
                 effect_chances[j]=ec;
             }
+            ai_codes=pbs_read_move_ai_code(terms[3]);
         case 3:
             name=terms[2];
         case 2:
             internal_name=terms[1];
     }
     
-    array[i]=add_move(name, type, category, pp, base_power, accuracy, priority, target, description, ba_move_basic, effect_codes, effect_chances, flags, internal_name);
+    array[i]=add_move(name, type, category, pp, base_power, accuracy, priority, target, description, ba_move_basic, effect_codes, effect_chances, flags, ai_codes, internal_name);
 }
 
 ds_list_destroy(text);

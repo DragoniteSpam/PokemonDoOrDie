@@ -36,7 +36,7 @@ if (user!=noone){
     draw_text(x+UI_BATTLE_HUD_WIDTH-32, text_y, level_string);
     
     // hp bar row
-    draw_health_bar(x+UI_BATTLE_HUD_WIDTH/2, hp_bar_y-bar_height/2, x+UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X, hp_bar_y+bar_height/2, user.act_hp/user.act[Stats.HP]);
+    draw_health_bar(x+UI_BATTLE_HUD_WIDTH/2, hp_bar_y-bar_height/2, x+UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X, hp_bar_y+bar_height/2, pokemon_hp_f(user));
     /*
      * if user.owner.battle_show_details:
      *   - show exp bar (can be placeholder for now)

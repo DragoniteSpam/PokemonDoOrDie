@@ -1,4 +1,4 @@
-/// int battle_damage(move, user, target, [critical?], [effects list]);
+/// int battle_damage(DataMove, user, target, [critical?], [effects list], [ignore randomness]);
 
 var move=argument[0];
 var user=argument[1];
@@ -6,7 +6,10 @@ var target=argument[2];
 
 var critical_hit=false;
 var effects_list=noone;
+var ignore_randomness=false;
 switch (argument_count){
+    case 6:
+        ignore_randomness=argument[5];
     case 5:
         effects_list=argument[4];
     case 4:
@@ -20,6 +23,9 @@ var mod_weather=1;
 var mod_badge=1;
 var mod_critical=1;
 var mod_random=random_range(0.85, 1);
+if (ignore_randomness){
+    mod_random=1;
+}
 var mod_stab=1;
 var mod_effects=1;
 if (effects_list==noone){
@@ -35,12 +41,13 @@ if (effects_list==noone){
 }
 var mod_burn=1;
 var mod_other=1;
-if (user.act_hp/user.act[Stats.HP]<=World.settings.battle.ability_low_health_threshold){
+if (pokemon_hp_f(user)<=World.settings.battle.ability_low_health_threshold){
     mod_other=mod_other*user.ability.low_health_factor[move.type];
 }
 if (user.item!=-1){
     mod_other=mod_other*script_execute(get_item(user.item).battle_hold_damage_mod, user, target, move);
 }
+// todo target item, Chople Berry and whatnot
 
 // no need to waste time with fancy arithmetic
 // (you may want to do this with some of the other mods as well)

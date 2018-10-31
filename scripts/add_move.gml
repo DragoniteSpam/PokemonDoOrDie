@@ -1,4 +1,4 @@
-/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects, effect odds, flags, internal name);
+/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects, effect odds, flags, ai codes, internal name);
 
 with (instance_create(0, 0, DataMove)){
     name=argument[0];
@@ -23,7 +23,13 @@ with (instance_create(0, 0, DataMove)){
     
     flags=argument[12];
     
-    pbs_internal_name=argument[13];
+    array=argument[13];
+    
+    for (var i=0; i<array_length_1d(array); i++){
+        ds_list_add(ai_score_modification, array[i]);
+    }
+    
+    pbs_internal_name=argument[14];
     
     return id;
 }
