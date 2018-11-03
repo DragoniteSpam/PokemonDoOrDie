@@ -894,6 +894,8 @@
           <script>scripts\pbs_read_item_overworld_code.gml</script>
           <script>scripts\pbs_read_item_battle_code.gml</script>
           <script>scripts\pbs_read_item_pocket.gml</script>
+          <script>scripts\pbs_read_item_ai_flags.gml</script>
+          <script>scripts\pbs_read_item_values.gml</script>
           <script>scripts\pbs_cleanup.gml</script>
         </scripts>
         <script>scripts\add_individual_evolution.gml</script>
@@ -1030,6 +1032,7 @@
         <script>scripts\math_mod.gml</script>
         <script>scripts\recalculate_all_stats.gml</script>
         <script>scripts\recalculate_stat.gml</script>
+        <script>scripts\get_status_class.gml</script>
       </scripts>
       <scripts name="string">
         <script>scripts\string_minimal.gml</script>

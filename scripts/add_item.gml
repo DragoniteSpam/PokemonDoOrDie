@@ -1,4 +1,4 @@
-/// DataItem add_item(name, plural, pocket, price, overworld, battle, spcial, value, summary, internal name);
+/// DataItem add_item(name, plural, pocket, price, overworld, battle, spcial, value, ai flags, summary, internal name);
 
 // todo when it comes time to ACTUALLY load items from
 // a file, it may be a good idea to something similar
@@ -14,8 +14,10 @@ with (instance_create(0, 0, DataItem)){
     
     value=argument7;
     
-    summary=argument8;
-    pbs_internal_name=argument9;
+    ai_flags=argument8;
+    
+    summary=argument9;
+    pbs_internal_name=argument10;
     
     return id;
 }

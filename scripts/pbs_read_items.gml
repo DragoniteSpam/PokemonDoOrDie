@@ -17,11 +17,12 @@ for (var i=0; i<ds_list_size(text); i++){
     var overworld=ItemOverworldUsability.NOPE;
     var battle=ItemBattleUsability.NOPE;
     var special=null;
-    var move=-1;
+    var ai_flags=ItemAIFlags.NONE;
+    var value=-1;
     
     switch (array_length_1d(terms)){
         case 11:
-            move=get_move_from_name(terms[10], true);
+            value=get_move_from_name(terms[10], true);
         case 10:
             // this will probably not be used
             //special=real(terms[9]);
@@ -44,9 +45,11 @@ for (var i=0; i<ds_list_size(text); i++){
             name=terms[2];
         case 2:
             internal_name=terms[1];
+            ai_flags=pbs_read_item_ai_flags(internal_name);
+            value=pbs_read_item_values(internal_name, value);
     }
     
-    array[i]=add_item(name, plural, pocket, price, overworld, battle, special, move, description, internal_name);
+    array[i]=add_item(name, plural, pocket, price, overworld, battle, special, value, ai_flags, description, internal_name);
 }
 
 ds_list_destroy(text);

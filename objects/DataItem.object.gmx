@@ -44,7 +44,7 @@ special=null;
 // the id of the move that the tm/hm attaches to this item, or the
 // amount of health restored...
 value=0;
-ai_flags=ItemAITags.NONE;
+ai_flags=ItemAIFlags.NONE;
 
 battle_use_from_bag=bi_no_use;
 battle_use_action=bi_action_no_use;

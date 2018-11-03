@@ -22,7 +22,7 @@ if (alive(user)/* todo &&!user.embargo*/){
                 }
             } // endif potion
             if (item_get_flag(base_item, ItemAIFlags.HEAL_SELECT_STATUS)){
-                if (base_item.value==user.status){
+                if (base_item.value==get_status_class(user)){
                     use_me=true;
                 }
             } // endif antidote
