@@ -11,7 +11,7 @@ var choices=ds_list_create();
 
 var result=noone;
 
-var valid_targets=battle_get_valid_targets();
+var valid_targets=battle_get_valid_targets(user);
 var target=random_element_from_list(valid_targets);
 ds_list_destroy(valid_targets);
 

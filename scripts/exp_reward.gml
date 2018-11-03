@@ -4,8 +4,8 @@ var a=1;    // 1 if wild pokémon, 1.5 if trainer pokémon, 1 if gen 7 rules
 var b=get_pokemon(argument1.species).reward_exp;
 var e=1;    // 1 if no lucky egg held, 1.5 if lucky egg held
 var f=1;    // 1.2 if two hearts of affection, 1 otherwise
-var l=get_level(argument1, get_pokemon(argument1.species).growth_rate);
-var lp=get_level(argument0, get_pokemon(argument0.species).growth_rate);
+var l=get_pokemon_level(argument1);
+var lp=get_pokemon_level(argument0);
 var p=1;    // 1 if no experience power is active, (n) for experience point power
 var s=2;    // no exp share:
             //   - twice the number of pokémon who have participated in the battle and survived
@@ -17,7 +17,7 @@ var s=2;    // no exp share:
 var t=1;    // 1 if this bis ot, 1.5 if domestically obtained, 1.7 if internationally obtained
 var v=1;    // 1.2 if should have evolved and gen 6+ rules, 1 otherwise
 
-var level=get_level(argument0.experience, get_pokemon(argument0.species).growth_rate);
+var level=get_pokemon_level(argument0);
 var next=get_experience(level+1, get_pokemon(argument0.species).growth_rate);
 var difference=next-argument0.experience;
 

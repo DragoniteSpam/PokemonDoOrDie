@@ -2,7 +2,7 @@ var gain=misc_data[? 'gain'];
 var current=misc_data[? 'current'];
 var base=get_pokemon(user.species);
 
-var current_level=get_level(current, base.growth_rate);
+var current_level=get_pokemon_level(current);
 var current_level_exp=get_experience(current_level, base.growth_rate);
 var next_level_exp=get_experience(current_level+1, base.growth_rate);
 var difference_exp=next_level_exp-current_level_exp;

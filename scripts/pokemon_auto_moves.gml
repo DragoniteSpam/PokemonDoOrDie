@@ -1,7 +1,7 @@
 /// void pokemon_auto_moves(BattlePokemon);
 
 var base=get_pokemon(argument0.species);
-var l=get_level(argument0.experience, base.growth_rate);
+var l=get_pokemon_level(argument0);
 
 var n=ds_list_size(base.moves)-1;
 var count=0;

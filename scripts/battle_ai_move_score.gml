@@ -97,7 +97,7 @@ if (move.value>0){
         // todo if user has stench, prioritize non-flinching moves slightly
         
         // if level difference is significant prioritize attacking moves
-        if (get_level(user.experience, get_pokemon(user.species).growth_rate)>=1.2*get_level(target.experience, get_pokemon(target.species).growth_rate)){
+        if (get_pokemon_level(user)>=1.2*get_pokemon_level(target)){
             output=output*1.2;
         }
         

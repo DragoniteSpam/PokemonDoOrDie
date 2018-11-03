@@ -62,7 +62,7 @@ if (critical_hit){
     mod_critical=2;
 }
 
-var level=get_level(argument[1].experience, get_pokemon(argument[1].species).growth_rate);
+var level=get_pokemon_level(argument[1]);
 
 var cat_offense, cat_defense;
 var offense, defense, offense_mod, defense_mod;

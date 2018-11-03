@@ -1,6 +1,6 @@
-/// int battle_ai_withdraw(index, always?);
+/// int battle_ai_withdraw(BattlePokemon, always?);
 
-var user=Battle.contestants[| argument0];
+var user=argument0;
 var should_switch=argument1;
 
 if (!pokemon_can_escape(user)){
@@ -23,7 +23,7 @@ if (user.turn_count>0){
             // but probably shouldn't be game-breaking.
             if (alive(target)&&target.last_move>-1){
                 var move=get_move(target.last_move);
-                if (abs(get_level(target)-get_level(user))<=6){
+                if (abs(get_pokemon_level(target)-get_pokemon_level(user))<=6){
                     var type_mod=get_matchup_on(move.type, user, noone, target);
                     if (move.value>70&&type_mod>=2){
                         should_switch=should_switch||(random(100)<30);

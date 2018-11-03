@@ -1,6 +1,6 @@
-/// int battle_ai_item(index);
+/// int battle_ai_item(BattlePokemon);
 
-var user=Battle.contestants[| argument0];
+var user=argument0;
 var skill=max(TrainerAI.MINIMUM, get_trainer_class(get_trainer(user.owner.trainer_index).class).ai);
 var result=noone;
 

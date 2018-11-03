@@ -2,7 +2,7 @@
 
 if (user!=noone){
     var base=get_pokemon(user.species);
-    var level=get_level(user.experience, base.growth_rate);
+    var level=get_pokemon_level(user);
     var bar_height=16;
     var exp_bar_height=12;
     var text_y=y+32;

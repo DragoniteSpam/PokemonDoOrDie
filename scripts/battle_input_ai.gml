@@ -15,7 +15,7 @@ var can_escape=pokemon_can_escape(argument0);
 var evaluate=battle_ai_item(argument0);
 
 if (evaluate==noone){
-    evaluate=battle_ai_withdraw(argument0);
+    evaluate=battle_ai_withdraw(argument0, false);
 }
 
 if (evaluate==noone){

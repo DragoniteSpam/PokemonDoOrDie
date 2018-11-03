@@ -50,7 +50,7 @@ draw_set_font(FPokemonMedium);
 
 // this feels off-centered but i can't for the life of me figure out why
 // that would be, the math is really simple
-var level=get_level(argument0.experience, base_species.growth_rate);
+var level=get_pokemon_level(argument0);
 draw_text(start_x+picture_width/2, H/2+picture_height*0.6, L('Lv.')+' '+string(level));
 if (level<MAX_LEVEL){
     var to_next=get_experience(level+1, base_species.growth_rate)
