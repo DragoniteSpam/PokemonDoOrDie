@@ -41,9 +41,10 @@ battle=bi_no_use;
 // quite yet
 special=null;
 
-// ordinarily the id of the move that the tm/hm attaches to this item
-// but not necessarily
+// the id of the move that the tm/hm attaches to this item, or the
+// amount of health restored...
 value=0;
+ai_flags=ItemAITags.NONE;
 
 battle_use_from_bag=bi_no_use;
 battle_use_action=bi_action_no_use;
@@ -84,6 +85,18 @@ enum ItemBattleUsability {
     BALL,
     TRAINER,
     UNKNOWN,
+}
+
+// These work pretty much the same as move flags, but they're
+// used by the AI to assist in determining whether you need to
+// use an item or not.
+enum ItemAIFlags {
+    NONE=1&lt;&lt;0,
+    HEAL_HP=1&lt;&lt;1,
+    HEAL_SELECT_STATUS=1&lt;&lt;2,
+    HEAL_ALL_STATUS=1&lt;&lt;3,
+    REVIVE=1&lt;&lt;4,
+    BUFF=1&lt;&lt;5
 }
 </string>
           </argument>

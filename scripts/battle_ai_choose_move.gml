@@ -9,7 +9,7 @@ array_clear(move_scores, 0);
 var total_score=0;
 var choices=ds_list_create();
 
-var ret=noone;
+var result=noone;
 
 var valid_targets=battle_get_valid_targets();
 var target=random_element_from_list(valid_targets);
@@ -69,13 +69,13 @@ if (max_score>100){
         if (ds_list_size(preferred)>0){
             var index=random_element_from_list(preferred);
             var targets=battle_get_valid_targets(user, user.moves[move]);
-            ret=add_battle_executable_action(BattleActions.MOVE, user, targets, user.moves[index]);
+            result=add_battle_executable_action(BattleActions.MOVE, user, targets, user.moves[index]);
         }
         ds_list_destroy(preferred);
     }
 }
 
-if (ret==noone){
+if (result==noone){
     var bad_moves=false;
     if ((max_score<=20&&user.turn_count>2)||(max_score<=30&&user.turn_count>5)&&random(10)<8){
         bad_moves=true;
@@ -97,7 +97,7 @@ if (ret==noone){
     }
     
     if (bad_moves){
-        ret=noone;
+        result=noone;
     } else {
         // it's unlikely that this will ever happen with bad_moves not being set to
         // true, but possible
@@ -105,7 +105,7 @@ if (ret==noone){
             if (ds_list_size(choices)>0){
                 var index=random_element_from_list(choices);
                 var targets=battle_get_valid_targets(user, index);
-                ret=add_battle_executable_action(BattleActions.MOVE, user, targets, user.moves[index]);
+                result=add_battle_executable_action(BattleActions.MOVE, user, targets, user.moves[index]);
             }
             // else if you can only struggle, do that in the calling script because
             // it's a last resort if nothing else is possible
@@ -115,4 +115,4 @@ if (ret==noone){
 
 ds_list_destroy(choices);
 
-return ret;
+return result;

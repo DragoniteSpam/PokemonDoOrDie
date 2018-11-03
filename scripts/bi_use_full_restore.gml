@@ -1,4 +1,4 @@
-/// BattleExecutableAction bi_use_full_restore(user, item);
+/// BattleExecutableAction bi_use_full_restore(user, item index);
 
 var user=argument0;
 var item=argument1;

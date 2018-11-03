@@ -104,20 +104,20 @@ enum MoveCategories {
 // flags it's probably safest and least headache-inducing to
 // make a MoveFlagsB enum and variable.
 enum MoveFlags {
-    /*a*/CONTACT=1,
-    /*b*/PROTECTABLE_OFFENSE=2,
-    /*c*/PROTECTABLE_STATUS=4,
-    /*d*/SNATCHABLE=8,
-    /*e*/COPYABLE=16,
-    /*f*/ITEM_FLINCH_CHANCE=32,
-    /*g*/THAWABLE=64,
-    /*h*/HIGH_CRITICAL_HIT=128,
-    /*i*/BITING=256,
-    /*j*/PUNCHING=512,
-    /*k*/SOUND=1024,
-    /*l*/POWDER=2048,
-    /*m*/PULSE=4096,
-    /*n*/BOMB=8192
+    /*a*/CONTACT=1&lt;&lt;0,
+    /*b*/PROTECTABLE_OFFENSE=1&lt;&lt;1,
+    /*c*/PROTECTABLE_STATUS=1&lt;&lt;2,
+    /*d*/SNATCHABLE=1&lt;&lt;3,
+    /*e*/COPYABLE=1&lt;&lt;4,
+    /*f*/ITEM_FLINCH_CHANCE=1&lt;&lt;5,
+    /*g*/THAWABLE=1&lt;&lt;6,
+    /*h*/HIGH_CRITICAL_HIT=1&lt;&lt;7,
+    /*i*/BITING=1&lt;&lt;8,
+    /*j*/PUNCHING=1&lt;&lt;9,
+    /*k*/SOUND=1&lt;&lt;10,
+    /*l*/POWDER=1&lt;&lt;11,
+    /*m*/PULSE=1&lt;&lt;12,
+    /*n*/BOMB=1&lt;&lt;13
 }
 </string>
           </argument>

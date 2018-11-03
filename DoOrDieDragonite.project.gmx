@@ -711,9 +711,11 @@
           <script>scripts\battle_get_valid_targets.gml</script>
         </scripts>
         <scripts name="standard ai">
-          <script>scripts\battle_ai_move_score.gml</script>
-          <script>scripts\battle_ai_choose_move.gml</script>
           <script>scripts\battle_ai_can_choose_move.gml</script>
+          <script>scripts\battle_ai_choose_move.gml</script>
+          <script>scripts\battle_ai_move_score.gml</script>
+          <script>scripts\battle_ai_withdraw.gml</script>
+          <script>scripts\battle_ai_item.gml</script>
           <scripts name="move effects">
             <script>scripts\baim_no_effect.gml</script>
             <script>scripts\baim_trap.gml</script>
@@ -732,7 +734,6 @@
             <script>scripts\baim_target_accuracy_decrease_1.gml</script>
             <script>scripts\baim_target_speed_decrease_1.gml</script>
           </scripts>
-          <script>scripts\battle_ai_should_withdraw.gml</script>
         </scripts>
       </scripts>
       <scripts name="player input processing">
@@ -1038,6 +1039,7 @@
       <script>scripts\vector2.gml</script>
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\move_get_flag.gml</script>
+      <script>scripts\item_get_flag.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
