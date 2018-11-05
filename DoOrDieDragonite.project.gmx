@@ -850,9 +850,7 @@
       <scripts name="items">
         <scripts name="from bag">
           <script>scripts\bi_no_use.gml</script>
-          <script>scripts\bi_action_no_use.gml</script>
           <script>scripts\bi_use_full_restore.gml</script>
-          <script>scripts\bi_action_full_restore.gml</script>
         </scripts>
         <scripts name="hold items">
           <script>scripts\bi_post_turn_nothing.gml</script>
@@ -865,6 +863,10 @@
             <script>scripts\bi_damage_mod_normal.gml</script>
           </scripts>
           <script>scripts\bi_post_turn_leftovers.gml</script>
+        </scripts>
+        <scripts name="on use">
+          <script>scripts\bi_action_full_restore.gml</script>
+          <script>scripts\bi_action_no_use.gml</script>
         </scripts>
       </scripts>
     </scripts>
