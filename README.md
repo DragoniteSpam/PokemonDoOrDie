@@ -11,6 +11,8 @@ I can't grab embedded gifs from Twitter and I don't feel like copying them to im
 
 [Abilities](https://twitter.com/DragoniteSpam/status/1055524452702842881)
 
+[AI fighting itself](https://www.youtube.com/watch?v=n-586jZ3V2c)
+
 I'll probably add more eventually.
 
 # Credits
