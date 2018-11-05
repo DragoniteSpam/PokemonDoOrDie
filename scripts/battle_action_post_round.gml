@@ -14,7 +14,7 @@
 
 // trapping moves (whirlpool, fire spin, etc)
 for (var i=0; i<ds_list_size(contestants); i++){
-    if (contestants[| i]!=noone){
+    if (contestants[| i]!=noone&&alive(contestants[| i])){
         // anything that can get silently reset
         contestants[| i].flinch=false;
         contestants[| i].turn_count++;
