@@ -29,30 +29,34 @@ if (!pokemon.flag_downed&&debug_win==noone){
                     break;
             }
 
-            if (pokemon.flinch&&pokemon.ability.can_flinch){
-                interrupted=true;
-                ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L("%0 flinched and couldn't move!", pokemon.name)));
+            if (!interrupted){
+                if (pokemon.flinch&&pokemon.ability.can_flinch){
+                    interrupted=true;
+                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L("%0 flinched and couldn't move!", pokemon.name)));
+                }
             }
             
-            // if this check is not in place the 'snapped out of confusion' message will appear on
-            // every single turn and that's incorrect
-            if (pokemon.confused>0){
-                if (max(--pokemon.confused, 0)==0){
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 snapped out of confusion!', pokemon.name)));
-                } else {
-                    ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 is confused!', pokemon.name)));
-                    // todo animation
-                    // todo in gen 7 apparently the confusion chance is one in three instead of one in two
-                    if (choose(true, false)){
-                        interrupted=true;
+            if (!interrupted){
+                // if this check is not in place the 'snapped out of confusion' message will appear on
+                // every single turn and that's incorrect
+                if (pokemon.confused>0){
+                    if (max(--pokemon.confused, 0)==0){
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 snapped out of confusion!', pokemon.name)));
+                    } else {
+                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 is confused!', pokemon.name)));
                         // todo animation
-                        var damage=battle_damage(World.move_confusion, pokemon, pokemon);
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
-                        var msg=choose_gender(pokemon.gender, L('%0 hit himself in confusion!', pokemon.name),
-                            L('%0 hit herself in confusion!', pokemon.name),
-                            L('%0 hit itself in confusion!', pokemon.name));
-                        ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
-                        battle_round_action_execute_faint_check(individual_actions, pokemon, pokemon, damage);
+                        // todo in gen 7 apparently the confusion chance is one in three instead of one in two
+                        if (choose(true, false)){
+                            interrupted=true;
+                            // todo animation
+                            var damage=battle_damage(World.move_confusion, pokemon, pokemon);
+                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_scroll_health, pokemon, damage));
+                            var msg=choose_gender(pokemon.gender, L('%0 hit himself in confusion!', pokemon.name),
+                                L('%0 hit herself in confusion!', pokemon.name),
+                                L('%0 hit itself in confusion!', pokemon.name));
+                            ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, msg));
+                            battle_round_action_execute_faint_check(individual_actions, pokemon, pokemon, damage);
+                        }
                     }
                 }
             }
