@@ -17,10 +17,20 @@ if (alive(user)/* todo &&!user.embargo*/){
             var use_me=false;
             if (item_get_flag(base_item, ItemAIFlags.HEAL_HP)){
                 var missing=user.act[Stats.HP]-user.act_hp;
-                if (missing>=base_item.value*3/4){
-                    use_me=true;
-                } else if (missing>=base_item.value*0.5&&random(10)<3){
-                    use_me=true;
+                var f=pokemon_hp_f(user);
+                if (base_item.value==-1){
+                    if (f<0.25){
+                        use_me=true;
+                    }
+                    if (f<0.5&&random(10)<3){
+                        use_me=true;
+                    }
+                } else {
+                    if (missing>=base_item.value*3/4){
+                        use_me=true;
+                    } else if (missing>=base_item.value*0.5&&random(10)<3){
+                        use_me=true;
+                    }
                 }
             } // endif potion
             if (item_get_flag(base_item, ItemAIFlags.HEAL_SELECT_STATUS)){

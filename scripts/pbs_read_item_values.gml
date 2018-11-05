@@ -10,7 +10,7 @@ switch (argument0){
         return 200;
     case "MAXPOTION":
     case "FULLRESTORE":
-        return MILLION;
+        return -1;
     case "BURNHEAL":
         return MajorStatus.BURN;
     case "PARALYZEHEAL":
