@@ -222,6 +222,12 @@ if (!pokemon.flag_downed&&debug_win==noone){
             }
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, pokemon.position));
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, pokemon.position));
+            // This gets done after all replacements have been sent in, at a priority of one less than
+            // switching but way above actual moves. If you copy this effect for something like Whirlwind
+            // or Roar, uncomment it.
+            //ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_entry_abilities, pokemon.position));
+            break;
+        case BattleActions.SWITCH_FIRE_ABILITY:
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_entry_abilities, pokemon.position));
             break;
         case BattleActions.FLEE:

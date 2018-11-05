@@ -29,6 +29,9 @@ for (var i=0; i<ds_list_size(replacements); i++){
         }
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_submit_contestant, i));
         ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_anim_send_in_pokemon_hud, i));
-        ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_entry_abilities, i));
+        // This gets done after all replacements have been sent in. If you copy this effect
+        // for something like Whirlwind or Roar, uncomment it and comment out the flag.
+        new_battler.fired_entry_ability=false;
+        //ds_queue_enqueue(round_actions, add_battle_round_action(battle_round_action_entry_abilities, i));
     }
 }

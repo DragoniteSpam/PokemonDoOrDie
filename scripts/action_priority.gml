@@ -18,8 +18,12 @@ switch (argument0.action){
     case BattleActions.MOVE:
         n=get_move(argument0.value).priority;
         break;
+    case BattleActions.SWITCH_FIRE_ABILITY:
+        n=19;
+        break;
     case BattleActions.SWITCH:
         n=20;
+        battle_prioritize(add_battle_executable_action(BattleActions.SWITCH_FIRE_ABILITY, argument0.user, noone, 0));
         break;
     case BattleActions.ITEM:
         n=21;

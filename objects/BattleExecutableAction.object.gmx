@@ -59,6 +59,7 @@ enum BattleActions {
     MOVE,
     ITEM,
     SWITCH,
+    SWITCH_FIRE_ABILITY,
     FLEE,
     IDLE,
     AUTOHEAL,

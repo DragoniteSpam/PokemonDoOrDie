@@ -1,8 +1,5 @@
-﻿[default] and 
+[default] and 
 [default]%0
-[default]%0 %1 by %2's %3 instead!
-[default]%0 %1 by %2's %3!
-[default]%0 %1!
 [default]%0 Attack
 [default]%0 avoided the attack!
 [default]%0 became confused!
@@ -12,6 +9,9 @@
 [default]%0 does not have an implemented effect yet!
 [default]%0 dropped %1 in panic!
 [default]%0 fainted!
+[default]%0 fell asleep by %1's %2 instead!
+[default]%0 fell asleep by %1's %2!
+[default]%0 fell asleep!
 [default]%0 fled! (Implement this later, please.)
 [default]%0 flinched and couldn't move!
 [default]%0 gained %1 experience points!
@@ -47,14 +47,29 @@
 [default]%0 Speed
 [default]%0 used %1!
 [default]%0 used a(n) %1 on %2!
+[default]%0 was badly poisoned by %1's %2 instead!
+[default]%0 was badly poisoned by %1's %2!
+[default]%0 was badly poisoned!
+[default]%0 was burned by %1's %2 instead!
+[default]%0 was burned by %1's %2!
+[default]%0 was burned!
 [default]%0 was confused by %1's %2 instead!
 [default]%0 was confused by %1's %2!
+[default]%0 was frozen by %1's %2 instead!
+[default]%0 was frozen by %1's %2!
+[default]%0 was frozen!
 [default]%0 was hurt by her burn!
 [default]%0 was hurt by his burn!
 [default]%0 was hurt by its burn!
 [default]%0 was hurt by poison!
 [default]%0 was hurt by the recoil!
 [default]%0 was hurty by %1's %2!
+[default]%0 was paralyzed by %1's %2 instead!
+[default]%0 was paralyzed by %1's %2!
+[default]%0 was paralyzed!
+[default]%0 was poisoned by %1's %2 instead!
+[default]%0 was poisoned by %1's %2!
+[default]%0 was poisoned!
 [default]%0 was restored!
 [default]%0 was trapped by %1!
 [default]%0 was trapped by %1's %2!
@@ -127,10 +142,8 @@
 [default]Docile
 [default]Dragon
 [default]Faint
-[default]fainted
 [default]Fairy
 [default]false
-[default]fell asleep
 [default]Field
 [default]Fight!
 [default]Flee
@@ -171,6 +184,7 @@
 [default]Naughty
 [default]No
 [default]None
+[default]Paralysis
 [default]Paralyze
 [default]Poison
 [default]Pokerus
@@ -195,12 +209,7 @@
 [default]true
 [default]Type:
 [default]Undiscovered
-[default]was badly poisoned
-[default]was burned
-[default]was frozen
 [default]Was given $%0 as prize money!
-[default]was paralyzed
-[default]was poisoned
 [default]Water 1
 [default]Water 2
 [default]Water 3
@@ -208,5 +217,6 @@
 [default]What will %0 do?
 [default]Who would you like to send in to replace %0?
 [default]Yes
+[default]You aren't allowed to flee during the demo!
 [default]You need to select somebody to send in!
 [default]Your team is trapped and unable to flee!
