@@ -1,5 +1,8 @@
 /// void battle_input_player(team, pokemon);
 
+// zero out everything
+battle_input_processing_reset();
+
 input_processing=argument0;
 
 // continue: in the message()
