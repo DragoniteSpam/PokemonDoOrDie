@@ -30,7 +30,7 @@ var pawn_alive=0;
 var pawn_slots=0;
 // count the number of spaces on the battlefield the battle pawn has
 for (var i=0; i<ds_list_size(Battle.teams); i++){
-    if (Battle.teams[| i].owner==Camera.battle_pawn){
+    if (Battle.teams[| i].owner==Camera.battle_pawn&&Camera.battle_pawn.sentient){
         pawn_slots++;
     }
 }
@@ -44,7 +44,7 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
 if (game_over){
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 has no more healthy Pokémon!', team.name)));
 } else {
-    if (team.owner==Camera.battle_pawn/*||DEBUG*/){
+    if (team.owner==Camera.battle_pawn&&Camera.battle_pawn.sentient/*||DEBUG*/){
         // todo when this happens in wild battles, you should have the opportunity to flee
         // todo if you enable forfeiting (or debug auto-win) trainer battles, you should have the opportunity to do that also
         // the 'who do you choose?' text is set in the action
@@ -59,7 +59,7 @@ if (game_over){
             if (pawn_alive>1&&pawn_slots==1){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, L('%0 is about to send in %1. Would you like to change Pokémon?', team.name, found.name)));
                 for (var i=0; i<ds_list_size(Battle.contestants); i++){
-                    if (Battle.contestants[| i].owner==Camera.battle_pawn||DEBUG){
+                    if (Battle.contestants[| i].owner==Camera.battle_pawn/*||DEBUG*/){
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn, i));
                     }
                 }

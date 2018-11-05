@@ -35,6 +35,7 @@ trainer_id=irandom(1&lt;&lt;16-1);
 party=ds_list_create();
 
 battle_input_script=battle_input_ai;
+sentient=false;
 
 // This is a sprite that's (supposed to) get set based on
 // the result of

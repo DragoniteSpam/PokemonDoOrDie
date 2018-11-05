@@ -33,7 +33,7 @@ instance_create(0, 0, Battle);
 (get_trainer_class(get_trainer_class_from_name('PLAYERPAWN', true))).battle_sprite=ClassBattleSprites.PLAYER;
 (get_trainer_class(get_trainer_class_from_name('PAWN', true))).battle_sprite=ClassBattleSprites.RIVAL;
 
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
+var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, Pawn);
 //var pawn_ai=pawn_create('PAWN', 'Silver');
 var pawn_ai=pawn_create('PAWN', 'Silver', 1, Pawn);
 
