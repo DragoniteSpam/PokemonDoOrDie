@@ -13,7 +13,7 @@ if (move.value==0){
         move_score=move_score+target.mods[Stats.ACCURACY]*10;
     }
 } else {
-    if (target.moves[Stats.ACCURACY]>0){
+    if (target.mods[Stats.ACCURACY]>0){
         move_score=move_score+20;
     }
 }

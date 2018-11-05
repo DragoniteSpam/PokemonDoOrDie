@@ -27,6 +27,9 @@ if (ignore_randomness){
     mod_random=1;
 }
 var mod_stab=1;
+if (has_type(user, move.type)){
+    mod_stab=1.5;
+}
 var mod_effects=1;
 if (effects_list==noone){
     var mod_type=get_matchup_on(move.type, target);

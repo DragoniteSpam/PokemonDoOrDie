@@ -35,7 +35,7 @@ instance_create(0, 0, Battle);
 
 var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
 //var pawn_ai=pawn_create('PAWN', 'Silver');
-var pawn_ai=pawn_create('PAWN', 'Silver', 1, PawnPlayer);
+var pawn_ai=pawn_create('PAWN', 'Silver', 1, Pawn);
 
 Camera.battle_pawn=pawn_player;
 

@@ -20,7 +20,7 @@ if (move.value==0){
         }
     }
 } else {
-    if (target.moves[Stats.SPEED]>0){
+    if (target.mods[Stats.SPEED]>0){
         move_score=move_score+20;
     }
 }

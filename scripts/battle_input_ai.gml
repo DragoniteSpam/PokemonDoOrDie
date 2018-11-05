@@ -22,5 +22,7 @@ if (evaluate==noone){
     evaluate=battle_ai_choose_move(argument0);
 }
 
+battle_prioritize(evaluate);
+
 // continue:
-battle_debug(team.owner.name+' has chosen the move '+get_move(value).name+' for '+argument0.name);
+battle_debug(team.owner.name+" has selected their action for "+argument0.name);

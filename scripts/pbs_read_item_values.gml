@@ -9,6 +9,7 @@ switch (argument0){
         // 120 in gens 7+
         return 200;
     case "MAXPOTION":
+    case "FULLRESTORE":
         return MILLION;
     case "BURNHEAL":
         return MajorStatus.BURN;

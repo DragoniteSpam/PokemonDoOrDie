@@ -712,6 +712,7 @@
         </scripts>
         <scripts name="standard ai">
           <script>scripts\battle_ai_can_choose_move.gml</script>
+          <script>scripts\battle_ai_choose_move_old.gml</script>
           <script>scripts\battle_ai_choose_move.gml</script>
           <script>scripts\battle_ai_move_score.gml</script>
           <script>scripts\battle_ai_withdraw.gml</script>
@@ -1007,6 +1008,7 @@
         <script>scripts\random_element_from_array.gml</script>
         <script>scripts\random_element_from_list.gml</script>
         <script>scripts\array_max.gml</script>
+        <script>scripts\array_max_index.gml</script>
         <script>scripts\array_standard_deviation.gml</script>
       </scripts>
       <scripts name="file">

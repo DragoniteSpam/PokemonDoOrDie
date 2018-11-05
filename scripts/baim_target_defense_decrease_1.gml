@@ -13,7 +13,7 @@ if (move.value==0){
         move_score=move_score+target.mods[Stats.DEFENSE]*20;
     }
 } else {
-    if (target.moves[Stats.DEFENSE]>0){
+    if (target.mods[Stats.DEFENSE]>0){
         move_score=move_score+20;
     }
 }

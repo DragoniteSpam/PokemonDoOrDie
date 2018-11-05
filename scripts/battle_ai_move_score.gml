@@ -21,7 +21,7 @@ for (var i=0; i<ds_list_size(move.ai_score_modification); i++){
 
 // increase priority of attacking moves if ai has no live teammates
 if (pokemon_live_teammate_count(user)==0){
-    if (skill>=TrainerAI.MEDIUM&&skill<TrainerAI.HIGH||pokemon_live_teammate_count(target)==0){
+    if (skill>=TrainerAI.MEDIUM&&!(skill>=TrainerAI.HIGH&&pokemon_live_teammate_count(target)>0)){
         if (move.value==0){
             move_score=move_score*2/3;
         } else if (pokemon_hp_f(opponent)<0.5){
@@ -31,7 +31,7 @@ if (pokemon_live_teammate_count(user)==0){
 }
 
 // reduce priority of attacking moves if target is semi-invulnerable
-if (target.invulnerable_state!=InvulnerableStates.NONE&&skill>TrainerAI.HIGH){
+if (target.invulnerable_state!=InvulnerableStates.NONE&&skill>=TrainerAI.HIGH){
     // todo you probably want to implement this if/when you impelement
     // fly, bounce, dig, dive, sky drop, shadow force and/or phantom force
 }
@@ -62,7 +62,7 @@ if (target.status==MajorStatus.FREEZE&&skill>=TrainerAI.MEDIUM){
 // adjust priority of attacking moves based on their damage output
 if (move.value>0){
     var modifier=get_matchup_on(move.type, target, noone, user);
-    if (modifier==0||score<=0){
+    if (modifier==0||move_score<=0){
         move_score=0;
     } else {
         if (skill>TrainerAI.MEDIUM){
@@ -89,6 +89,7 @@ if (move.value>0){
         var accuracy=estimated_accuracy(move, user, target);
         
         output=output*accuracy;
+        
         // todo output=output*2/3 if move is to be executed as a two-turn attack
         
         // todo if user has king's rock or razor fang prioritize applicable moves

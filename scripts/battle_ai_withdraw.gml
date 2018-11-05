@@ -10,7 +10,7 @@ if (!pokemon_can_escape(user)){
 var type_check=false;
 var move_type=-1;
 var skill=max(TrainerAI.MINIMUM, get_trainer_class(get_trainer(user.owner.trainer_index).class).ai);
-var valid_targets=battle_get_valid_targets(user, -1);
+var valid_targets=battle_get_valid_targets(user);
 
 var result=noone;
 
@@ -31,7 +31,6 @@ if (user.turn_count>0){
                         should_switch=should_switch||(random(100)<20);
                     }
                 }
-                ds_list_add(last_move_types, move.type);
             }
         }
     }

@@ -3,7 +3,11 @@
 var user=argument0;
 var index=argument1;
 
-if (user.move_pp[i]==0){
+if (user.moves[index]==-1){
+    return false;
+}
+
+if (user.move_pp[index]==0){
     return false;
 }
 

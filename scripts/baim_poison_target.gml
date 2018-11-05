@@ -8,6 +8,9 @@ var move_score=argument4;
 
 if (pokemon_can_have_status(target, MajorStatus.POISON)){
     move_score=move_score+30;
+    // the following conditions are not exclusive. if they all pass, the move
+    // score for these moves (and others that can induce status) can go quite
+    // high.
     if (skill>TrainerAI.MEDIUM){
         if (pokemon_hp_f(target)<0.25){
             move_score=move_score+30;

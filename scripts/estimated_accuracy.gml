@@ -11,4 +11,4 @@ if (move.accuracy==0){
     return 1;
 }
 
-return move.accuracy*math_mod(user, Stats.ACCURACY)/math_mod(target, Stats.EVADE)/100;
+return min(1, move.accuracy*math_mod(user, Stats.ACCURACY)/math_mod(target, Stats.EVADE)/100);
