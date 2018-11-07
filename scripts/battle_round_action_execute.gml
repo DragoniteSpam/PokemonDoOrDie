@@ -165,9 +165,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
                                         }
                                     }
                                 }
-                                with (eff){
-                                    instance_destroy();
-                                }
+                                instance_destroy(eff);
                             }
                             if (move_get_flag(move, MoveFlags.CONTACT)){
                                 script_execute(target.ability.on_contact, pokemon, target, target.ability, move);
@@ -276,9 +274,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
 
 pokemon.trapped_for=max(--pokemon.trapped_for, 0);
 
-with (exe){
-    instance_destroy();
-}
+instance_destroy(exe);
 
 // continue:
 battle_advance();

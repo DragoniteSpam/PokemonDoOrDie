@@ -30,12 +30,49 @@
 var f=file_text_open_write(LOG_FILE);
 file_text_close(f);
 
+instance_create(0, 0, Camera);
+
 /*
  * This will fork off a couple different settings objects (controls,
  * battle, graphics, audio, maybe a few other things)
  */
 
 settings=instance_create(0, 0, Settings);
+
+/*
+ * Vertex format(s)
+ */
+
+vertex_format_begin();
+vertex_format_add_position_3d();
+vertex_format_add_normal();
+vertex_format_add_textcoord();
+vertex_format_add_colour();
+vertex_format=vertex_format_end();
+
+/*
+ * Default battlefield ground
+ */
+
+var s=32;
+
+var model_floor=vertex_create_buffer();
+vertex_begin(model_floor, vertex_format);
+
+for (var i=0; i&lt;=BATTLEFIELD_SIZE; i=i+s){
+    for (var j=0; j&lt;=BATTLEFIELD_SIZE; j=j+s){
+        vertex_point_complete(model_floor, i, j, 0, 0, 0, 1, 0, 0, c_white, 1);
+        vertex_point_complete(model_floor, i+s, j, 0, 0, 0, 1, 1, 0, c_white, 1);
+        vertex_point_complete(model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1, c_white, 1);
+        
+        vertex_point_complete(model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1, c_white, 1);
+        vertex_point_complete(model_floor, i, j+s, 0, 0, 0, 1, 0, 1, c_white, 1);
+        vertex_point_complete(model_floor, i, j, 0, 0, 0, 1, 0, 0, c_white, 1);
+    }
+}
+
+vertex_end(model_floor);
+vertex_freeze(model_floor);
 
 /*
  * Stuff related to showing messages on the screen
@@ -86,6 +123,7 @@ all_class_battle_bgm=const_class_battle_bgm();
 all_class_victory_bgm=const_class_victory_bgm();
 all_class_intro_me=const_class_intro_me();
 all_class_battle_sprites=const_class_battle_sprites();
+all_class_overworld_sprites=const_class_overworld_sprites();
 
 // core stuff
 
@@ -105,6 +143,9 @@ all_trainer_classes=pbs_read_trainer_classes(PATH_PBS+'trainertypes.txt');// dep
 all_trainers=pbs_read_trainers(PATH_PBS+'trainers.txt');    // dependencies: natures, abilities, moves, items, pokémon, trainer classes
 
 pbs_cleanup();
+
+active_map=0;
+all_maps=array_compose(instance_create(0, 0, DataMap));
 
 debug('data init took '+string((get_timer()-t0)/MILLION)+' seconds');
 
@@ -150,6 +191,9 @@ major_status_colors=array_compose(c_white, merge_color(c_purple, c_white, 0.65),
 
 tf=array_compose(L('false'), L('true'));
 dt=0;
+
+instance_create(0, 0, DebugMapSpawner);
+
 instance_deactivate_object(Struct);
 instance_deactivate_object(Settings);
 // these may be generated on the fly as the player runs into random
@@ -157,6 +201,10 @@ instance_deactivate_object(Settings);
 // it also means you can't ever say with (BattlePokemon).
 // i'm guessing that's going to be a problem every once in a while.
 instance_deactivate_object(BattlePokemon);
+// these get processed as needed in World.Step or World.Draw or something,
+// and only the ones that are visible on-screen or otherwise required by
+// the game
+instance_deactivate_object(Entity);
 </string>
           </argument>
         </arguments>
@@ -243,6 +291,9 @@ enum Languages {
 
 d3d_set_culling(false);
 draw_surface(application_surface, 0, 0);
+
+// todo something with different UI based on the game mode, but I'm in a hurry
+exit;
 
 with (Effect){
     script_execute(render);

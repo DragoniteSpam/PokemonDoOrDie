@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Entity</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,60 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>name='Entity';
 
-name='AI Pawn';
-team=noone;
-
-// Inherited stuff
+// for fusing all static objects such as ground tiles and houses together,
+// so the computer doesn't waste time drawing every single visible Entity
+// individually
 batch=null;
+
+// for things that don't fit into the above category, including but not limited
+// to NPCs, things that animate, things that move and things that need special
+// shaders
 render=null;
 
-// this is NOT your trainer class. the trainer class can be found in
-// get_trainer(trainer_index).class
-trainer_index=0;
-trainer_id=irandom((1&lt;&lt;16)-1);
-party=ds_list_create();
-
-battle_input_script=battle_input_ai;
-sentient=false;
-
-// This is a sprite that's (supposed to) get set based on
-// the result of
-// get_class_battle_sprite(get_trainer_class(get_trainer(trainer_id).class).battle_sprite),
-// etc
-battle_sprite=spr_ethan_back;
-overworld_sprite=b_chr_ethan;
-
-audio_battle=bgm_silence;
-audio_victory=bgm_silence;
-audio_intro=bgm_silence;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// it's probably a good idea to iterate over the party and
-// destroy its contents also
-
-ds_list_destroy(party);
+// you can have scripts that do both, if you want to have a static thing that
+// sparkles or something
 </string>
           </argument>
         </arguments>

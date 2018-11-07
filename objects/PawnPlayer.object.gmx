@@ -32,7 +32,7 @@ name='Player Pawn';
 battle_input_script=battle_input_player;
 sentient=true;
 
-battle_sprite=ClassBattleSprites.PLAYER;
+battle_sprite=ClassBattleSprites.PLAYERPAWN;
 
 money=500;
 </string>

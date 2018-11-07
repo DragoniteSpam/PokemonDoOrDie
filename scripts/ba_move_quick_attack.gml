@@ -68,7 +68,7 @@ if (t<t_wait){
 }
 
 if (continue_now){
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

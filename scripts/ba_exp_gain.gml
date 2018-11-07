@@ -34,7 +34,7 @@ if (t<scroll_time&&user.experience<current+gain){
     // with multiple scripts/action commands but then i would make the argument that i want to work with the
     // system that's already been written
     user.experience=current+gain;
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

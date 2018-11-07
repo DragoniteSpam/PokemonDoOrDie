@@ -17,7 +17,7 @@ if (t<fade_time){
     user.x=user.x+slide_dist_x*World.dt/(transition_time-still_time);
     user.y=user.y+slide_dist_y*World.dt/(transition_time-still_time);
 } else {
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

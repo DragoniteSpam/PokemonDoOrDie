@@ -78,9 +78,7 @@ misc_data=ds_map_create();
           <argument>
             <kind>1</kind>
             <string>if (hud!=noone){
-    with (hud){
-        instance_destroy();
-    }
+    instance_destroy(hud);
 }
 
 if (surface_exists(surface)){

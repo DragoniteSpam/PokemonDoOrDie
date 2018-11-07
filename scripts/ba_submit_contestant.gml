@@ -10,7 +10,7 @@ if (t==0){
     user.yscale=user.xscale;
 } else {
     user.mask_script=null;
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

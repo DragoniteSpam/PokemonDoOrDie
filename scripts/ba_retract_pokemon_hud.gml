@@ -8,7 +8,7 @@ if (t<transition_time){
     user.x=user.x+slide_rate_x*World.dt/transition_time;
     user.y=user.y-slide_rate_y*World.dt/transition_time;
 } else {
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

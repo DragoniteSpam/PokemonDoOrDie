@@ -162,9 +162,7 @@ ds_list_destroy(egg_groups);
 ds_list_destroy(indices);
 
 for (var i=0; i&lt;ds_list_size(evolutions); i++){
-    with (evolutions[| i]){
-        instance_destroy();
-    }
+    instance_destroy(evolutions[| i]);
 }
 ds_list_destroy(evolutions);
 

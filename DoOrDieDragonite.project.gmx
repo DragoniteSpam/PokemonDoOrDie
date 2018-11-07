@@ -576,6 +576,9 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
+    <sounds name="bgm">
+      <sound>sound\bgm_silence</sound>
+    </sounds>
     <sounds name="se">
       <sounds name="move">
         <sound>sound\se_move_swords_dance</sound>
@@ -584,9 +587,6 @@
       </sounds>
       <sound>sound\se_battle_decrease</sound>
       <sound>sound\se_battle_increase</sound>
-    </sounds>
-    <sounds name="bgm">
-      <sound>sound\bgm_silence</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -619,6 +619,9 @@
   </sprites>
   <backgrounds name="background">
     <background>background\b_tex_temp</background>
+    <background>background\b_chr_ethan</background>
+    <background>background\b_chr_silver</background>
+    <background>background\b_tileset_exterior</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -957,6 +960,7 @@
         <script>scripts\get_nature_from_name.gml</script>
         <script>scripts\get_pokemon.gml</script>
         <script>scripts\get_pokemon_from_name.gml</script>
+        <script>scripts\get_map_from_name.gml</script>
         <script>scripts\get_trainer.gml</script>
         <script>scripts\get_trainer_class.gml</script>
         <script>scripts\get_trainer_class_from_name.gml</script>
@@ -967,16 +971,27 @@
         <scripts name="not data">
           <script>scripts\get_color_from_name.gml</script>
         </scripts>
+        <script>scripts\get_map.gml</script>
       </scripts>
       <scripts name="pawn stuff">
         <script>scripts\get_class_battle_sprite.gml</script>
+        <script>scripts\get_class_overworld_sprite.gml</script>
         <script>scripts\get_class_battle_bgm.gml</script>
         <script>scripts\get_class_victory_bgm.gml</script>
         <script>scripts\get_class_intro_me.gml</script>
         <script>scripts\const_class_battle_sprites.gml</script>
+        <script>scripts\const_class_overworld_sprites.gml</script>
         <script>scripts\const_class_battle_bgm.gml</script>
         <script>scripts\const_class_victory_bgm.gml</script>
         <script>scripts\const_class_intro_me.gml</script>
+      </scripts>
+      <scripts name="map">
+        <script>scripts\map_construct_grid.gml</script>
+        <scripts name="batching stuff">
+          <script>scripts\batch_tile.gml</script>
+          <script>scripts\map_batch_all.gml</script>
+        </scripts>
+        <script>scripts\get_active_map.gml</script>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
@@ -1063,6 +1078,7 @@
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\move_get_flag.gml</script>
       <script>scripts\item_get_flag.gml</script>
+      <script>scripts\vertex_point_complete.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
@@ -1158,6 +1174,8 @@
       <object>objects\Pawn</object>
       <object>objects\PawnPlayer</object>
       <object>objects\PawnWild</object>
+      <object>objects\Entity</object>
+      <object>objects\EntityTile</object>
     </objects>
     <objects name="Data">
       <objects name="Auxiliary">
@@ -1165,6 +1183,7 @@
         <object>objects\ItemStack</object>
       </objects>
       <object>objects\DataAbility</object>
+      <object>objects\DataMap</object>
       <object>objects\DataEggGroup</object>
       <object>objects\DataEvolutionMethod</object>
       <object>objects\DataItem</object>
@@ -1179,6 +1198,7 @@
     </objects>
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>
+      <object>objects\DebugMapSpawner</object>
     </objects>
     <objects name="Graphics">
       <objects name="2D">
@@ -1202,8 +1222,7 @@
     <room>rooms\init</room>
     <room>rooms\main</room>
   </rooms>
-  <constants number="33">
-    <constant name="OPTIONS_INI">".\ddd.ini"</constant>
+  <constants number="36">
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
@@ -1217,11 +1236,15 @@
     <constant name="MILLION">1000000</constant>
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="N">chr($0a)</constant>
+    <constant name="OPTIONS_INI">".\ddd.ini"</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
     <constant name="POKEMON_GLOBAL_SCALE">96/224</constant>
     <constant name="STAT_MOD_LIMIT">6</constant>
+    <constant name="TILE_DEPTH">32</constant>
+    <constant name="TILE_HEIGHT">32</constant>
+    <constant name="TILE_WIDTH">32</constant>
     <constant name="TRAINER_GLOBAL_SCALE">1</constant>
     <constant name="TYPE_IMMUNE">0</constant>
     <constant name="TYPE_RESISTED">0.5</constant>

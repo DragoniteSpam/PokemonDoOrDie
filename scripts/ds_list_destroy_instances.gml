@@ -5,9 +5,7 @@
 var n=ds_list_size(argument0);;
 
 for (var i=0; i<n; i++){
-    with (argument0[| i]){
-        instance_destroy();
-    }
+    instance_destroy(argument0[| i]);
 }
 
 return n;

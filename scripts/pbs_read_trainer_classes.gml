@@ -16,6 +16,7 @@ for (var i=0; i<ds_list_size(text); i++){
     var victory_bgm=ClassVictoryBGM.SILENCE;
     var intro_me=ClassIntroME.SILENCE;
     var gender=Genders.GENDERLESS;
+    var index=0;
     var ai_notes=array_create(0);
     
     switch (array_length_1d(terms)){
@@ -53,9 +54,11 @@ for (var i=0; i<ds_list_size(text); i++){
             name=terms[2];
         case 2:
             internal_name=terms[1];
+        case 1:
+            index=real(terms[0]);
     }
     
-    array[i]=add_trainer_class(name, reward, battle_bgm, victory_bgm, intro_me, ai, ai_notes, internal_name);
+    array[i]=add_trainer_class(name, reward, battle_bgm, victory_bgm, intro_me, ai, ai_notes, internal_name, index);
 }
 
 ds_list_destroy(text);

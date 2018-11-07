@@ -20,7 +20,7 @@ if (t<transition_time){
     user.alpha=user.alpha-1/fade_rate*World.dt;
 } else {
     user.alpha=0;
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

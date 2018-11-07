@@ -1,6 +1,6 @@
 ﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
-PAWN
+PAWN_RIVAL
 Silver
 6,FULLRESTORE,FULLRESTORE
 SNEASEL,55,,SHADOWCLAW,FEINTATTACK,ICYWIND,METALCLAW,0,M

@@ -84,14 +84,17 @@ d3d_set_projection_ext(x, y, z,
     xup, yup, zup,
     fov, W/H, 1, 1000);
 
-d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
+//d3d_model_draw(World.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
 
-/*
- * whenever you get around to drawing the game world, it probably goes here
- */
+// todo draw selectively based on the global mode (overworld, battle, something else)
+
+var map=get_active_map();
+
+vertex_submit(map.statics, pr_trianglelist, background_get_texture(b_tileset_exterior));
 
 // i suppose you could also just say with (BattleDrawable) but it's possible that
 // you want some of them to be hidden or something
+/*
 for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
     with (Battle.drawables[| i]){
         bg_draw_drawable();
@@ -101,6 +104,7 @@ for (var i=0; i&lt;ds_list_size(Battle.drawables); i++){
 with (BattleAnimator){
     script_execute(script);
 }
+*/
 
 /*
  * less-important effects go on top of everything else because the depth buffer is weird

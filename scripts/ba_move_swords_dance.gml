@@ -39,7 +39,7 @@ if (t<t_dance){
 } else if (t<t_wait){
     // wait    
 } else {
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

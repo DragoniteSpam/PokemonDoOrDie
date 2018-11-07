@@ -16,7 +16,7 @@ if (t<scroll_time&&is_clamped(user.act_hp, 0, user.act[Stats.HP])){
     // this will hopefully be the correct value but just in case there's
     // floating point imprecision or something
     user.act_hp=max(0, floor(misc_data[? 'initial']-amount));
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

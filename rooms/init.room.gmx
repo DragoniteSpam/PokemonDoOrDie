@@ -16,25 +16,9 @@ show_debug_overlay(true);
 application_surface_draw_enable(false);
 draw_set_alpha_test(true);
 
-var s=32;
-
-global.model_floor=d3d_model_create();
-
-d3d_model_primitive_begin(global.model_floor, pr_trianglelist);
-
-for (var i=0; i&lt;=BATTLEFIELD_SIZE; i=i+s){
-    for (var j=0; j&lt;=BATTLEFIELD_SIZE; j=j+s){
-        d3d_model_vertex_normal_texture(global.model_floor, i, j, 0, 0, 0, 1, 0, 0);
-        d3d_model_vertex_normal_texture(global.model_floor, i+s, j, 0, 0, 0, 1, 1, 0);
-        d3d_model_vertex_normal_texture(global.model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1);
-        
-        d3d_model_vertex_normal_texture(global.model_floor, i+s, j+s, 0, 0, 0, 1, 1, 1);
-        d3d_model_vertex_normal_texture(global.model_floor, i, j+s, 0, 0, 0, 1, 0, 1);
-        d3d_model_vertex_normal_texture(global.model_floor, i, j, 0, 0, 0, 1, 0, 0);
-    }
-}
-
-d3d_model_primitive_end(global.model_floor);
+/*
+ * The physical game window
+ */
 
 globalvar W, H, FULLSCREEN;
 

@@ -22,7 +22,7 @@ if (t==0){
     // wait
 } else {
     user.mask_script=null;
-    instance_destroy();
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }

@@ -25,13 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0, 0, Camera);
-instance_create(0, 0, World);
+            <string>instance_create(0, 0, Battle);
 
-instance_create(0, 0, Battle);
-
-(get_trainer_class(get_trainer_class_from_name('PLAYERPAWN', true))).battle_sprite=ClassBattleSprites.PLAYER;
-(get_trainer_class(get_trainer_class_from_name('PAWN', true))).battle_sprite=ClassBattleSprites.RIVAL;
+(get_trainer_class(get_trainer_class_from_name('PLAYERPAWN', true))).battle_sprite=ClassBattleSprites.PLAYERPAWN;
+(get_trainer_class(get_trainer_class_from_name('PAWN', true))).battle_sprite=ClassBattleSprites.PAWN_RIVAL;
 
 var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, Pawn);
 //var pawn_ai=pawn_create('PAWN', 'Silver');
@@ -75,7 +72,7 @@ with (Battle){
     battle_begin();
 }
 
-instance_destroy();
+instance_destroy(/*self*/);
 </string>
           </argument>
         </arguments>

@@ -11,7 +11,7 @@ if (t<t_fadein){
     alpha=alpha-World.dt/(t_fadeout-t_still);
 } else {
     alpha=0;
-    instance_destroy();
+    instance_destroy(/*self*/);
 }
 
 d3d_transform_add_rotation_x(90+xrot);

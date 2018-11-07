@@ -30,7 +30,12 @@
 name='Pawn';
 internal_name='PAWN';
 
-battle_sprite=ClassBattleSprites.PLAYER;
+// When a trainer class is loaded from the file, it gets assigned a
+// default sprite (and probably some other things) based on its index.
+// You can override them if you want to, though.
+index=0;
+battle_sprite=ClassBattleSprites.PLAYERPAWN;
+overworld_sprite=ClassOverworldSprites.PLAYERPAWN;
 
 audio_battle=ClassBattleBGM.SILENCE;
 audio_victory=ClassVictoryBGM.SILENCE;
@@ -77,8 +82,13 @@ enum ClassIntroME {
 }
 
 enum ClassBattleSprites {
-    PLAYER,
-    RIVAL,
+    PLAYERPAWN,
+    PAWN_RIVAL,
+}
+
+enum ClassOverworldSprites {
+    PLAYERPAWN,
+    PAWN_RIVAL,
 }
 </string>
           </argument>

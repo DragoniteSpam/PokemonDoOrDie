@@ -13,9 +13,7 @@ for (var i=0; i<ds_list_size(list); i++){
         list[| i].count=list[| i].count-n;
         if (list[| i].count<=0){
             instance_activate_object(list[| i]);
-            with (list[| i]){
-                instance_destroy();
-            }
+            instance_destroy(list[| i]);
             ds_list_delete(list, i);
         }
         break;

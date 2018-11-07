@@ -1,4 +1,4 @@
-/// DataMove add_trainer_class(name, reward, battle bgm, victory bgm, intro me, ai, ai notes, internal name);
+/// DataMove add_trainer_class(name, reward, battle bgm, victory bgm, intro me, ai, ai notes, internal name, index);
 // there may be some move flags and stuff added later
 
 with (instance_create(0, 0, DataTrainerClass)){
@@ -14,6 +14,7 @@ with (instance_create(0, 0, DataTrainerClass)){
     }
     
     pbs_internal_name=argument7;
+    index=argument8;
     
     return id;
 }

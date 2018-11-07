@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Entity</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,32 +27,24 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name='AI Pawn';
-team=noone;
+name='Base Map';
+internal_name='BASEMAP';
+summary='you can walk around on it and stuff';
 
-// Inherited stuff
-batch=null;
-render=null;
+xx=64;
+yy=64;
+zz=8;
 
-// this is NOT your trainer class. the trainer class can be found in
-// get_trainer(trainer_index).class
-trainer_index=0;
-trainer_id=irandom((1&lt;&lt;16)-1);
-party=ds_list_create();
+// Since maps are basically three-dimensional arrays, the amount of
+// space they take up goes up pretty quickly (width*height*depth*the
+// size of whatever data's in it). In the future it's probably a
+// good idea to only store the active one(s) in memory and load/delete
+// them when necessary, or at the very least the data in the "contents"
+// structure.
+contents=map_construct_grid(xx, yy, zz);
 
-battle_input_script=battle_input_ai;
-sentient=false;
-
-// This is a sprite that's (supposed to) get set based on
-// the result of
-// get_class_battle_sprite(get_trainer_class(get_trainer(trainer_id).class).battle_sprite),
-// etc
-battle_sprite=spr_ethan_back;
-overworld_sprite=b_chr_ethan;
-
-audio_battle=bgm_silence;
-audio_victory=bgm_silence;
-audio_intro=bgm_silence;
+// a vertex buffer
+statics=vertex_create_buffer();
 </string>
           </argument>
         </arguments>
@@ -75,10 +67,21 @@ audio_intro=bgm_silence;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// it's probably a good idea to iterate over the party and
-// destroy its contents also
+            <string>for (var i=0; i&lt;xx; i++){
+    for (var j=0; j&lt;yy; j++){
+        var array=contents[# i, j];
+        for (var k=0; k&lt;zz; k++){
+            if (array[k]!=noone){
+                instance_activate_object(array[k]);
+                instance_destroy(array[k]);
+            }
+        }
+    }
+}
 
-ds_list_destroy(party);
+ds_map_destroy(contents);
+
+vertex_delete_buffer(statics);
 </string>
           </argument>
         </arguments>

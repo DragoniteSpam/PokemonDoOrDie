@@ -10,10 +10,8 @@ if (t<t_animation){
     user.alpha=user.alpha+rate;
 } else {
     // this is a non-terminating effect so we have to do this here
-    with (user){
-        instance_destroy();
-    }
-    instance_destroy();
+    instance_destroy(user);
+    instance_destroy(/*self*/);
     Battle.input_ready=true;
     battle_advance();
 }
