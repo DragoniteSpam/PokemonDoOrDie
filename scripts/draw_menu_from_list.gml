@@ -31,8 +31,8 @@ var text_spacing=font_get_size(text_font)*1.5;
 
 var box_width=max_width+2*UI_TEXT_BOX_OFFSET_W+text_spacing*2;  // the bigger the font, the more horizontal buffer the text box will have, as well
 var box_height=text_spacing*(max_n+2);
-var box_x=room_width-box_width;
-var box_y=room_height-box_height;
+var box_x=W-box_width;
+var box_y=H-box_height;
 
 draw_rectangle_9s(spr_window9s_hgss, box_x, box_y, box_width, box_height);
 

@@ -8,8 +8,8 @@ var text_spacing=font_get_size(FPokemonMedium)*1.5;
 
 var box_width=UI_BATTLE_HUD_WIDTH;
 var box_height=text_spacing*(max_n+2);
-var box_x=room_width-box_width;
-var box_y=room_height-box_height;
+var box_x=W-box_width;
+var box_y=H-box_height;
 
 draw_rectangle_9s(spr_window9s_hgss, box_x, box_y, box_width, box_height);
 

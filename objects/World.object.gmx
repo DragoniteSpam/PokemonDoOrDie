@@ -249,7 +249,7 @@ with (Effect){
 }
 
 var text_box_start_x=0;
-var text_box_start_y=room_height-UI_TEXT_BOX_HEIGHT;
+var text_box_start_y=H-UI_TEXT_BOX_HEIGHT;
 
 draw_rectangle_9s(spr_window9s_hgss, text_box_start_x, text_box_start_y, UI_TEXT_BOX_WIDTH, UI_TEXT_BOX_HEIGHT);
 
@@ -292,7 +292,7 @@ if (message_wait==0){
         // among other things, this probably needs to have a period of one second instead of two,
         // and probably should be placed underneath the final line of text (or at the end of it)
         /*if (current_second%2==0){
-            draw_sprite_ext(spr_select, 0, room_width-2*UI_TEXT_BOX_OFFSET_W, room_height-2*UI_TEXT_BOX_OFFSET_H, 2, 2, 270, c_white, 1);
+            draw_sprite_ext(spr_select, 0, W-2*UI_TEXT_BOX_OFFSET_W, H-2*UI_TEXT_BOX_OFFSET_H, 2, 2, 270, c_white, 1);
         }*/
         // in some circumstances input_processing can be reset in the battle input processing
         // script, which will cause both input processing parts of this code to execute, which

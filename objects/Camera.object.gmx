@@ -82,7 +82,7 @@ draw_set_color(c_white);
 d3d_set_projection_ext(x, y, z,
     xto, yto, zto,
     xup, yup, zup,
-    fov, room_width/room_height, 1, 1000);
+    fov, W/H, 1, 1000);
 
 d3d_model_draw(global.model_floor, 0, 0, 0, background_get_texture(b_tex_temp));
 

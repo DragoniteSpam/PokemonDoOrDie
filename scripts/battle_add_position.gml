@@ -22,7 +22,7 @@ with (instance_create(argument1, argument2, BattleDrawable)){
     hud=instance_create(argument6, argument7, BattleHUD);
     hud.offscreen_x=argument6;
     hud.offscreen_y=argument7;
-    if (argument6<room_width/2){
+    if (argument6<W/2){
         hud.battle_x=argument6+UI_BATTLE_HUD_WIDTH+UI_BATTLE_HUD_BUFFER_X;
     } else {
         hud.battle_x=argument6-UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X;
@@ -32,7 +32,7 @@ with (instance_create(argument1, argument2, BattleDrawable)){
     hud_ability=instance_create(argument8, argument9, BattleHUDAbility);
     hud_ability.offscreen_x=argument8;
     hud_ability.offscreen_y=argument9;
-    if (argument8<room_width/2){
+    if (argument8<H/2){
         hud_ability.battle_x=argument8+UI_BATTLE_HUD_WIDTH+UI_BATTLE_HUD_BUFFER_X;
     } else {
         hud_ability.battle_x=argument8-UI_BATTLE_HUD_WIDTH-UI_BATTLE_HUD_BUFFER_X;

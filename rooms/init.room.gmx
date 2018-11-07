@@ -36,6 +36,12 @@ for (var i=0; i&lt;=BATTLEFIELD_SIZE; i=i+s){
 
 d3d_model_primitive_end(global.model_floor);
 
+globalvar W, H, FULLSCREEN;
+
+ini_open(OPTIONS_INI);
+set_resolution(ini_read_real("Graphics", "width", 1280), ini_read_real("Graphics", "height", 720), ini_read_real("Graphics", "fullscreen", false));
+ini_close();
+
 // end setup
 
 room_goto(main);</code>
