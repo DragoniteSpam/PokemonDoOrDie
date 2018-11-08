@@ -15,18 +15,18 @@ var nz=1;
 
 // subject to change, and assuming each is square, which they don't have
 // to be
-var tile_width=32;
+var tile_size=32;
 
-var tile_horizontal_count=sprite_get_width(tile.tileset)/tile_width;
-var tile_vertical_count=sprite_get_height(tile.tileset)/tile_width;
+var tile_horizontal_count=sprite_get_width(tile.tileset)/tile_size;
+var tile_vertical_count=sprite_get_height(tile.tileset)/tile_size;
 
 // texture coordinates go from 0...1, not 0...n, where n is the dimension
 // of the image in pixels
 var texture_width=1/tile_horizontal_count;
 var texture_height=1/tile_vertical_count;
 
-var xtex=tile.tile_x;
-var ytex=tile.tile_y;
+var xtex=tile.tile_x*texture_width;
+var ytex=tile.tile_y*texture_width;
 
 var color=tile.tile_color;
 var alpha=tile.tile_alpha;

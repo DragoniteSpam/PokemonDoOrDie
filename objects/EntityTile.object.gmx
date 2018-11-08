@@ -34,8 +34,8 @@ name='Tile';
 // it's not a good idea to do this so it should probably result
 // in a warning
 tileset=b_tileset_exterior;
-tile_x=0; // coordinates
-tile_y=0; // coordinates
+tile_x=0; // tile ID
+tile_y=0; // tile ID
 tile_color=c_white;
 tile_alpha=1;
 // todo rotated tiles, which will require normal calculations?

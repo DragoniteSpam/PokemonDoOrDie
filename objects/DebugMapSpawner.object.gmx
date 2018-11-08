@@ -31,8 +31,8 @@ for (var i=0; i&lt;map.xx; i++){
     for (var j=0; j&lt;map.yy; j++){
         var array=map.contents[# i, j];
         var tile=instance_create(0, 0, EntityTile);
-        tile.tile_x=4*32;
-        tile.tile_y=0*32;
+        tile.tile_x=4;
+        tile.tile_y=0;
         
         array[0]=tile;
         map.contents[# i, j]=array;
