@@ -13,6 +13,8 @@ var effects=array_create(1);
 // or something in the hash, but that's a lot of work for a script
 // whose only job is to re-interpret Essentials data.
 
+var missing_codes=ds_map_create();
+
 switch (value){
     case $0:
         effects[0]=be_no_effect;
@@ -95,8 +97,13 @@ switch (value){
         break;
     default:
         effects[0]=be_not_implemented;
-        debug('Unimplemented function code: '+string(value)+' (0x'+argument0+')');
+        if (!ds_map_exists(missing_codes, value)){
+            debug('Unimplemented function code: '+string(value)+' (0x'+argument0+')');
+            ds_map_add(missing_codes, value, value);
+        }
         break;
 }
+
+ds_map_destroy(missing_codes);
 
 return effects;
