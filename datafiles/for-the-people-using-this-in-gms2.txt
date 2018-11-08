@@ -1,0 +1,7 @@
+I'll probably be importing this into GMS2 periodically to see if anything breaks in an unsually spectacular manner, but for the most part I'm going to be developing this in GMS1.
+
+When possible I'm going to try to write code that will be easy for the GMS2 importer to handle, such as using matrices over the d3d_transform functions, but this is not always possible. (See: the lack of the Camera system, how object depth is handled, etc.)
+
+Known issues:
+
+ - The font(s) may not draw correctly when you first import them. I'm pretty sure this is either because fonts are handled slightly differently in GMS2 than they were in previous versions, or there might currently be a bug in the importer, because I've seen this happen in some other projects that I imported to GMS2.

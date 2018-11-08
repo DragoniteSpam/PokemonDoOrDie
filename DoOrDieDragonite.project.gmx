@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="53" name="datafiles">
-    <datafiles number="53" name="data">
-      <datafiles number="53" name="graphics">
-        <datafiles number="53" name="battlers">
+  <datafiles number="54" name="datafiles">
+    <datafiles number="54" name="data">
+      <datafiles number="54" name="graphics">
+        <datafiles number="54" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -417,7 +417,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="53" name="pbs">
+      <datafiles number="54" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -573,6 +573,23 @@
       </ConfigOptions>
       <filename>ddd.ini</filename>
     </datafile>
+    <datafile>
+      <name>for-the-people-using-this-in-gms2.txt</name>
+      <exists>-1</exists>
+      <size>777</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>for-the-people-using-this-in-gms2.txt</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
@@ -616,13 +633,18 @@
     <sprite>sprites\spr_move_category</sprite>
     <sprite>sprites\spr_major_status</sprite>
     <sprite>sprites\spr_move_type</sprite>
+    <sprites name="backgrounds really">
+      <sprite>sprites\b_tex_temp</sprite>
+      <sprites name="character overworlds">
+        <sprite>sprites\b_chr_ethan</sprite>
+        <sprite>sprites\b_chr_silver</sprite>
+      </sprites>
+      <sprites name="tilesets">
+        <sprite>sprites\b_tileset_exterior</sprite>
+      </sprites>
+    </sprites>
   </sprites>
-  <backgrounds name="background">
-    <background>background\b_tex_temp</background>
-    <background>background\b_chr_ethan</background>
-    <background>background\b_chr_silver</background>
-    <background>background\b_tileset_exterior</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="battle">
@@ -1015,6 +1037,11 @@
         <script>scripts\draw_major_status.gml</script>
         <script>scripts\draw_move_category.gml</script>
       </scripts>
+      <scripts name="3d">
+        <script>scripts\transform_add.gml</script>
+        <script>scripts\transform_set.gml</script>
+        <script>scripts\transform_reset.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\L.gml</script>
     <scripts name="math-ish">
@@ -1220,7 +1247,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\init</room>
-    <room>rooms\main</room>
+    <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
   <constants number="36">
     <constant name="BATTLEFIELD_SIZE">256</constant>

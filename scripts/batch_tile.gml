@@ -17,8 +17,8 @@ var nz=1;
 // to be
 var tile_width=32;
 
-var tile_horizontal_count=background_get_width(tile.tileset)/tile_width;
-var tile_vertical_count=background_get_height(tile.tileset)/tile_width;
+var tile_horizontal_count=sprite_get_width(tile.tileset)/tile_width;
+var tile_vertical_count=sprite_get_height(tile.tileset)/tile_width;
 
 // texture coordinates go from 0...1, not 0...n, where n is the dimension
 // of the image in pixels
