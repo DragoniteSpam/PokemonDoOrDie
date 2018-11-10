@@ -206,7 +206,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             var team=Battle.teams[| pokemon.position];
             Battle.replacements[| pokemon.position]=exe.value;
             var new_battler=team.owner.party[| exe.value];
-            if (team.owner==Camera.battle_pawn){
+            if (team.owner==Camera.following){
                 ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0, come back!', pokemon.name)));
             } else {
                 ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0 called back %1!', team.name, pokemon.name)));
@@ -217,7 +217,7 @@ if (!pokemon.flag_downed&&debug_win==noone){
             // this requires that Battle.replacements[| n] is set correctly. fortunately, we do that a
             // few lines up.
             ds_queue_enqueue(individual_actions, add_battle_round_action(battle_round_action_change_contestant, pokemon.position));
-            if (team.owner==Camera.battle_pawn){
+            if (team.owner==Camera.following){
                 ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('Go, %0!', new_battler.name)));
             } else {
                 ds_queue_enqueue(individual_actions, add_battle_round_action(battle_individual_action_text, L('%0 sent out %1!', team.name, new_battler.name)));

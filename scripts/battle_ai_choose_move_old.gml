@@ -73,7 +73,7 @@ if (max_score>100){
         }
         if (ds_list_size(preferred)>0){
             var index=random_element_from_list(preferred);
-            var targets=battle_get_valid_targets(user, user.moves[move]);
+            var targets=battle_get_valid_targets(user, user.moves[index]);
             result=add_battle_executable_action(BattleActions.MOVE, user, targets, user.moves[index]);
         }
         ds_list_destroy(preferred);

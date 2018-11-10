@@ -1,4 +1,4 @@
-/// void batch_tile(vertex buffer, EntityTile, x, y, z);
+/// void batch_tile(vertex buffer, EntityTile, xx, yy, zz);
 
 var buffer=argument0;
 var tile=argument1;

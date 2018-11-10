@@ -1,17 +1,26 @@
-/// Pawn pawn_create(class internal name, name, [version], [object], [displayname]);
+/// Pawn pawn_create(class internal name, name, xx, yy, zz, [version], [object], [displayname]);
 
 var pname, pclass;
 var pversion=1;
 var pdisplayname='';
 var ptype=Pawn;
+var xx=0;
+var yy=0;
+var zz=0;
 
 switch (argument_count){
+    case 8:
+        pdisplayname=argument[7];
+    case 7:
+        ptype=argument[6];
+    case 6:
+        pversion=argument[5];
     case 5:
-        pdisplayname=argument[4];
+        zz=argument[4];
     case 4:
-        ptype=argument[3];
+        yy=argument[3];
     case 3:
-        pversion=argument[2];
+        xx=argument[2];
     case 2:
         pname=argument[1];
     case 1:
@@ -32,6 +41,11 @@ if (string_length(pdisplayname)==0){
 var class_data=get_trainer_class(pclass);
 
 with (instance_create(0, 0, ptype)){
+    id.xx=xx;
+    id.yy=yy;
+    id.zz=zz;
+    map_add_dynamic(get_active_map(), id, xx, yy, zz);
+    
     trainer_index=get_trainer_from_data(pname, pclass, pversion);
 
     ds_list_copy(party, get_trainer(trainer_index).party);

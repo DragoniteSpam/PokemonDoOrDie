@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,26 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var map=get_active_map();
-
-for (var i=0; i&lt;map.xx; i++){
-    for (var j=0; j&lt;map.yy; j++){
-        var array=map.contents_static[# i, j];
-        var tile=instance_create(0, 0, EntityTile);
-        tile.tile_x=4;
-        tile.tile_y=0;
-        
-        array[0]=tile;
-        // game maker arrays are dumb
-        map.contents_static[# i, j]=array;
-    }
-}
-
-map_batch_all(map);
-
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 0, 0, 1, Pawn);
-
-instance_destroy(/*self*/);
+            <string>// static stuff doesn't really need to know where they are
+// in the map because they all get fused together; dynamics do.
+xx=0;
+yy=0;
+zz=0;
 </string>
           </argument>
         </arguments>

@@ -30,11 +30,11 @@
 (get_trainer_class(get_trainer_class_from_name('PLAYERPAWN', true))).battle_sprite=ClassBattleSprites.PLAYERPAWN;
 (get_trainer_class(get_trainer_class_from_name('PAWN_RIVAL', true))).battle_sprite=ClassBattleSprites.PAWN_RIVAL;
 
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, Pawn);
+var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 0, 0, 1, Pawn);
 //var pawn_ai=pawn_create('PAWN_RIVAL', 'Silver');
-var pawn_ai=pawn_create('PAWN_RIVAL', 'Silver', 1, Pawn);
+var pawn_ai=pawn_create('PAWN_RIVAL', 'Silver', 0, 0, 1, 1, Pawn);
 
-Camera.battle_pawn=pawn_player;
+Camera.following=pawn_player;
 
 var MIDPOINT=BATTLEFIELD_SIZE/2;
 var dist=BATTLEFIELD_SIZE/4;

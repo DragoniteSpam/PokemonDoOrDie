@@ -31,17 +31,24 @@ name='Base Map';
 internal_name='BASEMAP';
 summary='you can walk around on it and stuff';
 
-xx=64;
-yy=64;
-zz=8;
+xx=0;
+yy=0;
+zz=0;
 
 // Since maps are basically three-dimensional arrays, the amount of
 // space they take up goes up pretty quickly (width*height*depth*the
 // size of whatever data's in it). In the future it's probably a
 // good idea to only store the active one(s) in memory and load/delete
 // them when necessary, or at the very least the data in the "contents"
-// structure.
-contents=map_construct_grid(xx, yy, zz);
+// structures.
+contents_static=noone;
+contents_dynamic=noone;
+
+// it turns out iterating over every element in a 3D structure to draw
+// them is unreasonably inefficient, so since most of the slots in the
+// 3D structure are probably going to be air anyway we're going to keep
+// a (smaller) parallel list of things that actually exist in the map
+list_dynamic=noone;
 
 // a vertex buffer
 statics=vertex_create_buffer();
@@ -67,19 +74,32 @@ statics=vertex_create_buffer();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (var i=0; i&lt;xx; i++){
-    for (var j=0; j&lt;yy; j++){
-        var array=contents[# i, j];
-        for (var k=0; k&lt;zz; k++){
-            if (array[k]!=noone){
-                instance_activate_object(array[k]);
-                instance_destroy(array[k]);
+            <string>if (contents_static!=noone){
+    var array_static, array_dynamic;
+    
+    for (var i=0; i&lt;xx; i++){
+        for (var j=0; j&lt;yy; j++){
+            array_static=contents_static[# i, j];
+            array_dynamic=contents_dynamic[# i, j];
+            for (var k=0; k&lt;zz; k++){
+                if (array_static[k]!=noone){
+                    instance_activate_object(array_static[k]);
+                    instance_destroy(array_static[k]);
+                }
+                if (array_dynamic[k]!=noone){
+                    if (array_dynamic[k].deleteable){
+                        instance_activate_object(array_dynamic[k]);
+                        instance_destroy(array_dynamic[k]);
+                    }
+                }
             }
         }
     }
+    
+    ds_grid_destroy(contents_static);
+    ds_grid_destroy(contents_dynamic);
+    ds_list_destroy(list_dynamic);
 }
-
-ds_map_destroy(contents);
 
 vertex_delete_buffer(statics);
 </string>

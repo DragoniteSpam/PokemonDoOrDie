@@ -4,7 +4,7 @@
 if (keyboard_check_released(vk_enter)){
     var target=Battle.input_processing.owner.party[| World.message_option_index];
     
-    if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
+    if (World.message_option_index==ds_list_size(Camera.following.party)){
         battle_input_processing_reset(false);
     } else if (battle_is_on_field(target)){
         message(L('%0 is already in battle!', target.name));

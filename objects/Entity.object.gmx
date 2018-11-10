@@ -39,6 +39,10 @@ render=null;
 
 // you can have scripts that do both, if you want to have a static thing that
 // sparkles or something
+
+// this is basically the opposite of game maker's persistent flag, but doesn't
+// use any built-in systems
+deleteable=true;
 </string>
           </argument>
         </arguments>

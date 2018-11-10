@@ -144,8 +144,11 @@ all_trainers=pbs_read_trainers(PATH_PBS+'trainers.txt');    // dependencies: nat
 
 pbs_cleanup();
 
+var test_map=instance_create(0, 0, DataMap);
+map_construct_grids(test_map, 64, 64, 8);
+
 active_map=0;
-all_maps=array_compose(instance_create(0, 0, DataMap));
+all_maps=array_compose(test_map);
 
 debug('data init took '+string((get_timer()-t0)/MILLION)+' seconds');
 

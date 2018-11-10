@@ -12,7 +12,7 @@ var amount=argument1.act[Stats.HP]-argument1.act_hp;
 if (amount>0){
     ds_queue_enqueue(argument0, add_battle_individual_action(battle_individual_action_scroll_health, argument1, -amount));
     var text;
-    if (argument1.owner==Camera.battle_pawn){
+    if (argument1.owner==Camera.following){
         if (amount==1){
             text=L("%0's health was restored by %1 point!", argument1.name, amount);
         } else {

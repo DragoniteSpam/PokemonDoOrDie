@@ -1008,12 +1008,16 @@
         <script>scripts\const_class_intro_me.gml</script>
       </scripts>
       <scripts name="map">
-        <script>scripts\map_construct_grid.gml</script>
+        <script>scripts\map_construct_grids.gml</script>
         <scripts name="batching stuff">
           <script>scripts\batch_tile.gml</script>
           <script>scripts\map_batch_all.gml</script>
         </scripts>
         <script>scripts\get_active_map.gml</script>
+        <script>scripts\map_add_dynamic.gml</script>
+        <scripts name="rendering stuff">
+          <script>scripts\render_pawn.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
@@ -1202,6 +1206,7 @@
       <object>objects\PawnPlayer</object>
       <object>objects\PawnWild</object>
       <object>objects\Entity</object>
+      <object>objects\EntityDynamic</object>
       <object>objects\EntityTile</object>
     </objects>
     <objects name="Data">

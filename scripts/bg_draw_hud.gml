@@ -13,7 +13,7 @@ if (user!=noone){
     draw_set_font(FPokemonMedium);
     
     // foes/not player pawns have slightly smaller status boxes
-    if (user.owner==Camera.battle_pawn){
+    if (user.owner==Camera.following){
         var offset=0;
     } else {
         var offset=40;
@@ -42,7 +42,7 @@ if (user!=noone){
      *   - show exp bar (can be placeholder for now)
      *   - show hp text
      */
-    if (user.owner==Camera.battle_pawn){
+    if (user.owner==Camera.following){
         // hp text row
         draw_set_halign(fa_center);
         draw_text(x+(UI_BATTLE_HUD_WIDTH-32)*3/4, hp_text_y, string(floor(user.act_hp))+'/'+string(user.act[Stats.HP]));

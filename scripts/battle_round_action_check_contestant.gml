@@ -14,7 +14,7 @@ var game_over=false;
 // not sure what I had the following for. You need to evaluate game over
 // regardless of the fainted Pokémon belonging to the player or not. In fact,
 // I'm not sure why this wasn't breaking things earlier.
-//if (team.owner!=Camera.battle_pawn&&!DEBUG){
+//if (team.owner!=Camera.following&&!DEBUG){
 for (var i=0; i<ds_list_size(team.owner.party); i++){
     if (alive(team.owner.party[| i])){
         found_index=i;
@@ -30,13 +30,13 @@ var pawn_alive=0;
 var pawn_slots=0;
 // count the number of spaces on the battlefield the battle pawn has
 for (var i=0; i<ds_list_size(Battle.teams); i++){
-    if (Battle.teams[| i].owner==Camera.battle_pawn&&Camera.battle_pawn.sentient){
+    if (Battle.teams[| i].owner==Camera.following&&Camera.following.sentient){
         pawn_slots++;
     }
 }
 // count the number of living pokémon the battle pawn has
-for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
-    if (alive(Camera.battle_pawn.party[| i])){
+for (var i=0; i<ds_list_size(Camera.following.party); i++){
+    if (alive(Camera.following.party[| i])){
         pawn_alive++;
     }
 }
@@ -44,7 +44,7 @@ for (var i=0; i<ds_list_size(Camera.battle_pawn.party); i++){
 if (game_over){
     ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_text, L('%0 has no more healthy Pokémon!', team.name)));
 } else {
-    if (team.owner==Camera.battle_pawn&&Camera.battle_pawn.sentient/*||DEBUG*/){
+    if (team.owner==Camera.following&&Camera.following.sentient/*||DEBUG*/){
         // todo when this happens in wild battles, you should have the opportunity to flee
         // todo if you enable forfeiting (or debug auto-win) trainer battles, you should have the opportunity to do that also
         // the 'who do you choose?' text is set in the action
@@ -59,7 +59,7 @@ if (game_over){
             if (pawn_alive>1&&pawn_slots==1){
                 ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_question, L('%0 is about to send in %1. Would you like to change Pokémon?', team.name, found.name)));
                 for (var i=0; i<ds_list_size(Battle.contestants); i++){
-                    if (Battle.contestants[| i].owner==Camera.battle_pawn/*||DEBUG*/){
+                    if (Battle.contestants[| i].owner==Camera.following/*||DEBUG*/){
                         ds_queue_enqueue(individual_actions, add_battle_individual_action(battle_individual_action_switch_before_turn, i));
                     }
                 }

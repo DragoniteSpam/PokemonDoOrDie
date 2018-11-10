@@ -8,7 +8,7 @@
 var opt_out=Battle.misc_data[? 'allowed to not send anybody in'];
 
 if (keyboard_check_released(vk_enter)){
-    if (World.message_option_index==ds_list_size(Camera.battle_pawn.party)){
+    if (World.message_option_index==ds_list_size(Camera.following.party)){
         if (opt_out){
             battle_input_processing_reset();
             battle_advance();

@@ -24,7 +24,7 @@ if (pokemon_live_teammate_count(user)==0){
     if (skill>=TrainerAI.MEDIUM&&!(skill>=TrainerAI.HIGH&&pokemon_live_teammate_count(target)>0)){
         if (move.value==0){
             move_score=move_score*2/3;
-        } else if (pokemon_hp_f(opponent)<0.5){
+        } else if (pokemon_hp_f(target)<0.5){
             move_score=move_score*3/2;
         }
     }

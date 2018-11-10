@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Entity</parentName>
+  <parentName>EntityDynamic</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -53,6 +53,47 @@ overworld_sprite=b_chr_ethan;
 audio_battle=bgm_silence;
 audio_victory=bgm_silence;
 audio_intro=bgm_silence;
+
+// map stuff
+
+// other stuff
+deleteable=false;       // persist between maps
+
+// inherited
+render=render_pawn;
+frame=0;
+map_direction=Directions.DOWN;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// constants and stuff
+
+// i'd prefer that these are sort of in the same order as
+// the unit circle (right, up, left, down) but i alsow want
+// maximum compatibility with RPG Maker
+enum Directions {
+    DOWN,
+    LEFT,
+    RIGHT,
+    UP
+}
 </string>
           </argument>
         </arguments>
