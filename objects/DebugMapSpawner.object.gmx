@@ -43,6 +43,7 @@ for (var i=0; i&lt;map.xx; i++){
 map_batch_all(map);
 
 var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 0, 0, 1, Pawn);
+Camera.following=pawn_player;
 
 instance_destroy(/*self*/);
 </string>

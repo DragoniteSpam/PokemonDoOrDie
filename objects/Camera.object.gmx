@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>100</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -74,7 +74,7 @@ following=noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// 3D stuff
+            <string>/// 3D stuff
 
 d3d_start();
 d3d_set_culling(true);

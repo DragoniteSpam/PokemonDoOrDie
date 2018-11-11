@@ -41,9 +41,6 @@ if (string_length(pdisplayname)==0){
 var class_data=get_trainer_class(pclass);
 
 with (instance_create(0, 0, ptype)){
-    id.xx=xx;
-    id.yy=yy;
-    id.zz=zz;
     map_add_dynamic(get_active_map(), id, xx, yy, zz);
     
     trainer_index=get_trainer_from_data(pname, pclass, pversion);
