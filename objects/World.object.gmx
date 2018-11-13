@@ -144,6 +144,8 @@ all_trainers=pbs_read_trainers(PATH_PBS+'trainers.txt');    // dependencies: nat
 
 pbs_cleanup();
 
+all_mesh_map=const_mesh();
+
 var test_map=instance_create(0, 0, DataMap);
 map_construct_grids(test_map, 64, 64, 8);
 

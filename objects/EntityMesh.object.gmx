@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,28 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var map=get_active_map();
+            <string>event_inherited();
 
-for (var i=0; i&lt;map.xx; i++){
-    for (var j=0; j&lt;map.yy; j++){
-        var array=map.contents_static[# i, j];
-        
-        array[0]=instance_create_tile(4, 0);
-        // game maker arrays are dumb
-        map.contents_static[# i, j]=array;
-    }
-}
+name='Tile';
+mesh_name='';
 
-map_batch_all(map);
+mesh_data=noone;
 
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 0, 0, 1, PawnPlayer);
-Camera.following=pawn_player;
+// probably the usual drawing parameters
 
-var array=map.contents_dynamic[# 4, 0];
-array[0]=instance_create_mesh("Tree00");
-map.contents_dynamic[# 4, 0]=array;
-
-instance_destroy(/*self*/);
+// Inherited stuff
+render=render_mesh;
 </string>
           </argument>
         </arguments>

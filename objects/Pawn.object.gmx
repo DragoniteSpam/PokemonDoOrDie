@@ -30,10 +30,6 @@
 name='AI Pawn';
 team=noone;
 
-// Inherited stuff
-batch=null;
-render=null;
-
 // this is NOT your trainer class. the trainer class can be found in
 // get_trainer(trainer_index).class
 trainer_index=0;
