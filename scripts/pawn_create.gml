@@ -38,6 +38,8 @@ if (string_length(pdisplayname)==0){
     pdisplayname=get_trainer_class(pclass).name+' '+pname;
 }
 
+// todo in the future, non-trainer NPCs shouldn't have a need for a
+// valid trainer class parameter.
 var class_data=get_trainer_class(pclass);
 
 with (instance_create(0, 0, ptype)){
@@ -45,7 +47,9 @@ with (instance_create(0, 0, ptype)){
     
     trainer_index=get_trainer_from_data(pname, pclass, pversion);
 
-    ds_list_copy(party, get_trainer(trainer_index).party);
+    if (trainer_index>-1){
+        ds_list_copy(party, get_trainer(trainer_index).party);
+    }
     
     name=pdisplayname;
     

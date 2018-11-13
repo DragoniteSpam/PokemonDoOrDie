@@ -641,6 +641,7 @@
       </sprites>
       <sprites name="tilesets">
         <sprite>sprites\b_tileset_exterior</sprite>
+        <sprite>sprites\b_tileset_overworld</sprite>
       </sprites>
     </sprites>
   </sprites>
