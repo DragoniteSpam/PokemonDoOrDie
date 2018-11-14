@@ -1,10 +1,11 @@
 /// array const_mesh_next(buffer, grid size);
 // the array that is returned takes the form of
-// [vbuff, xmin, ymin, zmin, xmax, ymax, zmax]
+// [vbuff, buff, xmin, ymin, zmin, xmax, ymax, zmax]
 
 var n=buffer_read(argument0, T);
 
 var buffer=vertex_create_buffer();
+var data=buffer_create(n*4*10, buffer_fixed, 4);
 vertex_begin(buffer, World.vertex_format);
 
 repeat(n){
@@ -19,10 +20,8 @@ repeat(n){
     var color=buffer_read(argument0, T);
     var alpha=buffer_read(argument0, T);
     
-    vertex_position_3d(buffer, xx, yy, zz);
-    vertex_normal(buffer, nx, ny, nz);
-    vertex_texcoord(buffer, xtex, ytex);
-    vertex_colour(buffer, color, alpha);
+    vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex, ytex, color, alpha);
+    buffer_point_complete(data, xx, yy, zz, nx, ny, nz, xtex, ytex, color, alpha);
 }
 
 var xmin=0;
@@ -42,6 +41,32 @@ if (argument1>0){
 }
 
 vertex_end(buffer);
+
+// it's really annoying, but you can't convert frozen vertex buffers
+// to normal buffers, and you need to do that to access the information
+// inside the vertex buffer in order to batch static objects together.
+
+// for now save both the vertex buffer and the ordinary buffer. it uses
+// more memory but the only alternative that i can think of is reloading
+// all of the meshes every time you enter a new map, which i don't think
+// anyone wants to do.
+
+// in any case it turns out reading data from vertex buffers is haaaaard.
+
+// todo ask TheSnidr about this, and about how to read data out of a
+// converted vertex buffer, because thatll probably be easier?
+
 vertex_freeze(buffer);
 
-return array_compose(buffer, xmin, ymin, zmin, xmax, ymax, zmax);
+return array_compose(buffer, data, xmin, ymin, zmin, xmax, ymax, zmax);
+
+enum MeshArrayData {
+    VBUFF,
+    DATA,
+    XMIN,
+    YMIN,
+    ZMIN,
+    XMAX,
+    YMAX,
+    ZMAX
+}

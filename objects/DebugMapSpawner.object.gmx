@@ -29,23 +29,22 @@
 
 for (var i=0; i&lt;map.xx; i++){
     for (var j=0; j&lt;map.yy; j++){
-        var array=map.contents_static[# i, j];
-        
-        array[0]=instance_create_tile(4, 0);
-        // game maker arrays are dumb
-        map.contents_static[# i, j]=array;
+        map_add_static(map, instance_create_tile(4, 0), i, j, 0);
     }
 }
 
-map_batch_all(map);
-
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 1, 0, 1, PawnPlayer);
+var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
+map_add_dynamic(map, pawn_player, 0, 1, 0);
 Camera.following=pawn_player;
 
-for (var i=0; i&lt;6; i++){
+for (var i=0; i&lt;4; i++){
+    map_add_static(map, instance_create_mesh("Tree00"), i, 0, 0);
+}
+for (var i=4; i&lt;8; i++){
     map_add_dynamic(map, instance_create_mesh("Tree00"), i, 0, 0);
 }
 
+map_batch_all(map);
 instance_destroy(/*self*/);
 </string>
           </argument>

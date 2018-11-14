@@ -35,6 +35,10 @@ sentient=true;
 battle_sprite=ClassBattleSprites.PLAYERPAWN;
 
 money=500;
+
+// inherited
+overworld_input_script=pawn_move_player;
+deleteable=false;
 </string>
           </argument>
         </arguments>

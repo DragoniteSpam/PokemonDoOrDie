@@ -43,6 +43,10 @@ render=null;
 // this is basically the opposite of game maker's persistent flag, but doesn't
 // use any built-in systems
 deleteable=true;
+
+xx=0;
+yy=0;
+zz=0;
 </string>
           </argument>
         </arguments>

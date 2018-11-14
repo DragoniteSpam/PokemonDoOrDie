@@ -96,7 +96,11 @@ d3d_set_projection_ext(x, y, z,
 
 var map=get_active_map();
 
-vertex_submit(map.statics, pr_trianglelist, sprite_get_texture(b_tileset_exterior, 0));
+//vertex_submit(map.statics, pr_trianglelist, sprite_get_texture(b_tileset_exterior, 0));
+// textures need to be on the same texture if you want to batch them together.
+// todo at some point just put the b_tileset_exterior graphics on the aki
+// overworld thing.
+vertex_submit(map.statics, pr_trianglelist, -1);
 
 for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
     var ent=map.list_dynamic[| i];

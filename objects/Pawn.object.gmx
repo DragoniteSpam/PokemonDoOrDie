@@ -51,9 +51,10 @@ audio_victory=bgm_silence;
 audio_intro=bgm_silence;
 
 // map stuff
+overworld_input_script=null;
 
 // other stuff
-deleteable=false;       // persist between maps
+movement_free=true;     // false when in the process of moving between cells
 
 // inherited
 render=render_pawn;

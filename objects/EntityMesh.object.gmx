@@ -35,6 +35,7 @@ mesh_data=noone;
 // probably the usual drawing parameters
 
 // Inherited stuff
+batch=batch_mesh;
 render=render_mesh;
 </string>
           </argument>

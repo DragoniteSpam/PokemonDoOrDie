@@ -1174,10 +1174,12 @@
         <script>scripts\map_construct_grids.gml</script>
         <scripts name="batching stuff">
           <script>scripts\batch_tile.gml</script>
+          <script>scripts\batch_mesh.gml</script>
           <script>scripts\map_batch_all.gml</script>
         </scripts>
         <script>scripts\get_active_map.gml</script>
         <script>scripts\map_add_dynamic.gml</script>
+        <script>scripts\map_add_static.gml</script>
         <scripts name="rendering stuff">
           <script>scripts\render_pawn.gml</script>
           <script>scripts\render_mesh.gml</script>
@@ -1232,6 +1234,7 @@
         <script>scripts\array_swap.gml</script>
         <script>scripts\ds_list_clone.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
+        <script>scripts\vertex_point_complete.gml</script>
         <script>scripts\ds_list_swap.gml</script>
         <script>scripts\ds_list_to_array.gml</script>
         <script>scripts\read_language.gml</script>
@@ -1243,6 +1246,7 @@
         <script>scripts\array_max_index.gml</script>
         <script>scripts\array_standard_deviation.gml</script>
         <script>scripts\buffer_read_string.gml</script>
+        <script>scripts\buffer_point_complete.gml</script>
       </scripts>
       <scripts name="file">
         <script>scripts\ini_read_boolean.gml</script>
@@ -1278,7 +1282,6 @@
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\move_get_flag.gml</script>
       <script>scripts\item_get_flag.gml</script>
-      <script>scripts\vertex_point_complete.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
@@ -1333,6 +1336,9 @@
         <script>scripts\pawn_item_total.gml</script>
         <script>scripts\pawn_item_pocket_total.gml</script>
         <script>scripts\pawn_has_item.gml</script>
+      </scripts>
+      <scripts name="movement">
+        <script>scripts\pawn_move_player.gml</script>
       </scripts>
     </scripts>
     <script>scripts\question.gml</script>
