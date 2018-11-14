@@ -31,7 +31,7 @@ fov=45;
 
 x=0;
 y=BATTLEFIELD_SIZE;
-z=BATTLEFIELD_SIZE/2;
+z=BATTLEFIELD_SIZE;
 
 xto=x;
 yto=0;
@@ -96,7 +96,6 @@ d3d_set_projection_ext(x, y, z,
 
 var map=get_active_map();
 
-if (keyboard_check_direct(vk_space))
 vertex_submit(map.statics, pr_trianglelist, sprite_get_texture(b_tileset_exterior, 0));
 
 for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){

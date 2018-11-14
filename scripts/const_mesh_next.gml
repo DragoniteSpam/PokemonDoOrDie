@@ -1,4 +1,4 @@
-/// array const_mesh_next(buffer, format);
+/// array const_mesh_next(buffer, grid size);
 // the array that is returned takes the form of
 // [vbuff, xmin, ymin, zmin, xmax, ymax, zmax]
 
@@ -25,12 +25,21 @@ repeat(n){
     vertex_colour(buffer, color, alpha);
 }
 
-var xmin=buffer_read(argument0, T);
-var ymin=buffer_read(argument0, T);
-var zmin=buffer_read(argument0, T);
-var xmax=buffer_read(argument0, T);
-var ymax=buffer_read(argument0, T);
-var zmax=buffer_read(argument0, T);
+var xmin=0;
+var ymin=0;
+var zmin=0;
+var xmax=0;
+var ymax=0;
+var zmax=0;
+
+if (argument1>0){
+    xmin=buffer_read(argument0, T);
+    ymin=buffer_read(argument0, T);
+    zmin=buffer_read(argument0, T);
+    xmax=buffer_read(argument0, T);
+    ymax=buffer_read(argument0, T);
+    zmax=buffer_read(argument0, T);
+}
 
 vertex_end(buffer);
 vertex_freeze(buffer);

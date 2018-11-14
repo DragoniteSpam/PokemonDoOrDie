@@ -39,12 +39,12 @@ for (var i=0; i&lt;map.xx; i++){
 
 map_batch_all(map);
 
-var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 0, 0, 1, PawnPlayer);
+var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 0, 1, 0, 1, PawnPlayer);
 Camera.following=pawn_player;
 
-var array=map.contents_dynamic[# 4, 0];
-array[0]=instance_create_mesh("Tree00");
-map.contents_dynamic[# 4, 0]=array;
+for (var i=0; i&lt;6; i++){
+    map_add_dynamic(map, instance_create_mesh("Tree00"), i, 0, 0);
+}
 
 instance_destroy(/*self*/);
 </string>
