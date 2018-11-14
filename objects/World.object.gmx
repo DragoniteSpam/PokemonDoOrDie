@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-100</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -31,9 +31,10 @@ var f=file_text_open_write(LOG_FILE);
 file_text_close(f);
 
 instance_create(0, 0, Camera);
+instance_create(0, 0, Controller);
 
 /*
- * This will fork off a couple different settings objects (controls,
+ * This will fork off a couple different settings objects (input,
  * battle, graphics, audio, maybe a few other things)
  */
 

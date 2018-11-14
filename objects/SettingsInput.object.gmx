@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Settings</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,42 +29,10 @@
 // deactivated but you can still try
 singleton();
 
-battle=instance_create(0, 0, SettingsBattle);
-gameplay=instance_create(0, 0, SettingsGameplay);
-input=instance_create(0, 0, SettingsInput);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// constants and stuff
+use_controller=true;
 
-// Not all of these are implemented. You can if you want, though.
-// Some specific settings override these.
-enum BattleGenerations {
-    ONE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN
-}
+invert_x=false;
+invert_y=false;
 </string>
           </argument>
         </arguments>

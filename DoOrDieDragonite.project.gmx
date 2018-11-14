@@ -1345,6 +1345,12 @@
       <script>scripts\debug.gml</script>
       <script>scripts\debug_notes.gml</script>
       <script>scripts\set_resolution.gml</script>
+      <scripts name="input">
+        <script>scripts\get_controller.gml</script>
+        <script>scripts\get_stick_angle.gml</script>
+        <script>scripts\get_stick_magnitude.gml</script>
+        <script>scripts\match_cardinal_direction.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -1416,8 +1422,10 @@
       <object>objects\World</object>
       <object>objects\Settings</object>
       <object>objects\SettingsBattle</object>
+      <object>objects\SettingsInput</object>
       <object>objects\SettingsGameplay</object>
       <object>objects\Camera</object>
+      <object>objects\Controller</object>
     </objects>
   </objects>
   <rooms name="rooms">
