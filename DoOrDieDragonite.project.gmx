@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="55" name="datafiles">
-    <datafiles number="55" name="data">
-      <datafiles number="55" name="graphics">
-        <datafiles number="55" name="battlers">
+  <datafiles number="63" name="datafiles">
+    <datafiles number="63" name="data">
+      <datafiles number="63" name="graphics">
+        <datafiles number="63" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -417,7 +417,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="55" name="pbs">
+      <datafiles number="63" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -537,6 +537,144 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
+        <datafiles number="63" name="dummy">
+          <datafile>
+            <name>items.txt</name>
+            <exists>-1</exists>
+            <size>120</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>items.txt</filename>
+          </datafile>
+          <datafile>
+            <name>monsters.txt</name>
+            <exists>-1</exists>
+            <size>647442</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>monsters.txt</filename>
+          </datafile>
+          <datafile>
+            <name>moves.txt</name>
+            <exists>-1</exists>
+            <size>152</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>moves.txt</filename>
+          </datafile>
+          <datafile>
+            <name>abilities.txt</name>
+            <exists>-1</exists>
+            <size>42</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>abilities.txt</filename>
+          </datafile>
+          <datafile>
+            <name>types.txt</name>
+            <exists>-1</exists>
+            <size>44</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>types.txt</filename>
+          </datafile>
+          <datafile>
+            <name>read me please.txt</name>
+            <exists>-1</exists>
+            <size>374</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>read me please.txt</filename>
+          </datafile>
+          <datafile>
+            <name>trainers.txt</name>
+            <exists>-1</exists>
+            <size>191</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>trainers.txt</filename>
+          </datafile>
+          <datafile>
+            <name>trainertypes.txt</name>
+            <exists>-1</exists>
+            <size>236</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>trainertypes.txt</filename>
+          </datafile>
+        </datafiles>
       </datafiles>
       <datafile>
         <name>strings.txt</name>
@@ -555,7 +693,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="55" name="stuff">
+      <datafiles number="63" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -1286,8 +1424,8 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="37">
-    <constant name="T">buffer_f32</constant>
+  <constants number="39">
+    <constant name="USE_DUMMY_DATA">true</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
@@ -1304,9 +1442,11 @@
     <constant name="OPTIONS_INI">".\ddd.ini"</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
+    <constant name="PATH_PBS_DUMMY">".\data\pbs\dummy\"</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
     <constant name="POKEMON_GLOBAL_SCALE">96/224</constant>
     <constant name="STAT_MOD_LIMIT">6</constant>
+    <constant name="T">buffer_f32</constant>
     <constant name="TILE_DEPTH">32</constant>
     <constant name="TILE_HEIGHT">32</constant>
     <constant name="TILE_WIDTH">32</constant>

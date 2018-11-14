@@ -23,7 +23,6 @@ var trainer_class, trainer_name, trainer_version, trainer_items, trainer_party;
 var errors=ds_list_create();
 
 for (var i=0; i<ds_list_size(text); i++){
-    
     switch (state){
         case PBSParseTrainerState.CLASS:
             trainer_class=get_trainer_class_from_name(text[| i], true);
@@ -60,7 +59,11 @@ for (var i=0; i<ds_list_size(text); i++){
                     trainer_items[j-1]=get_item_from_name(size_split[j], true);
                 }
             }
-            state=PBSParseTrainerState.PARTY;
+            if (array_length_1d(trainer_party)>0){
+                state=PBSParseTrainerState.PARTY;
+            } else {
+                state=PBSParseTrainerState.CLASS;
+            }
             break;
         case PBSParseTrainerState.PARTY:
             var terms=split(text[| i], ',');
@@ -168,6 +171,7 @@ for (var i=0; i<ds_list_size(text); i++){
                         level=real(terms[1]);
                     }
                 case 1:
+                    debug(terms[0])
                     species=get_pokemon_from_name(terms[0], true);
                     if (species==-1){
                         ds_list_add(errors, 'not a pokémon species in pbs trainers.txt: '+terms[0]);
