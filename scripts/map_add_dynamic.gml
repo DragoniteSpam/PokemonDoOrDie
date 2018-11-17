@@ -6,9 +6,8 @@ argument1.xx=argument2;
 argument1.yy=argument3;
 argument1.zz=argument4;
 
-var array=argument0.contents_dynamic[# argument2, argument3];
-// if there was already a value in the location that you are adding
-// to, it will be orphaned! make sure that does not happen!
-array[@ argument4]=argument1;
+if (argument1.am_solid){
+    map_add_solid(argument0, argument1, argument2, argument3, argument4);
+}
 
 ds_list_add(argument0.list_dynamic, argument1);

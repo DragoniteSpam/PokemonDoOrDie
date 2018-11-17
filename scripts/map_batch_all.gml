@@ -4,17 +4,11 @@ var map=argument0;
 
 vertex_begin(map.statics, World.vertex_format);
 
-for (var i=0; i<map.xx; i++){
-    for (var j=0; j<map.yy; j++){
-        var array=map.contents_static[# i, j];
-        for (var k=0; k<map.zz; k++){
-            if (array[k]!=noone){
-                // batch scripts should all take the parameters
-                // (vertex buffer, owner Entity, x, y, z)
-                script_execute(array[k].batch, map.statics, array[k], i, j, k);
-            }
-        }
-    }
+for (var i=0; i<ds_list_size(map.list_static); i++){
+    var thing=map.list_static[| i];
+    // batch scripts should all take the parameters
+    // (vertex buffer, Entity, x, y, z)
+    script_execute(thing.batch, map.statics, thing, thing.xx, thing.yy, thing.zz);
 }
 
 vertex_end(map.statics);

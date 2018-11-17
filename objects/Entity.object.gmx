@@ -47,6 +47,9 @@ deleteable=true;
 xx=0;
 yy=0;
 zz=0;
+// don't want to use the built-in "solid" variable since that might cause
+// things to break unexpectedly
+am_solid=true;
 </string>
           </argument>
         </arguments>

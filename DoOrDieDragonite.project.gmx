@@ -797,7 +797,6 @@
         <sprite>sprites\b_chr_silver</sprite>
       </sprites>
       <sprites name="tilesets">
-        <sprite>sprites\b_tileset_exterior</sprite>
         <sprite>sprites\b_tileset_overworld</sprite>
       </sprites>
     </sprites>
@@ -1180,6 +1179,8 @@
         <script>scripts\get_active_map.gml</script>
         <script>scripts\map_add_dynamic.gml</script>
         <script>scripts\map_add_static.gml</script>
+        <script>scripts\map_add_solid.gml</script>
+        <script>scripts\map_remove_solid.gml</script>
         <scripts name="rendering stuff">
           <script>scripts\render_pawn.gml</script>
           <script>scripts\render_mesh.gml</script>
