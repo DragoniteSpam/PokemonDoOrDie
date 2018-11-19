@@ -50,16 +50,12 @@ audio_battle=bgm_silence;
 audio_victory=bgm_silence;
 audio_intro=bgm_silence;
 
-// map stuff
-overworld_input_script=null;
-
-// other stuff
-movement_free=true;     // false when in the process of moving between cells
-
 // inherited
 render=render_pawn;
+contents_adder=contents_add_single;
+contents_remover=contents_remove_single;
+
 frame=0;
-map_direction=Directions.DOWN;
 </string>
           </argument>
         </arguments>

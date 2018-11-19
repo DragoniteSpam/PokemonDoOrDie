@@ -304,6 +304,22 @@ enum Languages {
           <argument>
             <kind>1</kind>
             <string>dt=delta_time/1000000;
+
+var map=get_active_map();
+
+for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
+    var thing=map.list_dynamic[| i];
+    script_execute(thing.update, thing);
+}
+
+// as always don't like running two for loops that do the same
+// thing but the update_post script may depend on all of the
+// other entities completing their regular update
+
+for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
+    var thing=map.list_dynamic[| i];
+    script_execute(thing.update_post, thing);
+}
 </string>
           </argument>
         </arguments>

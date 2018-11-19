@@ -37,6 +37,8 @@ mesh_data=noone;
 // Inherited stuff
 batch=batch_mesh;
 render=render_mesh;
+contents_adder=contents_add_range;
+contents_remover=contents_remove_range;
 </string>
           </argument>
         </arguments>

@@ -5,9 +5,13 @@
 argument1.xx=argument2;
 argument1.yy=argument3;
 argument1.zz=argument4;
+argument1.target_xx=argument2;
+argument1.target_yy=argument3;
+argument1.target_zz=argument4;
+argument1.previous_xx=argument2;
+argument1.previous_yy=argument3;
+argument1.previous_zz=argument4;
 
-if (argument1.am_solid){
-    map_add_solid(argument0, argument1, argument2, argument3, argument4);
-}
+map_add_contents(argument0, argument1, argument2, argument3, argument4);
 
 ds_list_add(argument0.list_dynamic, argument1);

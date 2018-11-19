@@ -15,6 +15,6 @@ argument0.xx=argument1;
 argument0.yy=argument2;
 argument0.zz=argument3;
 
-argument0.contents_collision=grid;
+argument0.contents=grid;
 argument0.list_static=ds_list_create();
 argument0.list_dynamic=ds_list_create();

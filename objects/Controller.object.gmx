@@ -36,6 +36,7 @@
  * any of this unless you want to change which buttons do what.
  */
 
+gamepad_get_axis_deadzone(0.15);
 gamepad_set_button_threshold(0, 0.5);
 
 // Joystick information

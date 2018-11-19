@@ -47,6 +47,8 @@ tile_alpha=1;
 
 batch=batch_tile;
 am_solid=false;
+contents_adder=contents_add_single;
+contents_remover=contents_remove_single;
 </string>
           </argument>
         </arguments>

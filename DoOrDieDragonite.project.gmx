@@ -1170,25 +1170,15 @@
         <script>scripts\const_class_intro_me.gml</script>
       </scripts>
       <scripts name="map">
-        <script>scripts\map_construct_grids.gml</script>
-        <scripts name="batching stuff">
-          <script>scripts\batch_tile.gml</script>
-          <script>scripts\batch_mesh.gml</script>
-          <script>scripts\map_batch_all.gml</script>
-        </scripts>
         <script>scripts\get_active_map.gml</script>
+        <script>scripts\map_add_contents.gml</script>
         <script>scripts\map_add_dynamic.gml</script>
         <script>scripts\map_add_static.gml</script>
-        <script>scripts\map_add_solid.gml</script>
-        <script>scripts\map_remove_solid.gml</script>
-        <scripts name="rendering stuff">
-          <script>scripts\render_pawn.gml</script>
-          <script>scripts\render_mesh.gml</script>
-        </scripts>
-        <scripts name="adding content">
-          <script>scripts\instance_create_tile.gml</script>
-          <script>scripts\instance_create_mesh.gml</script>
-        </scripts>
+        <script>scripts\map_construct_grids.gml</script>
+        <script>scripts\map_get_at.gml</script>
+        <script>scripts\map_get_solid.gml</script>
+        <script>scripts\map_inbounds.gml</script>
+        <script>scripts\map_remove_contents.gml</script>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
@@ -1292,56 +1282,6 @@
       <script>scripts\draw_pokemon_details.gml</script>
     </scripts>
     <script>scripts\message.gml</script>
-    <scripts name="pawn stuff">
-      <script>scripts\add_trainer_pokemon.gml</script>
-      <script>scripts\attach_pokemon_to_trainer.gml</script>
-      <scripts name="monsters">
-        <script>scripts\alive.gml</script>
-        <script>scripts\get_matchup_on.gml</script>
-        <script>scripts\get_matchup_on_pokemon.gml</script>
-        <script>scripts\has_type.gml</script>
-        <script>scripts\heal.gml</script>
-        <script>scripts\heal_all.gml</script>
-        <script>scripts\pokemon_auto_moves.gml</script>
-        <script>scripts\pokemon_auto_stats.gml</script>
-        <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
-        <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
-        <script>scripts\pokemon_teach_move.gml</script>
-        <script>scripts\team_alive.gml</script>
-        <script>scripts\total_pp.gml</script>
-        <script>scripts\total_move_pp.gml</script>
-        <scripts name="can">
-          <script>scripts\pokemon_can_have_status.gml</script>
-          <script>scripts\pokemon_can_flinch.gml</script>
-          <script>scripts\pokemon_can_confuse.gml</script>
-          <script>scripts\pokemon_can_escape.gml</script>
-          <script>scripts\pokemon_can_lower_stat.gml</script>
-          <script>scripts\pokemon_can_raise_stat.gml</script>
-        </scripts>
-        <script>scripts\pokemon_hp_f.gml</script>
-        <script>scripts\pokemon_calculated_stat.gml</script>
-        <script>scripts\pokemon_live_teammate_count.gml</script>
-        <script>scripts\get_pokemon_level.gml</script>
-      </scripts>
-      <script>scripts\pawn_create.gml</script>
-      <scripts name="inventory">
-        <scripts name="help">
-          <script>scripts\trainer_add_item.gml</script>
-          <script>scripts\trainer_remove_item.gml</script>
-          <script>scripts\trainer_has_item.gml</script>
-          <script>scripts\trainer_item_total.gml</script>
-          <script>scripts\trainer_item_pocket_total.gml</script>
-        </scripts>
-        <script>scripts\pawn_add_item.gml</script>
-        <script>scripts\pawn_remove_item.gml</script>
-        <script>scripts\pawn_item_total.gml</script>
-        <script>scripts\pawn_item_pocket_total.gml</script>
-        <script>scripts\pawn_has_item.gml</script>
-      </scripts>
-      <scripts name="movement">
-        <script>scripts\pawn_move_player.gml</script>
-      </scripts>
-    </scripts>
     <script>scripts\question.gml</script>
     <script>scripts\scr_false.gml</script>
     <script>scripts\scr_true.gml</script>
@@ -1357,6 +1297,83 @@
         <script>scripts\get_stick_angle.gml</script>
         <script>scripts\get_stick_magnitude.gml</script>
         <script>scripts\match_cardinal_direction.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="entities">
+      <scripts name="batching stuff">
+        <script>scripts\batch_tile.gml</script>
+        <script>scripts\batch_mesh.gml</script>
+        <script>scripts\map_batch_all.gml</script>
+      </scripts>
+      <scripts name="rendering stuff">
+        <script>scripts\render_pawn.gml</script>
+        <script>scripts\render_mesh.gml</script>
+      </scripts>
+      <scripts name="adding content">
+        <script>scripts\instance_create_tile.gml</script>
+        <script>scripts\instance_create_mesh.gml</script>
+      </scripts>
+      <scripts name="solids">
+        <script>scripts\contents_add_single.gml</script>
+        <script>scripts\contents_remove_range.gml</script>
+        <script>scripts\contents_add_range.gml</script>
+        <script>scripts\contents_remove_single.gml</script>
+      </scripts>
+      <scripts name="updates">
+        <script>scripts\update_player.gml</script>
+        <scripts name="post">
+          <script>scripts\update_dynamic_post.gml</script>
+        </scripts>
+        <scripts name="new cell">
+          <script>scripts\update_dynamic_new_cell.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="pawn stuff">
+        <script>scripts\add_trainer_pokemon.gml</script>
+        <script>scripts\attach_pokemon_to_trainer.gml</script>
+        <scripts name="monsters">
+          <script>scripts\alive.gml</script>
+          <script>scripts\get_matchup_on.gml</script>
+          <script>scripts\get_matchup_on_pokemon.gml</script>
+          <script>scripts\has_type.gml</script>
+          <script>scripts\heal.gml</script>
+          <script>scripts\heal_all.gml</script>
+          <script>scripts\pokemon_auto_moves.gml</script>
+          <script>scripts\pokemon_auto_stats.gml</script>
+          <script>scripts\pokemon_reset_battle_stat_mods.gml</script>
+          <script>scripts\pokemon_reset_volatile_stat_mods.gml</script>
+          <script>scripts\pokemon_teach_move.gml</script>
+          <script>scripts\team_alive.gml</script>
+          <script>scripts\total_pp.gml</script>
+          <script>scripts\total_move_pp.gml</script>
+          <scripts name="can">
+            <script>scripts\pokemon_can_have_status.gml</script>
+            <script>scripts\pokemon_can_flinch.gml</script>
+            <script>scripts\pokemon_can_confuse.gml</script>
+            <script>scripts\pokemon_can_escape.gml</script>
+            <script>scripts\pokemon_can_lower_stat.gml</script>
+            <script>scripts\pokemon_can_raise_stat.gml</script>
+          </scripts>
+          <script>scripts\pokemon_hp_f.gml</script>
+          <script>scripts\pokemon_calculated_stat.gml</script>
+          <script>scripts\pokemon_live_teammate_count.gml</script>
+          <script>scripts\get_pokemon_level.gml</script>
+        </scripts>
+        <script>scripts\pawn_create.gml</script>
+        <scripts name="inventory">
+          <scripts name="help">
+            <script>scripts\trainer_add_item.gml</script>
+            <script>scripts\trainer_remove_item.gml</script>
+            <script>scripts\trainer_has_item.gml</script>
+            <script>scripts\trainer_item_total.gml</script>
+            <script>scripts\trainer_item_pocket_total.gml</script>
+          </scripts>
+          <script>scripts\pawn_add_item.gml</script>
+          <script>scripts\pawn_remove_item.gml</script>
+          <script>scripts\pawn_item_total.gml</script>
+          <script>scripts\pawn_item_pocket_total.gml</script>
+          <script>scripts\pawn_has_item.gml</script>
+        </scripts>
       </scripts>
     </scripts>
   </scripts>
@@ -1435,11 +1452,13 @@
       <object>objects\Controller</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="39">
+  <constants number="40">
+    <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="USE_DUMMY_DATA">true</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>

@@ -1,8 +1,8 @@
-/// void map_remove_solid(DataMap, Entity, xx, yy, zz);
+/// void contents_remove_single(DataMap, Entity, xx, yy, zz);
 // Does not check to see if the specified coordinates are in bounds.
 // You are responsible for that.
 
-var slice=argument0.contents_collision[# argument2, argument3]
+var slice=argument0.contents[# argument2, argument3]
 var cell=slice[argument4];
 
 // if the specified object cannot be found at (x, y, z) the game
@@ -10,3 +10,7 @@ var cell=slice[argument4];
 // they cannot be found.
 
 ds_list_delete(cell, ds_list_find_index(cell, argument1));
+if (ds_list_size(cell)==0){
+    ds_list_destroy(cell);
+    slice[@ argument4]=noone;
+}

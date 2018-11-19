@@ -1,8 +1,8 @@
-/// void map_add_solid(DataMap, Entity, xx, yy, zz);
+/// void contents_add_single(DataMap, Entity, xx, yy, zz);
 // Does not check to see if the specified coordinates are in bounds.
 // You are responsible for that.
 
-var slice=argument0.contents_collision[# argument2, argument3]
+var slice=argument0.contents[# argument2, argument3];
 var cell=slice[argument4];
 
 if (cell==noone){
