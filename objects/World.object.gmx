@@ -320,6 +320,10 @@ for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
     var thing=map.list_dynamic[| i];
     script_execute(thing.update_post, thing);
 }
+
+with (Camera){
+    script_execute(camera_behavior);
+}
 </string>
           </argument>
         </arguments>

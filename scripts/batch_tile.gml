@@ -2,6 +2,11 @@
 
 var buffer=argument0;
 var tile=argument1;
+if (GMS_VERSION==1){
+    var TEXEL=1/sprite_get_width(tile.tileset);
+} else {
+    var TEXEL=0;
+}
 
 var xx=argument2*TILE_WIDTH;
 var yy=argument3*TILE_HEIGHT;
@@ -31,10 +36,14 @@ var ytex=tile.tile_y*texture_width;
 var color=tile.tile_color;
 var alpha=tile.tile_alpha;
 
-vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex, ytex, color, alpha);
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width, ytex, color, alpha);
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT,zz, nx, ny, nz, xtex+texture_width, ytex+texture_height, color, alpha);
+// TEXEL Chops off the border around the tiles to prevent annoying
+// single-pixel texture issues in GMS1. (Not a problem in GMS2.)
+// This is not an optimal solution, but it works within the requirements
+// of this project. Do not attempt at home.
+vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT,zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
 
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width, ytex+texture_height, color, alpha);
-vertex_point_complete(buffer, xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex, ytex+texture_height, color, alpha);
-vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex, ytex, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);

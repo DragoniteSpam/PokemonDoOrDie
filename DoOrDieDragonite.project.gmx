@@ -1298,6 +1298,7 @@
         <script>scripts\get_stick_magnitude.gml</script>
         <script>scripts\match_cardinal_direction.gml</script>
       </scripts>
+      <script>scripts\camera_behavior.gml</script>
     </scripts>
     <scripts name="entities">
       <scripts name="batching stuff">
@@ -1456,7 +1457,8 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="40">
+  <constants number="41">
+    <constant name="GMS_VERSION">1</constant>
     <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="USE_DUMMY_DATA">true</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>

@@ -444,7 +444,6 @@ up=up||match_cardinal_direction(ls_angle, ls_y, CompassDirections.north);
 down=down||match_cardinal_direction(ls_angle, ls_y, CompassDirections.south);
 left=left||match_cardinal_direction(ls_angle, ls_x, CompassDirections.west);
 right=right||match_cardinal_direction(ls_angle, ls_x, CompassDirections.east);
-debug("angle: ", ls_angle, " right: ", right)
 a=a||(keyboard_check_direct(vk_enter)||mouse_check_button(mb_left));
 b=b||(keyboard_check_direct(ord("J"))||mouse_check_button(mb_right));
 x=x||keyboard_check_direct(ord("K"));
