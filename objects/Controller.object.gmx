@@ -36,13 +36,13 @@
  * any of this unless you want to change which buttons do what.
  */
 
-gamepad_get_axis_deadzone(0.15);
-gamepad_set_button_threshold(0, 0.5);
+gamepad_set_button_threshold(0, 0.1);
+
+game_has_focus=window_has_focus();
 
 // Joystick information
 rs_angle=0;
 ls_angle=0;
-dpad_angle=0;
 rs_magnitude=0;
 ls_magnitude=0;
 rs_x=0;
@@ -53,7 +53,6 @@ ls_y=0;
 // Change in joystick information
 d_rs_angle=0;
 d_ls_angle=0;
-d_dpad_angle=0;
 d_rs_magnitude=0;
 d_ls_magnitude=0;
 d_ls_x=0;
@@ -90,6 +89,11 @@ pleft=false;
 pright=false;
 start=false;
 select=false;
+
+console=false;
+press_console=false;
+release_console=false;
+last_console=false;
 
 // Previous input
 last_up=false;
@@ -168,34 +172,42 @@ release_pright=false;
 release_start=false;
 release_select=false;
 
-// Common terms
-interact=a;
-back=b||select;
-pause=x||start;
-run=l2;
-jump=y;
-sneak=r2;
+// Bound buttons
+// todo make this an actual thing at some point
+/*gp_bind_a=DEFAULT_GP_A;
+gp_bind_b=DEFAULT_GP_B;
+gp_bind_x=DEFAULT_GP_X;
+gp_bind_y=DEFAULT_GP_Y;
+gp_bind_start=DEFAULT_GP_START;
+gp_bind_select=DEFAULT_GP_SELECT;
+gp_bind_l=DEFAULT_GP_L;
+gp_bind_r=DEFAULT_GP_R;
+gp_bind_l2=DEFAULT_GP_L2;
+gp_bind_r2=DEFAULT_GP_R2;
+gp_bind_ls=DEFAULT_GP_LS;
+gp_bind_rs=DEFAULT_GP_RS;
+gp_bind_padu=DEFAULT_GP_PADU;
+gp_bind_padd=DEFAULT_GP_PADD;
+gp_bind_padl=DEFAULT_GP_PADL;
+gp_bind_padr=DEFAULT_GP_PADR;
 
-last_interact=false;
-last_back=false;
-last_pause=false;
-last_run=false;
-last_jump=false;
-last_sneak=false;
-
-press_interact=false;
-press_back=false;
-press_pause=false;
-press_run=false;
-press_jump=false;
-press_sneak=false;
-
-release_interact=false;
-release_back=false;
-release_pause=false;
-release_run=false;
-release_jump=false;
-release_sneak=false;
+mk_bind_a_a=DEFAULT_MK_A_A;
+mk_bind_a_b=DEFAULT_MK_A_B;
+mk_bind_b=DEFAULT_MK_B;
+mk_bind_x=DEFAULT_MK_X;
+mk_bind_y=DEFAULT_MK_Y;
+mk_bind_start=DEFAULT_MK_START;
+mk_bind_select=DEFAULT_MK_SELECT;
+mk_bind_l=DEFAULT_MK_L;
+mk_bind_r=DEFAULT_MK_R;
+mk_bind_l2=DEFAULT_MK_L2;
+mk_bind_r2=DEFAULT_MK_R2;
+mk_bind_ls=DEFAULT_MK_LS;
+mk_bind_rs=DEFAULT_MK_RS;
+mk_bind_padu=DEFAULT_MK_PADU;
+mk_bind_padd=DEFAULT_MK_PADD;
+mk_bind_padl=DEFAULT_MK_PADL;
+mk_bind_padr=DEFAULT_MK_PADR;*/
 
 // Labels
 cn[JS.LEFT]="Left Stick Left";
@@ -323,7 +335,9 @@ enum CompassDirections {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>game_has_focus=window_has_focus();
+
+/*
  * Everything in here is designed to make it easy(er) to
  * create reconfigure-able controls. Default controls act as if
  * you were playing with a gamepad, even if you're not; more
@@ -331,18 +345,6 @@ enum CompassDirections {
  * Pay no attention to
  * any of this unless you want to change which buttons do what.
  */
-
-// Shift input to previous input
-var lastL=ls_angle;
-var lastR=rs_angle;
-var lastP=dpad_angle;
-var lastInput=hasInput;
-var lastLM=ls_magnitude;
-var lastRM=rs_magnitude;
-var lastRSX=rs_x;
-var lastRSY=rs_y;
-var lastLSX=ls_x;
-var lastLSY=ls_y;
 
 last_up=up;
 last_down=down;
@@ -368,13 +370,6 @@ last_pleft=pleft;
 last_pright=pright;
 last_start=start;
 last_select=select;
-
-last_interact=interact;
-last_back=back;
-last_pause=pause;
-last_run=run;
-last_jump=jump;
-last_sneak=sneak;
 
 // todo get rid of the hard-coded input constants/characters and
 // instead make them configurable settings (World.settings.input)
@@ -414,6 +409,28 @@ if (get_controller()){
     rdown=match_cardinal_direction(rs_angle, rs_magnitude, CompassDirections.south);
     rleft=match_cardinal_direction(rs_angle, rs_magnitude, CompassDirections.west);
     rright=match_cardinal_direction(rs_angle, rs_magnitude, CompassDirections.east);
+} else {
+    // The keyboard can gather exact input directly from the keyboard, since all button checks are the same
+    ls_x=0;
+    ls_y=0;
+    rs_x=0;
+    rs_y=0;
+    a=false;
+    b=false;
+    x=false;
+    y=false;
+    start=false;
+    select=false;
+    l=false;
+    r=false;
+    l2=false;
+    r2=false;
+    ls=false;
+    rs=false;
+    pup=false;
+    pdown=false;
+    pleft=false;
+    pright=false;
 }
 
 // The keyboard can gather exact input directly from the keyboard, since all button checks are the same
@@ -427,6 +444,7 @@ up=up||match_cardinal_direction(ls_angle, ls_y, CompassDirections.north);
 down=down||match_cardinal_direction(ls_angle, ls_y, CompassDirections.south);
 left=left||match_cardinal_direction(ls_angle, ls_x, CompassDirections.west);
 right=right||match_cardinal_direction(ls_angle, ls_x, CompassDirections.east);
+debug("angle: ", ls_angle, " right: ", right)
 a=a||(keyboard_check_direct(vk_enter)||mouse_check_button(mb_left));
 b=b||(keyboard_check_direct(ord("J"))||mouse_check_button(mb_right));
 x=x||keyboard_check_direct(ord("K"));
@@ -480,18 +498,6 @@ if (abs(rs_y)&lt;0.1){
     rs_y=0;
 }
 
-// Change in stick angles
-d_rs_angle=(rs_angle-lastR+360) mod 360;
-d_ls_angle=(ls_angle-lastL+360) mod 360;
-d_dpad_angle=(dpad_angle-lastP+360) mod 360;
-d_ls_magnitude=ls_magnitude-lastLM;
-d_rs_magnitude=rs_magnitude-lastRM;
-
-// Update change input
-hasInput=(up||down||left||right);
-pressInput=((!lastInput)&amp;&amp;hasInput);
-releaseInput=(lastInput&amp;&amp;(!hasInput));
-
 press_up=(!last_up)&amp;&amp;up;
 press_down=(!last_down)&amp;&amp;down;
 press_left=(!last_left)&amp;&amp;left;
@@ -541,28 +547,6 @@ release_pleft=last_pleft&amp;&amp;(!pleft);
 release_pright=last_pright&amp;&amp;(!pright);
 release_start=last_start&amp;&amp;(!start);
 release_select=last_select&amp;&amp;(!select);
-
-// Update common terms
-interact=a;
-back=b||select;
-pause=x||start;
-run=l2;
-jump=y;
-sneak=r2;
-
-press_interact=(!last_interact)&amp;&amp;interact;
-press_back=(!last_back)&amp;&amp;back;
-press_pause=(!last_pause)&amp;&amp;pause;
-press_run=(!last_run)&amp;&amp;run;
-press_jump=(!last_jump)&amp;&amp;jump;
-press_sneak=(!last_sneak)&amp;&amp;sneak;
-
-release_interact=last_interact&amp;&amp;(!interact);
-release_back=last_back&amp;&amp;(!back);
-release_pause=last_pause&amp;&amp;(!pause);
-release_run=last_run&amp;&amp;(!run);
-release_jump=last_jump&amp;&amp;(!jump);
-release_sneak=last_sneak&amp;&amp;(!sneak);
 </string>
           </argument>
         </arguments>
