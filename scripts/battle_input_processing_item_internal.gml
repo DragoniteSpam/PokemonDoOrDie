@@ -25,7 +25,7 @@ World.message_option_index=menu_input(World.message_option_index, max_n);
 
 var continue_message='';
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     if (World.message_option_index==max_n-1){
         battle_input_processing_reset(false, BattleInputStages.ITEM);
     } else {
@@ -62,7 +62,7 @@ if (keyboard_check_released(vk_enter)){
                 break;
         }
     }
-} else if (keyboard_check_released(vk_escape)){
+} else if (Controller.release_b){
     battle_input_processing_reset(false, BattleInputStages.ITEM);
 }
 

@@ -1,6 +1,6 @@
 /// void battle_input_processing_control_switch_item();
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     if (World.message_option_index==ds_list_size(Battle.input_processing.owner.party)){
         battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
     } else {
@@ -18,6 +18,6 @@ if (keyboard_check_released(vk_enter)){
             battle_debug(pkmn.owner.name+' has chosen to use a(n) '+get_item(item).name);
         }
     }
-} else if (keyboard_check_released(vk_escape)){
+} else if (Controller.release_b){
     battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
 }

@@ -24,7 +24,7 @@ message_option_index=menu_input(message_option_index, max_n);
 ds_list_destroy(text_list);
 ds_list_destroy(color_list);
 
-if (keyboard_check_released(vk_tab)){
+if (Controller.release_x){
     Battle.view_details=!Battle.view_details;
 }
 

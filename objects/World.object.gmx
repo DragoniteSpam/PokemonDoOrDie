@@ -429,7 +429,7 @@ if (message_wait==0){
     if (Battle.input_ready){
         // if input processing is going on, the action button is handled in the script that draws the options on the screen, 'cause i'm a good engineer
         if (!input_has_been_processed){
-            if (keyboard_check_released(vk_enter)){
+            if (Controller.release_a){
                 if (message_text_t&lt;message_length){
                     message_text_t=message_length;
                 } else {

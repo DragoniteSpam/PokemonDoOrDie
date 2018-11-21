@@ -17,7 +17,7 @@ World.message_option_index=menu_input(World.message_option_index, max_n);
 
 var debug_text='';
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     switch (World.message_option_index){
         case 0:
             battle_input_processing_reset(false, BattleInputStages.MOVE);

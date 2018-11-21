@@ -19,14 +19,14 @@ var max_n=ds_list_size(text_list);
 draw_menu_from_list(text_list, World.message_option_index);
 World.message_option_index=menu_input(World.message_option_index, max_n);
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     if (World.message_option_index==max_n-1){
         battle_input_processing_reset(false);
     } else {
         battle_input_processing_reset(false, BattleInputStages.ITEM_INTERNAL);
         Battle.view_item_pocket=pocket_list[| World.message_option_index];
     }
-} else if (keyboard_check_released(vk_escape)){
+} else if (Controller.release_b){
     battle_input_processing_reset(false);
 }
 

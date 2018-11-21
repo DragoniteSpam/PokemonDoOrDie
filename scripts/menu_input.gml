@@ -3,13 +3,13 @@
 // important: argument1 should be the SIZE OF THE LIST. NOT the largest value.
 // this script treats the largest value as list size minus one.
 
-if (keyboard_check_released(vk_up)||keyboard_check_released(ord('W'))){
+if (Controller.release_up){
     return max(--argument0, 0);
-} else if (keyboard_check_released(vk_down)||keyboard_check_released(ord('S'))){
+} else if (Controller.release_down){
     return min(++argument0, argument1-1);
-} else if (keyboard_check_released(vk_left)||keyboard_check_released(ord('A'))){
+} else if (Controller.release_left){
     return 0;
-} else if (keyboard_check_released(vk_right)||keyboard_check_released(ord('D'))){
+} else if (Controller.release_right){
     return argument1-1;
 }
 

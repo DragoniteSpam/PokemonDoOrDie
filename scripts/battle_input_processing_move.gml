@@ -42,12 +42,12 @@ if (total_pp(pkmn)==0){
     
     // todo some key press to view move details
     
-    if (keyboard_check_released(vk_escape)){
+    if (Controller.release_b){
         battle_input_processing_reset(false);
-    } else if (keyboard_check_released(vk_tab)){
+    } else if (Controller.release_x){
         // todo put a button prompt here so people know it exists
         Battle.view_details=!Battle.view_details;
-    } else if (keyboard_check_released(vk_enter)){
+    } else if (Controller.release_a){
         if (message_option_index==MOVE_LIMIT){
             battle_input_processing_reset(false);
         } else if (pkmn.moves[message_option_index]==noone){

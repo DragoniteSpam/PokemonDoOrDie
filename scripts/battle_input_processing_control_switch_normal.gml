@@ -1,7 +1,7 @@
 /// void battle_input_processing_control_switch_normal();
 // see comments in battle_input_processing_control_switch_before_turn
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     var target=Battle.input_processing.owner.party[| World.message_option_index];
     
     if (World.message_option_index==ds_list_size(Camera.following.party)){
@@ -18,6 +18,6 @@ if (keyboard_check_released(vk_enter)){
         
         battle_debug(pkmn.owner.name+' has chosen to switch to '+target.name+'.');
     }
-} else if (keyboard_check_released(vk_escape)){
+} else if (Controller.release_b){
     battle_input_processing_reset(false);
 }

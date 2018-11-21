@@ -7,7 +7,7 @@
 // Yes, I gave it that ridiculously long name to be funny.
 var opt_out=Battle.misc_data[? 'allowed to not send anybody in'];
 
-if (keyboard_check_released(vk_enter)){
+if (Controller.release_a){
     if (World.message_option_index==ds_list_size(Camera.following.party)){
         if (opt_out){
             battle_input_processing_reset();
@@ -32,7 +32,7 @@ if (keyboard_check_released(vk_enter)){
             battle_advance();
         }
     }
-} else if (keyboard_check_released(vk_escape)){
+} else if (Controller.release_b){
     if (opt_out){
         battle_input_processing_reset();
         battle_advance();
