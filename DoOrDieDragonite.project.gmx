@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="63" name="datafiles">
-    <datafiles number="63" name="data">
-      <datafiles number="63" name="graphics">
-        <datafiles number="63" name="battlers">
+  <datafiles number="64" name="datafiles">
+    <datafiles number="64" name="data">
+      <datafiles number="64" name="graphics">
+        <datafiles number="64" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -417,7 +417,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="63" name="pbs">
+      <datafiles number="64" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -537,7 +537,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="63" name="dummy">
+        <datafiles number="64" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -693,7 +693,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="63" name="stuff">
+      <datafiles number="64" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -712,6 +712,23 @@
           <filename>assets.vrax</filename>
         </datafile>
       </datafiles>
+      <datafile>
+        <name>ddd-notes.txt</name>
+        <exists>-1</exists>
+        <size>835</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>ddd-notes.txt</filename>
+      </datafile>
     </datafiles>
     <datafile>
       <name>ddd.ini</name>
