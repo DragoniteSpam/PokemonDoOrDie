@@ -177,7 +177,7 @@ pbs_cleanup();
 
 all_mesh_map=const_mesh();
 
-var test_map=instance_create(0, 0, DataMap);
+var test_map=add_map("Test", "TEST", "b_tileset_overworld_0.png");
 map_construct_grids(test_map, 64, 64, 8);
 
 active_map=0;

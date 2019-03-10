@@ -1,4 +1,4 @@
-/// void map_add_static(DataMap, Entity, xx, yy, zz);
+/// Entity map_add_static(DataMap, Entity, xx, yy, zz);
 // Does not check to see if the specified coordinates are in bounds.
 // You are responsible for that.
 
@@ -15,3 +15,5 @@ argument1.previous_zz=argument4;
 map_add_contents(argument0, argument1, argument2, argument3, argument4);
 
 ds_list_add(argument0.list_static, argument1);
+
+return argument1;

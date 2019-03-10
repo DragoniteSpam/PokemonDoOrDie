@@ -31,6 +31,9 @@ name='Base Map';
 internal_name='BASEMAP';
 summary='you can walk around on it and stuff';
 
+tileset=-1;     // the sprite
+texture=-1;     // the texture from the sprite
+
 xx=0;
 yy=0;
 zz=0;

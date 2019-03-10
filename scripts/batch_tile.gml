@@ -1,9 +1,12 @@
 /// void batch_tile(vertex buffer, EntityTile, xx, yy, zz);
 
+var map=get_active_map();
+
 var buffer=argument0;
 var tile=argument1;
 if (GMS_VERSION==1){
-    var TEXEL=1/sprite_get_width(tile.tileset);
+    // see warning by tile_horizontal_count
+    var TEXEL=1/sprite_get_width(map.tileset);
 } else {
     var TEXEL=0;
 }
@@ -22,11 +25,15 @@ var nz=1;
 // to be
 var tile_size=32;
 
-var tile_horizontal_count=sprite_get_width(tile.tileset)/tile_size;
-var tile_vertical_count=sprite_get_height(tile.tileset)/tile_size;
+// todo THIS IS THE SPRITE WIDTH/HEIGHT. texture_get_width will always
+// be between 0 and 1. this may need to be addressed later, depending
+// on how the map texture is arranged.
+// 64 = 2048 / 32, most likely
+var tile_horizontal_count=sprite_get_width(map.tileset)/tile_size;
+var tile_vertical_count=sprite_get_height(map.tileset)/tile_size;
 
 // texture coordinates go from 0...1, not 0...n, where n is the dimension
-// of the image in pixels
+// of the image in pixels - 1 / 64
 var texture_width=1/tile_horizontal_count;
 var texture_height=1/tile_vertical_count;
 
