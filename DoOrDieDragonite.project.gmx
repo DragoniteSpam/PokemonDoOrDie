@@ -1491,7 +1491,7 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="41">
+  <constants number="42">
     <constant name="GMS_VERSION">1</constant>
     <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="USE_DUMMY_DATA">true</constant>
@@ -1509,6 +1509,7 @@
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="N">chr($0a)</constant>
     <constant name="OPTIONS_INI">".\ddd.ini"</constant>
+    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
     <constant name="PATH_PBS_DUMMY">".\data\pbs\dummy\"</constant>
