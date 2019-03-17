@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="65" name="datafiles">
-    <datafiles number="65" name="data">
-      <datafiles number="65" name="graphics">
-        <datafiles number="65" name="battlers">
+  <datafiles number="68" name="datafiles">
+    <datafiles number="68" name="data">
+      <datafiles number="68" name="graphics">
+        <datafiles number="68" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -416,7 +416,7 @@
             <filename>012b.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="65" name="tilesets">
+        <datafiles number="68" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -436,7 +436,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="65" name="pbs">
+      <datafiles number="68" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -556,7 +556,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="65" name="dummy">
+        <datafiles number="68" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -712,7 +712,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="65" name="stuff">
+      <datafiles number="68" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -729,6 +729,42 @@
             </Config>
           </ConfigOptions>
           <filename>assets.vrax</filename>
+        </datafile>
+        <datafiles number="68" name="maps">
+          <datafile>
+            <name>map.dddm</name>
+            <exists>-1</exists>
+            <size>21306</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>map.dddm</filename>
+          </datafile>
+        </datafiles>
+        <datafile>
+          <name>game.dddd</name>
+          <exists>-1</exists>
+          <size>139</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>game.dddd</filename>
         </datafile>
       </datafiles>
       <datafile>
@@ -767,9 +803,9 @@
       <filename>ddd.ini</filename>
     </datafile>
     <datafile>
-      <name>for-the-people-using-this-in-gms2.txt</name>
+      <name>notes.txt</name>
       <exists>-1</exists>
-      <size>777</size>
+      <size>1184</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -781,10 +817,12 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>for-the-people-using-this-in-gms2.txt</filename>
+      <filename>notes.txt</filename>
     </datafile>
   </datafiles>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\buffer_zlib</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sounds name="bgm">
       <sound>sound\bgm_silence</sound>
@@ -832,6 +870,7 @@
         <sprite>sprites\b_chr_ethan</sprite>
         <sprite>sprites\b_chr_silver</sprite>
       </sprites>
+      <sprite>sprites\b_at_default_error</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -1214,6 +1253,17 @@
         <script>scripts\map_inbounds.gml</script>
         <script>scripts\map_remove_contents.gml</script>
       </scripts>
+      <scripts name="infrastructure">
+        <script>scripts\load_data.gml</script>
+        <script>scripts\load_autotiles_meta.gml</script>
+        <script>scripts\load_tilesets_meta.gml</script>
+        <scripts name="create">
+          <script>scripts\tileset_create.gml</script>
+          <script>scripts\tileset_create_master.gml</script>
+        </scripts>
+        <script>scripts\load_events.gml</script>
+        <script>scripts\load_global_map_meta.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>
@@ -1411,6 +1461,9 @@
         </scripts>
       </scripts>
     </scripts>
+    <scripts name="ext">
+      <script>scripts\sprite_add_autotile.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FPokemonSmall</font>
@@ -1436,13 +1489,19 @@
       </objects>
     </objects>
     <objects name="Core">
-      <object>objects\Pawn</object>
-      <object>objects\PawnPlayer</object>
-      <object>objects\PawnWild</object>
       <object>objects\Entity</object>
+      <object>objects\EntityPawn</object>
+      <object>objects\EntityAutoTile</object>
+      <object>objects\EntityEvent</object>
+      <object>objects\EntityEffect</object>
       <object>objects\EntityDynamic</object>
       <object>objects\EntityTile</object>
       <object>objects\EntityMesh</object>
+      <objects name="Battle Entities">
+        <object>objects\PawnWild</object>
+        <object>objects\PawnPlayer</object>
+        <object>objects\Pawn</object>
+      </objects>
     </objects>
     <objects name="Data">
       <objects name="Auxiliary">
@@ -1454,7 +1513,6 @@
       <object>objects\DataEvolutionMethod</object>
       <object>objects\DataItem</object>
       <object>objects\DataItemPocket</object>
-      <object>objects\DataMap</object>
       <object>objects\DataMove</object>
       <object>objects\DataNature</object>
       <object>objects\DataPokemon</object>
@@ -1462,6 +1520,10 @@
       <object>objects\DataTrainerClass</object>
       <object>objects\DataType</object>
       <object>objects\Struct</object>
+      <objects name="Infrastructure">
+        <object>objects\DataMap</object>
+        <object>objects\DataTileset</object>
+      </objects>
     </objects>
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>
@@ -1471,10 +1533,10 @@
       <objects name="2D">
         <object>objects\Effect2D</object>
         <object>objects\Effect</object>
-      </objects>
-      <objects name="3D">
-        <object>objects\WorldEffect</object>
-        <object>objects\WorldEffect2D</object>
+        <objects name="3D">
+          <object>objects\WorldEffect</object>
+          <object>objects\WorldEffect2D</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Other Singletons">
@@ -1491,10 +1553,11 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="42">
-    <constant name="GMS_VERSION">1</constant>
-    <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
-    <constant name="USE_DUMMY_DATA">true</constant>
+  <constants number="49">
+    <constant name="TEXTURE_SIZE">4096</constant>
+    <constant name="PATH_AUTOTILE">'.\data\graphics\autotiles\'</constant>
+    <constant name="buffer_datatype">buffer_u32</constant>
+    <constant name="SERIALIZE_DATA">1</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
@@ -1503,17 +1566,21 @@
     <constant name="c_health_mid">c_yellow</constant>
     <constant name="c_pink">make_color_rgb(255, 105, 180)</constant>
     <constant name="DEBUG">true</constant>
+    <constant name="GMS_VERSION">1</constant>
     <constant name="LOG_FILE">'log.txt'</constant>
     <constant name="MAX_LEVEL">100</constant>
     <constant name="MILLION">1000000</constant>
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="N">chr($0a)</constant>
     <constant name="OPTIONS_INI">".\ddd.ini"</constant>
-    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
+    <constant name="PATH_DATA">'.\data\stuff\'</constant>
+    <constant name="PATH_MAP">'.\data\stuff\maps\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
     <constant name="PATH_PBS_DUMMY">".\data\pbs\dummy\"</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
+    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
+    <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="POKEMON_GLOBAL_SCALE">96/224</constant>
     <constant name="STAT_MOD_LIMIT">6</constant>
     <constant name="T">buffer_f32</constant>
@@ -1534,6 +1601,8 @@
     <constant name="UI_TEXT_BOX_WIDTH">W</constant>
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_WIDTH">W*2/3</constant>
+    <constant name="USE_DUMMY_DATA">true</constant>
+    <constant name="SERIALIZE_MAP">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

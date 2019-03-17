@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>var map=get_active_map();
 
-for (var i=0; i&lt;map.xx; i++){
+/*for (var i=0; i&lt;map.xx; i++){
     for (var j=0; j&lt;map.yy; j++){
         map_add_static(map, instance_create_tile(4, 0), i, j, 0);
     }
@@ -57,7 +57,7 @@ for (var i=1; i&lt;16; i++){
     }
 }
 
-map_batch_all(map);
+map_batch_all(map);*/
 instance_destroy(/*self*/);
 </string>
           </argument>

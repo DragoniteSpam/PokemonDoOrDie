@@ -126,7 +126,7 @@ all_class_intro_me=const_class_intro_me();
 all_class_battle_sprites=const_class_battle_sprites();
 all_class_overworld_sprites=const_class_overworld_sprites();
 
-// core stuff
+// core stuff - game specific
 
 all_evolution_methods=const_evolution_methods();            // dependencies: nothing
 all_egg_groups=const_egg_groups();                          // dependencies: nothing
@@ -175,13 +175,22 @@ all_trainers=pbs_read_trainers(path_trainers);              // dependencies: nat
 
 pbs_cleanup();
 
+// core stuff - infrastructure
+
+// arrays get resized to (n) when the data is loaded just once
+available_autotiles=array_compose(0);
+all_tilesets=array_compose(0);
+all_maps=array_create(0);
+
+// all_maps is a string of names, that's all - it's how you look up the map files when asked to
+// by events, etc
+
+active_map=noone;                           // this used to be an index; now it's just a value because only one map can be loaded at once
+
 all_mesh_map=const_mesh();
 
-var test_map=add_map("Test", "TEST", "b_tileset_overworld_0.png");
-map_construct_grids(test_map, 64, 64, 8);
-
-active_map=0;
-all_maps=array_compose(test_map);
+/*var test_map=add_map("Test", "TEST", "b_tileset_overworld_0.png");
+map_construct_grids(test_map, 64, 64, 8);*/
 
 debug('data init took '+string((get_timer()-t0)/MILLION)+' seconds');
 
@@ -244,6 +253,8 @@ instance_deactivate_object(BattlePokemon);
 // and only the ones that are visible on-screen or otherwise required by
 // the game
 instance_deactivate_object(Entity);
+
+load_data();
 </string>
           </argument>
         </arguments>
@@ -280,6 +291,67 @@ enum vec4 {
 
 enum Languages {
     ENGLISH,
+}
+
+enum SerializeThings {
+    ERROR                   =$00000000,
+    // basic stuff
+    MESHES_META             =$00000001,
+    MESHES_REF              =$00000002,
+    MESHES                  =$00000003,
+    TILESET_META            =$00000004,
+    TILESET_BASE            =$00000005,
+    TILESET_AUTO            =$00000006,
+    TILESET_ALL             =$00000007,
+    PARTICLES               =$00000008,
+    NPCS                    =$00000009,
+    NPCS_FULL               =$0000000A,
+    FOLLOWERS               =$0000000B,
+    FOLLOWERS_FULL          =$0000000C,
+    MISC_GRAPHICS           =$0000000D,
+    MISC_GRAPHICS_FULL      =$0000000E,
+    UI_GRAPHICS             =$0000000F,
+    UI_GRAPHICS_FULL        =$00000010,
+    GLOBAL_GRAPHICS         =$00000011,
+    AUDIO_SE                =$00000012,
+    AUDIO_SE_FULL           =$00000013,
+    AUDIO_BGM               =$00000014,
+    MAP_BATCH               =$00000015,
+    MAP_DYNAMIC             =$00000016,
+    EVENTS                  =$00000017,
+    AUTOTILES_META          =$00000018,
+    AUTOTILES               =$00000019,
+    MAP_META                =$0000001A,
+    // game data - items, monsters, classes, etc
+    DATA_ERROR              =$00000100,
+    // misc
+    MISC_ERROR              =$00001000,
+    MISC_MAP_META           =$00001001,
+    MISC_GLOBAL             =$00001002,
+    MISC_UI                 =$00001003
+}
+
+enum ETypes {
+    ENTITY,
+    ENTITY_TILE,
+    ENTITY_TILE_AUTO,
+    ENTITY_MESH,
+    ENTITY_PAWN,
+    ENTITY_EFFECT,
+    ENTITY_EVENT
+}
+
+etype_objects=array_compose(Entity,
+    EntityTile,
+    EntityAutoTile,
+    EntityMesh,
+    EntityPawn,
+    EntityEffect,
+    EntityEvent);
+
+enum AvailableAutotileProperties {
+    PICTURE, FRAMES, WIDTH
+    // sprite index, animation frames, horizontal segments
 }
 </string>
           </argument>
