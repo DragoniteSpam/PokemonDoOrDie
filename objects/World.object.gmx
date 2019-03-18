@@ -189,7 +189,7 @@ active_map=noone;                           // this used to be an index; now it'
 
 all_mesh_map=const_mesh();
 
-/*var test_map=add_map("Test", "TEST", "b_tileset_overworld_0.png");
+/*var test_map=add_map("Test", "TEST", "b_tileset_overworld.png");
 map_construct_grids(test_map, 64, 64, 8);*/
 
 debug('data init took '+string((get_timer()-t0)/MILLION)+' seconds');
