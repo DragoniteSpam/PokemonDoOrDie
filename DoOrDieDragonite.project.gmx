@@ -418,7 +418,7 @@
         </datafiles>
         <datafiles number="68" name="tilesets">
           <datafile>
-            <name>b_tileset_overworld.png</name>
+            <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
             <size>150520</size>
             <exportAction>2</exportAction>
@@ -432,7 +432,7 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>b_tileset_overworld.png</filename>
+            <filename>b_tileset_overworld_0.png</filename>
           </datafile>
         </datafiles>
       </datafiles>
@@ -1262,7 +1262,7 @@
           <script>scripts\tileset_create_master.gml</script>
         </scripts>
         <script>scripts\load_events.gml</script>
-        <script>scripts\load_global_map_meta.gml</script>
+        <script>scripts\load_global_meta.gml</script>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>

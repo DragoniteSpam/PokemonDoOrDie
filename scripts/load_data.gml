@@ -52,7 +52,7 @@ if (buffer==-1){
                     load_events(buffer, version);
                     break;
                 case SerializeThings.MISC_MAP_META:
-                    load_global_map_meta(buffer, version);
+                    load_global_meta(buffer, version);
                     break;
                 // we can ignore the map stuff
             }
@@ -70,3 +70,8 @@ if (erroneous){
 }
 
 show_message("good? good")
+
+enum DataVersions {
+    INITIAL                     =0,
+    VRAX_REFERENCE              =1,
+}

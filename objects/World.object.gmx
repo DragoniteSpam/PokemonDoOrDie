@@ -186,8 +186,7 @@ all_maps=array_create(0);
 // by events, etc
 
 active_map=noone;                           // this used to be an index; now it's just a value because only one map can be loaded at once
-
-all_mesh_map=const_mesh();
+all_mesh_map=noone;                         // defined in load_data()
 
 /*var test_map=add_map("Test", "TEST", "b_tileset_overworld.png");
 map_construct_grids(test_map, 64, 64, 8);*/
