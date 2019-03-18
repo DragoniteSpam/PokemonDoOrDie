@@ -17,6 +17,10 @@ I can't grab embedded gifs from Twitter and I don't feel like copying them to im
 
 I'll probably add more eventually.
 
+# Known Issues
+
+ - **Semi-transparency in 3D space** - if you try to draw surface underneath an existing semi-transparent surface, it won't work. This is a Game Maker-wide problem and I'll probably either deal with depth sorting later, or just get rid of semi-transparent textures.
+
 # Credits
  - I ~~stole~~ re-interpreted a lot of AI code from Pokémon Essentials from RPG Maker XP. Whoever wrote that is a big help.
  
