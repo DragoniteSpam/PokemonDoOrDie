@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="69" name="datafiles">
-    <datafiles number="69" name="data">
-      <datafiles number="69" name="graphics">
-        <datafiles number="69" name="battlers">
+  <datafiles number="70" name="datafiles">
+    <datafiles number="70" name="data">
+      <datafiles number="70" name="graphics">
+        <datafiles number="70" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -416,7 +416,7 @@
             <filename>012b.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="69" name="tilesets">
+        <datafiles number="70" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -435,8 +435,25 @@
             <filename>b_tileset_overworld_0.png</filename>
           </datafile>
         </datafiles>
+        <datafile>
+          <name>git-dont-delete-this-folder-please.txt</name>
+          <exists>-1</exists>
+          <size>0</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>git-dont-delete-this-folder-please.txt</filename>
+        </datafile>
       </datafiles>
-      <datafiles number="69" name="pbs">
+      <datafiles number="70" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -556,7 +573,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="69" name="dummy">
+        <datafiles number="70" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -712,7 +729,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="69" name="stuff">
+      <datafiles number="70" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -730,7 +747,7 @@
           </ConfigOptions>
           <filename>assets.vrax</filename>
         </datafile>
-        <datafiles number="69" name="maps">
+        <datafiles number="70" name="maps">
           <datafile>
             <name>MAP_TEST.dddm</name>
             <exists>-1</exists>
