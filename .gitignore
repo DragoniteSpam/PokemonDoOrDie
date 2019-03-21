@@ -1,3 +1,5 @@
+# pocket-monstery data
+
 datafiles/data/pbs/abilities.txt
 datafiles/data/pbs/items.txt
 datafiles/data/pbs/monsters.txt
@@ -6,3 +8,16 @@ datafiles/data/pbs/types.txt
 datafiles/data/pbs/trainertypes.txt
 datafiles/data/pbs/trainers.txt
 sprites/images/b_tileset_*
+
+# those annoying config files
+
+Configs\Default\AmazonFire
+Configs\Default\Android
+Configs\Default\AndroidTV
+Configs\Default\HTML5
+Configs\Default\iOS
+Configs\Default\Linux
+Configs\Default\Mac
+Configs\Default\tvos
+Configs\Default\Windows8
+Configs\Default\WindowsUAP
