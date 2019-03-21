@@ -11,13 +11,13 @@ sprites/images/b_tileset_*
 
 # those annoying config files
 
-Configs\Default\AmazonFire
-Configs\Default\Android
-Configs\Default\AndroidTV
-Configs\Default\HTML5
-Configs\Default\iOS
-Configs\Default\Linux
-Configs\Default\Mac
-Configs\Default\tvos
-Configs\Default\Windows8
-Configs\Default\WindowsUAP
+Configs/Default/AmazonFire
+Configs/Default/Android
+Configs/Default/AndroidTV
+Configs/Default/HTML5
+Configs/Default/iOS
+Configs/Default/Linux
+Configs/Default/Mac
+Configs/Default/tvos
+Configs/Default/Windows8
+Configs/Default/WindowsUAP
