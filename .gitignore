@@ -8,7 +8,10 @@ datafiles/data/pbs/types.txt
 datafiles/data/pbs/trainertypes.txt
 datafiles/data/pbs/trainers.txt
 
-datafiles/data/graphics/*
+datafiles/data/graphics/*.png
+datafiles/data/graphics/*.bmp
+datafiles/data/graphics/*.gif
+# please never use jpeg for game graphics
 
 # those annoying config files
 
