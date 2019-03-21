@@ -15,3 +15,7 @@ if (version>=DataVersions.VRAX_REFERENCE){
     // unless i do something wrong or you screw with the editor
     World.all_mesh_map=const_mesh_load_vrax(filename);
 }
+
+if (version>=DataVersions.STARTING_MAP){
+    World.map_starting=buffer_read(argument0, buffer_string);
+}

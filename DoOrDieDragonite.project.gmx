@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="68" name="datafiles">
-    <datafiles number="68" name="data">
-      <datafiles number="68" name="graphics">
-        <datafiles number="68" name="battlers">
+  <datafiles number="69" name="datafiles">
+    <datafiles number="69" name="data">
+      <datafiles number="69" name="graphics">
+        <datafiles number="69" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -416,7 +416,7 @@
             <filename>012b.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="68" name="tilesets">
+        <datafiles number="69" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -436,7 +436,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="68" name="pbs">
+      <datafiles number="69" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -556,7 +556,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="68" name="dummy">
+        <datafiles number="69" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -712,7 +712,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="68" name="stuff">
+      <datafiles number="69" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -730,11 +730,11 @@
           </ConfigOptions>
           <filename>assets.vrax</filename>
         </datafile>
-        <datafiles number="68" name="maps">
+        <datafiles number="69" name="maps">
           <datafile>
-            <name>map.dddm</name>
+            <name>MAP_TEST.dddm</name>
             <exists>-1</exists>
-            <size>21306</size>
+            <size>1169</size>
             <exportAction>2</exportAction>
             <exportDir></exportDir>
             <overwrite>0</overwrite>
@@ -746,7 +746,7 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>map.dddm</filename>
+            <filename>MAP_TEST.dddm</filename>
           </datafile>
         </datafiles>
         <datafile>
@@ -1254,15 +1254,16 @@
         <script>scripts\map_remove_contents.gml</script>
       </scripts>
       <scripts name="infrastructure">
-        <script>scripts\load_data.gml</script>
-        <script>scripts\load_autotiles_meta.gml</script>
-        <script>scripts\load_tilesets_meta.gml</script>
         <scripts name="create">
           <script>scripts\tileset_create.gml</script>
           <script>scripts\tileset_create_master.gml</script>
         </scripts>
+        <script>scripts\load_autotiles_meta.gml</script>
+        <script>scripts\load_data.gml</script>
+        <script>scripts\load_map.gml</script>
         <script>scripts\load_events.gml</script>
         <script>scripts\load_global_meta.gml</script>
+        <script>scripts\load_tilesets_meta.gml</script>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
@@ -1553,12 +1554,10 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="49">
-    <constant name="TEXTURE_SIZE">4096</constant>
-    <constant name="PATH_AUTOTILE">'.\data\graphics\autotiles\'</constant>
-    <constant name="buffer_datatype">buffer_u32</constant>
-    <constant name="SERIALIZE_DATA">1</constant>
+  <constants number="51">
+    <constant name="IMPORT_EXTENSION_DATA">'.dddd'</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
+    <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
     <constant name="c_exp">c_blue</constant>
     <constant name="c_health_high">c_green</constant>
@@ -1573,17 +1572,21 @@
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="N">chr($0a)</constant>
     <constant name="OPTIONS_INI">".\ddd.ini"</constant>
-    <constant name="PATH_DATA">'.\data\stuff\'</constant>
-    <constant name="PATH_MAP">'.\data\stuff\maps\'</constant>
+    <constant name="PATH_AUTOTILE">'.\data\graphics\autotiles\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
+    <constant name="PATH_DATA">'.\data\stuff\'</constant>
     <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
+    <constant name="PATH_MAP">'.\data\stuff\maps\'</constant>
     <constant name="PATH_PBS_DUMMY">".\data\pbs\dummy\"</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
     <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="POKEMON_GLOBAL_SCALE">96/224</constant>
+    <constant name="SERIALIZE_DATA">1</constant>
+    <constant name="SERIALIZE_MAP">0</constant>
     <constant name="STAT_MOD_LIMIT">6</constant>
     <constant name="T">buffer_f32</constant>
+    <constant name="TEXTURE_SIZE">4096</constant>
     <constant name="TILE_DEPTH">32</constant>
     <constant name="TILE_HEIGHT">32</constant>
     <constant name="TILE_WIDTH">32</constant>
@@ -1602,7 +1605,7 @@
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_WIDTH">W*2/3</constant>
     <constant name="USE_DUMMY_DATA">true</constant>
-    <constant name="SERIALIZE_MAP">0</constant>
+    <constant name="IMPORT_EXTENSION_MAP">'.dddm'</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

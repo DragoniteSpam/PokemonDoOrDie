@@ -1,6 +1,8 @@
-/// void load_data();
+/// void load_data(filename);
 
-var datafile=PATH_DATA+'game.dddd';
+var mapfile=PATH_MAP+argument0+IMPORT_EXTENSION_MAP;
+
+/*var datafile=PATH_DATA+'game.dddd';
 
 var original=buffer_load(datafile);
 var erroneous=false;
@@ -71,4 +73,4 @@ enum DataVersions {
     INITIAL                     =0,
     VRAX_REFERENCE              =1,
     STARTING_MAP                =2,
-}
+}*/

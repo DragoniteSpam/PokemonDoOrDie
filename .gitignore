@@ -7,7 +7,8 @@ datafiles/data/pbs/moves.txt
 datafiles/data/pbs/types.txt
 datafiles/data/pbs/trainertypes.txt
 datafiles/data/pbs/trainers.txt
-sprites/images/b_tileset_*
+
+datafiles/data/graphics/*
 
 # those annoying config files
 

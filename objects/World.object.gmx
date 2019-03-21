@@ -182,6 +182,8 @@ available_autotiles=array_compose(0);
 all_tilesets=array_compose(0);
 all_maps=array_create(0);
 
+map_starting="";
+
 // all_maps is a string of names, that's all - it's how you look up the map files when asked to
 // by events, etc
 
@@ -254,6 +256,12 @@ instance_deactivate_object(BattlePokemon);
 instance_deactivate_object(Entity);
 
 load_data();
+
+if (file_exists(PATH_MAP+World.map_starting+IMPORT_EXTENSION_MAP)){
+    load_map(World.map_starting);
+} else {
+    show_error("No starting map is defined, or the one that's defined does not exist in the game's files. You should probably define a starting map and make sure to include it in the game's Included Files in "+PATH_MAP+".", true);
+}
 </string>
           </argument>
         </arguments>
