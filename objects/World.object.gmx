@@ -187,7 +187,7 @@ map_starting="";
 // all_maps is a string of names, that's all - it's how you look up the map files when asked to
 // by events, etc
 
-active_map=noone;                           // this used to be an index; now it's just a value because only one map can be loaded at once
+//active_map=noone;                           // this used to be an index; now it's just a value because only one map can be loaded at once
 all_mesh_map=noone;                         // defined in load_data()
 
 /*var test_map=add_map("Test", "TEST", "b_tileset_overworld.png");
@@ -258,7 +258,7 @@ instance_deactivate_object(Entity);
 load_data();
 
 if (file_exists(PATH_MAP+World.map_starting+IMPORT_EXTENSION_MAP)){
-    load_map(World.map_starting);
+    load_data(World.map_starting+IMPORT_EXTENSION_MAP);
 } else {
     show_error("No starting map is defined, or the one that's defined does not exist in the game's files. You should probably define a starting map and make sure to include it in the game's Included Files in "+PATH_MAP+".", true);
 }

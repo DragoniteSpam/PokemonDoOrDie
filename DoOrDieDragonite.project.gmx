@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="70" name="datafiles">
-    <datafiles number="70" name="data">
-      <datafiles number="70" name="graphics">
-        <datafiles number="70" name="battlers">
+  <datafiles number="71" name="datafiles">
+    <datafiles number="71" name="data">
+      <datafiles number="71" name="graphics">
+        <datafiles number="71" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -415,8 +415,25 @@
             </ConfigOptions>
             <filename>012b.png</filename>
           </datafile>
+          <datafile>
+            <name>git-dont-delete-this-folder-please.txt</name>
+            <exists>-1</exists>
+            <size>0</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>git-dont-delete-this-folder-please.txt</filename>
+          </datafile>
         </datafiles>
-        <datafiles number="70" name="tilesets">
+        <datafiles number="71" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -434,26 +451,26 @@
             </ConfigOptions>
             <filename>b_tileset_overworld_0.png</filename>
           </datafile>
+          <datafile>
+            <name>git-dont-delete-this-folder-please.txt</name>
+            <exists>-1</exists>
+            <size>0</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>git-dont-delete-this-folder-please.txt</filename>
+          </datafile>
         </datafiles>
-        <datafile>
-          <name>git-dont-delete-this-folder-please.txt</name>
-          <exists>-1</exists>
-          <size>0</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>git-dont-delete-this-folder-please.txt</filename>
-        </datafile>
       </datafiles>
-      <datafiles number="70" name="pbs">
+      <datafiles number="71" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -573,7 +590,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="70" name="dummy">
+        <datafiles number="71" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -729,7 +746,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="70" name="stuff">
+      <datafiles number="71" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -747,7 +764,7 @@
           </ConfigOptions>
           <filename>assets.vrax</filename>
         </datafile>
-        <datafiles number="70" name="maps">
+        <datafiles number="71" name="maps">
           <datafile>
             <name>MAP_TEST.dddm</name>
             <exists>-1</exists>
@@ -1275,12 +1292,18 @@
           <script>scripts\tileset_create.gml</script>
           <script>scripts\tileset_create_master.gml</script>
         </scripts>
-        <script>scripts\load_autotiles_meta.gml</script>
         <script>scripts\load_data.gml</script>
-        <script>scripts\load_map.gml</script>
-        <script>scripts\load_events.gml</script>
-        <script>scripts\load_global_meta.gml</script>
-        <script>scripts\load_tilesets_meta.gml</script>
+        <scripts name="data things">
+          <script>scripts\load_tilesets_meta.gml</script>
+          <script>scripts\load_global_meta.gml</script>
+          <script>scripts\load_autotiles_meta.gml</script>
+          <script>scripts\load_events.gml</script>
+        </scripts>
+        <scripts name="map things">
+          <script>scripts\load_map_contents_meta.gml</script>
+          <script>scripts\load_map_contents_batch.gml</script>
+          <script>scripts\load_map_contents_dynamic.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
