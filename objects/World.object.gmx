@@ -407,8 +407,7 @@ with (Camera){
     script_execute(camera_behavior);
 }
 
-var time_now=get_timer();
-if (time_now-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
+if (get_timer()-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
     debug_write();
 }
 </string>
