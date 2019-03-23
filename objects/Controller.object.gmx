@@ -437,30 +437,30 @@ if (gamepad_use&amp;&amp;get_controller()){
 }
 
 // The keyboard can gather exact input directly from the keyboard, since all button checks are the same
-ls_x=ls_x-keyboard_check_direct(ord("A"))+keyboard_check_direct(ord("D"));
-ls_y=ls_y-keyboard_check_direct(ord("W"))+keyboard_check_direct(ord("S"));
-ls_x-=(keyboard_check_direct(vk_left)-keyboard_check_direct(vk_right));
-ls_y-=(keyboard_check_direct(vk_up)-keyboard_check_direct(vk_down));
+ls_x=ls_x-keyboard_check(ord("A"))+keyboard_check(ord("D"));
+ls_y=ls_y-keyboard_check(ord("W"))+keyboard_check(ord("S"));
+ls_x-=(keyboard_check(vk_left)-keyboard_check(vk_right));
+ls_y-=(keyboard_check(vk_up)-keyboard_check(vk_down));
 // Don't need tolerance checks here because keyboard checks are binary.
 ls_angle=get_stick_angle(ls_x, ls_y);
 up=up||match_cardinal_direction(ls_angle, ls_y, CompassDirections.north);
 down=down||match_cardinal_direction(ls_angle, ls_y, CompassDirections.south);
 left=left||match_cardinal_direction(ls_angle, ls_x, CompassDirections.west);
 right=right||match_cardinal_direction(ls_angle, ls_x, CompassDirections.east);
-a=a||(keyboard_check_direct(vk_enter)||mouse_check_button(mb_left));
-b=b||(keyboard_check_direct(ord("J"))||mouse_check_button(mb_right));
-x=x||keyboard_check_direct(ord("K"));
-y=y||keyboard_check_direct(ord("L"));
-start=start||keyboard_check_direct(vk_escape);
-select=select||keyboard_check_direct(vk_backspace);
-l=l||keyboard_check_direct(vk_lcontrol)||mouse_wheel_up();
-r=r||keyboard_check_direct(vk_rcontrol)||mouse_wheel_down();
-l2=l2||keyboard_check_direct(vk_lshift);
-r2=r2||keyboard_check_direct(ord("Z"));
-ls=ls||(keyboard_check_direct(vk_lalt)||mouse_check_button(mb_middle));
-rs=rs||keyboard_check_direct(vk_ralt);
-var _u=-keyboard_check_direct(vk_left)+keyboard_check_direct(vk_right);
-var _r=-keyboard_check_direct(vk_up)+keyboard_check_direct(vk_down);
+a=a||(keyboard_check(vk_enter)||mouse_check_button(mb_left));
+b=b||(keyboard_check(ord("J"))||mouse_check_button(mb_right));
+x=x||keyboard_check(ord("K"));
+y=y||keyboard_check(ord("L"));
+start=start||keyboard_check(vk_escape);
+select=select||keyboard_check(vk_backspace);
+l=l||keyboard_check(vk_nokey/*vk_lcontrol*/)||mouse_wheel_up();
+r=r||keyboard_check(vk_nokey/*vk_rcontrol*/)||mouse_wheel_down();
+l2=l2||keyboard_check(vk_nokey/*vk_lshift*/);
+r2=r2||keyboard_check(ord("Z"));
+ls=ls||(keyboard_check(vk_nokey/*vk_lalt*/)||mouse_check_button(mb_middle));
+rs=rs||keyboard_check(vk_nokey/*vk_ralt*/);
+var _u=-keyboard_check(vk_left)+keyboard_check(vk_right);
+var _r=-keyboard_check(vk_up)+keyboard_check(vk_down);
 dpad_angle=get_stick_angle(_u, _r);
 pup=pup||match_cardinal_direction(dpad_angle, _r, CompassDirections.north);
 pdown=pdown||match_cardinal_direction(dpad_angle, _r, CompassDirections.south);
