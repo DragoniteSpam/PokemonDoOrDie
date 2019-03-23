@@ -8,8 +8,6 @@ if (DEBUG){
     
     show_debug_message(str);
     
-    var f=file_text_open_append(LOG_FILE);
-    file_text_write_string(f, str);
-    file_text_writeln(f);
-    file_text_close(f);
+    buffer_write(World.debug_log, buffer_text, str+N);
+    World.debug_modified=true;
 }

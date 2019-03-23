@@ -125,8 +125,9 @@ enum AvailableAutotileProperties {
             <kind>1</kind>
             <string>singleton();
 
-var f=file_text_open_write(LOG_FILE);
-file_text_close(f);
+debug_last_write=0;
+debug_log=buffer_create(1&lt;&lt;16, buffer_grow, 1);
+debug_modified=false;
 
 instance_create(0, 0, Camera);
 instance_create(0, 0, Controller);
@@ -405,6 +406,34 @@ for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
 with (Camera){
     script_execute(camera_behavior);
 }
+
+var time_now=get_timer();
+if (time_now-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
+    debug_write();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>debug_write();
 </string>
           </argument>
         </arguments>

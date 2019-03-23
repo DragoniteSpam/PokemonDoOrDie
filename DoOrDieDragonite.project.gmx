@@ -1431,6 +1431,7 @@
       <script>scripts\unpack.gml</script>
       <script>scripts\vector2.gml</script>
       <script>scripts\world_to_2d.gml</script>
+      <script>scripts\debug_write.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
@@ -1644,7 +1645,7 @@
     <constant name="MAX_LEVEL">100</constant>
     <constant name="MILLION">1000000</constant>
     <constant name="MOVE_LIMIT">4</constant>
-    <constant name="N">chr($0a)</constant>
+    <constant name="N">chr($0d)+chr($0a)</constant>
     <constant name="OPTIONS_INI">".\ddd.ini"</constant>
     <constant name="PATH_AUTOTILE">'.\data\graphics\autotiles\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>

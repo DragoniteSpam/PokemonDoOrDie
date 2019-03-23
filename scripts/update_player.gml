@@ -25,7 +25,6 @@ if (thing.movement_free){
         }
     } else {
         var fstep=thing.mspd*dt;
-        //debug(Controller.ls_magnitude)
         if (Controller.ls_magnitude>Controller.gamepad_dead_zone){
             thing.target_xx=thing.xx+fstep*dcos(Controller.ls_angle);
             thing.target_yy=thing.yy-fstep*dsin(Controller.ls_angle);
