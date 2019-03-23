@@ -7,7 +7,13 @@ var zz=argument3;
 
 var spritesheet_height=4;
 var spritesheet_frames=4;
-var frame=floor(pawn.frame);
+// if you're off the grid you want to start the walk cycle immediately, but if you're off the grid you don't
+if (World.game_player_grid){
+    var frame=floor(pawn.frame)%spritesheet_frames;
+} else {
+    var frame=ceil(pawn.frame)%spritesheet_frames;
+}
+// if you're on the grid you don't need to do the modulo thing because it'll reset at the end of each walk cycle, but on the grid you do
 var dir=pawn.map_direction;
 var frame_width=sprite_get_width(pawn.overworld_sprite)/spritesheet_frames;
 var frame_height=sprite_get_height(pawn.overworld_sprite)/spritesheet_height;

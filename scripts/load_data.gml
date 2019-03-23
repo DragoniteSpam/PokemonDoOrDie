@@ -41,7 +41,6 @@ if (buffer==-1){
         
         repeat(things){
             var datatype=buffer_read(buffer, buffer_datatype);
-            debug(datatype)
             switch (datatype){
                 // game stuff
                 case SerializeThings.AUTOTILES_META:
@@ -94,4 +93,5 @@ enum DataVersions {
     STARTING_MAP                =2,
     MAP_VARS                    =3,
     MAP_3D                      =4,
+    GAMEPLAY_GRID               =5,
 }

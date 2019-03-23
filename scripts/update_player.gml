@@ -9,16 +9,32 @@ if (thing.movement_free){
     thing.previous_yy=thing.yy;
     thing.previous_zz=thing.zz;
     
-    if (Controller.left){
-        thing.target_xx--;
-    }
-    if (Controller.right){
-        thing.target_xx++;
-    }
-    if (Controller.up){
-        thing.target_yy--;
-    }
-    if (Controller.down){
-        thing.target_yy++;
+    if (World.game_player_grid){
+        if (Controller.left){
+            thing.target_xx--;
+        }
+        if (Controller.right){
+            thing.target_xx++;
+        }
+        if (Controller.up){
+            thing.target_yy--;
+        }
+        if (Controller.down){
+            thing.target_yy++;
+        }
+    } else {
+        var fstep=thing.mspd*dt;
+        if (Controller.left){
+            thing.target_xx=thing.xx-fstep;
+        }
+        if (Controller.right){
+            thing.target_xx=thing.xx+fstep;
+        }
+        if (Controller.up){
+            thing.target_yy=thing.yy-fstep;
+        }
+        if (Controller.down){
+            thing.target_yy=thing.yy+fstep;
+        }
     }
 }

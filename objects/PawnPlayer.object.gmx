@@ -39,6 +39,8 @@ money=500;
 // inherited
 update=update_player;
 deleteable=false;
+
+am_solid=false;             // this will cause problems if you don't snap to grid
 </string>
           </argument>
         </arguments>

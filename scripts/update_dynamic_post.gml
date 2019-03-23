@@ -15,8 +15,14 @@ if (thing.xx<thing.target_xx){
     thing.map_direction=Directions.UP;
 }
 
+var was_moving=thing.moving;
+
 if (!thing.moving&&(thing.target_xx!=thing.xx||thing.target_yy!=thing.yy||thing.target_zz!=thing.zz)){
-    if (map_get_solid(get_active_map(), thing.target_xx, thing.target_yy, thing.target_zz)/*there will be some other conditions in here as things like water and Surf are enabled*/){
+    // i'm not entirely sure why round() works here and floor() doesn't, since you'd think you'd want
+    // to check the solid-ness of the cell that you're actually in (5.8, 6.7 -> 5, 6) and not the
+    // nearest one
+    if (map_get_solid(get_active_map(), round(thing.target_xx), round(thing.target_yy), round(thing.target_zz))
+        /*there will be some other conditions in here as things like water and Surf are enabled*/){
         thing.target_xx=thing.previous_xx;
         thing.target_yy=thing.previous_yy;
         thing.target_zz=thing.previous_zz;
@@ -29,6 +35,8 @@ if (!thing.moving&&(thing.target_xx!=thing.xx||thing.target_yy!=thing.yy||thing.
         }
     }
 }
+
+var has_moved=thing.moving;
 
 if (thing.moving){
     var fstep=thing.mspd*dt;
@@ -51,7 +59,9 @@ if (thing.moving){
 }
 
 if (!thing.moving){
-    thing.frame=0;
     thing.movement_free=true;
-    script_execute(thing.update_still, thing);
+    if (!has_moved){
+        thing.frame=0;
+        script_execute(thing.update_still, thing);
+    }
 }

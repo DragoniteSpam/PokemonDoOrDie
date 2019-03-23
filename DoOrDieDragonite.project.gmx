@@ -1313,10 +1313,10 @@
         </scripts>
         <script>scripts\load_data.gml</script>
         <scripts name="data things">
-          <script>scripts\load_tilesets_meta.gml</script>
-          <script>scripts\load_global_meta.gml</script>
           <script>scripts\load_autotiles_meta.gml</script>
           <script>scripts\load_events.gml</script>
+          <script>scripts\load_global_meta.gml</script>
+          <script>scripts\load_tilesets_meta.gml</script>
         </scripts>
         <scripts name="map things">
           <script>scripts\load_map_contents_meta.gml</script>
@@ -1490,6 +1490,20 @@
       <scripts name="pawn stuff">
         <script>scripts\add_trainer_pokemon.gml</script>
         <script>scripts\attach_pokemon_to_trainer.gml</script>
+        <scripts name="inventory">
+          <scripts name="help">
+            <script>scripts\trainer_add_item.gml</script>
+            <script>scripts\trainer_remove_item.gml</script>
+            <script>scripts\trainer_has_item.gml</script>
+            <script>scripts\trainer_item_total.gml</script>
+            <script>scripts\trainer_item_pocket_total.gml</script>
+          </scripts>
+          <script>scripts\pawn_add_item.gml</script>
+          <script>scripts\pawn_remove_item.gml</script>
+          <script>scripts\pawn_item_total.gml</script>
+          <script>scripts\pawn_item_pocket_total.gml</script>
+          <script>scripts\pawn_has_item.gml</script>
+        </scripts>
         <scripts name="monsters">
           <script>scripts\alive.gml</script>
           <script>scripts\get_matchup_on.gml</script>
@@ -1519,20 +1533,6 @@
           <script>scripts\get_pokemon_level.gml</script>
         </scripts>
         <script>scripts\pawn_create.gml</script>
-        <scripts name="inventory">
-          <scripts name="help">
-            <script>scripts\trainer_add_item.gml</script>
-            <script>scripts\trainer_remove_item.gml</script>
-            <script>scripts\trainer_has_item.gml</script>
-            <script>scripts\trainer_item_total.gml</script>
-            <script>scripts\trainer_item_pocket_total.gml</script>
-          </scripts>
-          <script>scripts\pawn_add_item.gml</script>
-          <script>scripts\pawn_remove_item.gml</script>
-          <script>scripts\pawn_item_total.gml</script>
-          <script>scripts\pawn_item_pocket_total.gml</script>
-          <script>scripts\pawn_has_item.gml</script>
-        </scripts>
       </scripts>
     </scripts>
     <scripts name="ext">

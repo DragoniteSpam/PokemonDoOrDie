@@ -20,5 +20,10 @@ if (version>=DataVersions.VRAX_REFERENCE){
 }
 
 if (version>=DataVersions.STARTING_MAP){
-    World.map_starting=buffer_read(argument0, buffer_string);
+    World.game_map_starting=buffer_read(argument0, buffer_string);
+}
+
+if (version>=DataVersions.GAMEPLAY_GRID){
+    var bools=buffer_read(argument0, buffer_string);
+    World.game_player_grid=unpack(bools, 0);
 }
