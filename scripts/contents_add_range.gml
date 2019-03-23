@@ -6,9 +6,10 @@ var data=argument1.mesh_data;
 
 for (var i=data[MeshArrayData.XMIN]; i<data[MeshArrayData.XMAX]; i++){
     for (var j=data[MeshArrayData.YMIN]; j<data[MeshArrayData.YMAX]; j++){
+        var slice=argument0.contents[# argument2+i, argument3+j];
+        
         for (var k=data[MeshArrayData.ZMIN]; k<data[MeshArrayData.ZMAX]; k++){
-            var slice=argument0.contents[# argument2+i, argument3+j];
-            var cell=slice[argument4+k];
+            var cell=slice[@ argument4+k];
             
             if (cell==noone){
                 cell=ds_list_create();

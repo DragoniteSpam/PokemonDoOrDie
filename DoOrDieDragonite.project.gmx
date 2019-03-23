@@ -1295,8 +1295,8 @@
       </scripts>
       <scripts name="map">
         <script>scripts\get_active_map.gml</script>
-        <script>scripts\get_active_tileset.gml</script>
         <script>scripts\get_active_texture.gml</script>
+        <script>scripts\get_active_tileset.gml</script>
         <script>scripts\map_add_contents.gml</script>
         <script>scripts\map_add_dynamic.gml</script>
         <script>scripts\map_add_static.gml</script>
@@ -1323,12 +1323,12 @@
           <script>scripts\load_map_contents_batch.gml</script>
           <script>scripts\load_map_contents_dynamic.gml</script>
           <scripts name="load scripts">
-            <script>scripts\load_entity_event.gml</script>
             <script>scripts\load_entity.gml</script>
             <script>scripts\load_entity_autotile.gml</script>
-            <script>scripts\load_entity_pawn.gml</script>
             <script>scripts\load_entity_effect.gml</script>
+            <script>scripts\load_entity_event.gml</script>
             <script>scripts\load_entity_mesh.gml</script>
+            <script>scripts\load_entity_pawn.gml</script>
             <script>scripts\load_entity_tile.gml</script>
           </scripts>
         </scripts>
@@ -1473,9 +1473,9 @@
         <script>scripts\instance_create_mesh.gml</script>
       </scripts>
       <scripts name="solids">
+        <script>scripts\contents_add_range.gml</script>
         <script>scripts\contents_add_single.gml</script>
         <script>scripts\contents_remove_range.gml</script>
-        <script>scripts\contents_add_range.gml</script>
         <script>scripts\contents_remove_single.gml</script>
       </scripts>
       <scripts name="updates">
@@ -1563,19 +1563,19 @@
       </objects>
     </objects>
     <objects name="Core">
-      <object>objects\Entity</object>
-      <object>objects\EntityPawn</object>
-      <object>objects\EntityAutoTile</object>
-      <object>objects\EntityEvent</object>
-      <object>objects\EntityEffect</object>
-      <object>objects\EntityDynamic</object>
-      <object>objects\EntityTile</object>
-      <object>objects\EntityMesh</object>
       <objects name="Battle Entities">
         <object>objects\PawnWild</object>
         <object>objects\PawnPlayer</object>
         <object>objects\Pawn</object>
       </objects>
+      <object>objects\Entity</object>
+      <object>objects\EntityAutoTile</object>
+      <object>objects\EntityDynamic</object>
+      <object>objects\EntityEffect</object>
+      <object>objects\EntityEvent</object>
+      <object>objects\EntityMesh</object>
+      <object>objects\EntityPawn</object>
+      <object>objects\EntityTile</object>
     </objects>
     <objects name="Data">
       <objects name="Auxiliary">
