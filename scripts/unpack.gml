@@ -1,3 +1,3 @@
 /// int unpack(int, n);
 
-return argument0&(1<<argument1);
+return (argument0&(1<<argument1))>0;
