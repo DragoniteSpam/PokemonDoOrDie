@@ -1,6 +1,6 @@
-/// void load_entity_autotile(buffer, Entity, version);
+/// bool load_entity_autotile(buffer, Entity, version);
 
-load_entity_tile(argument0, argument1, argument2);
+var static=load_entity_tile(argument0, argument1, argument2);
 
 argument1.autotile_id=buffer_read(argument0, buffer_u8);
 argument1.segment_id=buffer_read(argument0, buffer_u8);
@@ -9,3 +9,5 @@ argument1.segment_id=buffer_read(argument0, buffer_u8);
 
 if (argument2>DataVersions.INITIAL){
 }
+
+return static;
