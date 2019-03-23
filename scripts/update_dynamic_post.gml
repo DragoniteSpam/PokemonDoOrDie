@@ -5,7 +5,22 @@
 var thing=argument0;
 var map=get_active_map();
 
-if (thing.xx<thing.target_xx){
+var hdir=round(point_direction(thing.xx, thing.yy, thing.target_xx, thing.target_yy))
+var hdist=point_distance(thing.xx, thing.yy, thing.target_xx, thing.target_yy)
+if (hdist>0){
+    if (hdir<=45||hdir>=315){
+        thing.map_direction=Directions.RIGHT;
+    } else if (hdir<135){
+        thing.map_direction=Directions.UP;
+    } else if (hdir<=225){
+        thing.map_direction=Directions.LEFT;
+    } else {
+        thing.map_direction=Directions.DOWN;
+    }
+}
+// this works if you're only allowed to move in four directions but doesn't pretty much
+// anywhere else
+/*if (thing.xx<thing.target_xx){
     thing.map_direction=Directions.RIGHT;
 } else if (thing.xx>thing.target_xx){
     thing.map_direction=Directions.LEFT;
@@ -13,7 +28,7 @@ if (thing.xx<thing.target_xx){
     thing.map_direction=Directions.DOWN;
 } else if (thing.yy>thing.target_yy){
     thing.map_direction=Directions.UP;
-}
+}*/
 
 var was_moving=thing.moving;
 

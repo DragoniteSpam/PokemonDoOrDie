@@ -40,6 +40,9 @@ gamepad_set_button_threshold(0, 0.1);
 
 game_has_focus=window_has_focus();
 
+gamepad_dead_zone=0.1;
+gamepad_use=true;
+
 // Joystick information
 rs_angle=0;
 ls_angle=0;
@@ -374,7 +377,7 @@ last_select=select;
 // todo get rid of the hard-coded input constants/characters and
 // instead make them configurable settings (World.settings.input)
 
-if (get_controller()){
+if (gamepad_use&amp;&amp;get_controller()){
     // If controller, gather raw input first. Can't be done all in one call because different buttons have
     // different functions to check them.
     ls_x=gamepad_axis_value(0, gp_axislh);
@@ -482,7 +485,10 @@ rleft=rleft||match_cardinal_direction(rs_angle, rs_magnitude, CompassDirections.
 rright=rright||match_cardinal_direction(rs_angle, rs_magnitude, CompassDirections.east);
 // "stick" magnitudes are a binary 1 or 0 with keyboard controls,
 // since you can't partially press a key.
-ls_magnitude=(up||down||left||right);
+// update: i have no idea why it looks like this since it completely breaks the left stick if
+// a gamepad is actually plugged in.
+//ls_magnitude=(up||down||left||right);
+ls_magnitude=get_stick_magnitude(ls_x, ls_y);
 
 if (abs(ls_x)&lt;0.1){
     ls_x=0;

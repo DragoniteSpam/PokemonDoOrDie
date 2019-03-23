@@ -9,6 +9,7 @@ if (thing.movement_free){
     thing.previous_yy=thing.yy;
     thing.previous_zz=thing.zz;
     
+    // may collapse these into a smaller block of code later, but not now
     if (World.game_player_grid){
         if (Controller.left){
             thing.target_xx--;
@@ -24,17 +25,10 @@ if (thing.movement_free){
         }
     } else {
         var fstep=thing.mspd*dt;
-        if (Controller.left){
-            thing.target_xx=thing.xx-fstep;
-        }
-        if (Controller.right){
-            thing.target_xx=thing.xx+fstep;
-        }
-        if (Controller.up){
-            thing.target_yy=thing.yy-fstep;
-        }
-        if (Controller.down){
-            thing.target_yy=thing.yy+fstep;
+        //debug(Controller.ls_magnitude)
+        if (Controller.ls_magnitude>Controller.gamepad_dead_zone){
+            thing.target_xx=thing.xx+fstep*dcos(Controller.ls_angle);
+            thing.target_yy=thing.yy-fstep*dsin(Controller.ls_angle);
         }
     }
 }
