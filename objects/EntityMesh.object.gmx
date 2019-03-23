@@ -27,7 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name='Tile';
+load_script=load_entity_mesh;
+
+name='Mesh';
 mesh_name='';
 
 mesh_data=noone;

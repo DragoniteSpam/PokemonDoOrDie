@@ -1,17 +1,21 @@
-/// void map_add_dynamic(DataMap, Entity, xx, yy, zz);
+/// Entity map_add_dynamic(DataMap, Entity, [xx, yy, zz]);
 // Does not check to see if the specified coordinates are in bounds.
 // You are responsible for that.
 
-argument1.xx=argument2;
-argument1.yy=argument3;
-argument1.zz=argument4;
-argument1.target_xx=argument2;
-argument1.target_yy=argument3;
-argument1.target_zz=argument4;
-argument1.previous_xx=argument2;
-argument1.previous_yy=argument3;
-argument1.previous_zz=argument4;
+if (argument_count>2){
+    argument[1].xx=argument[2];
+    argument[1].yy=argument[3];
+    argument[1].zz=argument[4];
+    argument[1].target_xx=argument[2];
+    argument[1].target_yy=argument[3];
+    argument[1].target_zz=argument[4];
+    argument[1].previous_xx=argument[2];
+    argument[1].previous_yy=argument[3];
+    argument[1].previous_zz=argument[4];
+}
 
-map_add_contents(argument0, argument1, argument2, argument3, argument4);
+map_add_contents(argument[0], argument[1], argument[1].xx, argument[1].yy, argument[1].zz);
 
-ds_list_add(argument0.list_dynamic, argument1);
+ds_list_add(argument[0].list_dynamic, argument[1]);
+
+return argument[1];

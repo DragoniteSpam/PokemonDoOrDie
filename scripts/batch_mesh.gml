@@ -1,4 +1,4 @@
-/// void batch_mesh(vertex buffer, EntityTile, xx, yy, zz);
+/// void batch_mesh(vertex buffer, EntityMesh, xx, yy, zz);
 
 var buffer=argument0;
 var mesh=argument1;

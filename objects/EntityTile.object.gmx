@@ -29,6 +29,8 @@
 
 name='Tile';
 
+load_script=load_entity_tile;
+
 tile_x=0; // tile ID
 tile_y=0; // tile ID
 tile_color=c_white;

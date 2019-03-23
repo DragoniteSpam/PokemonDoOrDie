@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Struct</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,14 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-name='Base Map';
+            <string>name='Base Map';
 internal_name='BASEMAP';
 summary='you can walk around on it and stuff';
 
-tileset=-1;     // the sprite
-texture=-1;     // the texture from the sprite
+tileset=noone;      // the DataTileset object
 
 xx=0;
 yy=0;

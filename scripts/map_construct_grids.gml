@@ -1,6 +1,12 @@
 /// void map_construct_grids(DataMap, x, y, z);
 // There are no 3D data structures in Game Maker so we have to chain some
-// lower-order ones together.
+// lower-order ones together. If a grid already exists for the map it will be
+// deleted - but the contents will not be
+
+if (ds_exists(argument0.contents, ds_type_grid)){
+    ds_grid_destroy(argument0.contents);
+    debug("a grid already exists for "+argument0.internal_name+" and will be deleted");
+}
 
 var grid=ds_grid_create(argument1, argument2);
 

@@ -98,7 +98,7 @@ d3d_set_projection_ext(x, y, z,
 
 var map=get_active_map();
 
-vertex_submit(map.statics, pr_trianglelist, map.texture);
+vertex_submit(map.statics, pr_trianglelist, get_active_texture());
 // textures need to be on the same texture if you want to batch them together.
 // later you should be able to swap out the tileset but for now just assume
 // that there's only one (which there is).

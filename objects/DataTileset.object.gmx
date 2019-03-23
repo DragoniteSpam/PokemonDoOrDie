@@ -57,6 +57,8 @@ autotile_sizes=array_create(0);
 
 // the main picture and all of the autotiles are stored on here
 master=noone;
+texture=-1;     // this is going to be summoned a lot so best cache it,
+                // it's not going to change anyway
 
 passage=noone;
 priority=noone;

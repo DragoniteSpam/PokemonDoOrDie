@@ -3,7 +3,7 @@
 if (argument_count==0){
     var datafile=PATH_DATA+'game.dddd';
 } else {
-    var datafile=PATH_DATA+argument[0];
+    var datafile=argument[0];
 }
 
 var original=buffer_load(datafile);
@@ -39,42 +39,44 @@ if (buffer==-1){
          * data types
          */
         
-        if (what==SERIALIZE_MAP){
-            repeat(things){
-                switch (datatype){
-                    case SerializeThings.MAP_META:
-                        load_map_contents_meta(buffer, version);
-                        break;
-                    case SerializeThings.MAP_BATCH:
-                        load_map_contents_batch(buffer, version);
-                        break;
-                    case SerializeThings.MAP_DYNAMIC:
-                        load_map_contents_dynamic(buffer, version);
-                        break;
-                }
-            }
-        } else {
-            repeat(things){
-                var datatype=buffer_read(buffer, buffer_datatype);
-                switch (datatype){
-                    // game stuff
-                    case SerializeThings.AUTOTILES_META:
-                        load_autotiles_meta(buffer, version);
-                        break;
-                    case SerializeThings.TILESET_META:
-                        load_tilesets_meta(buffer, version);
-                        break;
-                    case SerializeThings.EVENTS:
-                        load_events(buffer, version);
-                        break;
-                    case SerializeThings.MISC_MAP_META:
-                        load_global_meta(buffer, version);
-                        break;
-                }
+        repeat(things){
+            var datatype=buffer_read(buffer, buffer_datatype);
+            switch (datatype){
+                // game stuff
+                case SerializeThings.AUTOTILES_META:
+                    load_autotiles_meta(buffer, version);
+                    break;
+                case SerializeThings.TILESET_META:
+                    load_tilesets_meta(buffer, version);
+                    break;
+                case SerializeThings.EVENTS:
+                    load_events(buffer, version);
+                    break;
+                case SerializeThings.MISC_MAP_META:
+                    load_global_meta(buffer, version);
+                    break;
+                // map stuff
+                case SerializeThings.MAP_META:
+                    load_map_contents_meta(buffer, version);
+                    break;
+                case SerializeThings.MAP_BATCH:
+                    load_map_contents_batch(buffer, version);
+                    break;
+                case SerializeThings.MAP_DYNAMIC:
+                    load_map_contents_dynamic(buffer, version);
+                    break;
             }
         }
         
-        instance_deactivate_object(Struct);
+        if (what==SERIALIZE_MAP){
+            map_batch_all();
+            
+            // hard-code this until a mechanism for starting the game is introduced
+            var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
+            map_add_dynamic(get_active_map(), pawn_player, 6, 6, 0);
+            Camera.following=pawn_player;
+        }
+        
         buffer_delete(buffer);
     } else {
         erroneous=true;
@@ -84,8 +86,6 @@ if (buffer==-1){
 if (erroneous){
     show_error("Bad game data file, can't load: "+datafile, true);
 }
-
-show_message("good? good")
 
 enum DataVersions {
     INITIAL                     =0,

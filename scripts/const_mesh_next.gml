@@ -15,8 +15,11 @@ repeat(n){
     var nx=buffer_read(argument0, T);
     var ny=buffer_read(argument0, T);
     var nz=buffer_read(argument0, T);
-    var xtex=buffer_read(argument0, T);
-    var ytex=buffer_read(argument0, T);
+    // the tileset only takes up a quarter (1/2*1/2) of the main texture and so the texture
+    // coordinates for meshes have to be divided in half. if the tileset sizes are allowed
+    // to be different values than 2048x2048 later this will need to be addressed here.
+    var xtex=buffer_read(argument0, T)/2;
+    var ytex=buffer_read(argument0, T)/2;
     var color=buffer_read(argument0, T);
     var alpha=buffer_read(argument0, T);
     

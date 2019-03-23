@@ -13,6 +13,9 @@ if (version>=DataVersions.VRAX_REFERENCE){
     var filename=buffer_read(argument0, buffer_string);
     // if one already exists bad things will happen but that won't happen
     // unless i do something wrong or you screw with the editor
+    if (ds_exists(World.all_mesh_map, ds_type_map)){
+        ds_map_destroy(World.all_mesh_map);
+    }
     World.all_mesh_map=const_mesh_load_vrax(filename);
 }
 

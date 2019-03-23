@@ -1,6 +1,6 @@
 /// map const_mesh_load_vrax(filename);
 
-var map=const_mesh_load_vrax(".\data\stuff\assets.vrax");
+var map=const_mesh_load_vrax(argument0);
 // anything else? not for now
 
 return map;

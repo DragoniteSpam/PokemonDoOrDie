@@ -32,9 +32,7 @@ with (instance_create(0, 0, DataTileset)){
     }
     
     master=tileset_create_master(id);
+    texture=sprite_get_texture(master, 0);
     
-    // don't do uivc_select_autotile_refresh here, the UI may not have been created yet
-
-    instance_deactivate_object(id);
     return id;
 }

@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>name='Entity';
 
+load_script=load_entity;
+
 // for fusing all static objects such as ground tiles and houses together,
 // so the computer doesn't waste time drawing every single visible Entity
 // individually
