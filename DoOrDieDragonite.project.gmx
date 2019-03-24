@@ -1333,6 +1333,10 @@
           </scripts>
         </scripts>
       </scripts>
+      <scripts name="events are special and very watered down">
+        <script>scripts\create_event.gml</script>
+        <script>scripts\create_event_node.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>
@@ -1599,6 +1603,8 @@
       <objects name="Infrastructure">
         <object>objects\DataTileset</object>
       </objects>
+      <object>objects\DataEvent</object>
+      <object>objects\DataEventNode</object>
     </objects>
     <objects name="Debug">
       <object>objects\DebugBattleSpawner</object>

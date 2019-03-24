@@ -1,22 +1,67 @@
 /// void load_events(buffer, version);
-// this is dummied out for now. i'm still undecided about how i want to store these internally.
-// see the editor code to see exactly what each of these values does in there.
 
 var version=argument1;
 var n_events=buffer_read(argument0, buffer_u32);
 
-repeat(n_events){
+var connections=ds_list_create();
+var connection_map=ds_map_create();
+
+World.all_events=array_create(n_events);
+
+for (var n=0; n<n_events; n++){
     var event_name=buffer_read(argument0, buffer_string);
     var n_nodes=buffer_read(argument0, buffer_u32);
+    
+    ds_list_clear(connections);
+    ds_list_clear(connection_map);
+    
+    var event=create_event(event_name);
+    
     repeat(n_nodes){
         var node_name=buffer_read(argument0, buffer_string);
         var node_type=buffer_read(argument0, buffer_u16);
-        var node_x=buffer_read(argument0, buffer_u32);
-        var node_y=buffer_read(argument0, buffer_u32);
+        buffer_read(argument0, buffer_u32);         // position is ignored - that's only useful in
+        buffer_read(argument0, buffer_u32);         // the editor
         var n_outbound=buffer_read(argument0, buffer_u8);
+        
+        var node=create_event_node(event, node_name, node_type);
+
+        ds_map_add(connection_map, node_name, node);
+        var node_connections=ds_list_create();
+        ds_list_add(connections, node_connections);
+        
         repeat(n_outbound){
-            buffer_read(argument0, buffer_string);
-            buffer_read(argument0, buffer_string);
+            var data=buffer_read(argument0, buffer_string);
+            var connection_name=buffer_read(argument0, buffer_string);
+            
+            ds_list_add(node.data, data);
+            ds_list_add(node.outbound, noone);          // to be filled in later
+            ds_list_add(node_connections, connection_name);
+        }
+        
+        // special code
+        switch (node_type){
+            case EventNodeTypes.ENTRYPOINT:
+            case EventNodeTypes.TEXT:
+                break;
         }
     }
+    
+    for (var i=0; i<n_nodes; i++){
+        var node=event.nodes[| i];
+        var node_connection=connections[| i];
+        
+        for (var j=0; j<ds_list_size(node_connection); j++){
+            if (string_length(node_connection[| j])>0){
+                node.outbound[| j]=connection_map[? node_connection[| j]];
+            }
+        }
+        
+        ds_list_destroy(node_connection);
+    }
+    
+    World.all_events[@ n]=event;
 }
+
+ds_list_destroy(connections);
+ds_map_destroy(connection_map);

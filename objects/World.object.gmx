@@ -281,6 +281,7 @@ pbs_cleanup();
 available_autotiles=array_compose(0);
 all_tilesets=array_compose(0);
 all_maps=array_create(0);
+all_events=array_create(0);
 
 game_map_starting="";
 game_player_grid=true;
