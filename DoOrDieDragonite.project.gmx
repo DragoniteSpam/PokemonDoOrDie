@@ -1337,6 +1337,7 @@
         <script>scripts\create_event.gml</script>
         <script>scripts\create_event_node.gml</script>
       </scripts>
+      <script>scripts\data_set_guid.gml</script>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>

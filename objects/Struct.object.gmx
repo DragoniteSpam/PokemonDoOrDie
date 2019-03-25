@@ -31,6 +31,8 @@ name='';
 summary='';
 
 pbs_internal_name='';
+
+GUID=0;
 </string>
           </argument>
         </arguments>

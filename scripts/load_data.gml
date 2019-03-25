@@ -94,4 +94,5 @@ enum DataVersions {
     MAP_VARS                    =3,
     MAP_3D                      =4,
     GAMEPLAY_GRID               =5,
+    EVENT_GUID                  =6,
 }

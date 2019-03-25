@@ -10,12 +10,16 @@ World.all_events=array_create(n_events);
 
 for (var n=0; n<n_events; n++){
     var event_name=buffer_read(argument0, buffer_string);
+    var event=create_event(event_name);
+    
+    if (version>=DataVersions.EVENT_GUID){
+        data_set_guid(event, buffer_read(argument0, buffer_u32));
+    }
+    
     var n_nodes=buffer_read(argument0, buffer_u32);
     
     ds_list_clear(connections);
     ds_list_clear(connection_map);
-    
-    var event=create_event(event_name);
     
     repeat(n_nodes){
         var node_name=buffer_read(argument0, buffer_string);

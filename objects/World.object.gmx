@@ -213,8 +213,10 @@ read_language();
 language_text_not_found=ds_map_create();
 
 /*
- * pbs
+ * pbs, data
  */
+
+all_guids=ds_map_create();
 
 var t0=get_timer();
 
