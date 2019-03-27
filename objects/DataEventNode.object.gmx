@@ -31,11 +31,6 @@ type=EventNodeTypes.ENTRYPOINT;
 
 data=ds_list_create();
 outbound=ds_list_create();
-
-enum EventNodeTypes {
-    ENTRYPOINT,
-    TEXT
-}
 </string>
           </argument>
         </arguments>

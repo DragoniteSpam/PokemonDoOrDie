@@ -1307,7 +1307,7 @@
         <script>scripts\map_inbounds.gml</script>
         <script>scripts\map_remove_contents.gml</script>
       </scripts>
-      <scripts name="infrastructure">
+      <scripts name="loading">
         <scripts name="create">
           <script>scripts\tileset_create.gml</script>
           <script>scripts\tileset_create_master.gml</script>
@@ -1558,9 +1558,20 @@
         </scripts>
         <script>scripts\pawn_create.gml</script>
       </scripts>
+      <script>scripts\event_valid.gml</script>
     </scripts>
     <scripts name="ext">
       <script>scripts\sprite_add_autotile.gml</script>
+    </scripts>
+    <scripts name="scripting and events">
+      <script>scripts\cutscene_begin.gml</script>
+      <scripts name="draw">
+        <script>scripts\script_draw_text.gml</script>
+      </scripts>
+      <scripts name="begin">
+        <script>scripts\script_begin_entry.gml</script>
+        <script>scripts\script_begin_text.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">

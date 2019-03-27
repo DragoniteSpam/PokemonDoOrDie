@@ -1,0 +1,13 @@
+/// void cutscene_begin(DataEventNode, Entity);
+
+if (argument0==noone){
+    World.event_node_current=noone;
+    World.event_node_object=noone;
+} else {
+    World.event_node_current=argument0;
+    World.event_node_object=argument1;
+    // it's theoretically possible to launch an event from somewhere other
+    // than an entrypoint, but the editor doesn't let you do that for the
+    // sake of simplicity
+    script_execute(event_node_begin[argument0.type], argument0, argument1);
+}

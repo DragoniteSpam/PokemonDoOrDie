@@ -2,7 +2,7 @@
 
 var s=Controller.press_start;
 
-if (argument_count==0&&argument[0]){
+if (argument_count==0||argument[0]){
     Controller.press_start=false;
 }
 

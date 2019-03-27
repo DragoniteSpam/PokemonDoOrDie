@@ -4,7 +4,7 @@
 
 var thing=argument0;
 
-if (thing.movement_free){
+if (thing.movement_free&&World.event_node_current==noone){
     thing.previous_xx=thing.xx;
     thing.previous_yy=thing.yy;
     thing.previous_zz=thing.zz;
@@ -14,6 +14,22 @@ if (thing.movement_free){
         // easier if these could map to 
         var dir=World.direction_map[? thing.map_direction];
         var what_is_here=map_get_at(get_active_map(), round(thing.xx+dcos(dir)), round(thing.yy-dsin(dir)), round(thing.zz));
+        for (var i=0; i<ds_list_size(what_is_here); i++){
+            var thing=what_is_here[| i];
+            var broken=false;
+            for (var j=0; j<ds_list_size(thing.object_events); i++){
+                var node=guid_get(thing.object_events[| i].event_entrypoint);
+                if (event_valid(thing, node)){
+                    cutscene_begin(node, thing);
+                    broken=true;
+                    break;
+                }
+            }
+            // i don't think you can break out of a loop twice in one statement so
+            if (broken){
+                break;
+            }
+        }
         // don't delete this list, since it still belongs to the map
     } else if (get_press_start()){
         // pause

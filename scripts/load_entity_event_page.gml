@@ -46,4 +46,3 @@ ds_list_add(argument1.object_events, page);
 // spend the processing time doing that.
 // if (guid_get(page.event_guid)==noone)
 // if (guid_get(page.event_entrypoint)==noone)
-

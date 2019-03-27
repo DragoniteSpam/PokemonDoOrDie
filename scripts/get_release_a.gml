@@ -2,7 +2,7 @@
 
 var s=Controller.release_a;
 
-if (argument_count==0&&argument[0]){
+if (argument_count==0||argument[0]){
     Controller.release_a=false;
 }
 

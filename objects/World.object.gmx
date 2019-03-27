@@ -186,6 +186,18 @@ message_continue_after_wait=false;
 message_options=ds_list_create();
 message_option_ids=ds_list_create();
 
+event_node_current=noone;       // DataEventNode
+event_node_object=noone;        // Entity who called the event
+event_node_index=0;             // some event nodes have multiple steps to save space
+
+event_node_begin=array_compose(script_begin_entry, script_begin_text);
+event_node_draw=array_compose(null, script_draw_text);
+
+enum EventNodeTypes {
+    ENTRYPOINT,
+    TEXT
+}
+
 // It makes all the sense in the world for this to be a
 // property of Battle, since (at least for now) these
 // variables are used in relation to that, but later on
@@ -468,6 +480,10 @@ if (get_timer()-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
 
 d3d_set_culling(false);
 draw_surface(application_surface, 0, 0);
+
+if (event_node_current!=noone){
+    script_execute(event_node_draw[event_node_current.type], event_node_current, event_node_object);
+}
 
 // todo something with different UI based on the game mode, but I'm in a hurry
 exit;
