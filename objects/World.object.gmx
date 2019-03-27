@@ -192,6 +192,7 @@ event_node_index=0;             // some event nodes have multiple steps to save 
 
 event_node_begin=array_compose(script_begin_entry, script_begin_text);
 event_node_draw=array_compose(null, script_draw_text);
+event_node_proceed=array_compose(null, script_proceed_text);
 
 enum EventNodeTypes {
     ENTRYPOINT,

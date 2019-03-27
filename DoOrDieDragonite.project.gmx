@@ -1565,12 +1565,16 @@
     </scripts>
     <scripts name="scripting and events">
       <script>scripts\cutscene_begin.gml</script>
+      <script>scripts\cutscene_proceed.gml</script>
       <scripts name="draw">
         <script>scripts\script_draw_text.gml</script>
       </scripts>
       <scripts name="begin">
         <script>scripts\script_begin_entry.gml</script>
         <script>scripts\script_begin_text.gml</script>
+      </scripts>
+      <scripts name="proceed">
+        <script>scripts\script_proceed_text.gml</script>
       </scripts>
     </scripts>
   </scripts>
