@@ -1464,6 +1464,18 @@
       <script>scripts\set_resolution.gml</script>
       <scripts name="input">
         <script>scripts\get_controller.gml</script>
+        <script>scripts\get_press_a.gml</script>
+        <script>scripts\get_press_b.gml</script>
+        <script>scripts\get_press_select.gml</script>
+        <script>scripts\get_press_start.gml</script>
+        <script>scripts\get_press_x.gml</script>
+        <script>scripts\get_press_y.gml</script>
+        <script>scripts\get_release_a.gml</script>
+        <script>scripts\get_release_b.gml</script>
+        <script>scripts\get_release_select.gml</script>
+        <script>scripts\get_release_start.gml</script>
+        <script>scripts\get_release_x.gml</script>
+        <script>scripts\get_release_y.gml</script>
         <script>scripts\get_stick_angle.gml</script>
         <script>scripts\get_stick_magnitude.gml</script>
         <script>scripts\match_cardinal_direction.gml</script>

@@ -80,7 +80,10 @@ frame=0;
 
 // i'd prefer that these are sort of in the same order as
 // the unit circle (right, up, left, down) but i alsow want
-// maximum compatibility with RPG Maker
+// maximum compatibility with RPG Maker - so please don't
+// turn these into angles (0 90 180 270) like you did that
+// one time
+
 enum Directions {
     DOWN,
     LEFT,

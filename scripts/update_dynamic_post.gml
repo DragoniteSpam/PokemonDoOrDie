@@ -5,8 +5,8 @@
 var thing=argument0;
 var map=get_active_map();
 
-var hdir=round(point_direction(thing.xx, thing.yy, thing.target_xx, thing.target_yy))
-var hdist=point_distance(thing.xx, thing.yy, thing.target_xx, thing.target_yy)
+var hdir=round(point_direction(thing.xx, thing.yy, thing.target_xx, thing.target_yy));
+var hdist=point_distance(thing.xx, thing.yy, thing.target_xx, thing.target_yy);
 if (hdist>0){
     if (hdir<=45||hdir>=315){
         thing.map_direction=Directions.RIGHT;
