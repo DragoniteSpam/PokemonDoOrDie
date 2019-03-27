@@ -18,10 +18,11 @@ var static=unpack(entity_bools, 1);
 // end so the cascading switch statement won't work, so check each old
 // version in ascending order
 
-if (argument2>DataVersions.INITIAL){
+if (argument2>=DataVersions.MAP_ENTITY_EVENTS){
+    var n_events=buffer_read(argument0, buffer_u8);
+    repeat(n_events){
+        load_entity_event_page(argument0, argument1, argument2);
+    }
 }
-
-// this should not be instantiated on its own and does not
-// get collision information
 
 return static;

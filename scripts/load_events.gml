@@ -13,7 +13,7 @@ for (var n=0; n<n_events; n++){
     var event=create_event(event_name);
     
     if (version>=DataVersions.EVENT_GUID){
-        data_set_guid(event, buffer_read(argument0, buffer_u32));
+        guid_set(event, buffer_read(argument0, buffer_u32));
     }
     
     var n_nodes=buffer_read(argument0, buffer_u32);
@@ -26,9 +26,15 @@ for (var n=0; n<n_events; n++){
         var node_type=buffer_read(argument0, buffer_u16);
         buffer_read(argument0, buffer_u32);         // position is ignored - that's only useful in
         buffer_read(argument0, buffer_u32);         // the editor
-        var n_outbound=buffer_read(argument0, buffer_u8);
         
         var node=create_event_node(event, node_name, node_type);
+        
+        if (version>=DataVersions.EVENT_NODE_GUID){
+            guid_set(node, buffer_read(argument0, buffer_u32));
+        } // they're actually not useful to anyone if you don't do this but just check it
+        // to keep it from crashing if you load a really old map
+        
+        var n_outbound=buffer_read(argument0, buffer_u8);
 
         ds_map_add(connection_map, node_name, node);
         var node_connections=ds_list_create();

@@ -1196,17 +1196,35 @@
     <script>scripts\clear.gml</script>
     <scripts name="data">
       <scripts name="creation">
-        <script>scripts\add_move.gml</script>
-        <script>scripts\add_trainer.gml</script>
-        <script>scripts\add_nature.gml</script>
-        <script>scripts\add_nature_stats.gml</script>
-        <script>scripts\add_trainer_class.gml</script>
         <script>scripts\add_ability.gml</script>
-        <script>scripts\add_pokemon.gml</script>
-        <script>scripts\add_type.gml</script>
+        <script>scripts\add_egg_group.gml</script>
+        <script>scripts\add_evolution_method.gml</script>
+        <script>scripts\add_individual_evolution.gml</script>
         <script>scripts\add_item.gml</script>
         <script>scripts\add_item_pocket.gml</script>
-        <script>scripts\add_egg_group.gml</script>
+        <script>scripts\add_map.gml</script>
+        <script>scripts\add_move.gml</script>
+        <script>scripts\add_nature.gml</script>
+        <script>scripts\add_nature_stats.gml</script>
+        <script>scripts\add_pokemon.gml</script>
+        <script>scripts\add_trainer.gml</script>
+        <script>scripts\add_trainer_class.gml</script>
+        <script>scripts\add_type.gml</script>
+        <scripts name="const">
+          <script>scripts\const_evolution_methods.gml</script>
+          <script>scripts\const_egg_groups.gml</script>
+          <script>scripts\const_item_pockets.gml</script>
+          <script>scripts\const_natures.gml</script>
+        </scripts>
+        <script>scripts\const_mesh.gml</script>
+        <scripts name="ehh">
+          <script>scripts\add_pokemon_add_evolutions.gml</script>
+          <script>scripts\create_instantiated_event.gml</script>
+        </scripts>
+        <scripts name="models">
+          <script>scripts\const_mesh_load_vrax.gml</script>
+          <script>scripts\const_mesh_next.gml</script>
+        </scripts>
         <scripts name="pbs">
           <script>scripts\pbs_read_types.gml</script>
           <script>scripts\pbs_read_pokemon.gml</script>
@@ -1224,23 +1242,6 @@
           <script>scripts\pbs_read_item_values.gml</script>
           <script>scripts\pbs_cleanup.gml</script>
         </scripts>
-        <script>scripts\add_individual_evolution.gml</script>
-        <script>scripts\add_evolution_method.gml</script>
-        <scripts name="const">
-          <script>scripts\const_evolution_methods.gml</script>
-          <script>scripts\const_egg_groups.gml</script>
-          <script>scripts\const_item_pockets.gml</script>
-          <script>scripts\const_natures.gml</script>
-        </scripts>
-        <scripts name="ehh">
-          <script>scripts\add_pokemon_add_evolutions.gml</script>
-        </scripts>
-        <scripts name="models">
-          <script>scripts\const_mesh_load_vrax.gml</script>
-          <script>scripts\const_mesh_next.gml</script>
-        </scripts>
-        <script>scripts\const_mesh.gml</script>
-        <script>scripts\add_map.gml</script>
       </scripts>
       <script>scripts\set_type_matchups.gml</script>
       <scripts name="get data">
@@ -1317,6 +1318,10 @@
           <script>scripts\load_events.gml</script>
           <script>scripts\load_global_meta.gml</script>
           <script>scripts\load_tilesets_meta.gml</script>
+          <scripts name="pass by reference">
+            <script>scripts\load_generic.gml</script>
+            <script>scripts\load_entity_event_page.gml</script>
+          </scripts>
         </scripts>
         <scripts name="map things">
           <script>scripts\load_map_contents_meta.gml</script>
@@ -1333,11 +1338,12 @@
           </scripts>
         </scripts>
       </scripts>
-      <scripts name="events are special and very watered down">
+      <scripts name="events are special">
         <script>scripts\create_event.gml</script>
         <script>scripts\create_event_node.gml</script>
       </scripts>
-      <script>scripts\data_set_guid.gml</script>
+      <script>scripts\guid_set.gml</script>
+      <script>scripts\guid_get.gml</script>
     </scripts>
     <script>scripts\draw_rectangle_9s.gml</script>
     <script>scripts\draw_selection_arrow.gml</script>
@@ -1603,6 +1609,7 @@
       <object>objects\Struct</object>
       <objects name="Infrastructure">
         <object>objects\DataTileset</object>
+        <object>objects\DataInstantiatedEvent</object>
       </objects>
       <object>objects\DataEvent</object>
       <object>objects\DataEventNode</object>

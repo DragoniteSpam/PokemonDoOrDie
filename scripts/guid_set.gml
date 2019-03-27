@@ -1,4 +1,4 @@
-/// void data_set_guid(Data, value);
+/// void guid_set(Data, value);
 // you're assuming you're allowed to do this without checking here,
 // since hopefully you know it's valid when you save the data file
 

@@ -50,7 +50,9 @@ nodes=ds_list_create();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy_instances(nodes);
+            <string>event_inherited();
+
+ds_list_destroy_instances(nodes);
 </string>
           </argument>
         </arguments>
