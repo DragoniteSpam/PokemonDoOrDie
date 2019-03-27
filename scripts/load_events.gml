@@ -41,12 +41,21 @@ for (var n=0; n<n_events; n++){
         ds_list_add(connections, node_connections);
         
         repeat(n_outbound){
-            var data=buffer_read(argument0, buffer_string);
-            var connection_name=buffer_read(argument0, buffer_string);
+            if (version<DataVersions.EVENT_NODE_FIXED_DATA_AGAIN){
+                var data=buffer_read(argument0, buffer_string);
+                ds_list_add(node.data, data);
+            }
             
-            ds_list_add(node.data, data);
+            var connection_name=buffer_read(argument0, buffer_string);
             ds_list_add(node.outbound, noone);          // to be filled in later
             ds_list_add(node_connections, connection_name);
+        }
+        
+        if (version>=DataVersions.EVENT_NODE_FIXED_DATA_AGAIN){
+            var n_data=buffer_read(argument0, buffer_u8);
+            repeat(n_data){
+                ds_list_add(node.data, buffer_read(argument0, buffer_string));
+            }
         }
         
         // special code
