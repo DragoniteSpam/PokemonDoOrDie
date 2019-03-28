@@ -1443,6 +1443,7 @@
       <script>scripts\vector2.gml</script>
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\debug_write.gml</script>
+      <script>scripts\transform_entity_point.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>

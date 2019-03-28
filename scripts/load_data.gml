@@ -98,4 +98,5 @@ enum DataVersions {
     MAP_ENTITY_EVENTS           =7,
     EVENT_NODE_GUID             =8,
     EVENT_NODE_FIXED_DATA_AGAIN =9,
+    ENTITY_TRANSFORM            =10,
 }
