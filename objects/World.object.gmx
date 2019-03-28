@@ -194,6 +194,8 @@ event_node_begin=array_compose(script_begin_entry, script_begin_text);
 event_node_draw=array_compose(null, script_draw_text);
 event_node_proceed=array_compose(null, script_proceed_text);
 
+scribble_text=noone;
+
 enum EventNodeTypes {
     ENTRYPOINT,
     TEXT
@@ -373,6 +375,22 @@ if (file_exists(PATH_MAP+World.game_map_starting+IMPORT_EXTENSION_MAP)){
 } else {
     show_error("No starting map is defined, or the one that's defined does not exist in the game's files. You should probably define a starting map and make sure to include it in the game's Included Files in "+PATH_MAP+".", true);
 }
+
+// scribble
+
+scribble_init_start(PATH_FONT, 4096);
+scribble_init_add_font("FGameMedium");              // the first font added is the default one
+scribble_init_add_font("FGameHuge");
+scribble_init_add_font("FGameLarge");
+scribble_init_add_font("FGameMediumLarge");
+scribble_init_add_font("FGameSmall");
+scribble_init_end();
+
+scribble_add_colour("c_red", c_red, true);
+
+scribble_add_flag("rumble", 1);
+
+// turn a bunch of things off
 
 instance_deactivate_object(Struct);
 instance_deactivate_object(Settings);
