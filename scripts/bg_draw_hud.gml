@@ -10,7 +10,7 @@ if (user!=noone){
     var hp_text_y=hp_bar_y+24;
     var exp_bar_y=hp_text_y+28;
     
-    draw_set_font(FPokemonMedium);
+    draw_set_font(FGameMedium);
     
     // foes/not player pawns have slightly smaller status boxes
     if (user.owner==Camera.following){

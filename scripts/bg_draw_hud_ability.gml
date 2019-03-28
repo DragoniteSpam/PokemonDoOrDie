@@ -3,7 +3,7 @@
 if (user!=noone){
     var height=64;
     
-    draw_set_font(FPokemonMedium);
+    draw_set_font(FGameMedium);
     
     draw_set_valign(fa_middle);
     

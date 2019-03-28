@@ -8,7 +8,7 @@ var text_box_start_y=H-UI_TEXT_BOX_HEIGHT;
 
 draw_rectangle_9s(spr_window9s_hgss, text_box_start_x, text_box_start_y, UI_TEXT_BOX_WIDTH, UI_TEXT_BOX_HEIGHT);
 
-draw_set_font(FPokemonMedium);
+draw_set_font(FGameMedium);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);

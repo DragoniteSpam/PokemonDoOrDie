@@ -15,13 +15,13 @@ var max_n=ds_list_size(text_list);
 var default_color=draw_get_colour();
 
 if (max_n==2){
-//    var text_font=FPokemonLarge;
-    var text_font=FPokemonMediumLarge;
+//    var text_font=FGameLarge;
+    var text_font=FGameMediumLarge;
 } else if (max_n==3){
-//    var text_font=FPokemonMediumLarge;
-    var text_font=FPokemonMedium;
+//    var text_font=FGameMediumLarge;
+    var text_font=FGameMedium;
 } else {
-    var text_font=FPokemonMedium;
+    var text_font=FGameMedium;
 }
 draw_set_font(text_font);
 

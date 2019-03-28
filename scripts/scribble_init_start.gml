@@ -29,7 +29,7 @@ var _tpage_size     = argument1;
 
 //Fix the font directory name if it's weird
 var _char = string_char_at( _font_directory, string_length( _font_directory ) );
-if ( _char != '\' ) && ( _char != '/' ) _font_directory += '\';
+if ( _char != "\" ) && ( _char != "/" ) _font_directory += "\";
 
 //Check if the directory exists
 if ( !directory_exists( _font_directory ) ) {

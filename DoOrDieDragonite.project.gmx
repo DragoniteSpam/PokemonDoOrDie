@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="72" name="datafiles">
-    <datafiles number="72" name="data">
-      <datafiles number="72" name="graphics">
-        <datafiles number="72" name="battlers">
+  <datafiles number="77" name="datafiles">
+    <datafiles number="77" name="data">
+      <datafiles number="77" name="graphics">
+        <datafiles number="77" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -433,7 +433,7 @@
             <filename>git-dont-delete-this-folder-please.txt</filename>
           </datafile>
         </datafiles>
-        <datafiles number="72" name="tilesets">
+        <datafiles number="77" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -486,8 +486,95 @@
             <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
+        <datafiles number="77" name="fonts">
+          <datafile>
+            <name>FGameHuge.font.gmx</name>
+            <exists>-1</exists>
+            <size>18744</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>FGameHuge.font.gmx</filename>
+          </datafile>
+          <datafile>
+            <name>FGameLarge.font.gmx</name>
+            <exists>-1</exists>
+            <size>18674</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>FGameLarge.font.gmx</filename>
+          </datafile>
+          <datafile>
+            <name>FGameMedium.font.gmx</name>
+            <exists>-1</exists>
+            <size>18538</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>FGameMedium.font.gmx</filename>
+          </datafile>
+          <datafile>
+            <name>FGameMediumLarge.font.gmx</name>
+            <exists>-1</exists>
+            <size>18614</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>FGameMediumLarge.font.gmx</filename>
+          </datafile>
+          <datafile>
+            <name>FGameSmall.font.gmx</name>
+            <exists>-1</exists>
+            <size>18102</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>FGameSmall.font.gmx</filename>
+          </datafile>
+        </datafiles>
       </datafiles>
-      <datafiles number="72" name="pbs">
+      <datafiles number="77" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -607,7 +694,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="72" name="dummy">
+        <datafiles number="77" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -763,7 +850,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="72" name="stuff">
+      <datafiles number="77" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -781,7 +868,7 @@
           </ConfigOptions>
           <filename>assets.vrax</filename>
         </datafile>
-        <datafiles number="72" name="maps">
+        <datafiles number="77" name="maps">
           <datafile>
             <name>MAP_TEST.dddm</name>
             <exists>-1</exists>
@@ -1444,6 +1531,7 @@
       <script>scripts\world_to_2d.gml</script>
       <script>scripts\debug_write.gml</script>
       <script>scripts\transform_entity_point.gml</script>
+      <script>scripts\ternary.gml</script>
     </scripts>
     <scripts name="menu stuff">
       <script>scripts\menu_input.gml</script>
@@ -1577,14 +1665,48 @@
       <scripts name="proceed">
         <script>scripts\script_proceed_text.gml</script>
       </scripts>
+      <scripts name="scribble">
+        <script>scripts\__scribble_config.gml</script>
+        <scripts name="Compensation">
+          <script>scripts\array_equals_safe.gml</script>
+        </scripts>
+        <scripts name="Scribble Core">
+          <script>scripts\scribble_init_start.gml</script>
+          <script>scripts\scribble_init_add_font.gml</script>
+          <script>scripts\scribble_init_add_spritefont.gml</script>
+          <script>scripts\scribble_init_end.gml</script>
+          <script>scripts\scribble_set_box_alignment.gml</script>
+          <script>scripts\scribble_create.gml</script>
+          <script>scripts\scribble_step.gml</script>
+          <script>scripts\scribble_draw.gml</script>
+          <script>scripts\scribble_destroy.gml</script>
+        </scripts>
+        <scripts name="Scribble Fun Optional Stuff">
+          <script>scripts\scribble_add_color.gml</script>
+          <script>scripts\scribble_add_colour.gml</script>
+          <script>scripts\scribble_get_box.gml</script>
+          <script>scripts\scribble_typewriter_get_state.gml</script>
+          <script>scripts\scribble_typewriter_in.gml</script>
+          <script>scripts\scribble_typewriter_out.gml</script>
+        </scripts>
+        <scripts name="Scribble Things for Serious People">
+          <script>scripts\scribble_add_event.gml</script>
+          <script>scripts\scribble_add_flag.gml</script>
+          <script>scripts\scribble_get_glyph_property.gml</script>
+          <script>scripts\scribble_set_glyph_property.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shScribble.shader</shader>
+  </shaders>
   <fonts name="fonts">
-    <font>fonts\FPokemonSmall</font>
-    <font>fonts\FPokemonMedium</font>
-    <font>fonts\FPokemonLarge</font>
-    <font>fonts\FPokemonMediumLarge</font>
-    <font>fonts\FPokemonHuge</font>
+    <font>fonts\FGameSmall</font>
+    <font>fonts\FGameMedium</font>
+    <font>fonts\FGameLarge</font>
+    <font>fonts\FGameMediumLarge</font>
+    <font>fonts\FGameHuge</font>
   </fonts>
   <objects name="objects">
     <objects name="Battle Objects">
@@ -1670,7 +1792,7 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="51">
+  <constants number="90">
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
@@ -1688,14 +1810,15 @@
     <constant name="MILLION">1000000</constant>
     <constant name="MOVE_LIMIT">4</constant>
     <constant name="N">chr($0d)+chr($0a)</constant>
-    <constant name="OPTIONS_INI">".\ddd.ini"</constant>
+    <constant name="OPTIONS_INI">'.\ddd.ini'</constant>
     <constant name="PATH_AUTOTILE">'.\data\graphics\autotiles\'</constant>
     <constant name="PATH_BATTLER">'.\data\graphics\battlers\'</constant>
     <constant name="PATH_DATA">'.\data\stuff\'</constant>
-    <constant name="PATH_LANGUAGE">".\data\strings.txt"</constant>
+    <constant name="PATH_LANGUAGE">'.\data\strings.txt'</constant>
     <constant name="PATH_MAP">'.\data\stuff\maps\'</constant>
-    <constant name="PATH_PBS_DUMMY">".\data\pbs\dummy\"</constant>
+    <constant name="PATH_PBS_DUMMY">'.\data\pbs\dummy\'</constant>
     <constant name="PATH_PBS">'.\data\pbs\'</constant>
+    <constant name="PATH_FONT">'.\data\graphics\fonts\'</constant>
     <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="PAWN_ANIMATION_FRAMES_PER_SECOND">4</constant>
     <constant name="POKEMON_GLOBAL_SCALE">96/224</constant>
@@ -1722,6 +1845,44 @@
     <constant name="UI_TEXT_OPTION_BUFFER_W">32</constant>
     <constant name="UI_TEXT_WIDTH">W*2/3</constant>
     <constant name="USE_DUMMY_DATA">true</constant>
+    <constant name="__SCRIBBLE_DATE">'2019/03/16'</constant>
+    <constant name="__SCRIBBLE_TRY_SEQUENTIAL_GLYPH_INDEX">true</constant>
+    <constant name="__SCRIBBLE_VERSION">'-3.2.3' /* the negative version is for gms1, at least until I think of something better */</constant>
+    <constant name="SCRIBBLE_ANIMATION_SPEED">0.02 /* speed of shader animation effects*/</constant>
+    <constant name="SCRIBBLE_COMMAND_TAG_ARGUMENT">ord(',') /* Character used to delimit a command parameter inside a command tag. First 127 ASCII chars only */</constant>
+    <constant name="SCRIBBLE_COMMAND_TAG_CLOSE">ord(']') /* Character used to close a command tag. First 127 ASCII chars only */</constant>
+    <constant name="SCRIBBLE_COMMAND_TAG_OPEN">ord('[') /* Character used to open a command tag. First 127 ASCII chars only */</constant>
+    <constant name="SCRIBBLE_COMPATIBILITY_DRAW">false /* Forces Scribble functions to use GM's native draw_text() renderer. Turn this on if certain platforms are causing problems */</constant>
+    <constant name="SCRIBBLE_DEFAULT_ANGLE">0</constant>
+    <constant name="SCRIBBLE_DEFAULT_BOX_HALIGN">fa_left</constant>
+    <constant name="SCRIBBLE_DEFAULT_BOX_VALIGN">fa_top</constant>
+    <constant name="SCRIBBLE_DEFAULT_PREMULTIPLY_ALPHA">false</constant>
+    <constant name="SCRIBBLE_DEFAULT_RAINBOW_WEIGHT">0.5</constant>
+    <constant name="SCRIBBLE_DEFAULT_SHAKE_SIZE">4</constant>
+    <constant name="SCRIBBLE_DEFAULT_SHAKE_SPEED">22</constant>
+    <constant name="SCRIBBLE_DEFAULT_TYPEWRITER_METHOD">SCRIBBLE_TYPEWRITER_PER_CHARACTER</constant>
+    <constant name="SCRIBBLE_DEFAULT_TYPEWRITER_SMOOTHNESS">3</constant>
+    <constant name="SCRIBBLE_DEFAULT_TYPEWRITER_SPEED">0.3</constant>
+    <constant name="SCRIBBLE_DEFAULT_WAVE_FREQUENCY">50</constant>
+    <constant name="SCRIBBLE_DEFAULT_WAVE_SIZE">4</constant>
+    <constant name="SCRIBBLE_DEFAULT_WAVE_SPEED">10</constant>
+    <constant name="SCRIBBLE_DEFAULT_XSCALE">1</constant>
+    <constant name="SCRIBBLE_DEFAULT_YSCALE">1</constant>
+    <constant name="SCRIBBLE_EMULATE_LEGACY_SPRITEFONT_SPACING">true /* GMS2.2.1 made spritefonts much more spaced out for some reason. you are presumably not using GMS2.2.1 though so don't touch this */</constant>
+    <constant name="SCRIBBLE_FIX_NEWLINES">false /* The newline fix stops unexpected newline types from breaking the parser, but it can be a bit slow */</constant>
+    <constant name="SCRIBBLE_GLYPH_SEPARATION">__E_SCRIBBLE_GLYPH.SHF</constant>
+    <constant name="SCRIBBLE_GLYPH_X_OFFSET">__E_SCRIBBLE_GLYPH.DX</constant>
+    <constant name="SCRIBBLE_GLYPH_Y_OFFSET">__E_SCRIBBLE_GLYPH.DY</constant>
+    <constant name="SCRIBBLE_INIT_COMPLETE">2</constant>
+    <constant name="SCRIBBLE_INIT_DURING">1</constant>
+    <constant name="SCRIBBLE_INIT_START">0</constant>
+    <constant name="SCRIBBLE_MAX_DATA_FIELDS">6 /* Change MAX_DATA_FIELDS in the shader if you change this value! */</constant>
+    <constant name="SCRIBBLE_MAX_FLAGS">6 /* Change MAX_FLAGS in the shader if you change this value! */</constant>
+    <constant name="SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES">0.50 /* Fraction (0 -&gt; 1). If the number of holes exceeds this proportion, a font's glyphs will be indexed using a ds_map */</constant>
+    <constant name="SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE">200 /* If the glyph range (min index to max index) exceeds this number, a font's glyphs will be indexed using a ds_map */</constant>
+    <constant name="SCRIBBLE_TYPEWRITER_PER_CHARACTER">1</constant>
+    <constant name="SCRIBBLE_TYPEWRITER_PER_LINE">2</constant>
+    <constant name="SCRIBBLE_TYPEWRITER_WHOLE">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -33,11 +33,11 @@ ds_list_add(aux_list, -1, -1, -1, -1);
 var max_n=ds_list_size(text_list);
 
 if (max_n==2){
-    var text_font=FPokemonMediumLarge;
+    var text_font=FGameMediumLarge;
 } else if (max_n==3){
-    var text_font=FPokemonMedium;
+    var text_font=FGameMedium;
 } else {
-    var text_font=FPokemonMedium;
+    var text_font=FGameMedium;
 }
 draw_set_font(text_font);
 

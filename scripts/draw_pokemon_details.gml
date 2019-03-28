@@ -26,7 +26,7 @@ draw_rectangle_9s(spr_window9s_hgss, start_x, start_y, half_width*2, half_height
 var c=World.major_status_colors[argument0.status];
 draw_sprite_general(argument0.spr_front, 0, 0, 0, picture_width, picture_height, start_x+picture_buffer, H/2-picture_height/2, 1, 1, 0, c, c, c, c, 1);
 
-draw_set_font(FPokemonMediumLarge);
+draw_set_font(FGameMediumLarge);
 draw_set_halign(fa_center);
 
 var text=argument0.name;
@@ -46,7 +46,7 @@ if (!alive(argument0)){
     draw_major_status(argument0.status, symbol_x, start_y+48);
 }
 
-draw_set_font(FPokemonMedium);
+draw_set_font(FGameMedium);
 
 // this feels off-centered but i can't for the life of me figure out why
 // that would be, the math is really simple

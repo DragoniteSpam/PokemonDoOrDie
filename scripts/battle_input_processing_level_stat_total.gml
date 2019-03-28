@@ -4,7 +4,7 @@ var new_level=Battle.misc_data[? 'new level'];
 
 var max_n=7;
 
-var text_spacing=font_get_size(FPokemonMedium)*1.5;
+var text_spacing=font_get_size(FGameMedium)*1.5;
 
 var box_width=UI_BATTLE_HUD_WIDTH;
 var box_height=text_spacing*(max_n+2);

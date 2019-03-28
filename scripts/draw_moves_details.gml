@@ -18,12 +18,12 @@ var third2=start_x+(half_width*2)*2/3;
 
 draw_rectangle_9s(spr_window9s_hgss, start_x, start_y, half_width*2, half_height*2);
 
-draw_set_font(FPokemonMediumLarge);
+draw_set_font(FGameMediumLarge);
 draw_set_halign(fa_center);
 
 draw_text(W/2, start_y+48, base_move.name);
 
-draw_set_font(FPokemonMedium);
+draw_set_font(FGameMedium);
 
 var  text=L('Type:');
 draw_text(W/2, start_y+96, text);
