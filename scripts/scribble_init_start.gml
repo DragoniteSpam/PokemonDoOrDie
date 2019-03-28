@@ -84,7 +84,7 @@ scribble_add_colour( "c_yellow",  c_yellow  );
 
 //Add bindings for default flag names
 scribble_add_flag( "wave"   , 0 );
-scribble_add_flag( "shake"  , 1 );
+scribble_add_flag( "rumble" , 1 );
 scribble_add_flag( "rainbow", 2 );
 
 //Create a vertex format for our text

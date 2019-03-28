@@ -386,10 +386,6 @@ scribble_init_add_font("FGameMediumLarge");
 scribble_init_add_font("FGameSmall");
 scribble_init_end();
 
-scribble_add_colour("c_red", c_red, true);
-
-scribble_add_flag("rumble", 1);
-
 // turn a bunch of things off
 
 instance_deactivate_object(Struct);
