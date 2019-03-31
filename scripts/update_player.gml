@@ -17,8 +17,8 @@ if (thing.movement_free&&World.event_node_current==noone){
         for (var i=0; i<ds_list_size(what_is_here); i++){
             var thing=what_is_here[| i];
             var broken=false;
-            for (var j=0; j<ds_list_size(thing.object_events); i++){
-                var node=guid_get(thing.object_events[| i].event_entrypoint);
+            for (var j=0; j<ds_list_size(thing.object_events); j++){
+                var node=guid_get(thing.object_events[| j].event_entrypoint);
                 if (event_valid(thing, node)){
                     cutscene_begin(node, thing);
                     broken=true;

@@ -73,7 +73,7 @@ if (buffer==-1){
             
             // hard-code this until a mechanism for starting the game is introduced
             var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
-            map_add_dynamic(get_active_map(), pawn_player, 6, 6, 0);
+            map_add_dynamic(get_active_map(), pawn_player, 5, 6, 0);
             Camera.following=pawn_player;
         }
         

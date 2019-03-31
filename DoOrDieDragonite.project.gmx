@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="77" name="datafiles">
-    <datafiles number="77" name="data">
-      <datafiles number="77" name="graphics">
-        <datafiles number="77" name="battlers">
+  <datafiles number="78" name="datafiles">
+    <datafiles number="78" name="data">
+      <datafiles number="78" name="graphics">
+        <datafiles number="78" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -433,7 +433,7 @@
             <filename>git-dont-delete-this-folder-please.txt</filename>
           </datafile>
         </datafiles>
-        <datafiles number="77" name="tilesets">
+        <datafiles number="78" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -486,7 +486,7 @@
             <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="77" name="fonts">
+        <datafiles number="78" name="fonts">
           <datafile>
             <name>FGameHuge.font.gmx</name>
             <exists>-1</exists>
@@ -574,7 +574,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="77" name="pbs">
+      <datafiles number="78" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -694,7 +694,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="77" name="dummy">
+        <datafiles number="78" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -850,7 +850,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="77" name="stuff">
+      <datafiles number="78" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -868,25 +868,6 @@
           </ConfigOptions>
           <filename>assets.vrax</filename>
         </datafile>
-        <datafiles number="77" name="maps">
-          <datafile>
-            <name>MAP_TEST.dddm</name>
-            <exists>-1</exists>
-            <size>1169</size>
-            <exportAction>2</exportAction>
-            <exportDir></exportDir>
-            <overwrite>0</overwrite>
-            <freeData>-1</freeData>
-            <removeEnd>0</removeEnd>
-            <store>0</store>
-            <ConfigOptions>
-              <Config name="Default">
-                <CopyToMask>9223372036854775807</CopyToMask>
-              </Config>
-            </ConfigOptions>
-            <filename>MAP_TEST.dddm</filename>
-          </datafile>
-        </datafiles>
         <datafile>
           <name>game.dddd</name>
           <exists>-1</exists>
@@ -904,6 +885,25 @@
           </ConfigOptions>
           <filename>game.dddd</filename>
         </datafile>
+        <datafiles number="78" name="maps">
+          <datafile>
+            <name>MAP.dddm</name>
+            <exists>-1</exists>
+            <size>4939</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>MAP.dddm</filename>
+          </datafile>
+        </datafiles>
       </datafiles>
       <datafile>
         <name>ddd-notes.txt</name>
