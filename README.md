@@ -15,6 +15,8 @@ I can't grab embedded gifs from Twitter and I don't feel like copying them to im
 
 [Basic overworld](https://twitter.com/DragoniteSpam/status/1065035965956321281)
 
+[Editor and game in action (30 March 2019)](https://www.youtube.com/watch?v=nLtFmBxOASs)
+
 I'll probably add more eventually.
 
 # Known Issues
