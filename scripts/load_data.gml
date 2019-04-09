@@ -39,6 +39,12 @@ if (buffer==-1){
          * data types
          */
         
+        if (version>=DataVersions.NOT_STUPID_DATA_SIZE){
+            // you will never have this many Things
+            things=100000000;
+        }
+        
+        var stop=false;
         repeat(things){
             var datatype=buffer_read(buffer, buffer_datatype);
             switch (datatype){
@@ -55,6 +61,12 @@ if (buffer==-1){
                 case SerializeThings.MISC_MAP_META:
                     load_global_meta(buffer, version);
                     break;
+                case SerializeThings.DATADATA:
+                    load_datadata(buffer, version);
+                    break;
+                case SerializeThings.DATA_INSTANCES:
+                    load_data_instances(buffer, version);
+                    break;
                 // map stuff
                 case SerializeThings.MAP_META:
                     load_map_contents_meta(buffer, version);
@@ -65,6 +77,14 @@ if (buffer==-1){
                 case SerializeThings.MAP_DYNAMIC:
                     load_map_contents_dynamic(buffer, version);
                     break;
+                // end of file
+                case SerializeThings.END_OF_FILE:
+                    stop=true;
+                    break;
+            }
+            
+            if (stop){
+                break;
             }
         }
         
@@ -99,4 +119,7 @@ enum DataVersions {
     EVENT_NODE_GUID             =8,
     EVENT_NODE_FIXED_DATA_AGAIN =9,
     ENTITY_TRANSFORM            =10,
+    DATADATA_DEFINITIONS        =11,
+    NOT_STUPID_DATA_SIZE        =12,
+    _CURRENT                    /* = whatever the last one is + 1 */
 }

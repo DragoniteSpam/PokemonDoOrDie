@@ -1409,6 +1409,8 @@
             <script>scripts\load_generic.gml</script>
             <script>scripts\load_entity_event_page.gml</script>
           </scripts>
+          <script>scripts\load_datadata.gml</script>
+          <script>scripts\load_data_instances.gml</script>
         </scripts>
         <scripts name="map things">
           <script>scripts\load_map_contents_meta.gml</script>
@@ -1760,6 +1762,7 @@
       <objects name="Infrastructure">
         <object>objects\DataTileset</object>
         <object>objects\DataInstantiatedEvent</object>
+        <object>objects\DataData</object>
       </objects>
       <object>objects\DataEvent</object>
       <object>objects\DataEventNode</object>
@@ -1786,6 +1789,7 @@
       <object>objects\SettingsGameplay</object>
       <object>objects\Camera</object>
       <object>objects\Controller</object>
+      <object>objects\Database</object>
     </objects>
   </objects>
   <rooms name="rooms">

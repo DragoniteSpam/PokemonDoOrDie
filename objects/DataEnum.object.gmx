@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,48 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name='Base Map';
-internal_name='BASEMAP';
-summary='you can walk around on it and stuff';
+            <string>event_inherited();
 
-tileset=noone;      // the DataTileset object
-
-xx=0;
-yy=0;
-zz=0;
-
-audio_bgm="";
-
-audio_ambient=ds_list_create();
-audio_ambient_frequencies=ds_list_create();
-
-fog_start=256;
-fog_end=1024;
-
-indoors=false;
-draw_water=true;
-fast_travel_to=true;
-fast_travel_from=true;
-
-is_3d=true;
-
-// Since maps are basically three-dimensional arrays, the amount of
-// space they take up goes up pretty quickly (width*height*depth*the
-// size of whatever data's in it). In the future it's probably a
-// good idea to only store the active one(s) in memory and load/delete
-// them when necessary, or at the very least the data in the "contents"
-// structures.
-contents=noone;
-
-// it turns out iterating over every element in a 3D structure to draw
-// them is unreasonably inefficient, so since most of the slots in the
-// 3D structure are probably going to be air anyway we're going to keep
-// a (smaller) parallel list of things that actually exist in the map
-list_static=noone;
-list_dynamic=noone;
-
-// a vertex buffer
-statics=vertex_create_buffer();
+properties=ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -89,36 +50,10 @@ statics=vertex_create_buffer();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (contents!=noone){
-    // if the collision grid exists the lists have to also
-    // since they're created in the same place
-    for (var i=0; i&lt;ds_list_size(list_static); i++){
-        instance_activate_object(list_static[| i]);
-        instance_destroy(list_static[| i]);
-    }
-    
-    for (var i=0; i&lt;ds_list_size(list_dynamic); i++){
-        instance_activate_object(list_dynamic[| i]);
-        instance_destroy(list_dynamic[| i]);
-    }
-    
-    for (var i=0; i&lt;xx; i++){
-        for (var j=0; j&lt;yy; j++){
-            if (contents[# i, j]!=noone){
-                ds_list_destroy(contents[# i, j]);
-            }
-        }
-    }
-    
-    ds_grid_destroy(contents);
-    ds_list_destroy(list_static);
-    ds_list_destroy(list_dynamic);
-}
+            <string>event_inherited();
 
-vertex_delete_buffer(statics);
-
-ds_list_destroy(audio_ambient);
-ds_list_destroy(audio_ambient_frequencies);
+// these ought to just be strings
+ds_list_destroy(properties);
 </string>
           </argument>
         </arguments>
