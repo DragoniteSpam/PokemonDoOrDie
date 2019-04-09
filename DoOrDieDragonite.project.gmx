@@ -1555,6 +1555,7 @@
       <script>scripts\singleton.gml</script>
       <script>scripts\null.gml</script>
       <script>scripts\debug.gml</script>
+      <script>scripts\debug_silent.gml</script>
       <script>scripts\debug_notes.gml</script>
       <script>scripts\set_resolution.gml</script>
       <scripts name="input">

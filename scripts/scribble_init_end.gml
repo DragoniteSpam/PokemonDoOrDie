@@ -16,7 +16,7 @@ if ( global.__scribble_init_complete == SCRIBBLE_INIT_START ) {
     exit;
 }
 
-show_debug_message( "Scribble: Font initialisation started" );
+debug_silent( "Scribble: Font initialisation started" );
 
 var _old_x = x;
 var _old_y = y;
@@ -51,7 +51,7 @@ var _in_gms221 = false;
  * //var _rev = string_delete( _string, 1, string_pos( ".", _string ) );
  *
  * var _in_gms221 = ( (real( _major ) >= 2) && (real( _minor ) >= 2) && (real( _patch ) >= 1) );
- * if ( _in_gms221 ) show_debug_message( "Scribble: Using legacy (GMS2.2.0 and prior) compatibility mode" );
+ * if ( _in_gms221 ) debug_silent( "Scribble: Using legacy (GMS2.2.0 and prior) compatibility mode" );
  */
 
 // Iterate over the font data global ds_map and prioritise fonts that we need to pack onto surfaces
@@ -67,7 +67,7 @@ repeat( _font_count ) {
     //If this is a standard font, grab the texture dimensions
     var _font_data = global.__scribble_font_data[? _name ];
     if ( _font_data[ __E_SCRIBBLE_FONT.TYPE ] == asset_sprite ) {
-        show_debug_message( "Scribble: Found spritefont " + _name );
+        debug_silent( "Scribble: Found spritefont " + _name );
     } else if ( _font_data[ __E_SCRIBBLE_FONT.TYPE ] ) {
         var _asset = asset_get_index(  _name  );
         if ( _asset < 0 ) {
@@ -91,14 +91,14 @@ repeat( _font_count ) {
         
         if ( _font_data[ __E_SCRIBBLE_FONT.TEXTURE_WIDTH  ] > global.__scribble_texture_page_size )
         || ( _font_data[ __E_SCRIBBLE_FONT.TEXTURE_HEIGHT ] > global.__scribble_texture_page_size ) {
-            show_debug_message( "Scribble: WARNING! The texture for " + _name + " is larger than Scribble's maximum texture page size (" + string( _texture_w ) + "x" + string( _texture_h ) + " > " + string( global.__scribble_texture_page_size ) + "x" + string( global.__scribble_texture_page_size ) + ")" );
+            debug_silent( "Scribble: WARNING! The texture for " + _name + " is larger than Scribble's maximum texture page size (" + string( _texture_w ) + "x" + string( _texture_h ) + " > " + string( global.__scribble_texture_page_size ) + "x" + string( global.__scribble_texture_page_size ) + ")" );
             var _bigger_size = power(2,ceil(ln(max( _texture_w, _texture_h ))/ln(2)));
-            show_debug_message( "Scribble:          Please use a larger texture page size in Scribble and GameMaker (e.g. " + string( _bigger_size ) + "x" + string( _bigger_size ) + ") to avoid bugs and blurry text" );
+            debug_silent( "Scribble:          Please use a larger texture page size in Scribble and GameMaker (e.g. " + string( _bigger_size ) + "x" + string( _bigger_size ) + ") to avoid bugs and blurry text" );
         }
         
         var _priority = _texture_h*global.__scribble_texture_page_size + _texture_w;
         ds_priority_add( _priority_queue, _name, _priority );
-        show_debug_message( "Scribble: Queuing " + _name + " for packing (size=" + string( _texture_w ) + "x" + string( _texture_h ) + ", weight=" + string( _priority ) + ")" );
+        debug_silent( "Scribble: Queuing " + _name + " for packing (size=" + string( _texture_w ) + "x" + string( _texture_h ) + ", weight=" + string( _priority ) + ")" );
     }
     
     _name = ds_map_find_next( global.__scribble_font_data, _name );
@@ -107,7 +107,7 @@ repeat( _font_count ) {
 
 // Figure out where to place the fonts
 
-show_debug_message( "Scribble: " + string( ds_priority_size( _priority_queue ) ) + " font(s) to pack" );
+debug_silent( "Scribble: " + string( ds_priority_size( _priority_queue ) ) + " font(s) to pack" );
 
 while( !ds_priority_empty( _priority_queue ) ) {
     var _name = ds_priority_delete_max( _priority_queue );
@@ -115,7 +115,7 @@ while( !ds_priority_empty( _priority_queue ) ) {
     var _texture_w = _font_data[ __E_SCRIBBLE_FONT.TEXTURE_WIDTH  ];
     var _texture_h = _font_data[ __E_SCRIBBLE_FONT.TEXTURE_HEIGHT ];
     
-    show_debug_message( "Scribble: Packing " + _name + " (size=" + string( _texture_w ) + "," + string( _texture_h ) + ")" );
+    debug_silent( "Scribble: Packing " + _name + " (size=" + string( _texture_w ) + "," + string( _texture_h ) + ")" );
     
     var _found = false;
     var _surface_count = array_length_1d( _surface_array );
@@ -199,7 +199,7 @@ while( !ds_priority_empty( _priority_queue ) ) {
         }
         
         if ( _found ) {
-            show_debug_message( "Scribble:         At " + string( _l ) + "," + string( _t ) + " on surface " + string( _s ) );
+            debug_silent( "Scribble:         At " + string( _l ) + "," + string( _t ) + " on surface " + string( _s ) );
             _surface_fonts[@ array_length_1d( _surface_fonts ) ] = _name;
             _font_data[@ __E_SCRIBBLE_FONT.SPRITE_X ] = _l;
             _font_data[@ __E_SCRIBBLE_FONT.SPRITE_Y ] = _t;
@@ -210,7 +210,7 @@ while( !ds_priority_empty( _priority_queue ) ) {
     }
     
     if ( !_found ) {
-        show_debug_message( "Scribble:         No space found. Defining new surface (id=" + string( array_length_1d( _surface_array ) ) + ", " + string( _texture_w ) + "x" + string( _texture_h ) + ")" );
+        debug_silent( "Scribble:         No space found. Defining new surface (id=" + string( array_length_1d( _surface_array ) ) + ", " + string( _texture_w ) + "x" + string( _texture_h ) + ")" );
         
         _font_data[@ __E_SCRIBBLE_FONT.SPRITE_X ] = 0;
         _font_data[@ __E_SCRIBBLE_FONT.SPRITE_Y ] = 0;
@@ -230,14 +230,14 @@ ds_priority_destroy( _priority_queue );
 // Actually draw the fonts to surfaces
 
 var _surface_count = array_length_1d( _surface_array );
-show_debug_message( "Scribble: " + string( _surface_count ) + " surface(s) needed" );
+debug_silent( "Scribble: " + string( _surface_count ) + " surface(s) needed" );
 for( var _s = 0; _s < _surface_count; _s++ ) {
     var _surface_data   = _surface_array[ _s ];
     var _surface_w      = _surface_data[ __E_SCRIBBLE_SURFACE.WIDTH  ];
     var _surface_h      = _surface_data[ __E_SCRIBBLE_SURFACE.HEIGHT ];
     var _surface_fonts  = _surface_data[ __E_SCRIBBLE_SURFACE.FONTS  ];
     var _surface_locked = _surface_data[ __E_SCRIBBLE_SURFACE.LOCKED ];
-    show_debug_message( "Scribble: Drawing surface " + string( _s ) + ", " + string( _surface_w ) + " x " + string( _surface_h ) + ternary(_surface_locked, " (locked)", "") );
+    debug_silent( "Scribble: Drawing surface " + string( _s ) + ", " + string( _surface_w ) + " x " + string( _surface_h ) + ternary(_surface_locked, " (locked)", "") );
     
     var _surface = surface_create( _surface_w, _surface_h );
     surface_set_target( _surface );
@@ -254,7 +254,7 @@ for( var _s = 0; _s < _surface_count; _s++ ) {
         var _x         = _font_data[ __E_SCRIBBLE_FONT.SPRITE_X       ];
         var _y         = _font_data[ __E_SCRIBBLE_FONT.SPRITE_Y       ];
         
-        show_debug_message( "Scribble:         " + _name + " at " + string( _x ) + "," + string( _y ) + " (size=" + string( _texture_w ) + "x" + string( _texture_h ) + ")" );
+        debug_silent( "Scribble:         " + _name + " at " + string( _x ) + "," + string( _y ) + " (size=" + string( _texture_w ) + "x" + string( _texture_h ) + ")" );
         
         var _asset = asset_get_index(  _name  );
         var _uvs   = font_get_uvs(     _asset );
@@ -286,7 +286,7 @@ for( var _s = 0; _s < _surface_count; _s++ ) {
     }
 }
     
-show_debug_message( "Scribble: Surface rendering finished" );
+debug_silent( "Scribble: Surface rendering finished" );
 
 // Process glyph data from .font.gmx files
 
@@ -295,7 +295,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
     var _font_data = global.__scribble_font_data[? _name ];
     
     if ( _font_data[ __E_SCRIBBLE_FONT.TYPE ] == asset_sprite ) {
-        show_debug_message( "Scribble: Processing characters for spritefont " + _name );
+        debug_silent( "Scribble: Processing characters for spritefont " + _name );
         
         // Spritefont
         
@@ -304,7 +304,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
         || ( sprite_get_bbox_top(    _sprite ) == 0 )
         || ( sprite_get_bbox_right(  _sprite ) == sprite_get_width(  _sprite )-1 )
         || ( sprite_get_bbox_bottom( _sprite ) == sprite_get_height( _sprite )-1 ) {
-            show_debug_message( "WARNING! " + _name + " may be rendered incorrectly due to the bounding box overlapping the edge of the sprite. Please add at least a 1px border around your spritefont sprite. Please also update the bounding box if needed" );
+            debug_silent( "WARNING! " + _name + " may be rendered incorrectly due to the bounding box overlapping the edge of the sprite. Please add at least a 1px border around your spritefont sprite. Please also update the bounding box if needed" );
         }
         
         var _sprite_string  = _font_data[ __E_SCRIBBLE_FONT.MAPSTRING   ];
@@ -324,11 +324,11 @@ for( var _font = 0; _font < _font_count; _font++ ) {
         
         //Strip out a map of of glyphs
         var _length = string_length( _sprite_string );
-        show_debug_message( "Scribble: " + _name + " has " + string( _length ) + " characters" );
+        debug_silent( "Scribble: " + _name + " has " + string( _length ) + " characters" );
         for( var _i = 0; _i < _length; _i++ ) {
             var _char = string_char_at( _sprite_string, _i+1 );
             if ( ds_map_exists( _font_glyphs_map, _char ) ) continue;
-            if ( _char == " " ) show_debug_message( "WARNING! It is strongly recommended that you do *not* use a space character in your sprite font in GMS2.2.1 and above due to IDE bugs. Use scribble_font_char_set_*() to define a space character" );
+            if ( _char == " " ) debug_silent( "WARNING! It is strongly recommended that you do *not* use a space character in your sprite font in GMS2.2.1 and above due to IDE bugs. Use scribble_font_char_set_*() to define a space character" );
             
             image_index = _i;
             var _uvs = sprite_get_uvs( _sprite, image_index );
@@ -353,7 +353,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
             _array[ __E_SCRIBBLE_GLYPH.Y    ] = undefined;
             
             if ( _left == _right ) && ( _top == _bottom ) {
-                show_debug_message( "WARNING! Character " + string( ord( _char ) ) + "(" + _char + ") for sprite font " + _name + " is empty" );
+                debug_silent( "WARNING! Character " + string( ord( _char ) ) + "(" + _char + ") for sprite font " + _name + " is empty" );
                 
                 _array[ __E_SCRIBBLE_GLYPH.W    ] = 1;
                 _array[ __E_SCRIBBLE_GLYPH.H    ] = sprite_get_height( _sprite );
@@ -437,7 +437,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
     } else {
         // Font
         
-        show_debug_message( "Scribble: Processing characters for font " + _name );
+        debug_silent( "Scribble: Processing characters for font " + _name );
         
         var _surface_sprite  = _font_data[ __E_SCRIBBLE_FONT.SPRITE     ];
         var _image_x_offset  = _font_data[ __E_SCRIBBLE_FONT.SPRITE_X   ];
@@ -548,14 +548,14 @@ for( var _font = 0; _font < _font_count; _font++ ) {
         }
         
         var _size = ds_list_size( _yy_glyph_list );
-        show_debug_message( "Scribble: " + _name + " has " + string( _size ) + " characters" );
+        debug_silent( "Scribble: " + _name + " has " + string( _size ) + " characters" );
         
         var _ds_map_fallback = true;
         
         if (__SCRIBBLE_TRY_SEQUENTIAL_GLYPH_INDEX) {
             // Sequential glyph index
             
-            show_debug_message( "Scribble: Trying sequential glyph index..." );
+            debug_silent( "Scribble: Trying sequential glyph index..." );
             
             var _glyph_map = ds_map_create();
             
@@ -580,22 +580,22 @@ for( var _font = 0; _font < _font_count; _font++ ) {
             _font_data[@ __E_SCRIBBLE_FONT.GLYPH_MAX ] = _glyph_max;
             
             var _glyph_count = 1 + _glyph_max - _glyph_min;
-            show_debug_message( "Scribble: Glyphs start at " + string( _glyph_min ) + " and end at " + string( _glyph_max ) + ". Range is " + string( _glyph_count-1 ) );
+            debug_silent( "Scribble: Glyphs start at " + string( _glyph_min ) + " and end at " + string( _glyph_max ) + ". Range is " + string( _glyph_count-1 ) );
             
             if ( (_glyph_count-1) > SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE ) {
-                show_debug_message( "Scribble: Glyph range exceeds maximum (" + string( SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE ) + ")!" );
+                debug_silent( "Scribble: Glyph range exceeds maximum (" + string( SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE ) + ")!" );
             } else {
                 var _holes = 0;
                 for( var _i = _glyph_min; _i <= _glyph_max; _i++ ) if ( !ds_map_exists( _glyph_map, _i ) ) _holes++;
                 ds_map_destroy( _glyph_map );
                 var _fraction = _holes / _glyph_count;
                 
-                show_debug_message( "Scribble: There are " + string( _holes ) + " holes, " + string( _fraction*100 ) + "%" );
+                debug_silent( "Scribble: There are " + string( _holes ) + " holes, " + string( _fraction*100 ) + "%" );
                 
                 if ( _fraction > SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES ) {
-                    show_debug_message( "Scribble: Hole proportion exceeds maximum (" + string( SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES*100 ) + "%)!" );
+                    debug_silent( "Scribble: Hole proportion exceeds maximum (" + string( SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES*100 ) + "%)!" );
                 } else {
-                    show_debug_message( "Scribble: Using an array to index glyphs" );
+                    debug_silent( "Scribble: Using an array to index glyphs" );
                     _ds_map_fallback = false;
                     
                     var _font_glyphs_array = array_create( _glyph_count);
@@ -641,7 +641,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
         }
         
         if ( _ds_map_fallback ) {
-            show_debug_message( "Scribble: Using a ds_map to index glyphs" );
+            debug_silent( "Scribble: Using a ds_map to index glyphs" );
             
             var _font_glyphs_map = ds_map_create();
             _font_data[@ __E_SCRIBBLE_FONT.GLYPHS_MAP ] = _font_glyphs_map;
@@ -685,7 +685,7 @@ for( var _font = 0; _font < _font_count; _font++ ) {
         ds_list_destroy( _yy_glyph_list );
     }
     
-    show_debug_message( "Scribble: " + _name + " finished" );
+    debug_silent( "Scribble: " + _name + " finished" );
 }
 
 x = _old_x;
@@ -694,8 +694,8 @@ image_xscale = _old_image_xscale;
 image_yscale = _old_image_yscale;
 mask_index = _old_mask_index;
 
-show_debug_message( "Scribble: Font initialisation complete, took " + string( (get_timer() - _timer)/1000 ) + "ms" );
-show_debug_message( "Scribble: Thanks for using Scribble! @jujuadams" );
+debug_silent( "Scribble: Font initialisation complete, took " + string( (get_timer() - _timer)/1000 ) + "ms" );
+debug_silent( "Scribble: Thanks for using Scribble! @jujuadams" );
 
 global.__scribble_init_complete = SCRIBBLE_INIT_COMPLETE;
 

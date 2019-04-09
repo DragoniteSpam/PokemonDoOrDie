@@ -22,7 +22,7 @@ if ( global.__scribble_init_complete != SCRIBBLE_INIT_START ) {
     exit;
 }
 
-show_debug_message( "Scribble: Welcome to Scribble! This is version " + __SCRIBBLE_VERSION + ", " + __SCRIBBLE_DATE );
+debug_silent( "Scribble: Welcome to Scribble! This is version " + __SCRIBBLE_VERSION + ", " + __SCRIBBLE_DATE );
 
 var _font_directory = argument0;
 var _tpage_size     = argument1;

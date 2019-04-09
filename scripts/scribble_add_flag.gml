@@ -32,5 +32,5 @@ if ( _old_name != undefined ) {
 global.__scribble_flags[? _index ] = _name;
 global.__scribble_flags[? _name  ] = _index;
 
-show_debug_message( "Scribble: Added flag name " + _name + " as index " + string(_index) );
+debug_silent( "Scribble: Added flag name " + _name + " as index " + string(_index) );
 
