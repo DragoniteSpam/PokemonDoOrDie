@@ -1,4 +1,4 @@
-/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects, effect odds, flags, ai codes, internal name);
+/// DataMove add_move(name, type, category, pp, power, accuracy, priority, target, description, animation, effects[], effect odds[], flags, ai codes[], internal name);
 
 with (instance_create(0, 0, DataMove)){
     name=argument[0];

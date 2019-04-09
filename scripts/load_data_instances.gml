@@ -1,5 +1,7 @@
 /// void load_data_instances(buffer, version);
 
+var t=get_timer();
+
 var version=argument1;
 
 var n_datadata=array_length_1d(Database.data_type_array);
@@ -35,3 +37,9 @@ for (var i=0; i<n_datadata; i++){
 }
 
 load_data_parse_items(all_blobs);
+load_data_parse_item_pockets(all_blobs);
+load_data_parse_attacks(all_blobs);
+load_data_parse_equipment_slots(all_blobs);
+load_data_parse_elements(all_blobs);
+
+debug("loading generic data took "+string((get_timer()-t)/MILLION)+" seconds.");

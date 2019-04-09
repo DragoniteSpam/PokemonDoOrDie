@@ -1289,6 +1289,7 @@
         <script>scripts\add_individual_evolution.gml</script>
         <script>scripts\add_item.gml</script>
         <script>scripts\add_item_pocket.gml</script>
+        <script>scripts\add_equipment_slot.gml</script>
         <script>scripts\add_map.gml</script>
         <script>scripts\add_move.gml</script>
         <script>scripts\add_nature.gml</script>
@@ -1414,6 +1415,10 @@
           <scripts name="generic">
             <script>scripts\load_data_parse_properties.gml</script>
             <script>scripts\load_data_parse_items.gml</script>
+            <script>scripts\load_data_parse_attacks.gml</script>
+            <script>scripts\load_data_parse_item_pockets.gml</script>
+            <script>scripts\load_data_parse_equipment_slots.gml</script>
+            <script>scripts\load_data_parse_elements.gml</script>
           </scripts>
         </scripts>
         <scripts name="map things">
@@ -1758,6 +1763,7 @@
       <object>objects\DataItem</object>
       <object>objects\DataItemPocket</object>
       <object>objects\DataMove</object>
+      <object>objects\DataEquipmentSlot</object>
       <object>objects\DataNature</object>
       <object>objects\DataPokemon</object>
       <object>objects\DataTrainer</object>
