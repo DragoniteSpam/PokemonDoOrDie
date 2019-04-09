@@ -29,6 +29,7 @@
 
 name='';
 summary='';
+flags=0;
 
 pbs_internal_name='';
 

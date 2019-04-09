@@ -22,7 +22,7 @@ switch (argument_count){
 
 // im not sure if this will not blow up or not
 if (string_length(str)==0){
-    return array_create(0);
+    return ARRAY;
 }
 
 var index=0;

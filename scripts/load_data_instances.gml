@@ -15,22 +15,22 @@ for (var i=0; i<n_datadata; i++){
         var n_instances=buffer_read(argument0, buffer_u16);
         datadata.instances=array_create(n_instances);
         
-        var blob_array;
-        blob_array[n_instances, n_properties]=0;
+        // grid because arrays in game maker SUUUUUUUUUCK
+        var blob_grid=ds_grid_create(n_instances, n_properties+3);
         
         for (var j=0; j<n_instances; j++){
-            var name=buffer_read(argument0, buffer_string)
-            var flags=buffer_read(argument0, buffer_u32);
-            var guid=buffer_read(argument0, buffer_u32);
+            blob_grid[# j, 0]=buffer_read(argument0, buffer_string)
+            blob_grid[# j, 1]=buffer_read(argument0, buffer_u32);
+            blob_grid[# j, 2]=buffer_read(argument0, buffer_u32);
             
             for (var k=0; k<n_properties; k++){
                 // [name, guid, data type]
                 var property=datadata.properties[k];
-                blob_array[j, k]=buffer_read(argument0, property[2]);
+                blob_grid[# j, k+3]=buffer_read(argument0, property[2]);
             }
         }
         
-        all_blobs[i]=blob_array;
+        all_blobs[i]=blob_grid;
     }
 }
 

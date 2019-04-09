@@ -17,7 +17,7 @@ for (var i=0; i<ds_list_size(text); i++){
     var intro_me=ClassIntroME.SILENCE;
     var gender=Genders.GENDERLESS;
     var index=0;
-    var ai_notes=array_create(0);
+    var ai_notes=ARRAY;
     
     switch (array_length_1d(terms)){
         case 10:

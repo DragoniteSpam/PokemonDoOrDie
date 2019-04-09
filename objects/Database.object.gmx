@@ -27,7 +27,19 @@
             <kind>1</kind>
             <string>singleton();
 
-data_type_array=array_create(0);
+item_pocket=-1;
+item=-1;
+equipment_slot=-1;
+element=-1;
+attack=-1;
+
+data_type_array=ARRAY;
+
+all_items=ARRAY;
+all_item_pockets=ARRAY;
+all_equipment_slots=ARRAY;
+all_elements=ARRAY;
+all_attacks=ARRAY;
 </string>
           </argument>
         </arguments>

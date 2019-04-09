@@ -25,52 +25,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-name='Base Item';
-internal_name='BASEITEM';
-summary='it doesnt do anything';
-plural='Base Items';
-
-pocket=ItemPockets.ITEMS;
-price=500;
-
-overworld=null;
-battle=bi_no_use;
-// this may not be necessary at all but i'm not going to delete it
-// quite yet
-special=null;
-
-// the id of the move that the tm/hm attaches to this item, or the
-// amount of health restored...
-value=0;
-ai_flags=ItemAIFlags.NONE;
-
-battle_use_from_bag=bi_no_use;
-battle_use_action=bi_action_no_use;
-
-battle_hold_post_turn=bi_post_turn_nothing;
-battle_hold_damage_mod=bi_damage_mod_default;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// constants and stuff
 
 enum ItemOverworldUsability {
@@ -98,6 +52,52 @@ enum ItemAIFlags {
     REVIVE=1&lt;&lt;4,
     BUFF=1&lt;&lt;5
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+name='Base Item';
+internal_name='BASEITEM';
+summary='it doesnt do anything';
+plural='Base Items';
+
+pocket=ItemPockets.ITEMS;
+price=500;
+
+overworld=null;
+battle=bi_no_use;
+// this may not be necessary at all but i'm not going to delete it
+// quite yet
+special=null;
+
+// the id of the move that the tm/hm attaches to this item, or the
+// amount of health restored...
+value=0;
+ai_flags=ItemAIFlags.NONE;
+
+battle_use_from_bag=bi_no_use;
+battle_use_action=bi_action_no_use;
+
+battle_hold_post_turn=bi_post_turn_nothing;
+battle_hold_damage_mod=bi_damage_mod_default;
 </string>
           </argument>
         </arguments>

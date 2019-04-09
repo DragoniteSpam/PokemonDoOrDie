@@ -50,10 +50,10 @@
 // this should only be instantiated in tileset_create so don't worry
 // about populating the values right now
 picture=-1;
-autotiles=array_create(0);
+autotiles=ARRAY;
 
-autotile_positions=array_create(0);
-autotile_sizes=array_create(0);
+autotile_positions=ARRAY;
+autotile_sizes=ARRAY;
 
 // the main picture and all of the autotiles are stored on here
 master=noone;

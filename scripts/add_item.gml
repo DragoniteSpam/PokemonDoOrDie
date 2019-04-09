@@ -1,4 +1,4 @@
-/// DataItem add_item(name, plural, pocket, price, overworld, battle, spcial, value, ai flags, summary, internal name);
+/// DataItem add_item(name, plural, pocket, price, overworld, battle, special, value, ai flags, summary, internal name);
 
 // todo when it comes time to ACTUALLY load items from
 // a file, it may be a good idea to something similar

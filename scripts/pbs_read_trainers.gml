@@ -33,7 +33,7 @@ for (var i=0; i<ds_list_size(text); i++){
             
             trainer_name='';
             trainer_version=1;
-            trainer_items=array_create(0);
+            trainer_items=ARRAY;
             trainer_party=noone;
             state=PBSParseTrainerState.NAME;
             state_party_index=0;

@@ -13,8 +13,8 @@ for (var i=0; i<ds_list_size(text); i++){
     
     var name='';
     var internal_name='';
-    var effect_codes=array_create(0);
-    var ai_codes=array_create(0);
+    var effect_codes=ARRAY;
+    var ai_codes=ARRAY;
     var base_power=50;
     var type=Types.NORMAL;
     var category=MoveCategories.PHYSICAL;

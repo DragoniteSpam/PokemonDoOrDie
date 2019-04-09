@@ -596,7 +596,7 @@ for( var _i = 0; _i < _separator_count; _i++ ) {
         var _line_array = array_create( __E_SCRIBBLE_LINE.__SIZE);
         array_clear(_line_array, 0);
         
-        var _line_words_array = array_create(0);
+        var _line_words_array = ARRAY;
         _line_array[ __E_SCRIBBLE_LINE.X          ] = 0;
         _line_array[ __E_SCRIBBLE_LINE.Y          ] = _text_y;
         _line_array[ __E_SCRIBBLE_LINE.WIDTH      ] = 0;

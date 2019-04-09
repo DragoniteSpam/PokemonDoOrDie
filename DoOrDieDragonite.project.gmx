@@ -1412,6 +1412,7 @@
           <script>scripts\load_datadata.gml</script>
           <script>scripts\load_data_instances.gml</script>
           <scripts name="generic">
+            <script>scripts\load_data_parse_properties.gml</script>
             <script>scripts\load_data_parse_items.gml</script>
           </scripts>
         </scripts>
@@ -1799,7 +1800,8 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="90">
+  <constants number="91">
+    <constant name="ARRAY">array_create(0)</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="c_brown">make_color_rgb(139, 69, 19)</constant>
