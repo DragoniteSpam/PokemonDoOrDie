@@ -27,36 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 
-properties=ds_list_create();
-instances=ds_list_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>event_inherited();
+is_enum=false;
 
-ds_list_destroy(instances);
-
-// [name, buffer read type] - garbage collected, i hope
-ds_list_destroy(properties);
+properties=array_compose(0);
+instances=array_compose(0);
 </string>
           </argument>
         </arguments>

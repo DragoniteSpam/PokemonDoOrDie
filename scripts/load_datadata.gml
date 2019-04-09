@@ -2,30 +2,34 @@
 
 // we want to be able to pull out the datatypes in any order, by name, and not
 // be concerned with the order that they were read out
-var datatype_map=ds_map_create();
+var data_type_map=ds_map_create/*<name, index>*/();
 
 var n_datadata=buffer_read(argument0, buffer_u16);
-repeat (n_datadata){
+Database.data_type_array=array_create(n_datadata);
+
+for (var i=0; i<n_datadata; i++){
     var data=instance_create(0, 0, DataData);
     
     var bools=buffer_read(argument0, buffer_u8);
-    var is_enum=unpack(bools, 0);
+    data.is_enum=unpack(bools, 0);
     //var deleted=unpack(bools, 1);                                 // not useful here - just ignore later
     
     load_generic(argument0, data, argument1);
     buffer_read(argument0, buffer_string);                          // summary
     
     var n_properties=buffer_read(argument0, buffer_u16);
-    repeat (n_properties){
-        var name=buffer_read(argument0, buffer_string)
+    data.properties=array_create(n_properties);
+    
+    for (var j=0; j<n_properties; j++){
+        var name=buffer_read(argument0, buffer_string);
         buffer_read(argument0, buffer_u32);                         // flags
-        buffer_read(argument0, buffer_u32);                         // guid
+        var guid=buffer_read(argument0, buffer_u32);
         
         buffer_read(argument0, buffer_u8);                          // property bools
         
-        if (is_enum){
+        if (data.is_enum){
             // nothing special was saved
-            ds_list_add(data.properties, array_compose(name));
+            data.properties[j]=array_compose(name, guid);
         } else {
             var dtype=buffer_read(argument0, buffer_u8);
             buffer_read(argument0, buffer_f32);                     // range min
@@ -53,26 +57,22 @@ repeat (n_datadata){
                         break;
             }
             
-            ds_list_add(data.properties, array_compose(name, btype));
+            data.properties[j]=array_compose(name, guid, btype);
         }
     }
     
-    ds_map_add(data_type_map, data.name, data);
+    Database.data_type_array[i]=data;
+    ds_map_add(data_type_map, data.name, i);
 }
 
-Database.item_pocket=datatype_map[? "ItemPocket"];
-Database.item=datatype_map[? "Item"];
-Database.equipment_slot=datatype_map[? "EquipmentSlot"];
-Database.element=datatype_map[? "Element"];
-Database.attack=datatype_map[? "Attack"];
+// these are indices in the array
+Database.item_pocket=data_type_map[? "ItemPocket"];
+Database.item=data_type_map[? "Item"];
+Database.equipment_slot=data_type_map[? "EquipmentSlot"];
+Database.element=data_type_map[? "Element"];
+Database.attack=data_type_map[? "Attack"];
 
-show_message(Database.item_pocket)
-show_message(Database.item)
-show_message(Database.equipment_slot)
-show_message(Database.element)
-show_message(Database.attack)
-
-ds_map_destroy(datatype_map);
+ds_map_destroy(data_type_map);
 
 enum DataTypes {
     INT,

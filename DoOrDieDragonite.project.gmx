@@ -1410,6 +1410,7 @@
             <script>scripts\load_entity_event_page.gml</script>
           </scripts>
           <script>scripts\load_datadata.gml</script>
+          <script>scripts\load_data_instance_blob.gml</script>
           <script>scripts\load_data_instances.gml</script>
         </scripts>
         <scripts name="map things">

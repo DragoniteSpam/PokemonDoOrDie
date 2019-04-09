@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>singleton();
+
+data_type_array=array_create(0);
 </string>
           </argument>
         </arguments>
