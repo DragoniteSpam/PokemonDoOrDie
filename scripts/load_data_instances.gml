@@ -42,4 +42,11 @@ load_data_parse_attacks(all_blobs);
 load_data_parse_equipment_slots(all_blobs);
 load_data_parse_elements(all_blobs);
 
+// properties that refer to data can refer to the instance ID instead of
+// the GUID to make things easy later on, but you have to link them after
+// all of the data has been initialized
+
+load_data_link_items();
+load_data_link_attacks();
+
 debug("loading generic data took "+string((get_timer()-t)/MILLION)+" seconds.");

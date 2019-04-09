@@ -1419,6 +1419,10 @@
             <script>scripts\load_data_parse_item_pockets.gml</script>
             <script>scripts\load_data_parse_equipment_slots.gml</script>
             <script>scripts\load_data_parse_elements.gml</script>
+            <scripts name="linking">
+              <script>scripts\load_data_link_items.gml</script>
+              <script>scripts\load_data_link_attacks.gml</script>
+            </scripts>
           </scripts>
         </scripts>
         <scripts name="map things">

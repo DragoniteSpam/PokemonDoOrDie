@@ -98,6 +98,15 @@ battle_use_action=bi_action_no_use;
 
 battle_hold_post_turn=bi_post_turn_nothing;
 battle_hold_damage_mod=bi_damage_mod_default;
+
+// ujrpg
+
+equip_slot=0;
+mod_atk=0;
+mod_def=0;
+mod_agl=0;
+mod_hp=0;
+mod_mp=0;
 </string>
           </argument>
         </arguments>
