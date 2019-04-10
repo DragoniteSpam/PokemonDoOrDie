@@ -1,6 +1,9 @@
 /// void load_data_parse_item_pockets(all blobs);
 
 var property_map=load_data_parse_properties(Database.data_type_array[Database.item_pocket]);
+// property_map is not currently used - but it would be if any properties
+// besides name were defined for each data type; see one of the other parse
+// scripts to see how to use it
 
 var blob=argument0[Database.item_pocket];
 var n_instances=ds_grid_width(blob);

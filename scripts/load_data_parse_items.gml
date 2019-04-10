@@ -23,12 +23,12 @@ for (var i=0; i<n_instances; i++){
         blob[# i, 0]
     );
     
-    data.equip_slot=property_map[? "EquipmentSlot"];
-    data.mod_atk=property_map[? "ModAtk"];
-    data.mod_def=property_map[? "ModDef"];
-    data.mod_agl=property_map[? "ModAgl"];
-    data.mod_hp=property_map[? "ModHP"];
-    data.mod_mp=property_map[? "ModMP"];
+    data.equip_slot=blob[# i, property_map[? "EquipmentSlot"]];
+    data.mod_atk=blob[# i, property_map[? "ModAtk"]];
+    data.mod_def=blob[# i, property_map[? "ModDef"]];
+    data.mod_agl=blob[# i, property_map[? "ModAgl"]];
+    data.mod_hp=blob[# i, property_map[? "ModHP"]];
+    data.mod_mp=blob[# i, property_map[? "ModMP"]];
     
     data.flags=blob[# i, 1];
     guid_set(data, blob[# i, 2]);
