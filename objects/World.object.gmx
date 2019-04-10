@@ -205,7 +205,8 @@ scribble_text=noone;
 
 enum EventNodeTypes {
     ENTRYPOINT,
-    TEXT
+    TEXT,
+    CUSTOM,
 }
 
 // It makes all the sense in the world for this to be a
