@@ -67,6 +67,9 @@ if (buffer==-1){
                 case SerializeThings.DATA_INSTANCES:
                     load_data_instances(buffer, version);
                     break;
+                case SerializeThings.EVENT_CUSTOM:
+                    load_event_custom(buffer, version);
+                    break;
                 // map stuff
                 case SerializeThings.MAP_META:
                     load_map_contents_meta(buffer, version);
@@ -95,6 +98,17 @@ if (buffer==-1){
             var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
             map_add_dynamic(get_active_map(), pawn_player, 5, 6, 0);
             Camera.following=pawn_player;
+        } else {
+            // properties that refer to data can refer to the instance ID instead of
+            // the GUID to make things easy later on, but you have to link them after
+            // all of the data has been initialized
+            
+            load_data_link_items();
+            load_data_link_attacks();
+            
+            // same for custom event nodes
+            
+            load_data_link_event_custom();
         }
         
         buffer_delete(buffer);

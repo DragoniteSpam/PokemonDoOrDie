@@ -306,6 +306,7 @@ pbs_cleanup();
 available_autotiles=array_compose(0);
 all_tilesets=array_compose(0);
 all_maps=ARRAY;
+all_event_custom=ARRAY;
 all_events=ARRAY;
 
 game_map_starting="";

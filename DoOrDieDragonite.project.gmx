@@ -1422,8 +1422,10 @@
             <scripts name="linking">
               <script>scripts\load_data_link_items.gml</script>
               <script>scripts\load_data_link_attacks.gml</script>
+              <script>scripts\load_data_link_event_custom.gml</script>
             </scripts>
           </scripts>
+          <script>scripts\load_event_custom.gml</script>
         </scripts>
         <scripts name="map things">
           <script>scripts\load_map_contents_meta.gml</script>
@@ -1777,6 +1779,7 @@
       <objects name="Infrastructure">
         <object>objects\DataTileset</object>
         <object>objects\DataInstantiatedEvent</object>
+        <object>objects\DataEventNodeCustom</object>
         <object>objects\DataData</object>
       </objects>
       <object>objects\DataEvent</object>
