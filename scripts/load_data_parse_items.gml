@@ -11,7 +11,7 @@ var n_instances=ds_grid_width(blob);
 Database.all_items=array_create(n_instances);
 for (var i=0; i<n_instances; i++){
     var data=add_item(blob[# i, 0],
-        blob[# i, 0],                           // plural
+        blob[# i, property_map[? "Plural"]],
         blob[# i, property_map[? "Pocket"]],
         blob[# i, property_map[? "Cost"]],
         null,                                   // overworld use script

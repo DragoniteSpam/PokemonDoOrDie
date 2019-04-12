@@ -954,7 +954,7 @@ for( var _i = 0; _i < _vbuff_count; _i++ ) {
 
 ds_map_destroy( _texture_to_vbuff_map );
 
-show_debug_message( "scribble_create() took " + string( (get_timer() - _timer)/1000 ) + "ms" );
+debug_silent( "scribble_create() took " + string( (get_timer() - _timer)/1000 ) + "ms" );
 
 return _json;
 

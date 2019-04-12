@@ -197,9 +197,9 @@ event_node_current=noone;       // DataEventNode
 event_node_object=noone;        // Entity who called the event
 event_node_index=0;             // some event nodes have multiple steps to save space
 
-event_node_begin=array_compose(script_begin_entry, script_begin_text);
-event_node_draw=array_compose(null, script_draw_text);
-event_node_proceed=array_compose(null, script_proceed_text);
+event_node_begin=array_compose(script_begin_entry, script_begin_text, script_begin_custom);
+event_node_draw=array_compose(null, script_draw_text, script_draw_custom);
+event_node_proceed=array_compose(null, script_proceed_text,script_proceed_custom);
 
 scribble_text=noone;
 
