@@ -6,7 +6,6 @@ for (var i=0; i<array_length_1d(World.all_event_custom); i++){
         var type=custom.types[j];
         if (type[1]==DataTypes.DATA||type[1]==DataTypes.ENUM){
             type[2]=guid_get(type[2]);
-            debug(type[2].name);
         }
         custom.types[j]=type;
     }

@@ -13,22 +13,20 @@ for (var i=0; i<n_instances; i++){
     var data=add_item(blob[# i, 0],
         blob[# i, 0],                           // plural
         blob[# i, property_map[? "Pocket"]],
-        blob[# i, property_map[? "Price"]],
+        blob[# i, property_map[? "Cost"]],
         null,                                   // overworld use script
         null,                                   // battle use script
         null,                                   // special use script
-        blob[# i, property_map[? "Power"]],
+        blob[# i, property_map[? "Value"]],
         ItemAIFlags.NONE,                       // AI flags
         blob[# i, property_map[? "Summary"]],
         blob[# i, 0]
     );
     
-    data.equip_slot=blob[# i, property_map[? "EquipmentSlot"]];
-    data.mod_atk=blob[# i, property_map[? "ModAtk"]];
-    data.mod_def=blob[# i, property_map[? "ModDef"]];
-    data.mod_agl=blob[# i, property_map[? "ModAgl"]];
-    data.mod_hp=blob[# i, property_map[? "ModHP"]];
-    data.mod_mp=blob[# i, property_map[? "ModMP"]];
+    data.equip_slot=blob[# i, property_map[? "EquipType"]];
+    data.mod_atk=blob[# i, property_map[? "StatModAtk"]];
+    data.mod_def=blob[# i, property_map[? "StatModDef"]];
+    data.mod_agl=blob[# i, property_map[? "StatModAgl"]];
     
     data.flags=blob[# i, 1];
     guid_set(data, blob[# i, 2]);

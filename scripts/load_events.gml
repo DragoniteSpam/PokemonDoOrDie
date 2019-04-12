@@ -66,14 +66,12 @@ for (var n=0; n<n_events; n++){
             case EventNodeTypes.CUSTOM:
                 node.custom_guid=buffer_read(argument0, buffer_u32);
                 var custom=guid_get(node.custom_guid);
-                Im almost certain this wont work as it is since i just copied and pasted
-                it from the editor loader before going to class, so pick through it and
-                make sure it all looks okay before trying it thanks
-                for (var i=0; i<ds_list_size(custom.types); i++){
+                
+                for (var i=0; i<array_length_1d(custom.types); i++){
                     var sub_list=ds_list_create();
-                    var type=custom.types[| i];
+                    var type=custom.types[i];
                     
-                    switch (type[EventNodeCustomData.TYPE]){
+                    switch (type[1]){
                         case DataTypes.INT:
                             var buffer_type=buffer_s32;
                             break;
@@ -93,6 +91,7 @@ for (var n=0; n<n_events; n++){
                     }
                     
                     var n_custom_data=buffer_read(argument0, buffer_u8);
+                    
                     repeat(n_custom_data){
                         ds_list_add(sub_list, buffer_read(argument0, buffer_type));
                     }

@@ -68,7 +68,7 @@ for (var i=0; i<n_datadata; i++){
 // these are indices in the array
 Database.item_pocket=data_type_map[? "ItemPocket"];
 Database.item=data_type_map[? "Item"];
-Database.equipment_slot=data_type_map[? "EquipmentSlot"];
+Database.equipment_slot=data_type_map[? "EquipmentType"];
 Database.element=data_type_map[? "Element"];
 Database.attack=data_type_map[? "Attack"];
 
