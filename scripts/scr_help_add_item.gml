@@ -8,11 +8,17 @@ if (pocket_index==-1){
     var pocket=World.player.inventory[pocket_index];
     var current=scr_help_has_item(argument0);
     
-    if (current==-1){
-        ds_list_add(pocket, array_compose(argument0, argument1));
+    if (guid_get(argument0).pocket.stackable){
+        if (current==-1){
+            ds_list_add(pocket, array_compose(argument0, argument1));
+        } else {
+            var stack=pocket[| current];
+            stack[@ 1]=stack[@ 1]+argument1;
+            pocket[| current]=stack;
+        }
     } else {
-        var stack=pocket[| current];
-        stack[@ 1]=stack[@ 1]+argument1;
-        pocket[| current]=stack;
+        repeat(argument1){
+            ds_list_add(pocket, array_compose(argument0, 1));
+        }
     }
 }

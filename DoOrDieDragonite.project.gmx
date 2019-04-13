@@ -1371,16 +1371,16 @@
         <script>scripts\get_map.gml</script>
       </scripts>
       <scripts name="pawn stuff">
-        <script>scripts\get_class_battle_sprite.gml</script>
-        <script>scripts\get_class_overworld_sprite.gml</script>
-        <script>scripts\get_class_battle_bgm.gml</script>
-        <script>scripts\get_class_victory_bgm.gml</script>
-        <script>scripts\get_class_intro_me.gml</script>
-        <script>scripts\const_class_battle_sprites.gml</script>
-        <script>scripts\const_class_overworld_sprites.gml</script>
         <script>scripts\const_class_battle_bgm.gml</script>
-        <script>scripts\const_class_victory_bgm.gml</script>
+        <script>scripts\const_class_battle_sprites.gml</script>
         <script>scripts\const_class_intro_me.gml</script>
+        <script>scripts\const_class_overworld_sprites.gml</script>
+        <script>scripts\const_class_victory_bgm.gml</script>
+        <script>scripts\get_class_battle_bgm.gml</script>
+        <script>scripts\get_class_battle_sprite.gml</script>
+        <script>scripts\get_class_intro_me.gml</script>
+        <script>scripts\get_class_overworld_sprite.gml</script>
+        <script>scripts\get_class_victory_bgm.gml</script>
       </scripts>
       <scripts name="map">
         <script>scripts\get_active_map.gml</script>

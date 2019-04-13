@@ -17,6 +17,8 @@ for (var i=0; i<n_instances; i++){
     );
     
     data.flags=blob[# i, 1];
+    data.stackable=blob[# i, property_map[? "Stackable"]];
+    
     guid_set(data, blob[# i, 2]);
     Database.all_item_pockets[i]=data;
 }
