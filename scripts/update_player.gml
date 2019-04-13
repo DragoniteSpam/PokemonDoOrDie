@@ -4,6 +4,10 @@
 
 var thing=argument0;
 
+if (get_press_start()){
+    World.pause_queued=PauseStages.MAIN;
+}
+
 if (Pause.stage==PauseStages.HIDDEN&&thing.movement_free&&World.event_node_current==noone){
     thing.previous_xx=thing.xx;
     thing.previous_yy=thing.yy;
@@ -31,8 +35,6 @@ if (Pause.stage==PauseStages.HIDDEN&&thing.movement_free&&World.event_node_curre
             }
         }
         // don't delete this list, since it still belongs to the map
-    } else if (get_press_start()){
-        pause_game();
     } else {
         // may collapse these into a smaller block of code later, but not now
         if (World.game_player_grid){

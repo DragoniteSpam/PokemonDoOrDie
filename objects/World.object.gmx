@@ -205,6 +205,8 @@ event_node_proceed=array_compose(null, script_proceed_text,script_proceed_custom
 
 scribble_text=noone;
 
+pause_queued=PauseStages.HIDDEN;// this can be any pause stage - in case you want to open up a page directly, for example
+
 enum EventNodeTypes {
     ENTRYPOINT,
     TEXT,
@@ -453,6 +455,13 @@ for (var i=0; i&lt;ds_list_size(map.list_dynamic); i++){
 
 with (Camera){
     script_execute(camera_behavior);
+}
+
+if (player.movement_free){
+    if (pause_queued!=PauseStages.HIDDEN){
+        pause_game(pause_queued);
+        pause_queued=PauseStages.HIDDEN;
+    }
 }
 
 if (get_timer()-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
