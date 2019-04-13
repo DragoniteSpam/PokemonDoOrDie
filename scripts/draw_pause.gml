@@ -7,5 +7,6 @@ switch (Pause.stage){
         draw_pause_main();
         break;
     case PauseStages.INVENTORY:
+        draw_pause_inventory();
         break;
 }

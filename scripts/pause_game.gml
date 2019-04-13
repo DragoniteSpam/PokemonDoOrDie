@@ -7,14 +7,17 @@ if (argument_count==1){
 
 Pause.stage=stage;
 
-if (stage==PauseStages.MAIN){
-    message_text="";
-    message_text_t=0;
-    
-    if (scribble_text!=noone){
-        scribble_destroy(scribble_text);
+with (Pause){
+    if (stage==PauseStages.MAIN){
+        message_text="";
+        message_text_t=0;
+        
+        if (scribble_text!=noone){
+            scribble_destroy(scribble_text);
+        }
+        scribble_text=noone;
+        
+        cursor_main_index=0;
+        cursor_inventory_index=0;
     }
-    scribble_text=noone;
-    
-    cursor_main_index=0;
 }

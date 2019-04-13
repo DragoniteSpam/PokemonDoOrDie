@@ -6,7 +6,7 @@ var lmap=World.language_text[World.language];
 if (!ds_map_exists(lmap, text)){
     if (!ds_map_exists(World.language_text_not_found, text)){
         ds_map_add(World.language_text_not_found, text, true);
-        debug("Not found in the language text files: "+text+". If it's new, you probably want to re-extract the text.");
+        debug("Not found in the language text files: "+text+". Perhaps want to re-extract the text?");
     }
 } else {
     var text=lmap[? argument[0]];

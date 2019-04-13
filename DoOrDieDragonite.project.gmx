@@ -1475,10 +1475,6 @@
         <script>scripts\transform_set.gml</script>
         <script>scripts\transform_reset.gml</script>
       </scripts>
-      <scripts name="pause">
-        <script>scripts\draw_pause.gml</script>
-        <script>scripts\draw_pause_main.gml</script>
-      </scripts>
       <script>scripts\draw_cursor.gml</script>
     </scripts>
     <script>scripts\L.gml</script>
@@ -1742,6 +1738,11 @@
     </scripts>
     <scripts name="pause">
       <script>scripts\pause_game.gml</script>
+      <scripts name="draw">
+        <script>scripts\draw_pause.gml</script>
+        <script>scripts\draw_pause_main.gml</script>
+        <script>scripts\draw_pause_inventory.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -1846,7 +1847,7 @@
   </rooms>
   <constants number="95">
     <constant name="UI_MENU_SLOT_HEIGHT">32</constant>
-    <constant name="UI_MENU_WIDTH">320</constant>
+    <constant name="UI_MENU_WIDTH">480</constant>
     <constant name="UI_MENU_START_Y">32</constant>
     <constant name="UI_MENU_START_X">32</constant>
     <constant name="ARRAY">array_create(0)</constant>
