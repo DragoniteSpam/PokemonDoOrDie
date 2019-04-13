@@ -194,6 +194,7 @@ message_continue_after_wait=false;
 message_options=ds_list_create();
 message_option_ids=ds_list_create();
 
+event_current=noone;            // DataEvent (rarely used, but may be useful for reporting errors)
 event_node_current=noone;       // DataEventNode
 event_node_object=noone;        // Entity who called the event
 event_node_index=0;             // some event nodes have multiple steps to save space

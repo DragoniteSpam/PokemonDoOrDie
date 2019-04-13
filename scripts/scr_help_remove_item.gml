@@ -19,16 +19,8 @@ if (pocket_index==-1){
                 ds_list_delete(pocket, current);
             }
         } else {
-            // there's no reason to have more than one of an item that doesn't
-            // stack (i.e. key items), but if you do, remove as many as were requested
-            repeat(argument1){
-                current=scr_help_has_item(argument0);
-                if (current==-1){
-                    break;
-                } else {
-                    ds_list_delete(pocket, current);
-                }
-            }
+            // at this point you already know that the item exists in your inventory
+            ds_list_delete(pocket, current)
         }
     }
 }

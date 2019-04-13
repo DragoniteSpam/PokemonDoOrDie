@@ -27,7 +27,7 @@ for (var n=0; n<n_events; n++){
         buffer_read(argument0, buffer_u32);         // position is ignored - that's only useful in
         buffer_read(argument0, buffer_u32);         // the editor
         
-        var node=create_event_node(event, node_name, node_type);
+        var node=create_event_node(event, node_name, node_type, event.GUID);
         
         if (version>=DataVersions.EVENT_NODE_GUID){
             guid_set(node, buffer_read(argument0, buffer_u32));

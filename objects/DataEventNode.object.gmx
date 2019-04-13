@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
+parent=0;                           // GUID
 type=EventNodeTypes.ENTRYPOINT;
 
 data=ds_list_create();
