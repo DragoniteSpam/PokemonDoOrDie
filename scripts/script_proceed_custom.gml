@@ -9,6 +9,7 @@ var base=guid_get(argument0.custom_guid);
 switch (base.name){
     default:
     case "AddItem":
+    case "RemoveItem":
         cutscene_begin(argument0.outbound[| 0], argument1);
         break;
 }

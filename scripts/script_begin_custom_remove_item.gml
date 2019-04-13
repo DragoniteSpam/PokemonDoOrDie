@@ -1,4 +1,4 @@
-/// void script_begin_custom_add_item(DataEventNode, Entity);
+/// void script_begin_custom_remove_item(DataEventNode, Entity);
 
 var base=guid_get(argument0.custom_guid);
 
@@ -14,9 +14,9 @@ if (silent){
     script_proceed_custom(argument0, argument1);
 } else {
     if (quantity==1){
-        message_text="Obtained a(n) [c_blue]"+item.name+"[]!";
+        message_text="Removed the [c_blue]"+item.name+"[].";
     } else {
-        message_text="Obtained "+string(quantity)+" [c_blue]"+item.plural+"[]!";
+        message_text="Removed "+string(quantity)+" [c_blue]"+item.plural+"[].";
     }
     message_text_t=0;
     message_wait=0;

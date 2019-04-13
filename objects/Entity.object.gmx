@@ -87,6 +87,8 @@ object_events=ds_list_create();
 // don't want to use the built-in "solid" variable since that might cause
 // things to break unexpectedly
 am_solid=true;
+
+
 </string>
           </argument>
         </arguments>

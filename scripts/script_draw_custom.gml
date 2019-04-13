@@ -8,6 +8,7 @@ var base=guid_get(argument0.custom_guid);
 // sigh
 switch (base.name){
     default:
+    case "RemoveItem":
     case "AddItem":
         script_help_draw_text();
         break;
