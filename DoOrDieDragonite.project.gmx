@@ -1402,7 +1402,23 @@
         </scripts>
         <script>scripts\load_data.gml</script>
         <scripts name="data things">
+          <scripts name="generic">
+            <scripts name="linking">
+              <script>scripts\load_data_link_items.gml</script>
+              <script>scripts\load_data_link_attacks.gml</script>
+              <script>scripts\load_data_link_event_custom.gml</script>
+            </scripts>
+            <script>scripts\load_data_parse_attacks.gml</script>
+            <script>scripts\load_data_parse_elements.gml</script>
+            <script>scripts\load_data_parse_equipment_slots.gml</script>
+            <script>scripts\load_data_parse_item_pockets.gml</script>
+            <script>scripts\load_data_parse_items.gml</script>
+            <script>scripts\load_data_parse_properties.gml</script>
+          </scripts>
           <script>scripts\load_autotiles_meta.gml</script>
+          <script>scripts\load_data_instances.gml</script>
+          <script>scripts\load_datadata.gml</script>
+          <script>scripts\load_event_custom.gml</script>
           <script>scripts\load_events.gml</script>
           <script>scripts\load_global_meta.gml</script>
           <script>scripts\load_tilesets_meta.gml</script>
@@ -1410,22 +1426,6 @@
             <script>scripts\load_generic.gml</script>
             <script>scripts\load_entity_event_page.gml</script>
           </scripts>
-          <script>scripts\load_datadata.gml</script>
-          <script>scripts\load_data_instances.gml</script>
-          <scripts name="generic">
-            <script>scripts\load_data_parse_properties.gml</script>
-            <script>scripts\load_data_parse_items.gml</script>
-            <script>scripts\load_data_parse_attacks.gml</script>
-            <script>scripts\load_data_parse_item_pockets.gml</script>
-            <script>scripts\load_data_parse_equipment_slots.gml</script>
-            <script>scripts\load_data_parse_elements.gml</script>
-            <scripts name="linking">
-              <script>scripts\load_data_link_items.gml</script>
-              <script>scripts\load_data_link_attacks.gml</script>
-              <script>scripts\load_data_link_event_custom.gml</script>
-            </scripts>
-          </scripts>
-          <script>scripts\load_event_custom.gml</script>
         </scripts>
         <scripts name="map things">
           <script>scripts\load_map_contents_meta.gml</script>
@@ -1727,7 +1727,12 @@
         <script>scripts\script_help_draw_text.gml</script>
       </scripts>
       <scripts name="CODE">
-        <script>scripts\scr_add_item.gml</script>
+        <scripts name="return">
+          <script>scripts\scr_help_has_item.gml</script>
+          <script>scripts\scr_help_get_item_pocket_index.gml</script>
+        </scripts>
+        <script>scripts\scr_help_add_item.gml</script>
+        <script>scripts\scr_help_remove_item.gml</script>
       </scripts>
     </scripts>
   </scripts>

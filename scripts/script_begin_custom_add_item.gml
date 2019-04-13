@@ -10,6 +10,8 @@ var item=guid_get(item_data[| 0]);
 var quantity=quantity_data[| 0];
 var silent=silent_data[| 0];
 
+scr_help_add_item(item_data[| 0], quantity);
+
 if (silent){
     script_proceed_custom(argument0, argument1);
 } else {

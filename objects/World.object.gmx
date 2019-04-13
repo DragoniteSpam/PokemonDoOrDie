@@ -377,6 +377,7 @@ direction_map[? Directions.UP]=90;
 //instance_create(0, 0, DebugMapSpawner);
 //instance_create(0, 0, DebugBattleSpawner);
 
+player=noone;
 load_data();
 
 if (file_exists(PATH_MAP+World.game_map_starting+IMPORT_EXTENSION_MAP)){

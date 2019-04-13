@@ -95,9 +95,11 @@ if (buffer==-1){
             map_batch_all();
             
             // hard-code this until a mechanism for starting the game is introduced
-            var pawn_player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
-            map_add_dynamic(get_active_map(), pawn_player, 5, 6, 0);
-            Camera.following=pawn_player;
+            if (player==noone){
+                player=pawn_create('PLAYERPAWN', 'Bilbo Baggins', 1, PawnPlayer);
+                map_add_dynamic(get_active_map(), player, 5, 6, 0);
+                Camera.following=player;
+            }
         } else {
             // properties that refer to data can refer to the instance ID instead of
             // the GUID to make things easy later on, but you have to link them after

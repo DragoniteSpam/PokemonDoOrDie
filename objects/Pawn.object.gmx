@@ -25,6 +25,40 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// constants and stuff
+
+// i'd prefer that these are sort of in the same order as
+// the unit circle (right, up, left, down) but i alsow want
+// maximum compatibility with RPG Maker - so please don't
+// turn these into angles (0 90 180 270) like you did that
+// one time
+
+enum Directions {
+    DOWN,
+    LEFT,
+    RIGHT,
+    UP
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>event_inherited();
 
 name='AI Pawn';
@@ -56,40 +90,6 @@ contents_adder=contents_add_single;
 contents_remover=contents_remove_single;
 
 frame=0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// constants and stuff
-
-// i'd prefer that these are sort of in the same order as
-// the unit circle (right, up, left, down) but i alsow want
-// maximum compatibility with RPG Maker - so please don't
-// turn these into angles (0 90 180 270) like you did that
-// one time
-
-enum Directions {
-    DOWN,
-    LEFT,
-    RIGHT,
-    UP
-}
 </string>
           </argument>
         </arguments>

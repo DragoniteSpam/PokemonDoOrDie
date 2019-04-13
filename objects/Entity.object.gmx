@@ -88,7 +88,13 @@ object_events=ds_list_create();
 // things to break unexpectedly
 am_solid=true;
 
+var inventory_size=array_length_1d(Database.all_items);
+inventory=array_create(inventory_size);
 
+// list(s) of [guid, quantity]
+for (var i=0; i&lt;inventory_size; i++){
+    inventory[i]=ds_list_create();
+}
 </string>
           </argument>
         </arguments>
