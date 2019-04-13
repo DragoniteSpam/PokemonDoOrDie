@@ -138,6 +138,7 @@ debug_modified=false;
 instance_create(0, 0, Camera);
 instance_create(0, 0, Controller);
 instance_create(0, 0, Database);
+instance_create(0, 0, Pause);
 
 /*
  * This will fork off a couple different settings objects (input,
@@ -504,11 +505,22 @@ if (get_timer()-debug_last_write&gt;MILLION*60&amp;&amp;debug_modified){
             <string>// UI stuff
 
 d3d_set_culling(false);
+
+if (Pause.stage!=PauseStages.HIDDEN){
+    shader_set(shSepia);
+    // hard-coded, do not touch
+    shader_set_uniform_f(shader_get_uniform(shSepia, "strength"), 0.5);
+}
+
 draw_surface(application_surface, 0, 0);
+
+shader_reset();
 
 if (event_node_current!=noone){
     script_execute(event_node_draw[event_node_current.type], event_node_current, event_node_object);
 }
+
+draw_pause();
 
 // todo something with different UI based on the game mode, but I'm in a hurry
 exit;

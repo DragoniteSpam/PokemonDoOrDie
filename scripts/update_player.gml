@@ -4,7 +4,7 @@
 
 var thing=argument0;
 
-if (thing.movement_free&&World.event_node_current==noone){
+if (Pause.stage==PauseStages.HIDDEN&&thing.movement_free&&World.event_node_current==noone){
     thing.previous_xx=thing.xx;
     thing.previous_yy=thing.yy;
     thing.previous_zz=thing.zz;
@@ -32,7 +32,7 @@ if (thing.movement_free&&World.event_node_current==noone){
         }
         // don't delete this list, since it still belongs to the map
     } else if (get_press_start()){
-        // pause
+        pause_game();
     } else {
         // may collapse these into a smaller block of code later, but not now
         if (World.game_player_grid){

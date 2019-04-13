@@ -1,0 +1,20 @@
+/// void pause_game([stage = PauseStages.MAIN]);
+
+var stage=PauseStages.MAIN;
+if (argument_count==1){
+    stage=argument[0];
+}
+
+Pause.stage=stage;
+
+if (stage==PauseStages.MAIN){
+    message_text="";
+    message_text_t=0;
+    
+    if (scribble_text!=noone){
+        scribble_destroy(scribble_text);
+    }
+    scribble_text=noone;
+    
+    cursor_main_index=0;
+}

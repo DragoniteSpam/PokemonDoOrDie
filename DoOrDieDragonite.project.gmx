@@ -1475,6 +1475,11 @@
         <script>scripts\transform_set.gml</script>
         <script>scripts\transform_reset.gml</script>
       </scripts>
+      <scripts name="pause">
+        <script>scripts\draw_pause.gml</script>
+        <script>scripts\draw_pause_main.gml</script>
+      </scripts>
+      <script>scripts\draw_cursor.gml</script>
     </scripts>
     <script>scripts\L.gml</script>
     <scripts name="math-ish">
@@ -1735,9 +1740,13 @@
         <script>scripts\scr_help_remove_item.gml</script>
       </scripts>
     </scripts>
+    <scripts name="pause">
+      <script>scripts\pause_game.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shScribble.shader</shader>
+    <shader type="GLSLES">shaders\shSepia.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\FGameSmall</font>
@@ -1828,13 +1837,18 @@
       <object>objects\Camera</object>
       <object>objects\Controller</object>
       <object>objects\Database</object>
+      <object>objects\Pause</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="91">
+  <constants number="95">
+    <constant name="UI_MENU_SLOT_HEIGHT">32</constant>
+    <constant name="UI_MENU_WIDTH">320</constant>
+    <constant name="UI_MENU_START_Y">32</constant>
+    <constant name="UI_MENU_START_X">32</constant>
     <constant name="ARRAY">array_create(0)</constant>
     <constant name="BATTLEFIELD_SIZE">256</constant>
     <constant name="buffer_datatype">buffer_u32</constant>
