@@ -16,7 +16,9 @@ datafiles/data/graphics/**/*.gif
 
 # game-specific files
 
-datafiles/data/stuff
+datafiles/data/stuff/**/*.dddd
+datafiles/data/stuff/**/*.dddm
+datafiles/data/stuff/**/*.vrax
 
 # those annoying config files
 
