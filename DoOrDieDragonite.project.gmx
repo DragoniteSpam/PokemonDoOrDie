@@ -3,10 +3,80 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="78" name="datafiles">
-    <datafiles number="78" name="data">
-      <datafiles number="78" name="graphics">
-        <datafiles number="78" name="battlers">
+  <datafiles number="84" name="datafiles">
+    <datafiles number="84" name="data">
+      <datafile>
+        <name>ddd-notes.txt</name>
+        <exists>-1</exists>
+        <size>835</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>ddd-notes.txt</filename>
+      </datafile>
+      <datafiles number="84" name="dummy">
+        <datafile>
+          <name>game.dddd</name>
+          <exists>-1</exists>
+          <size>1382</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>game.dddd</filename>
+        </datafile>
+        <datafile>
+          <name>MAP.dddm</name>
+          <exists>-1</exists>
+          <size>4970</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MAP.dddm</filename>
+        </datafile>
+        <datafile>
+          <name>assets.vrax</name>
+          <exists>-1</exists>
+          <size>15176</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>assets.vrax</filename>
+        </datafile>
+      </datafiles>
+      <datafiles number="84" name="graphics">
+        <datafiles number="84" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -433,7 +503,7 @@
             <filename>git-dont-delete-this-folder-please.txt</filename>
           </datafile>
         </datafiles>
-        <datafiles number="78" name="tilesets">
+        <datafiles number="84" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -486,7 +556,7 @@
             <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="78" name="fonts">
+        <datafiles number="84" name="fonts">
           <datafile>
             <name>FGameHuge.font.gmx</name>
             <exists>-1</exists>
@@ -574,7 +644,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="78" name="pbs">
+      <datafiles number="84" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -694,7 +764,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="78" name="dummy">
+        <datafiles number="84" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -850,7 +920,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="78" name="stuff">
+      <datafiles number="84" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -885,7 +955,7 @@
           </ConfigOptions>
           <filename>game.dddd</filename>
         </datafile>
-        <datafiles number="78" name="maps">
+        <datafiles number="84" name="maps">
           <datafile>
             <name>MAP.dddm</name>
             <exists>-1</exists>
@@ -905,23 +975,6 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafile>
-        <name>ddd-notes.txt</name>
-        <exists>-1</exists>
-        <size>835</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>ddd-notes.txt</filename>
-      </datafile>
     </datafiles>
     <datafile>
       <name>ddd.ini</name>
@@ -1845,7 +1898,8 @@
     <room>rooms\init</room>
     <room>rooms\the_primary_room_that_the_game_operates_out_of</room>
   </rooms>
-  <constants number="95">
+  <constants number="96">
+    <constant name="PATH_DUMMY_DATA">'.\data\dummy\'</constant>
     <constant name="UI_MENU_SLOT_HEIGHT">32</constant>
     <constant name="UI_MENU_WIDTH">480</constant>
     <constant name="UI_MENU_START_Y">32</constant>

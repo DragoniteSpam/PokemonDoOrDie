@@ -384,10 +384,12 @@ direction_map[? Directions.UP]=90;
 player=noone;
 load_data();
 
-if (file_exists(PATH_MAP+World.game_map_starting+IMPORT_EXTENSION_MAP)){
-    load_data(PATH_MAP+World.game_map_starting+IMPORT_EXTENSION_MAP);
+var starting_map=PATH_MAP+World.game_map_starting+IMPORT_EXTENSION_MAP;
+if (file_exists(starting_map)){
+    load_data(starting_map);
 } else {
-    show_error("No starting map is defined, or the one that's defined does not exist in the game's files ("+World.game_map_starting+"). You should probably define a starting map and make sure to include it in the game's Included Files in "+PATH_MAP+".", true);
+    debug('map file not found: '+starting_map+'. using the dummy map file instead.');
+    load_data(PATH_DUMMY_DATA+'MAP.dddm');
 }
 
 // scribble

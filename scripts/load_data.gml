@@ -6,6 +6,11 @@ if (argument_count==0){
     var datafile=argument[0];
 }
 
+if (!file_exists(datafile)){
+    debug('data file not found: '+datafile+'. using the dummy data file instead.');
+    datafile=PATH_DUMMY_DATA+'game.dddd';
+}
+
 var original=buffer_load(datafile);
 var erroneous=false;
 var header=chr(buffer_read(original, buffer_u8))+chr(buffer_read(original, buffer_u8))+chr(buffer_read(original, buffer_u8));
