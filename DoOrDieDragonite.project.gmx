@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="84" name="datafiles">
-    <datafiles number="84" name="data">
+  <datafiles number="85" name="datafiles">
+    <datafiles number="85" name="data">
       <datafile>
         <name>ddd-notes.txt</name>
         <exists>-1</exists>
@@ -22,7 +22,7 @@
         </ConfigOptions>
         <filename>ddd-notes.txt</filename>
       </datafile>
-      <datafiles number="84" name="dummy">
+      <datafiles number="85" name="dummy">
         <datafile>
           <name>game.dddd</name>
           <exists>-1</exists>
@@ -75,8 +75,8 @@
           <filename>assets.vrax</filename>
         </datafile>
       </datafiles>
-      <datafiles number="84" name="graphics">
-        <datafiles number="84" name="battlers">
+      <datafiles number="85" name="graphics">
+        <datafiles number="85" name="battlers">
           <datafile>
             <name>001.png</name>
             <exists>-1</exists>
@@ -503,7 +503,7 @@
             <filename>git-dont-delete-this-folder-please.txt</filename>
           </datafile>
         </datafiles>
-        <datafiles number="84" name="tilesets">
+        <datafiles number="85" name="tilesets">
           <datafile>
             <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
@@ -556,7 +556,7 @@
             <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
-        <datafiles number="84" name="fonts">
+        <datafiles number="85" name="fonts">
           <datafile>
             <name>FGameHuge.font.gmx</name>
             <exists>-1</exists>
@@ -644,7 +644,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="84" name="pbs">
+      <datafiles number="85" name="pbs">
         <datafile>
           <name>moves.txt</name>
           <exists>-1</exists>
@@ -764,7 +764,7 @@
           </ConfigOptions>
           <filename>trainers.txt</filename>
         </datafile>
-        <datafiles number="84" name="dummy">
+        <datafiles number="85" name="dummy">
           <datafile>
             <name>items.txt</name>
             <exists>-1</exists>
@@ -920,7 +920,7 @@
         </ConfigOptions>
         <filename>strings.txt</filename>
       </datafile>
-      <datafiles number="84" name="stuff">
+      <datafiles number="85" name="stuff">
         <datafile>
           <name>assets.vrax</name>
           <exists>-1</exists>
@@ -955,7 +955,7 @@
           </ConfigOptions>
           <filename>game.dddd</filename>
         </datafile>
-        <datafiles number="84" name="maps">
+        <datafiles number="85" name="maps">
           <datafile>
             <name>MAP.dddm</name>
             <exists>-1</exists>
@@ -972,6 +972,23 @@
               </Config>
             </ConfigOptions>
             <filename>MAP.dddm</filename>
+          </datafile>
+          <datafile>
+            <name>git-dont-delete-this-folder-please.txt</name>
+            <exists>-1</exists>
+            <size>104</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>git-dont-delete-this-folder-please.txt</filename>
           </datafile>
         </datafiles>
       </datafiles>
@@ -1342,7 +1359,7 @@
         <script>scripts\add_individual_evolution.gml</script>
         <script>scripts\add_item.gml</script>
         <script>scripts\add_item_pocket.gml</script>
-        <script>scripts\add_equipment_slot.gml</script>
+        <script>scripts\add_weapon_type.gml</script>
         <script>scripts\add_map.gml</script>
         <script>scripts\add_move.gml</script>
         <script>scripts\add_nature.gml</script>
@@ -1457,16 +1474,19 @@
         <scripts name="data things">
           <scripts name="generic">
             <scripts name="linking">
-              <script>scripts\load_data_link_items.gml</script>
               <script>scripts\load_data_link_attacks.gml</script>
               <script>scripts\load_data_link_event_custom.gml</script>
+              <script>scripts\load_data_link_items.gml</script>
             </scripts>
             <script>scripts\load_data_parse_attacks.gml</script>
+            <script>scripts\load_data_parse_classes.gml</script>
+            <script>scripts\load_data_parse_e_damage_types.gml</script>
             <script>scripts\load_data_parse_elements.gml</script>
-            <script>scripts\load_data_parse_equipment_slots.gml</script>
             <script>scripts\load_data_parse_item_pockets.gml</script>
             <script>scripts\load_data_parse_items.gml</script>
             <script>scripts\load_data_parse_properties.gml</script>
+            <script>scripts\load_data_parse_weapon_styles.gml</script>
+            <script>scripts\load_data_parse_weapon_types.gml</script>
           </scripts>
           <script>scripts\load_autotiles_meta.gml</script>
           <script>scripts\load_data_instances.gml</script>
@@ -1850,9 +1870,12 @@
       <object>objects\DataEggGroup</object>
       <object>objects\DataEvolutionMethod</object>
       <object>objects\DataItem</object>
+      <object>objects\DataClass</object>
+      <object>objects\DataEnum</object>
+      <object>objects\DataWeaponStyle</object>
       <object>objects\DataItemPocket</object>
       <object>objects\DataMove</object>
-      <object>objects\DataEquipmentSlot</object>
+      <object>objects\DataWeaponType</object>
       <object>objects\DataNature</object>
       <object>objects\DataPokemon</object>
       <object>objects\DataTrainer</object>

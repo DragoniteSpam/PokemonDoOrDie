@@ -7,11 +7,6 @@ argument1.tile_y=buffer_read(argument0, buffer_u8);
 argument1.tile_color=buffer_read(argument0, buffer_u32);
 argument1.tile_alpha=buffer_read(argument0, buffer_u8)/255;
 
-// no bools
-
-if (argument2>DataVersions.INITIAL){
-}
-
 // you're currently not allowed to have dynamic tiles since that
 // would be immensely inefficient
 return true;

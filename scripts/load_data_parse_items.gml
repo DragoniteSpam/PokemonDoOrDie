@@ -23,7 +23,7 @@ for (var i=0; i<n_instances; i++){
         blob[# i, 0]
     );
     
-    data.equip_slot=blob[# i, property_map[? "EquipType"]];
+    data.equip_slot=blob[# i, property_map[? "WeaponType"]];
     data.mod_atk=blob[# i, property_map[? "StatModAtk"]];
     data.mod_def=blob[# i, property_map[? "StatModDef"]];
     data.mod_agl=blob[# i, property_map[? "StatModAgl"]];

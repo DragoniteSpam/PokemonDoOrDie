@@ -101,7 +101,7 @@ etype_objects=array_compose(Entity,
     EntityTile,
     EntityAutoTile,
     EntityMesh,
-    EntityPawn,
+    /*Entity*/Pawn,
     EntityEffect,
     EntityEvent);
 

@@ -61,6 +61,8 @@ enum Directions {
             <kind>1</kind>
             <string>event_inherited();
 
+load_script=load_entity_pawn;
+
 name='AI Pawn';
 team=noone;
 

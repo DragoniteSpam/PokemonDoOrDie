@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Struct</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,27 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>singleton();
+            <string>event_inherited();
 
-attack=-1;
-class=-1;
-e_damage_type=-1;
-element=-1;
-item=-1;
-item_pocket=-1;
-weapon_style=-1;
-weapon_types=-1;
+name='Base Weapon Style';
+internal_name='BASEWEAPONSTYLE';
 
-data_type_array=ARRAY;
-
-all_attacks=ARRAY;
-all_classes=ARRAY;
-all_e_damage_types=ARRAY;
-all_elements=ARRAY;
-all_items=ARRAY;
-all_item_pockets=ARRAY;
-all_weapon_style=ARRAY;
-all_weapon_types=ARRAY;
+weapon_type=0;
 </string>
           </argument>
         </arguments>

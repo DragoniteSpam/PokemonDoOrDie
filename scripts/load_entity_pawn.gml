@@ -2,11 +2,6 @@
 
 var static=load_entity(argument0, argument1, argument2);
 
-// currently no data, but there will be later
-
-// no bools
-
-if (argument2>DataVersions.INITIAL){
-}
+argument1.map_direction=buffer_read(argument0, buffer_u8);
 
 return static;

@@ -7,7 +7,7 @@ var n_instances=ds_grid_width(blob);
 
 Database.all_equipment_slots=array_create(n_instances);
 for (var i=0; i<n_instances; i++){
-    var data=add_equipment_slot(blob[# i, 0],
+    var data=add_weapon_type(blob[# i, 0],
     );
     
     data.flags=blob[# i, 1];
