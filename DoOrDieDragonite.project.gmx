@@ -1512,6 +1512,9 @@
             <script>scripts\load_entity_mesh.gml</script>
             <script>scripts\load_entity_pawn.gml</script>
             <script>scripts\load_entity_tile.gml</script>
+            <scripts name="ext">
+              <script>scripts\load_move_route.gml</script>
+            </scripts>
           </scripts>
         </scripts>
       </scripts>
@@ -1887,6 +1890,7 @@
         <object>objects\DataInstantiatedEvent</object>
         <object>objects\DataEventNodeCustom</object>
         <object>objects\DataData</object>
+        <object>objects\DataMoveRoute</object>
       </objects>
       <object>objects\DataEvent</object>
       <object>objects\DataEventNode</object>

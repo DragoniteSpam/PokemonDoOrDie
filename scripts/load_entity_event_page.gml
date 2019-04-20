@@ -25,14 +25,20 @@ page.condition_variable_global_value=buffer_read(argument0, buffer_f32);
 page.condition_variable_self_comparison=buffer_read(argument0, buffer_u8);
 page.condition_variable_self_value=buffer_read(argument0, buffer_f32);
 
-page.autonomous_movement=buffer_read(argument0, buffer_u8);
+if (argument2<DataVersions.OPTIONS_ON_ENTITIES){
+    buffer_read(argument0, buffer_u8);
+    buffer_read(argument0, buffer_u8);
+    buffer_read(argument0, buffer_u8);
+}
+
+/*page.autonomous_movement=buffer_read(argument0, buffer_u8);
 page.autonomous_movement_speed=buffer_read(argument0, buffer_u8);
-page.autonomous_movement_frequency=buffer_read(argument0, buffer_u8);
+page.autonomous_movement_frequency=buffer_read(argument0, buffer_u8);*/
 
 var bools=buffer_read(argument0, buffer_u16);
-page.option_animate_movement=unpack(bools, 0);
+/*page.option_animate_movement=unpack(bools, 0);
 page.option_animate_idle=unpack(bools, 1);
-page.option_direction_fix=unpack(bools, 2);
+page.option_direction_fix=unpack(bools, 2);*/
 
 page.trigger=buffer_read(argument0, buffer_u8);
 
