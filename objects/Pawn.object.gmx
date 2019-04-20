@@ -80,7 +80,7 @@ sentient=false;
 // get_class_battle_sprite(get_trainer_class(get_trainer(trainer_id).class).battle_sprite),
 // etc
 battle_sprite=spr_ethan_back;
-overworld_sprite=b_chr_ethan;
+overworld_sprite=b_chr_silver;
 
 audio_battle=bgm_silence;
 audio_victory=bgm_silence;

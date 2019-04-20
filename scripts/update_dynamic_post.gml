@@ -4,6 +4,7 @@
 
 var thing=argument0;
 var map=get_active_map();
+var update_autonomous_movement=false;
 
 var hdir=round(point_direction(thing.xx, thing.yy, thing.target_xx, thing.target_yy));
 var hdist=point_distance(thing.xx, thing.yy, thing.target_xx, thing.target_yy);
@@ -44,6 +45,7 @@ if (!thing.moving&&(thing.target_xx!=thing.xx||thing.target_yy!=thing.yy||thing.
     } else {
         thing.movement_free=false;
         thing.moving=true;
+        update_autonomous_movement=true;
         if (thing.am_solid){
             map_remove_contents(map, thing, thing.xx, thing.yy, thing.zz);
             map_add_contents(map, thing, thing.target_xx, thing.target_yy, thing.target_zz);
@@ -60,6 +62,7 @@ if (thing.moving){
         thing.yy=thing.target_yy;
         thing.zz=thing.target_zz;
         thing.moving=false;
+        update_autonomous_movement=true;
         script_execute(thing.update_new_cell, thing);
     } else {
         thing.xx=thing.xx+fstep*sign(thing.target_xx-thing.xx);
@@ -78,5 +81,15 @@ if (!thing.moving){
     if (!has_moved){
         thing.frame=0;
         script_execute(thing.update_still, thing);
+    }
+}
+
+if (update_autonomous_movement){
+    var autonomous=guid_get(thing.autonomous_movement_route);
+    if (autonomous!=noone){
+        var n=array_length_1d(autonomous.steps);
+        if (n>0){
+            thing.autonomous_step=(++thing.autonomous_step)%n;
+        }
     }
 }

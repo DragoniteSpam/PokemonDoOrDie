@@ -32,6 +32,7 @@ name='Player Pawn';
 battle_input_script=battle_input_player;
 sentient=true;
 
+overworld_sprite=b_chr_ethan;
 battle_sprite=ClassBattleSprites.PLAYERPAWN;
 
 money=500;

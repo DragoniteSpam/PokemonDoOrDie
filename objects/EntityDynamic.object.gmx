@@ -33,6 +33,8 @@ event_inherited();
 
 movement_free=true;     // false when in the process of moving between cells
 moving=false;           // you would think this is just !movement_free but it's not
+
+update=update_dynamic_non_player;
 update_post=update_dynamic_post;
 update_new_cell=update_dynamic_new_cell;
 

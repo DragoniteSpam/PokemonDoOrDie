@@ -1694,6 +1694,7 @@
         <scripts name="new cell">
           <script>scripts\update_dynamic_new_cell.gml</script>
         </scripts>
+        <script>scripts\update_dynamic_non_player.gml</script>
       </scripts>
       <scripts name="pawn stuff">
         <script>scripts\add_trainer_pokemon.gml</script>

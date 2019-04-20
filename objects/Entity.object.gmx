@@ -97,7 +97,8 @@ animate_idle=false;
 animate_movement=false;
 direction_fix=true;
 
-// autonomous movement - only useful for things not marked as "static"
+// autonomous movement - this only actually does anything in EntityDynamic,
+// but later on i'll probably find a way to make it work anyway
 
 autonomous_movement=AutonomousMovementTypes.FIXED;
 autonomous_movement_speed=3;                            // 0: 0.125, 1: 0.25, 2: 0.5, 3: 1, 4: 2, 5: 4
@@ -105,6 +106,8 @@ autonomous_movement_frequency=2;                        // 0 through 4
 autonomous_movement_route=0;                            // GUID
 
 movement_routes=ARRAY;             // DataMovementRoutes
+
+autonomous_step=0;
 
 // don't want to use the built-in "solid" variable since that might cause
 // things to break unexpectedly
