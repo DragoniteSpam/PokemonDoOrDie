@@ -106,8 +106,16 @@ autonomous_movement_frequency=2;                        // 0 through 4
 autonomous_movement_route=0;                            // GUID
 
 movement_routes=ARRAY;             // DataMovementRoutes
+movement_route_mode=MoveRouteModes.AUTO;
+movement_step=0;
+movement_route_update=true;
+movement_route_timer=0;
 
-autonomous_step=0;
+enum MoveRouteModes {
+    OFF,
+    AUTO,
+    EVENT,
+}
 
 // don't want to use the built-in "solid" variable since that might cause
 // things to break unexpectedly

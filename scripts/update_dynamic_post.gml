@@ -19,20 +19,10 @@ if (hdist>0){
         thing.map_direction=Directions.DOWN;
     }
 }
-// this works if you're only allowed to move in four directions but doesn't pretty much
-// anywhere else
-/*if (thing.xx<thing.target_xx){
-    thing.map_direction=Directions.RIGHT;
-} else if (thing.xx>thing.target_xx){
-    thing.map_direction=Directions.LEFT;
-} else if (thing.yy<thing.target_yy){
-    thing.map_direction=Directions.DOWN;
-} else if (thing.yy>thing.target_yy){
-    thing.map_direction=Directions.UP;
-}*/
 
 var was_moving=thing.moving;
 
+// If you need to start moving
 if (!thing.moving&&(thing.target_xx!=thing.xx||thing.target_yy!=thing.yy||thing.target_zz!=thing.zz)){
     // i'm not entirely sure why round() works here and floor() doesn't, since you'd think you'd want
     // to check the solid-ness of the cell that you're actually in (5.8, 6.7 -> 5, 6) and not the
@@ -55,6 +45,7 @@ if (!thing.moving&&(thing.target_xx!=thing.xx||thing.target_yy!=thing.yy||thing.
 
 var has_moved=thing.moving;
 
+// Update position
 if (thing.moving){
     var fstep=thing.mspd*dt;
     if (max(abs(thing.target_xx-thing.xx), abs(thing.target_yy-thing.yy), abs(thing.target_zz-thing.zz))<=fstep){
@@ -84,12 +75,20 @@ if (!thing.moving){
     }
 }
 
+if (thing.movement_route_timer>0){
+    thing.movement_route_timer=max(thing.movement_route_timer-World.dt, 0);
+    if (thing.movement_route_timer==0){
+        update_autonomous_movement=true;
+    }
+}
+
 if (update_autonomous_movement){
     var autonomous=guid_get(thing.autonomous_movement_route);
     if (autonomous!=noone){
         var n=array_length_1d(autonomous.steps);
         if (n>0){
-            thing.autonomous_step=(++thing.autonomous_step)%n;
+            thing.movement_step=(++thing.movement_step)%n;
+            thing.movement_route_update=true;
         }
     }
 }
