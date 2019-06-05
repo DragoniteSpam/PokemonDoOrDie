@@ -1,6 +1,8 @@
 # PokemonDoOrDie
 I need to make better life choices. I need to make better life choices. I need to make better life choices.
 
+**Update: as of 9 May 2019, this project is now being worked on in Game Maker Studio 2. You can find the new repository [here](https://github.com/DragoniteSpam/DDDGameGMS2). I've also decided to start reducing the emphasis on Pokémon, for several different reasons, and I'm currently doing something else in a private repository but it should be functional if you want it.**
+
 I can't grab embedded gifs from Twitter and I don't feel like copying them to imgur, but here are some screenshots.
 
 [Battle opening](https://twitter.com/DragoniteSpam/status/1049182378122510341)
